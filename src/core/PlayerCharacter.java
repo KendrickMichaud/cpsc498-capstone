@@ -1,5 +1,7 @@
 package core;
 
+import constants.KEY;
+
 import java.util.List;
 
 public class PlayerCharacter {
@@ -12,5 +14,13 @@ public class PlayerCharacter {
     Biography biographicalData;
     Background backgroundData;
     Integer[] attributes;
+    public PlayerCharacter(){
+        biographicalData = new Biography();
+    }
 
+    public void updateValue(String key, String value) {
+        if(key.contains(KEY.bio)){
+            biographicalData.update(key, value);
+        }
+    }
 }

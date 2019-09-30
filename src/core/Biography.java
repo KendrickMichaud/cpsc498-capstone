@@ -1,5 +1,6 @@
 package core;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -7,6 +8,8 @@ import java.util.List;
  * Background is something like Acolyte which has additional features that can affect the game.
  */
 public class Biography {
+
+    private HashMap<String, String> data;
     String characterName;
     String deity;
     String alignment;
@@ -15,5 +18,20 @@ public class Biography {
     String height;
     String weight;
 
+    public Biography(){
+        data = new HashMap<>();
+        initData();
+    }
 
+    private void initData() {
+    }
+
+    public String get(String key){
+        return data.get(key);
+    }
+
+    public void update(String key, String value) {
+        data.remove(key);
+        data.put(key, value);
+    }
 }

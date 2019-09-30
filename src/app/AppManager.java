@@ -2,6 +2,7 @@ package app;
 
 
 import container.FramePanel;
+import core.PlayerCharacter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,12 +11,19 @@ import java.util.ArrayList;
 
 public class AppManager {
 
-    private AppFrame frame;
+    private static AppFrame frame;
+    private static PlayerCharacter character;
 
     public AppManager(AppFrame frame){
         if(frame == null)
             throw new NullPointerException();
-        this.frame = frame;
+        AppManager.frame = frame;
+        character = new PlayerCharacter();
+    }
+
+    public static void changeData(String key, String value) {
+        System.out.println(key + " " + value);
+        character.updateValue(key, value);
     }
 
     public void launch() {
@@ -23,4 +31,10 @@ public class AppManager {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     }
+
+
+
+
+
+
 }
