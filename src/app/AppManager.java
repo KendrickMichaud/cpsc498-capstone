@@ -1,13 +1,10 @@
 package app;
 
 
-import container.FramePanel;
+import constants.KEY;
 import core.PlayerCharacter;
 
 import javax.swing.*;
-import java.awt.*;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 public class AppManager {
 
@@ -24,6 +21,11 @@ public class AppManager {
     public static void changeData(String key, String value) {
         System.out.println(key + " " + value);
         character.updateValue(key, value);
+    }
+
+    public static void printData() {
+        String value = character.get(KEY.characterName);
+        System.out.println("My name is: " + value);
     }
 
     public void launch() {

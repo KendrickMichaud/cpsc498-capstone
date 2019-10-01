@@ -7,6 +7,8 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -33,6 +35,7 @@ public class CharacterInfoPanel {
     public JLabel lbl_height;
     public JLabel lbl_weight;
     public JLabel lbl;
+    public JButton button;
 
 
     {
@@ -296,6 +299,12 @@ public class CharacterInfoPanel {
         gbc.gridy = 0;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         panel.add(spacer11, gbc);
+        button.setText("My Name");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 5;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        panel.add(button, gbc);
     }
 
     /**
@@ -306,7 +315,6 @@ public class CharacterInfoPanel {
     }
 
     private void createUIComponents() {
-
         ArrayList<JTextField> fields = new ArrayList<>();
         txt_race = new JTextField();
         txt_race.setName(KEY.race);
@@ -321,6 +329,8 @@ public class CharacterInfoPanel {
         fields.add(txt_deity);
         fields.add(txt_class);
         addTextChangeListener(fields);
+        button = new JButton("What is my name?");
+        button.addActionListener(e -> AppManager.printData());
     }
 
     private void addTextChangeListener(ArrayList<JTextField> texts) {

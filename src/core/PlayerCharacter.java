@@ -23,4 +23,8 @@ public class PlayerCharacter {
             biographicalData.update(key, value);
         }
     }
+
+    public String get(String characterName) {
+        return biographicalData.get(characterName);
+    }
 }
