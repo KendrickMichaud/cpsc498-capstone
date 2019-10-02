@@ -1,6 +1,7 @@
 package app;
 
 import container.CharacterInfoPanel;
+import container.ParentPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,11 +24,9 @@ public class AppFrame extends JFrame {
     }
 
     private void initParentPanel() {
-        parent = new JPanel();
+        parent = new ParentPanel();
         JScrollPane scrollPane = new JScrollPane(parent);
-        parent.setLayout(new GridBagLayout());
         parent.setBackground(Color.GRAY);
-        parent.setSize(400, getHeight());
         getContentPane().add(scrollPane);
     }
 
@@ -35,19 +34,46 @@ public class AppFrame extends JFrame {
         createApplicationMenuBar();
         initParentPanel();
         initCharacterInfoPanel();
+        initUtilityAndCombatPanel();
+        initSkillsAndActionsPanel();
+        initFeatsFeaturesProficienciesPanel();
         initInventoryPanel();
+        initSpellbookPanel();
     }
 
-    private void initInventoryPanel() {
-        GridBagConstraints constraints = new GridBagConstraints();
-        constraints.anchor = GridBagConstraints.PAGE_START;
-        constraints.gridx = 0;
-        constraints.gridy = 1;
-        constraints.weighty = 1;
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
+    /**
+     * Initializes the panel responsible for holding spell information
+     */
+    private void initSpellbookPanel() {
+    }
 
-        parent.add(panel,constraints);
+    /**
+     * Initializes the panel that will hold feats, features, and proficiencies
+     */
+    private void initFeatsFeaturesProficienciesPanel() {
+    }
+
+    /**
+     * Initializes the panel that will hold the skills and actions available
+     * !!! Might require extra work will see.
+     */
+    private void initSkillsAndActionsPanel() {
+    }
+
+    /**
+     * Initializes the utility and combat panel. Utility involves things such as
+     * speed, initiative, and perception, while combat involves Armor Class, Spell Resistance,
+     * and Damage Reduction
+     */
+    private void initUtilityAndCombatPanel() {
+
+    }
+
+    /**
+     * Complex panel responsible for holding items in the form of a list
+     */
+    private void initInventoryPanel() {
+
     }
 
     /**
@@ -56,12 +82,13 @@ public class AppFrame extends JFrame {
      * also deal with PlayerRace, and Player Class until we add feature functionality'
      */
     private void initCharacterInfoPanel() {
-        GridBagConstraints constraints = new GridBagConstraints();
-        constraints.anchor = GridBagConstraints.PAGE_START;
-        constraints.gridx = 0;
-        constraints.gridy = 0;
-        parent.add(new CharacterInfoPanel(), constraints);
+        JPanel characterInfoPanel = new CharacterInfoPanel();
+        parent.add(characterInfoPanel);
     }
+
+
+    /////////////////////////////////////////////////////////////////////////
+    //AppFrame
 
     private void initFrameSize(int size) {
         double divider = 1.0;

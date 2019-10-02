@@ -11,6 +11,11 @@ public class GUI {
     public static final String LABEL_SIZE = "Size";
     public static final String LABEL_HEIGHT = "Height";
     public static final String LABEL_WEIGHT = "Weight";
+    public static final String LABEL_BACKGROUND = "Background";
+    public static final String PERSONALITY_TRAIT = "Personality Trait";
+    public static final String IDEAL = "Ideal";
+    public static final String BOND = "Bond";
+    public static final String FLAW = "Flaw";
 
     public class CHARACTER{
 
