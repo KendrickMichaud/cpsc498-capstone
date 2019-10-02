@@ -1,7 +1,6 @@
 package app;
 
 import container.CharacterInfoPanel;
-import container.FramePanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,24 +23,44 @@ public class AppFrame extends JFrame {
     }
 
     private void initParentPanel() {
-        parent = new FramePanel().panel;
+        parent = new JPanel();
+        JScrollPane scrollPane = new JScrollPane(parent);
+        parent.setLayout(new GridBagLayout());
         parent.setBackground(Color.GRAY);
-        JScrollPane scrollPane = new JScrollPane(parent, ScrollPaneLayout.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        add(scrollPane);
+        parent.setSize(400, getHeight());
+        getContentPane().add(scrollPane);
     }
 
     private void initProperties() {
         createApplicationMenuBar();
         initParentPanel();
         initCharacterInfoPanel();
+        initInventoryPanel();
     }
 
+    private void initInventoryPanel() {
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.anchor = GridBagConstraints.PAGE_START;
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        constraints.weighty = 1;
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
+
+        parent.add(panel,constraints);
+    }
+
+    /**
+     * Initializes the Character Information Panel. This panel should interact with the
+     * Background and Biography of the Character in particular. For now it should
+     * also deal with PlayerRace, and Player Class until we add feature functionality'
+     */
     private void initCharacterInfoPanel() {
-        JPanel charInfo = new CharacterInfoPanel().panel;
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.anchor = GridBagConstraints.NORTH;
-        gbc.weighty = 1;
-        parent.add(charInfo, gbc);
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.anchor = GridBagConstraints.PAGE_START;
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        parent.add(new CharacterInfoPanel(), constraints);
     }
 
     private void initFrameSize(int size) {
