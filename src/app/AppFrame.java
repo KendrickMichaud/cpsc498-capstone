@@ -39,6 +39,11 @@ public class AppFrame extends JFrame {
         initFeatsFeaturesProficienciesPanel();
         initInventoryPanel();
         initSpellbookPanel();
+        initBackgroundPanel();
+    }
+
+    private void initBackgroundPanel() {
+
     }
 
     /**
