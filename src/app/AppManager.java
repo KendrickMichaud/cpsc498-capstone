@@ -24,7 +24,7 @@ public class AppManager {
     }
 
     public static void printData() {
-        String value = character.get(KEY.characterName);
+        String value = character.getValue(KEY.CHARACTER_NAME);
         System.out.println("My name is: " + value);
     }
 

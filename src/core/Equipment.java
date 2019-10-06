@@ -1,6 +1,8 @@
 package core;
 
-public class Equipment {
+import util.KeyValueReader;
+
+public class Equipment implements KeyValueReader<String, String> {
     private String title;
     private String description;
 
@@ -50,4 +52,23 @@ public class Equipment {
         }
     }
 
+    @Override
+    public String getValue(String key) {
+        return key;
+    }
+
+    @Override
+    public void updateValue(String key, String value) {
+
+    }
+
+    @Override
+    public void clearContents() {
+
+    }
+
+    @Override
+    public boolean hasContents() {
+        return false;
+    }
 }

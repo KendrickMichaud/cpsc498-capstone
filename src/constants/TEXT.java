@@ -5,4 +5,5 @@ public class TEXT {
     public static final int MEDIUM = 12;
     public static final int SHORT = 8;
     public static final int VERY_LONG = 32;
+    public static final String NONE = "N/A";
 }
