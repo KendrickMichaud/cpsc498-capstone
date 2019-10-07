@@ -6,7 +6,11 @@ public class KeyReader {
     public static String getHighKey(String key){
         if(key == null)
             return KEY.NULL;
-        return "";
+
+        int index = key.indexOf("*");
+        if(index == -1)
+            return KEY.NULL;
+        return key.substring(0, index+1);
     }
 
     public static String getOptionalKey(String key) {
@@ -18,6 +22,19 @@ public class KeyReader {
     }
 
     public static String getLowKey(String key) {
-        return "";
+        if(key == null)
+            return KEY.NULL;
+
+        int index = key.indexOf("*");
+        if(index == -1)
+            return KEY.NULL;
+        String low_key = key.substring(0, index);
+        index = low_key.indexOf("8");
+        if(index == -1){
+            return low_key;
+        }
+        else{
+            return low_key.substring(0, index);
+        }
     }
 }

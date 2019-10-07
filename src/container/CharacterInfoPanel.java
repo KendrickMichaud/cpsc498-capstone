@@ -32,14 +32,14 @@ public class CharacterInfoPanel extends JPanel {
     }
 
     private void initFields() {
-        initializeEntry(GUI.LABEL_NAME, KEY.characterName, panBasicInfo);
-        initializeEntry(GUI.LABEL_CLASS, KEY.playerClass, panBasicInfo);
-        initializeEntry(GUI.LABEL_RACE, KEY.race, panBasicInfo);
-        initializeEntry(GUI.LABEL_DEITY, KEY.deity, panBasicInfo);
-        initializeEntry(GUI.LABEL_ALIGNMENT, KEY.alignment, panBasicInfo);
-        initializeEntry(GUI.LABEL_SIZE, KEY.size, panBasicInfo);
-        initializeEntry(GUI.LABEL_HEIGHT, KEY.height, panBasicInfo);
-        initializeEntry(GUI.LABEL_WEIGHT, KEY.weight, panBasicInfo);
+        initializeEntry(GUI.LABEL_NAME, KEY.CHARACTER_NAME, panBasicInfo);
+        initializeEntry(GUI.LABEL_CLASS, KEY.PLAYER_CLASS, panBasicInfo);
+        initializeEntry(GUI.LABEL_RACE, KEY.RACE_NAME, panBasicInfo);
+        initializeEntry(GUI.LABEL_DEITY, KEY.DEITY, panBasicInfo);
+        initializeEntry(GUI.LABEL_ALIGNMENT, KEY.ALIGNMENT, panBasicInfo);
+        initializeEntry(GUI.LABEL_SIZE, KEY.SIZE, panBasicInfo);
+        initializeEntry(GUI.LABEL_HEIGHT, KEY.HEIGHT, panBasicInfo);
+        initializeEntry(GUI.LABEL_WEIGHT, KEY.WEIGHT, panBasicInfo);
     }
 
     private void initializeEntry(String labelName, String textKey, JPanel panBasicInfo){

@@ -25,9 +25,9 @@ public class KEY {
     //Background low_keys
     public static final String BACKGROUND_TITLE = BACKGROUND + "title";
     public static final String PERSONALITY_TRAIT = BACKGROUND + "trait";
-    public static final String IDEAL = BACKGROUND + "ideal";
-    public static final String BOND = BACKGROUND + "bond";
-    public static final String FLAW = BACKGROUND + "flaw";
+    public static final String PERSONALITY_IDEAL = BACKGROUND + "ideal";
+    public static final String PERSONALITY_BOND = BACKGROUND + "bond";
+    public static final String PERSONALITY_FLAW = BACKGROUND + "flaw";
     public static final String NULL = "IsNull";
 
     //PlayerRace low_keys
@@ -79,6 +79,10 @@ public class KEY {
         invRow++;
         return INVENTORY+"rowIndex("+0+")";
     }
+
+
+    public static final String EQUIPPED_WEAPON_NAME = EQUIPPED_WEAPON + "name";
+    public static final String EQUIPPED_WEAPON_DESC = EQUIPPED_WEAPON + "desc";
 
 
 
