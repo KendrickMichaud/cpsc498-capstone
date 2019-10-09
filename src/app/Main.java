@@ -1,11 +1,13 @@
 package app;
 
-import container.DupFrame;
-import container.NetBeansFrame;
+import container.CharacterFrame;
 
 public class Main {
     public static void main(String args[]){
-        DupFrame frame = new DupFrame();
+        //NOTE to David, to run this you might have to create a separate class
+        // CTRL+C the code from CharacterFrame.java to a new class and then 
+        //make the class.
+        CharacterFrame frame = new CharacterFrame();
         frame.setVisible(true);
     }
 }
