@@ -179,6 +179,25 @@ public class CharacterFrame extends javax.swing.JFrame {
         panBackground = new javax.swing.JPanel();
         lbl_panBackground = new javax.swing.JLabel();
         bdy_background = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jTextArea5 = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -727,6 +746,7 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         lbl_currSkilsProfsName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_currSkilsProfsName.setText("Current Panel: Skills");
+        lbl_currSkilsProfsName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(lbl_currSkilsProfsName, java.awt.BorderLayout.CENTER);
 
         btn_skills_right.setText(">");
@@ -757,7 +777,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         panFeatures.setLayout(new java.awt.BorderLayout());
 
         lbl_panFeatures.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_panFeatures.setText("Feats, Class Features, and Racial Features");
+        lbl_panFeatures.setText("Feats, Features, and Languages");
         lbl_panFeatures.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         panFeatures.add(lbl_panFeatures, java.awt.BorderLayout.PAGE_START);
 
@@ -806,16 +826,82 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_panBackground.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         panBackground.add(lbl_panBackground, java.awt.BorderLayout.PAGE_START);
 
-        javax.swing.GroupLayout bdy_backgroundLayout = new javax.swing.GroupLayout(bdy_background);
-        bdy_background.setLayout(bdy_backgroundLayout);
-        bdy_backgroundLayout.setHorizontalGroup(
-            bdy_backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 208, Short.MAX_VALUE)
-        );
-        bdy_backgroundLayout.setVerticalGroup(
-            bdy_backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        bdy_background.setLayout(new javax.swing.BoxLayout(bdy_background, javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.LINE_AXIS));
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Name");
+        jPanel5.add(jLabel1);
+
+        jTextField4.setColumns(16);
+        jPanel5.add(jTextField4);
+
+        bdy_background.add(jPanel5);
+
+        jPanel9.setLayout(new java.awt.BorderLayout());
+
+        jLabel7.setText("Personality Trait");
+        jPanel9.add(jLabel7, java.awt.BorderLayout.PAGE_START);
+
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setRows(2);
+        jScrollPane2.setViewportView(jTextArea1);
+
+        jPanel9.add(jScrollPane2, java.awt.BorderLayout.CENTER);
+
+        bdy_background.add(jPanel9);
+
+        jPanel10.setLayout(new java.awt.BorderLayout());
+
+        jLabel9.setText("Ideal");
+        jPanel10.add(jLabel9, java.awt.BorderLayout.PAGE_START);
+
+        jScrollPane8.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setLineWrap(true);
+        jTextArea2.setRows(2);
+        jScrollPane8.setViewportView(jTextArea2);
+
+        jPanel10.add(jScrollPane8, java.awt.BorderLayout.CENTER);
+
+        bdy_background.add(jPanel10);
+
+        jPanel12.setLayout(new java.awt.BorderLayout());
+
+        jLabel10.setText("Bond");
+        jPanel12.add(jLabel10, java.awt.BorderLayout.PAGE_START);
+
+        jScrollPane9.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jTextArea4.setColumns(20);
+        jTextArea4.setLineWrap(true);
+        jTextArea4.setRows(2);
+        jScrollPane9.setViewportView(jTextArea4);
+
+        jPanel12.add(jScrollPane9, java.awt.BorderLayout.CENTER);
+
+        bdy_background.add(jPanel12);
+
+        jPanel14.setLayout(new java.awt.BorderLayout());
+
+        jLabel11.setText("Flaw");
+        jPanel14.add(jLabel11, java.awt.BorderLayout.PAGE_START);
+
+        jScrollPane10.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jTextArea5.setColumns(20);
+        jTextArea5.setLineWrap(true);
+        jTextArea5.setRows(2);
+        jScrollPane10.setViewportView(jTextArea5);
+
+        jPanel14.add(jScrollPane10, java.awt.BorderLayout.CENTER);
+
+        bdy_background.add(jPanel14);
 
         panBackground.add(bdy_background, java.awt.BorderLayout.CENTER);
 
@@ -928,6 +1014,9 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JButton defense_switch_left;
     private javax.swing.JButton defense_switch_right;
     private javax.swing.JPanel defense_title;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -956,7 +1045,9 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -966,27 +1057,41 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JTextArea jTextArea5;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;

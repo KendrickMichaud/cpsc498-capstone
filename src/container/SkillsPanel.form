@@ -65,6 +65,11 @@
           <Font name="Tahoma" size="10" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Athletics (STR)"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="prof_athletics">
@@ -99,6 +104,11 @@
           <Font name="Tahoma" size="10" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Acrobatics (DEX)"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="prof_acrobatics">
@@ -133,6 +143,11 @@
           <Font name="Tahoma" size="10" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Sleight of Hand (DEX)"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="prof_sleight">
@@ -167,6 +182,11 @@
           <Font name="Tahoma" size="10" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Stealth (DEX)"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="prof_stealth">
@@ -201,6 +221,11 @@
           <Font name="Tahoma" size="10" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Arcana (INT)"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="prof_arcana">
@@ -235,6 +260,11 @@
           <Font name="Tahoma" size="10" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="History (INT)"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="prof_history">
@@ -269,6 +299,11 @@
           <Font name="Tahoma" size="10" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Investigation (INT)"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="prof_investigation">
@@ -303,6 +338,11 @@
           <Font name="Tahoma" size="10" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Nature (INT)"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="prof_nature">
@@ -337,6 +377,11 @@
           <Font name="Tahoma" size="10" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Religion (INT)"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="prof_religion">
@@ -371,6 +416,11 @@
           <Font name="Tahoma" size="10" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Animal Handling (WIS)"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="prof_animalHandling">
@@ -405,6 +455,11 @@
           <Font name="Tahoma" size="10" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Insight (WIS)"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="prof_insight">
@@ -439,6 +494,11 @@
           <Font name="Tahoma" size="10" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Medicine (WIS)"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="prof_medicine">
@@ -473,6 +533,11 @@
           <Font name="Tahoma" size="10" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Perception (WIS)"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="prof_perception">
@@ -507,6 +572,11 @@
           <Font name="Tahoma" size="10" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Survival (WIS)"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="prof_survival">
@@ -541,6 +611,11 @@
           <Font name="Tahoma" size="10" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Deception (CHA)"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="prof_deception">
@@ -575,6 +650,11 @@
           <Font name="Tahoma" size="10" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Intimidation (CHA)"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="prof_intimidation">
@@ -609,6 +689,11 @@
           <Font name="Tahoma" size="10" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Performance (CHA)"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="prof_performance">
@@ -643,6 +728,11 @@
           <Font name="Tahoma" size="10" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Persuasion (CHA)"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="prof_persuasion">

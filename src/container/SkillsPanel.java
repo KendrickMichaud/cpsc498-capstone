@@ -124,6 +124,7 @@ public class SkillsPanel extends javax.swing.JPanel {
 
         lbl_athleticsName.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lbl_athleticsName.setText("Athletics (STR)");
+        lbl_athleticsName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(lbl_athleticsName);
 
         prof_athletics.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
@@ -139,6 +140,7 @@ public class SkillsPanel extends javax.swing.JPanel {
 
         lbl_acrobaticsName.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lbl_acrobaticsName.setText("Acrobatics (DEX)");
+        lbl_acrobaticsName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(lbl_acrobaticsName);
 
         prof_acrobatics.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
@@ -154,6 +156,7 @@ public class SkillsPanel extends javax.swing.JPanel {
 
         lbl_sleightName.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lbl_sleightName.setText("Sleight of Hand (DEX)");
+        lbl_sleightName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(lbl_sleightName);
 
         prof_sleight.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
@@ -169,6 +172,7 @@ public class SkillsPanel extends javax.swing.JPanel {
 
         lbl_stealthName.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lbl_stealthName.setText("Stealth (DEX)");
+        lbl_stealthName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(lbl_stealthName);
 
         prof_stealth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
@@ -184,6 +188,7 @@ public class SkillsPanel extends javax.swing.JPanel {
 
         lbl_arcanaName.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lbl_arcanaName.setText("Arcana (INT)");
+        lbl_arcanaName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(lbl_arcanaName);
 
         prof_arcana.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
@@ -199,6 +204,7 @@ public class SkillsPanel extends javax.swing.JPanel {
 
         lbl_historyName.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lbl_historyName.setText("History (INT)");
+        lbl_historyName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(lbl_historyName);
 
         prof_history.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
@@ -214,6 +220,7 @@ public class SkillsPanel extends javax.swing.JPanel {
 
         lbl_investigationName.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lbl_investigationName.setText("Investigation (INT)");
+        lbl_investigationName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(lbl_investigationName);
 
         prof_investigation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
@@ -229,6 +236,7 @@ public class SkillsPanel extends javax.swing.JPanel {
 
         lbl_natureName.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lbl_natureName.setText("Nature (INT)");
+        lbl_natureName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(lbl_natureName);
 
         prof_nature.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
@@ -244,6 +252,7 @@ public class SkillsPanel extends javax.swing.JPanel {
 
         lbl_religionName.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lbl_religionName.setText("Religion (INT)");
+        lbl_religionName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(lbl_religionName);
 
         prof_religion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
@@ -259,6 +268,7 @@ public class SkillsPanel extends javax.swing.JPanel {
 
         lbl_animalHandlingName.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lbl_animalHandlingName.setText("Animal Handling (WIS)");
+        lbl_animalHandlingName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(lbl_animalHandlingName);
 
         prof_animalHandling.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
@@ -274,6 +284,7 @@ public class SkillsPanel extends javax.swing.JPanel {
 
         lbl_insightName.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lbl_insightName.setText("Insight (WIS)");
+        lbl_insightName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(lbl_insightName);
 
         prof_insight.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
@@ -289,6 +300,7 @@ public class SkillsPanel extends javax.swing.JPanel {
 
         lbl_medicineName.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lbl_medicineName.setText("Medicine (WIS)");
+        lbl_medicineName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(lbl_medicineName);
 
         prof_medicine.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
@@ -304,6 +316,7 @@ public class SkillsPanel extends javax.swing.JPanel {
 
         lbl_perceptionName.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lbl_perceptionName.setText("Perception (WIS)");
+        lbl_perceptionName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(lbl_perceptionName);
 
         prof_perception.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
@@ -319,6 +332,7 @@ public class SkillsPanel extends javax.swing.JPanel {
 
         lbl_survivalName.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lbl_survivalName.setText("Survival (WIS)");
+        lbl_survivalName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(lbl_survivalName);
 
         prof_survival.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
@@ -334,6 +348,7 @@ public class SkillsPanel extends javax.swing.JPanel {
 
         lbl_deceptionName.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lbl_deceptionName.setText("Deception (CHA)");
+        lbl_deceptionName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(lbl_deceptionName);
 
         prof_deception.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
@@ -349,6 +364,7 @@ public class SkillsPanel extends javax.swing.JPanel {
 
         lbl_intimidationName.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lbl_intimidationName.setText("Intimidation (CHA)");
+        lbl_intimidationName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(lbl_intimidationName);
 
         prof_intimidation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
@@ -364,6 +380,7 @@ public class SkillsPanel extends javax.swing.JPanel {
 
         lbl_performanceName.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lbl_performanceName.setText("Performance (CHA)");
+        lbl_performanceName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(lbl_performanceName);
 
         prof_performance.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
@@ -379,6 +396,7 @@ public class SkillsPanel extends javax.swing.JPanel {
 
         lbl_persuasionName.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lbl_persuasionName.setText("Persuasion (CHA)");
+        lbl_persuasionName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(lbl_persuasionName);
 
         prof_persuasion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));

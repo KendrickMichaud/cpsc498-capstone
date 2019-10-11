@@ -67,19 +67,21 @@ public class Card {
             if(--num < 0){
                 num = 1;
             }
+            determineName();
         }
         
         @Override
         public void increment(){
             if(++num > 1)
                 num = 0;
+            determineName();
         }
 
         @Override
         public void determineName() {
             switch(num){
-                case 0:name=PROFICIENCIES;break;
-                case 1:name=SKILLS;break;
+                case 0:name=SKILLS;break;
+                case 1:name=PROFICIENCIES;break;
             }
         }
         
@@ -89,7 +91,7 @@ public class Card {
     public static final String ARMOR = "Armor";
     public static final String RESISTANCE = "Resistances";
     public static final String SKILLS = "Skills";
-    public static final String PROFICIENCIES = "Proficiencies";
+    public static final String PROFICIENCIES = "Equipment Proficiencies";
     
     
     private static DefenseCard currentDefenseCard;
