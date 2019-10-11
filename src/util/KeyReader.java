@@ -37,4 +37,8 @@ public class KeyReader {
             return low_key.substring(0, index);
         }
     }
+    
+    public static boolean validKey(String key){
+        return false;//TODO: Write algorithm to check key validity
+    }
 }

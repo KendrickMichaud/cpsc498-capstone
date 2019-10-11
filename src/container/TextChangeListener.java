@@ -35,7 +35,7 @@ public class TextChangeListener implements DocumentListener {
         Document document = e.getDocument();
         int length = document.getLength();
         try {
-            AppManager.changeData(key, document.getText(0,length));
+            AppManager.updateData(key, document.getText(0,length));
         } catch (BadLocationException ex) {
             ex.printStackTrace();
         }

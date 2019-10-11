@@ -5,7 +5,9 @@
  */
 package container;
 
+import app.AppManager;
 import constants.Card;
+import constants.GUI;
 import java.awt.CardLayout;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -21,10 +23,16 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class CharacterFrame extends javax.swing.JFrame {
 
+    private AppManager manager;
+
     /**
      * Creates new form CharacterFrame
      */
-    public CharacterFrame() {
+    public CharacterFrame(AppManager manager) {
+        if(manager == null){
+            throw new NullPointerException("AppManager must not be null");
+        }
+        this.manager = manager;
         initComponents();
         initCardsForDefense();
         initCardsForSkillsProfs();
@@ -40,13 +48,13 @@ public class CharacterFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         scrollPane = new javax.swing.JScrollPane();
-        panForScrollPane = new javax.swing.JPanel();
-        panCharInfo = new javax.swing.JPanel();
+        pan_main = new javax.swing.JPanel();
+        pan_charInfo = new javax.swing.JPanel();
         lbl_charInfo = new javax.swing.JLabel();
         bdy_charInfo = new javax.swing.JPanel();
         pan_photo = new javax.swing.JPanel();
         lbl_characterImage = new javax.swing.JLabel();
-        pan_info = new javax.swing.JPanel();
+        pan_biography = new javax.swing.JPanel();
         lbl_charName = new javax.swing.JLabel();
         txt_charName = new javax.swing.JTextField();
         lbl_className = new javax.swing.JLabel();
@@ -63,7 +71,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         txt_deity = new javax.swing.JTextField();
         lbl_alignment = new javax.swing.JLabel();
         txt_alignment = new javax.swing.JTextField();
-        panAttributes = new javax.swing.JPanel();
+        pan_attributes = new javax.swing.JPanel();
         lbl_panAttributes = new javax.swing.JLabel();
         bdy_attributes = new javax.swing.JPanel();
         pan_strength = new javax.swing.JPanel();
@@ -102,7 +110,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        panCombat = new javax.swing.JPanel();
+        pan_combat = new javax.swing.JPanel();
         lbl_panCombat = new javax.swing.JLabel();
         pan_combatBody = new javax.swing.JPanel();
         pan_offense = new javax.swing.JPanel();
@@ -161,22 +169,22 @@ public class CharacterFrame extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        panSkills = new javax.swing.JPanel();
+        pan_skills = new javax.swing.JPanel();
         lbl_panSkillsProfs = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        bdy_skills_swap = new javax.swing.JPanel();
         lbl_currSkilsProfsName = new javax.swing.JLabel();
         btn_skills_right = new javax.swing.JButton();
         btn_skills_left = new javax.swing.JButton();
         deck_skillsProfs = new javax.swing.JPanel();
-        panFeatures = new javax.swing.JPanel();
+        pan_features = new javax.swing.JPanel();
         lbl_panFeatures = new javax.swing.JLabel();
         bdy_features = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
-        panSpellsAndEquipment = new javax.swing.JPanel();
+        pan_spellsInventory = new javax.swing.JPanel();
         lbl_panSpellsAndEquipment = new javax.swing.JLabel();
         bdy_spellsAndEquipment = new javax.swing.JPanel();
-        panBackground = new javax.swing.JPanel();
+        pan_background = new javax.swing.JPanel();
         lbl_panBackground = new javax.swing.JLabel();
         bdy_background = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -198,14 +206,17 @@ public class CharacterFrame extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
         jTextArea5 = new javax.swing.JTextArea();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
+        menu_bar = new javax.swing.JMenuBar();
+        menu_file = new javax.swing.JMenu();
+        item_new = new javax.swing.JMenuItem();
+        item_open = new javax.swing.JMenuItem();
+        item_save = new javax.swing.JMenuItem();
+        menu_edit = new javax.swing.JMenu();
+        menu_tools = new javax.swing.JMenu();
+        item_options = new javax.swing.JMenuItem();
+        menu_help = new javax.swing.JMenu();
+        item_about = new javax.swing.JMenuItem();
+        item_guide = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DND Character Sheet Editor");
@@ -216,22 +227,22 @@ public class CharacterFrame extends javax.swing.JFrame {
         scrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        panForScrollPane.setBackground(new java.awt.Color(204, 204, 204));
-        panForScrollPane.setMaximumSize(new java.awt.Dimension(800, 1200));
-        panForScrollPane.setMinimumSize(new java.awt.Dimension(800, 1190));
-        panForScrollPane.setPreferredSize(new java.awt.Dimension(800, 1200));
-        panForScrollPane.setRequestFocusEnabled(false);
-        panForScrollPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pan_main.setBackground(new java.awt.Color(204, 204, 204));
+        pan_main.setMaximumSize(new java.awt.Dimension(800, 1200));
+        pan_main.setMinimumSize(new java.awt.Dimension(800, 1190));
+        pan_main.setPreferredSize(new java.awt.Dimension(800, 1200));
+        pan_main.setRequestFocusEnabled(false);
+        pan_main.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panCharInfo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panCharInfo.setMaximumSize(new java.awt.Dimension(200, 420));
-        panCharInfo.setLayout(new java.awt.BorderLayout());
+        pan_charInfo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pan_charInfo.setMaximumSize(new java.awt.Dimension(200, 420));
+        pan_charInfo.setLayout(new java.awt.BorderLayout());
 
         lbl_charInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_charInfo.setText("Character Information");
         lbl_charInfo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lbl_charInfo.setPreferredSize(new java.awt.Dimension(120, 18));
-        panCharInfo.add(lbl_charInfo, java.awt.BorderLayout.PAGE_START);
+        pan_charInfo.add(lbl_charInfo, java.awt.BorderLayout.PAGE_START);
 
         bdy_charInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -248,87 +259,87 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         bdy_charInfo.add(pan_photo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 150));
 
-        pan_info.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pan_info.setLayout(new java.awt.GridLayout(8, 2, -72, 0));
+        pan_biography.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pan_biography.setLayout(new java.awt.GridLayout(8, 2, -72, 0));
 
         lbl_charName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_charName.setText(" Name");
         lbl_charName.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        pan_info.add(lbl_charName);
+        pan_biography.add(lbl_charName);
 
         txt_charName.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        pan_info.add(txt_charName);
+        pan_biography.add(txt_charName);
 
         lbl_className.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_className.setText(" Class");
         lbl_className.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        pan_info.add(lbl_className);
+        pan_biography.add(lbl_className);
 
         txt_className.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        pan_info.add(txt_className);
+        pan_biography.add(txt_className);
 
         lbl_raceName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_raceName.setText(" Race");
         lbl_raceName.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        pan_info.add(lbl_raceName);
+        pan_biography.add(lbl_raceName);
 
         txt_raceName.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        pan_info.add(txt_raceName);
+        pan_biography.add(txt_raceName);
 
         lbl_charSize.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_charSize.setText(" Size");
         lbl_charSize.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        pan_info.add(lbl_charSize);
+        pan_biography.add(lbl_charSize);
 
         txt_sizeName.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        pan_info.add(txt_sizeName);
+        pan_biography.add(txt_sizeName);
 
         lbl_charWeight.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_charWeight.setText(" Weight");
         lbl_charWeight.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        pan_info.add(lbl_charWeight);
+        pan_biography.add(lbl_charWeight);
 
         txt_charWeight.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        pan_info.add(txt_charWeight);
+        pan_biography.add(txt_charWeight);
 
         lbl_charHeight.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_charHeight.setText(" Height");
         lbl_charHeight.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        pan_info.add(lbl_charHeight);
+        pan_biography.add(lbl_charHeight);
 
         txt_charHeight.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        pan_info.add(txt_charHeight);
+        pan_biography.add(txt_charHeight);
 
         lbl_deity.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_deity.setText(" Deity");
         lbl_deity.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        pan_info.add(lbl_deity);
+        pan_biography.add(lbl_deity);
 
         txt_deity.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        pan_info.add(txt_deity);
+        pan_biography.add(txt_deity);
 
         lbl_alignment.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_alignment.setText(" Alignment");
         lbl_alignment.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        pan_info.add(lbl_alignment);
+        pan_biography.add(lbl_alignment);
 
         txt_alignment.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        pan_info.add(txt_alignment);
+        pan_biography.add(txt_alignment);
 
-        bdy_charInfo.add(pan_info, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 198, 250));
+        bdy_charInfo.add(pan_biography, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 198, 250));
 
-        panCharInfo.add(bdy_charInfo, java.awt.BorderLayout.CENTER);
+        pan_charInfo.add(bdy_charInfo, java.awt.BorderLayout.CENTER);
 
-        panForScrollPane.add(panCharInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 200, 420));
+        pan_main.add(pan_charInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 200, 420));
 
-        panAttributes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panAttributes.setMaximumSize(new java.awt.Dimension(550, 150));
-        panAttributes.setLayout(new java.awt.BorderLayout());
+        pan_attributes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pan_attributes.setMaximumSize(new java.awt.Dimension(550, 150));
+        pan_attributes.setLayout(new java.awt.BorderLayout());
 
         lbl_panAttributes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_panAttributes.setText("Attributes");
         lbl_panAttributes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        panAttributes.add(lbl_panAttributes, java.awt.BorderLayout.PAGE_START);
+        pan_attributes.add(lbl_panAttributes, java.awt.BorderLayout.PAGE_START);
 
         bdy_attributes.setLayout(new java.awt.GridLayout(1, 6));
 
@@ -482,18 +493,18 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         bdy_attributes.add(pan_charisma);
 
-        panAttributes.add(bdy_attributes, java.awt.BorderLayout.CENTER);
+        pan_attributes.add(bdy_attributes, java.awt.BorderLayout.CENTER);
 
-        panForScrollPane.add(panAttributes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 550, 150));
+        pan_main.add(pan_attributes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 550, 150));
 
-        panCombat.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panCombat.setMaximumSize(new java.awt.Dimension(550, 260));
-        panCombat.setLayout(new java.awt.BorderLayout());
+        pan_combat.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pan_combat.setMaximumSize(new java.awt.Dimension(550, 260));
+        pan_combat.setLayout(new java.awt.BorderLayout());
 
         lbl_panCombat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_panCombat.setText("Combat & Utility");
         lbl_panCombat.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        panCombat.add(lbl_panCombat, java.awt.BorderLayout.PAGE_START);
+        pan_combat.add(lbl_panCombat, java.awt.BorderLayout.PAGE_START);
 
         pan_combatBody.setLayout(new java.awt.GridLayout(1, 3));
 
@@ -729,25 +740,25 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         pan_combatBody.add(pan_utility);
 
-        panCombat.add(pan_combatBody, java.awt.BorderLayout.CENTER);
+        pan_combat.add(pan_combatBody, java.awt.BorderLayout.CENTER);
 
-        panForScrollPane.add(panCombat, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 550, 260));
+        pan_main.add(pan_combat, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 550, 260));
 
-        panSkills.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panSkills.setMaximumSize(new java.awt.Dimension(200, 420));
-        panSkills.setLayout(new java.awt.BorderLayout());
+        pan_skills.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pan_skills.setMaximumSize(new java.awt.Dimension(200, 420));
+        pan_skills.setLayout(new java.awt.BorderLayout());
 
         lbl_panSkillsProfs.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_panSkillsProfs.setText("Skills & Proficiencies");
         lbl_panSkillsProfs.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        panSkills.add(lbl_panSkillsProfs, java.awt.BorderLayout.PAGE_START);
+        pan_skills.add(lbl_panSkillsProfs, java.awt.BorderLayout.PAGE_START);
 
-        jPanel1.setLayout(new java.awt.BorderLayout());
+        bdy_skills_swap.setLayout(new java.awt.BorderLayout());
 
         lbl_currSkilsProfsName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_currSkilsProfsName.setText("Current Panel: Skills");
         lbl_currSkilsProfsName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(lbl_currSkilsProfsName, java.awt.BorderLayout.CENTER);
+        bdy_skills_swap.add(lbl_currSkilsProfsName, java.awt.BorderLayout.CENTER);
 
         btn_skills_right.setText(">");
         btn_skills_right.addActionListener(new java.awt.event.ActionListener() {
@@ -755,7 +766,7 @@ public class CharacterFrame extends javax.swing.JFrame {
                 btn_skills_rightActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_skills_right, java.awt.BorderLayout.LINE_END);
+        bdy_skills_swap.add(btn_skills_right, java.awt.BorderLayout.LINE_END);
 
         btn_skills_left.setText("<");
         btn_skills_left.addActionListener(new java.awt.event.ActionListener() {
@@ -763,23 +774,23 @@ public class CharacterFrame extends javax.swing.JFrame {
                 btn_skills_leftActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_skills_left, java.awt.BorderLayout.LINE_START);
+        bdy_skills_swap.add(btn_skills_left, java.awt.BorderLayout.LINE_START);
 
-        panSkills.add(jPanel1, java.awt.BorderLayout.PAGE_END);
+        pan_skills.add(bdy_skills_swap, java.awt.BorderLayout.PAGE_END);
 
         deck_skillsProfs.setLayout(new java.awt.CardLayout());
-        panSkills.add(deck_skillsProfs, java.awt.BorderLayout.CENTER);
+        pan_skills.add(deck_skillsProfs, java.awt.BorderLayout.CENTER);
 
-        panForScrollPane.add(panSkills, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 440, 420));
+        pan_main.add(pan_skills, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 440, 420));
 
-        panFeatures.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panFeatures.setMaximumSize(new java.awt.Dimension(550, 420));
-        panFeatures.setLayout(new java.awt.BorderLayout());
+        pan_features.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pan_features.setMaximumSize(new java.awt.Dimension(550, 420));
+        pan_features.setLayout(new java.awt.BorderLayout());
 
         lbl_panFeatures.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_panFeatures.setText("Feats, Features, and Languages");
         lbl_panFeatures.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        panFeatures.add(lbl_panFeatures, java.awt.BorderLayout.PAGE_START);
+        pan_features.add(lbl_panFeatures, java.awt.BorderLayout.PAGE_START);
 
         bdy_features.setLayout(new java.awt.BorderLayout());
 
@@ -790,18 +801,18 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         bdy_features.add(jScrollPane3, java.awt.BorderLayout.CENTER);
 
-        panFeatures.add(bdy_features, java.awt.BorderLayout.CENTER);
+        pan_features.add(bdy_features, java.awt.BorderLayout.CENTER);
 
-        panForScrollPane.add(panFeatures, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 440, 310, 420));
+        pan_main.add(pan_features, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 440, 310, 420));
 
-        panSpellsAndEquipment.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panSpellsAndEquipment.setMaximumSize(new java.awt.Dimension(540, 320));
-        panSpellsAndEquipment.setLayout(new java.awt.BorderLayout());
+        pan_spellsInventory.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pan_spellsInventory.setMaximumSize(new java.awt.Dimension(540, 320));
+        pan_spellsInventory.setLayout(new java.awt.BorderLayout());
 
         lbl_panSpellsAndEquipment.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_panSpellsAndEquipment.setText("Spellbook and Inventory");
         lbl_panSpellsAndEquipment.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        panSpellsAndEquipment.add(lbl_panSpellsAndEquipment, java.awt.BorderLayout.PAGE_START);
+        pan_spellsInventory.add(lbl_panSpellsAndEquipment, java.awt.BorderLayout.PAGE_START);
 
         javax.swing.GroupLayout bdy_spellsAndEquipmentLayout = new javax.swing.GroupLayout(bdy_spellsAndEquipment);
         bdy_spellsAndEquipment.setLayout(bdy_spellsAndEquipmentLayout);
@@ -814,17 +825,17 @@ public class CharacterFrame extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        panSpellsAndEquipment.add(bdy_spellsAndEquipment, java.awt.BorderLayout.CENTER);
+        pan_spellsInventory.add(bdy_spellsAndEquipment, java.awt.BorderLayout.CENTER);
 
-        panForScrollPane.add(panSpellsAndEquipment, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 870, 540, 320));
+        pan_main.add(pan_spellsInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 870, 540, 320));
 
-        panBackground.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panBackground.setLayout(new java.awt.BorderLayout());
+        pan_background.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pan_background.setLayout(new java.awt.BorderLayout());
 
         lbl_panBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_panBackground.setText("Background");
         lbl_panBackground.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        panBackground.add(lbl_panBackground, java.awt.BorderLayout.PAGE_START);
+        pan_background.add(lbl_panBackground, java.awt.BorderLayout.PAGE_START);
 
         bdy_background.setLayout(new javax.swing.BoxLayout(bdy_background, javax.swing.BoxLayout.Y_AXIS));
 
@@ -903,37 +914,73 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         bdy_background.add(jPanel14);
 
-        panBackground.add(bdy_background, java.awt.BorderLayout.CENTER);
+        pan_background.add(bdy_background, java.awt.BorderLayout.CENTER);
 
-        panForScrollPane.add(panBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 870, 210, 320));
+        pan_main.add(pan_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 870, 210, 320));
 
-        scrollPane.setViewportView(panForScrollPane);
+        scrollPane.setViewportView(pan_main);
 
         getContentPane().add(scrollPane, java.awt.BorderLayout.CENTER);
 
-        jMenu1.setText("File");
+        menu_file.setText("File");
 
-        jMenuItem1.setText("New...");
-        jMenu1.add(jMenuItem1);
+        item_new.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        item_new.setText("New...");
+        item_new.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                item_newActionPerformed(evt);
+            }
+        });
+        menu_file.add(item_new);
 
-        jMenuItem2.setText("Open...");
-        jMenu1.add(jMenuItem2);
+        item_open.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
+        item_open.setText("Open...");
+        item_open.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                item_openActionPerformed(evt);
+            }
+        });
+        menu_file.add(item_open);
 
-        jMenuItem3.setText("Save...");
-        jMenu1.add(jMenuItem3);
+        item_save.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        item_save.setText("Save...");
+        menu_file.add(item_save);
 
-        jMenuBar1.add(jMenu1);
+        menu_bar.add(menu_file);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        menu_edit.setText("Edit");
+        menu_bar.add(menu_edit);
 
-        jMenu3.setText("Tools");
-        jMenuBar1.add(jMenu3);
+        menu_tools.setText("Tools");
 
-        jMenu4.setText("Help");
-        jMenuBar1.add(jMenu4);
+        item_options.setText("Options");
+        item_options.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                item_optionsActionPerformed(evt);
+            }
+        });
+        menu_tools.add(item_options);
 
-        setJMenuBar(jMenuBar1);
+        menu_bar.add(menu_tools);
+
+        menu_help.setText("Help");
+
+        item_about.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
+        item_about.setText("About...");
+        menu_help.add(item_about);
+
+        item_guide.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
+        item_guide.setText("Guide...");
+        item_guide.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                item_guideActionPerformed(evt);
+            }
+        });
+        menu_help.add(item_guide);
+
+        menu_bar.add(menu_help);
+
+        setJMenuBar(menu_bar);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -989,23 +1036,33 @@ public class CharacterFrame extends javax.swing.JFrame {
         layout.show(deck_skillsProfs, Card.getCurrentSkillsCard());
     }//GEN-LAST:event_btn_skills_leftActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CharacterFrame().setVisible(true);
-            }
-        });
-    }
+    private void item_optionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item_optionsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_item_optionsActionPerformed
+
+    private void item_guideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item_guideActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_item_guideActionPerformed
+
+    private void item_newActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item_newActionPerformed
+        if(manager.authorizedToExit()){
+            manager.reinitializeEnvironment();
+        }
+    }//GEN-LAST:event_item_newActionPerformed
+
+    private void item_openActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item_openActionPerformed
+        if(manager.authorizedToExit()){
+            manager.reinitializeEnvironment(manager.getFileToOpen());
+        }
+    }//GEN-LAST:event_item_openActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bdy_attributes;
     private javax.swing.JPanel bdy_background;
     private javax.swing.JPanel bdy_charInfo;
     private javax.swing.JPanel bdy_features;
+    private javax.swing.JPanel bdy_skills_swap;
     private javax.swing.JPanel bdy_spellsAndEquipment;
     private javax.swing.JButton btn_skills_left;
     private javax.swing.JButton btn_skills_right;
@@ -1014,6 +1071,12 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JButton defense_switch_left;
     private javax.swing.JButton defense_switch_right;
     private javax.swing.JPanel defense_title;
+    private javax.swing.JMenuItem item_about;
+    private javax.swing.JMenuItem item_guide;
+    private javax.swing.JMenuItem item_new;
+    private javax.swing.JMenuItem item_open;
+    private javax.swing.JMenuItem item_options;
+    private javax.swing.JMenuItem item_save;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1048,15 +1111,6 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
@@ -1128,26 +1182,31 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_strengthModifierTitle;
     private javax.swing.JLabel lbl_strengthTitle;
     private javax.swing.JLabel lbl_weapon_name;
-    private javax.swing.JPanel panAttributes;
-    private javax.swing.JPanel panBackground;
-    private javax.swing.JPanel panCharInfo;
-    private javax.swing.JPanel panCombat;
-    private javax.swing.JPanel panFeatures;
-    private javax.swing.JPanel panForScrollPane;
-    private javax.swing.JPanel panSkills;
-    private javax.swing.JPanel panSpellsAndEquipment;
+    private javax.swing.JMenuBar menu_bar;
+    private javax.swing.JMenu menu_edit;
+    private javax.swing.JMenu menu_file;
+    private javax.swing.JMenu menu_help;
+    private javax.swing.JMenu menu_tools;
+    private javax.swing.JPanel pan_attributes;
+    private javax.swing.JPanel pan_background;
+    private javax.swing.JPanel pan_biography;
+    private javax.swing.JPanel pan_charInfo;
     private javax.swing.JPanel pan_charisma;
+    private javax.swing.JPanel pan_combat;
     private javax.swing.JPanel pan_combatBody;
     private javax.swing.JPanel pan_conBody;
     private javax.swing.JPanel pan_constituion;
     private javax.swing.JPanel pan_defense;
     private javax.swing.JPanel pan_dexBody;
     private javax.swing.JPanel pan_dexterity;
-    private javax.swing.JPanel pan_info;
+    private javax.swing.JPanel pan_features;
     private javax.swing.JPanel pan_intelligence;
+    private javax.swing.JPanel pan_main;
     private javax.swing.JPanel pan_offense;
     private javax.swing.JPanel pan_offenseBody;
     private javax.swing.JPanel pan_photo;
+    private javax.swing.JPanel pan_skills;
+    private javax.swing.JPanel pan_spellsInventory;
     private javax.swing.JPanel pan_strBody;
     private javax.swing.JPanel pan_strength;
     private javax.swing.JPanel pan_utility;

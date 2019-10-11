@@ -7,7 +7,8 @@ public class Main {
         //NOTE to David, to run this you might have to create a separate class
         // CTRL+C the code from CharacterFrame.java to a new class and then 
         //make the class.
-        CharacterFrame frame = new CharacterFrame();
-        frame.setVisible(true);
+        AppManager manager = AppManager.getInstance();
+        manager.initFrame();
+        manager.launchApplication();
     }
 }

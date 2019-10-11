@@ -16,8 +16,4 @@ public class GUI {
     public static final String IDEAL = "Ideal";
     public static final String BOND = "Bond";
     public static final String FLAW = "Flaw";
-
-    public class CHARACTER{
-
-    }
 }
