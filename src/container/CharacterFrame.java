@@ -5,6 +5,8 @@
  */
 package container;
 
+import constants.Card;
+import java.awt.CardLayout;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -24,6 +26,8 @@ public class CharacterFrame extends javax.swing.JFrame {
      */
     public CharacterFrame() {
         initComponents();
+        initCardsForDefense();
+        initCardsForSkillsProfs();
     }
 
     /**
@@ -100,50 +104,32 @@ public class CharacterFrame extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         panCombat = new javax.swing.JPanel();
         lbl_panCombat = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        pan_combatBody = new javax.swing.JPanel();
         pan_offense = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lbl_offenseTitle = new javax.swing.JLabel();
+        pan_offenseBody = new javax.swing.JPanel();
+        lbl_weapon_name = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txt_weapon_name = new javax.swing.JTextArea();
+        lbl_attk_bonus = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        txt_attack_bonus = new javax.swing.JTextArea();
+        lbl_damage_roll = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        txt_damage_roll = new javax.swing.JTextArea();
+        lbl_damage_bonus = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        txt_damage_bonus = new javax.swing.JTextArea();
+        lbl_damage_type = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        txt_damage_type = new javax.swing.JTextArea();
         pan_defense = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jPanel9 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        defense_title = new javax.swing.JPanel();
+        defense_switch_right = new javax.swing.JButton();
+        defense_switch_left = new javax.swing.JButton();
+        lbl_deck_defense_name = new javax.swing.JLabel();
+        deck_defense = new javax.swing.JPanel();
         pan_utility = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -156,6 +142,9 @@ public class CharacterFrame extends javax.swing.JFrame {
         jLabel49 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
@@ -166,88 +155,19 @@ public class CharacterFrame extends javax.swing.JFrame {
         jLabel52 = new javax.swing.JLabel();
         jTextField11 = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
-        jLabel53 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        panSkillsProfs = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        panSkills = new javax.swing.JPanel();
         lbl_panSkillsProfs = new javax.swing.JLabel();
-        bdy_skillsProfs = new javax.swing.JPanel();
-        jLabel54 = new javax.swing.JLabel();
-        jLabel55 = new javax.swing.JLabel();
-        jLabel56 = new javax.swing.JLabel();
-        jLabel57 = new javax.swing.JLabel();
-        jLabel59 = new javax.swing.JLabel();
-        jComboBox19 = new javax.swing.JComboBox<>();
-        jTextField12 = new javax.swing.JTextField();
-        jLabel63 = new javax.swing.JLabel();
-        jLabel64 = new javax.swing.JLabel();
-        jComboBox20 = new javax.swing.JComboBox<>();
-        jTextField13 = new javax.swing.JTextField();
-        jLabel60 = new javax.swing.JLabel();
-        jLabel65 = new javax.swing.JLabel();
-        jComboBox21 = new javax.swing.JComboBox<>();
-        jTextField14 = new javax.swing.JTextField();
-        jLabel61 = new javax.swing.JLabel();
-        jLabel66 = new javax.swing.JLabel();
-        jComboBox22 = new javax.swing.JComboBox<>();
-        jTextField15 = new javax.swing.JTextField();
-        jLabel62 = new javax.swing.JLabel();
-        jLabel67 = new javax.swing.JLabel();
-        jComboBox23 = new javax.swing.JComboBox<>();
-        jTextField16 = new javax.swing.JTextField();
-        jLabel68 = new javax.swing.JLabel();
-        jLabel69 = new javax.swing.JLabel();
-        jComboBox24 = new javax.swing.JComboBox<>();
-        jTextField17 = new javax.swing.JTextField();
-        jLabel70 = new javax.swing.JLabel();
-        jLabel71 = new javax.swing.JLabel();
-        jComboBox25 = new javax.swing.JComboBox<>();
-        jTextField18 = new javax.swing.JTextField();
-        jLabel72 = new javax.swing.JLabel();
-        jLabel73 = new javax.swing.JLabel();
-        jComboBox26 = new javax.swing.JComboBox<>();
-        jTextField19 = new javax.swing.JTextField();
-        jLabel74 = new javax.swing.JLabel();
-        jLabel75 = new javax.swing.JLabel();
-        jComboBox27 = new javax.swing.JComboBox<>();
-        jTextField20 = new javax.swing.JTextField();
-        jLabel76 = new javax.swing.JLabel();
-        jLabel77 = new javax.swing.JLabel();
-        jComboBox28 = new javax.swing.JComboBox<>();
-        jTextField21 = new javax.swing.JTextField();
-        jLabel78 = new javax.swing.JLabel();
-        jLabel79 = new javax.swing.JLabel();
-        jComboBox29 = new javax.swing.JComboBox<>();
-        jTextField22 = new javax.swing.JTextField();
-        jLabel80 = new javax.swing.JLabel();
-        jLabel81 = new javax.swing.JLabel();
-        jComboBox30 = new javax.swing.JComboBox<>();
-        jTextField23 = new javax.swing.JTextField();
-        jLabel82 = new javax.swing.JLabel();
-        jLabel83 = new javax.swing.JLabel();
-        jComboBox31 = new javax.swing.JComboBox<>();
-        jTextField24 = new javax.swing.JTextField();
-        jLabel84 = new javax.swing.JLabel();
-        jLabel85 = new javax.swing.JLabel();
-        jComboBox32 = new javax.swing.JComboBox<>();
-        jTextField25 = new javax.swing.JTextField();
-        jLabel86 = new javax.swing.JLabel();
-        jLabel87 = new javax.swing.JLabel();
-        jComboBox33 = new javax.swing.JComboBox<>();
-        jTextField26 = new javax.swing.JTextField();
-        jLabel88 = new javax.swing.JLabel();
-        jLabel89 = new javax.swing.JLabel();
-        jComboBox34 = new javax.swing.JComboBox<>();
-        jTextField27 = new javax.swing.JTextField();
-        jLabel90 = new javax.swing.JLabel();
-        jLabel91 = new javax.swing.JLabel();
-        jComboBox35 = new javax.swing.JComboBox<>();
-        jTextField28 = new javax.swing.JTextField();
-        jLabel92 = new javax.swing.JLabel();
-        jLabel93 = new javax.swing.JLabel();
-        jComboBox36 = new javax.swing.JComboBox<>();
-        jTextField29 = new javax.swing.JTextField();
-        jLabel94 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lbl_currSkilsProfsName = new javax.swing.JLabel();
+        btn_skills_right = new javax.swing.JButton();
+        btn_skills_left = new javax.swing.JButton();
+        deck_skillsProfs = new javax.swing.JPanel();
         panFeatures = new javax.swing.JPanel();
         lbl_panFeatures = new javax.swing.JLabel();
         bdy_features = new javax.swing.JPanel();
@@ -556,178 +476,123 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_panCombat.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         panCombat.add(lbl_panCombat, java.awt.BorderLayout.PAGE_START);
 
-        jPanel1.setLayout(new java.awt.GridLayout(1, 3));
+        pan_combatBody.setLayout(new java.awt.GridLayout(1, 3));
 
         pan_offense.setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Offensive");
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pan_offense.add(jLabel1, java.awt.BorderLayout.PAGE_START);
+        lbl_offenseTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_offenseTitle.setText("Offensive");
+        lbl_offenseTitle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pan_offense.add(lbl_offenseTitle, java.awt.BorderLayout.PAGE_START);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pan_offenseBody.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pan_offenseBody.setLayout(new java.awt.GridLayout(5, 2));
 
-        jLabel4.setText("Weapon Name");
-
-        jTextField2.setColumns(6);
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel5.setText("Attack Bonus");
-
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Attack Type");
+        lbl_weapon_name.setText("Weapon Name");
+        pan_offenseBody.add(lbl_weapon_name);
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txt_weapon_name.setColumns(20);
+        txt_weapon_name.setLineWrap(true);
+        txt_weapon_name.setRows(5);
+        jScrollPane1.setViewportView(txt_weapon_name);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                        .addComponent(jLabel5))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
-        );
+        pan_offenseBody.add(jScrollPane1);
 
-        pan_offense.add(jPanel2, java.awt.BorderLayout.CENTER);
+        lbl_attk_bonus.setText("Attack Bonus");
+        pan_offenseBody.add(lbl_attk_bonus);
 
-        jPanel1.add(pan_offense);
+        jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        txt_attack_bonus.setColumns(20);
+        txt_attack_bonus.setLineWrap(true);
+        txt_attack_bonus.setRows(5);
+        jScrollPane4.setViewportView(txt_attack_bonus);
+
+        pan_offenseBody.add(jScrollPane4);
+
+        lbl_damage_roll.setText("Damage Roll");
+        pan_offenseBody.add(lbl_damage_roll);
+
+        jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane5.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        txt_damage_roll.setColumns(20);
+        txt_damage_roll.setLineWrap(true);
+        txt_damage_roll.setRows(5);
+        jScrollPane5.setViewportView(txt_damage_roll);
+
+        pan_offenseBody.add(jScrollPane5);
+
+        lbl_damage_bonus.setText("Damage Bonus");
+        pan_offenseBody.add(lbl_damage_bonus);
+
+        jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane6.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        txt_damage_bonus.setColumns(20);
+        txt_damage_bonus.setLineWrap(true);
+        txt_damage_bonus.setRows(5);
+        jScrollPane6.setViewportView(txt_damage_bonus);
+
+        pan_offenseBody.add(jScrollPane6);
+
+        lbl_damage_type.setText("Damage Type");
+        pan_offenseBody.add(lbl_damage_type);
+
+        jScrollPane7.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane7.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        txt_damage_type.setColumns(20);
+        txt_damage_type.setLineWrap(true);
+        txt_damage_type.setRows(5);
+        jScrollPane7.setViewportView(txt_damage_type);
+
+        pan_offenseBody.add(jScrollPane7);
+
+        pan_offense.add(pan_offenseBody, java.awt.BorderLayout.CENTER);
+
+        pan_combatBody.add(pan_offense);
 
         pan_defense.setLayout(new java.awt.BorderLayout());
-
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Defensive");
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pan_defense.add(jLabel2, java.awt.BorderLayout.PAGE_START);
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel3.setLayout(new java.awt.BorderLayout());
 
-        jPanel5.setLayout(new java.awt.GridLayout(2, 5));
+        defense_title.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        defense_title.setLayout(new java.awt.BorderLayout());
 
-        jLabel11.setText("AC");
-        jPanel5.add(jLabel11);
+        defense_switch_right.setText(">");
+        defense_switch_right.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                defense_switch_rightActionPerformed(evt);
+            }
+        });
+        defense_title.add(defense_switch_right, java.awt.BorderLayout.LINE_END);
 
-        jLabel25.setText("=");
-        jPanel5.add(jLabel25);
+        defense_switch_left.setText("<");
+        defense_switch_left.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                defense_switch_leftActionPerformed(evt);
+            }
+        });
+        defense_title.add(defense_switch_left, java.awt.BorderLayout.LINE_START);
 
-        jLabel26.setText("Armor");
-        jPanel5.add(jLabel26);
+        lbl_deck_defense_name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_deck_defense_name.setText("Defense");
+        defense_title.add(lbl_deck_defense_name, java.awt.BorderLayout.CENTER);
 
-        jLabel27.setText("Dex");
-        jPanel5.add(jLabel27);
+        jPanel3.add(defense_title, java.awt.BorderLayout.PAGE_START);
 
-        jLabel34.setText("Bonus");
-        jPanel5.add(jLabel34);
-
-        jLabel35.setText("0");
-        jPanel5.add(jLabel35);
-
-        jLabel36.setText("=");
-        jPanel5.add(jLabel36);
-
-        jLabel37.setText("0");
-        jPanel5.add(jLabel37);
-
-        jLabel38.setText("0");
-        jPanel5.add(jLabel38);
-        jPanel5.add(jTextField10);
-
-        jPanel3.add(jPanel5, java.awt.BorderLayout.PAGE_START);
-
-        jPanel8.setLayout(new java.awt.BorderLayout());
-
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Common Saves");
-        jLabel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel8.add(jLabel7, java.awt.BorderLayout.PAGE_START);
-
-        jPanel9.setLayout(new java.awt.GridLayout(4, 4));
-
-        jLabel8.setText("Type");
-        jPanel9.add(jLabel8);
-
-        jLabel9.setText("Total");
-        jPanel9.add(jLabel9);
-
-        jLabel10.setText("Modifier");
-        jPanel9.add(jLabel10);
-
-        jLabel12.setText("Bonus");
-        jPanel9.add(jLabel12);
-
-        jLabel23.setText("DEX");
-        jPanel9.add(jLabel23);
-
-        jLabel24.setText("0");
-        jPanel9.add(jLabel24);
-
-        jLabel28.setText("0");
-        jPanel9.add(jLabel28);
-        jPanel9.add(jTextField4);
-
-        jLabel29.setText("WIS");
-        jPanel9.add(jLabel29);
-
-        jLabel30.setText("0");
-        jPanel9.add(jLabel30);
-
-        jLabel31.setText("0");
-        jPanel9.add(jLabel31);
-        jPanel9.add(jTextField8);
-
-        jLabel32.setText("CHA");
-        jPanel9.add(jLabel32);
-
-        jLabel33.setText("0");
-        jPanel9.add(jLabel33);
-
-        jLabel22.setText("0");
-        jPanel9.add(jLabel22);
-        jPanel9.add(jTextField9);
-
-        jPanel8.add(jPanel9, java.awt.BorderLayout.CENTER);
-
-        jPanel3.add(jPanel8, java.awt.BorderLayout.CENTER);
+        deck_defense.setLayout(new java.awt.CardLayout());
+        jPanel3.add(deck_defense, java.awt.BorderLayout.CENTER);
 
         pan_defense.add(jPanel3, java.awt.BorderLayout.CENTER);
 
-        jPanel1.add(pan_defense);
+        pan_combatBody.add(pan_defense);
 
         pan_utility.setLayout(new java.awt.BorderLayout());
 
@@ -771,6 +636,17 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         jPanel4.add(jPanel6);
 
+        jPanel8.setLayout(new java.awt.BorderLayout());
+
+        jLabel4.setText("Passive Perception");
+        jPanel8.add(jLabel4, java.awt.BorderLayout.LINE_START);
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("10");
+        jPanel8.add(jLabel5, java.awt.BorderLayout.CENTER);
+
+        jPanel4.add(jPanel8);
+
         jPanel7.setLayout(new java.awt.GridLayout(2, 4));
 
         jLabel39.setText("Initiative");
@@ -805,327 +681,76 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         jPanel11.setLayout(new java.awt.BorderLayout());
 
-        jLabel53.setText("Damage Resistances");
-        jPanel11.add(jLabel53, java.awt.BorderLayout.PAGE_START);
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Health");
+        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel11.add(jLabel2, java.awt.BorderLayout.PAGE_START);
 
-        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jPanel2.setLayout(new java.awt.GridLayout(2, 2));
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        jLabel6.setText("Health Points");
+        jPanel2.add(jLabel6);
 
-        jPanel11.add(jScrollPane2, java.awt.BorderLayout.CENTER);
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jTextField1);
+
+        jLabel8.setText("Hit Die");
+        jPanel2.add(jLabel8);
+        jPanel2.add(jTextField2);
+
+        jPanel11.add(jPanel2, java.awt.BorderLayout.CENTER);
 
         jPanel4.add(jPanel11);
 
         pan_utility.add(jPanel4, java.awt.BorderLayout.CENTER);
 
-        jPanel1.add(pan_utility);
+        pan_combatBody.add(pan_utility);
 
-        panCombat.add(jPanel1, java.awt.BorderLayout.CENTER);
+        panCombat.add(pan_combatBody, java.awt.BorderLayout.CENTER);
 
         panForScrollPane.add(panCombat, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 550, 260));
 
-        panSkillsProfs.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panSkillsProfs.setMaximumSize(new java.awt.Dimension(200, 420));
-        panSkillsProfs.setLayout(new java.awt.BorderLayout());
+        panSkills.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panSkills.setMaximumSize(new java.awt.Dimension(200, 420));
+        panSkills.setLayout(new java.awt.BorderLayout());
 
         lbl_panSkillsProfs.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_panSkillsProfs.setText("Skills and Proficiencies ");
+        lbl_panSkillsProfs.setText("Skills & Proficiencies");
         lbl_panSkillsProfs.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        panSkillsProfs.add(lbl_panSkillsProfs, java.awt.BorderLayout.PAGE_START);
-
-        bdy_skillsProfs.setLayout(new java.awt.GridLayout(19, 4));
-
-        jLabel54.setText("Name");
-        jLabel54.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        bdy_skillsProfs.add(jLabel54);
-
-        jLabel55.setText("Proficient");
-        jLabel55.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        bdy_skillsProfs.add(jLabel55);
-
-        jLabel56.setText("Bonus");
-        jLabel56.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        bdy_skillsProfs.add(jLabel56);
-
-        jLabel57.setText("Total");
-        jLabel57.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        bdy_skillsProfs.add(jLabel57);
-
-        jLabel59.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel59.setText("Athletics (STR)");
-        bdy_skillsProfs.add(jLabel59);
-
-        jComboBox19.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
-        bdy_skillsProfs.add(jComboBox19);
-
-        jTextField12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField12.setText("0");
-        bdy_skillsProfs.add(jTextField12);
-
-        jLabel63.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel63.setText("0");
-        bdy_skillsProfs.add(jLabel63);
-
-        jLabel64.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel64.setText("Acrobatics (DEX)");
-        bdy_skillsProfs.add(jLabel64);
-
-        jComboBox20.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
-        bdy_skillsProfs.add(jComboBox20);
-
-        jTextField13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField13.setText("0");
-        bdy_skillsProfs.add(jTextField13);
-
-        jLabel60.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel60.setText("0");
-        bdy_skillsProfs.add(jLabel60);
-
-        jLabel65.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel65.setText("Sleight of Hand (DEX)");
-        bdy_skillsProfs.add(jLabel65);
-
-        jComboBox21.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
-        bdy_skillsProfs.add(jComboBox21);
-
-        jTextField14.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField14.setText("0");
-        bdy_skillsProfs.add(jTextField14);
-
-        jLabel61.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel61.setText("0");
-        bdy_skillsProfs.add(jLabel61);
-
-        jLabel66.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel66.setText("Stealth (DEX)");
-        bdy_skillsProfs.add(jLabel66);
-
-        jComboBox22.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
-        bdy_skillsProfs.add(jComboBox22);
-
-        jTextField15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField15.setText("0");
-        bdy_skillsProfs.add(jTextField15);
-
-        jLabel62.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel62.setText("0");
-        bdy_skillsProfs.add(jLabel62);
-
-        jLabel67.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel67.setText("Arcana (INT)");
-        bdy_skillsProfs.add(jLabel67);
-
-        jComboBox23.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
-        bdy_skillsProfs.add(jComboBox23);
-
-        jTextField16.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField16.setText("0");
-        bdy_skillsProfs.add(jTextField16);
-
-        jLabel68.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel68.setText("0");
-        bdy_skillsProfs.add(jLabel68);
-
-        jLabel69.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel69.setText("History (INT)");
-        bdy_skillsProfs.add(jLabel69);
-
-        jComboBox24.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
-        bdy_skillsProfs.add(jComboBox24);
-
-        jTextField17.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField17.setText("0");
-        bdy_skillsProfs.add(jTextField17);
-
-        jLabel70.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel70.setText("0");
-        bdy_skillsProfs.add(jLabel70);
-
-        jLabel71.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel71.setText("Investigation (INT)");
-        bdy_skillsProfs.add(jLabel71);
-
-        jComboBox25.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
-        bdy_skillsProfs.add(jComboBox25);
-
-        jTextField18.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField18.setText("0");
-        bdy_skillsProfs.add(jTextField18);
-
-        jLabel72.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel72.setText("0");
-        bdy_skillsProfs.add(jLabel72);
-
-        jLabel73.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel73.setText("Nature (INT)");
-        bdy_skillsProfs.add(jLabel73);
-
-        jComboBox26.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
-        bdy_skillsProfs.add(jComboBox26);
-
-        jTextField19.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField19.setText("0");
-        bdy_skillsProfs.add(jTextField19);
-
-        jLabel74.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel74.setText("0");
-        bdy_skillsProfs.add(jLabel74);
-
-        jLabel75.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel75.setText("Religion (INT)");
-        bdy_skillsProfs.add(jLabel75);
-
-        jComboBox27.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
-        bdy_skillsProfs.add(jComboBox27);
-
-        jTextField20.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField20.setText("0");
-        bdy_skillsProfs.add(jTextField20);
-
-        jLabel76.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel76.setText("0");
-        bdy_skillsProfs.add(jLabel76);
-
-        jLabel77.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel77.setText("Animal Handling (WIS)");
-        bdy_skillsProfs.add(jLabel77);
-
-        jComboBox28.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
-        bdy_skillsProfs.add(jComboBox28);
-
-        jTextField21.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField21.setText("0");
-        bdy_skillsProfs.add(jTextField21);
-
-        jLabel78.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel78.setText("0");
-        bdy_skillsProfs.add(jLabel78);
-
-        jLabel79.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel79.setText("Insight (WIS)");
-        bdy_skillsProfs.add(jLabel79);
-
-        jComboBox29.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
-        bdy_skillsProfs.add(jComboBox29);
-
-        jTextField22.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField22.setText("0");
-        bdy_skillsProfs.add(jTextField22);
-
-        jLabel80.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel80.setText("0");
-        bdy_skillsProfs.add(jLabel80);
-
-        jLabel81.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel81.setText("Medicine (WIS)");
-        bdy_skillsProfs.add(jLabel81);
-
-        jComboBox30.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
-        bdy_skillsProfs.add(jComboBox30);
-
-        jTextField23.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField23.setText("0");
-        bdy_skillsProfs.add(jTextField23);
-
-        jLabel82.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel82.setText("0");
-        bdy_skillsProfs.add(jLabel82);
-
-        jLabel83.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel83.setText("Perception (WIS)");
-        bdy_skillsProfs.add(jLabel83);
-
-        jComboBox31.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
-        bdy_skillsProfs.add(jComboBox31);
-
-        jTextField24.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField24.setText("0");
-        bdy_skillsProfs.add(jTextField24);
-
-        jLabel84.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel84.setText("0");
-        bdy_skillsProfs.add(jLabel84);
-
-        jLabel85.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel85.setText("Survival (WIS)");
-        bdy_skillsProfs.add(jLabel85);
-
-        jComboBox32.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
-        bdy_skillsProfs.add(jComboBox32);
-
-        jTextField25.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField25.setText("0");
-        bdy_skillsProfs.add(jTextField25);
-
-        jLabel86.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel86.setText("0");
-        bdy_skillsProfs.add(jLabel86);
-
-        jLabel87.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel87.setText("Deception (CHA)");
-        bdy_skillsProfs.add(jLabel87);
-
-        jComboBox33.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
-        bdy_skillsProfs.add(jComboBox33);
-
-        jTextField26.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField26.setText("0");
-        bdy_skillsProfs.add(jTextField26);
-
-        jLabel88.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel88.setText("0");
-        bdy_skillsProfs.add(jLabel88);
-
-        jLabel89.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel89.setText("Intimidation (CHA)");
-        bdy_skillsProfs.add(jLabel89);
-
-        jComboBox34.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
-        bdy_skillsProfs.add(jComboBox34);
-
-        jTextField27.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField27.setText("0");
-        bdy_skillsProfs.add(jTextField27);
-
-        jLabel90.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel90.setText("0");
-        bdy_skillsProfs.add(jLabel90);
-
-        jLabel91.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel91.setText("Performance (CHA)");
-        bdy_skillsProfs.add(jLabel91);
-
-        jComboBox35.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
-        bdy_skillsProfs.add(jComboBox35);
-
-        jTextField28.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField28.setText("0");
-        bdy_skillsProfs.add(jTextField28);
-
-        jLabel92.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel92.setText("0");
-        bdy_skillsProfs.add(jLabel92);
-
-        jLabel93.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel93.setText("Persuasion (CHA)");
-        bdy_skillsProfs.add(jLabel93);
-
-        jComboBox36.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X", "✓", "✓/2" }));
-        bdy_skillsProfs.add(jComboBox36);
-
-        jTextField29.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField29.setText("0");
-        bdy_skillsProfs.add(jTextField29);
-
-        jLabel94.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel94.setText("0");
-        bdy_skillsProfs.add(jLabel94);
-
-        panSkillsProfs.add(bdy_skillsProfs, java.awt.BorderLayout.CENTER);
-
-        panForScrollPane.add(panSkillsProfs, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 440, 420));
+        panSkills.add(lbl_panSkillsProfs, java.awt.BorderLayout.PAGE_START);
+
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
+        lbl_currSkilsProfsName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_currSkilsProfsName.setText("Current Panel: Skills");
+        jPanel1.add(lbl_currSkilsProfsName, java.awt.BorderLayout.CENTER);
+
+        btn_skills_right.setText(">");
+        btn_skills_right.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_skills_rightActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_skills_right, java.awt.BorderLayout.LINE_END);
+
+        btn_skills_left.setText("<");
+        btn_skills_left.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_skills_leftActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_skills_left, java.awt.BorderLayout.LINE_START);
+
+        panSkills.add(jPanel1, java.awt.BorderLayout.PAGE_END);
+
+        deck_skillsProfs.setLayout(new java.awt.CardLayout());
+        panSkills.add(deck_skillsProfs, java.awt.BorderLayout.CENTER);
+
+        panForScrollPane.add(panSkills, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 440, 420));
 
         panFeatures.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         panFeatures.setMaximumSize(new java.awt.Dimension(550, 420));
@@ -1139,6 +764,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         bdy_features.setLayout(new java.awt.BorderLayout());
 
         jTextArea3.setColumns(20);
+        jTextArea3.setLineWrap(true);
         jTextArea3.setRows(5);
         jScrollPane3.setViewportView(jTextArea3);
 
@@ -1237,10 +863,6 @@ public class CharacterFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lbl_characterImageMouseClicked
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
@@ -1248,6 +870,38 @@ public class CharacterFrame extends javax.swing.JFrame {
     private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField11ActionPerformed
+
+    private void defense_switch_rightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defense_switch_rightActionPerformed
+        Card.changeDefenseCard(Card.INCREMENT);
+        CardLayout layout = (CardLayout) deck_defense.getLayout();
+        layout.show(deck_defense, Card.getCurrentDefenseCard());
+        lbl_deck_defense_name.setText(Card.getCurrentDefenseCard());
+    }//GEN-LAST:event_defense_switch_rightActionPerformed
+
+    private void defense_switch_leftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defense_switch_leftActionPerformed
+        Card.changeDefenseCard(Card.DECREMENT);
+        CardLayout layout = (CardLayout) deck_defense.getLayout();
+        layout.show(deck_defense, Card.getCurrentDefenseCard());
+        lbl_deck_defense_name.setText(Card.getCurrentDefenseCard());
+    }//GEN-LAST:event_defense_switch_leftActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void btn_skills_rightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_skills_rightActionPerformed
+        Card.changeSkillsCard(Card.INCREMENT);
+        CardLayout layout = (CardLayout) deck_skillsProfs.getLayout();
+        lbl_currSkilsProfsName.setText("Current Panel: ".concat(Card.getCurrentSkillsCard()));
+        layout.show(deck_skillsProfs, Card.getCurrentSkillsCard());
+    }//GEN-LAST:event_btn_skills_rightActionPerformed
+
+    private void btn_skills_leftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_skills_leftActionPerformed
+        Card.changeSkillsCard(Card.DECREMENT);
+        CardLayout layout = (CardLayout) deck_skillsProfs.getLayout();
+        lbl_currSkilsProfsName.setText("Current Panel: ".concat(Card.getCurrentSkillsCard()));
+        layout.show(deck_skillsProfs, Card.getCurrentSkillsCard());
+    }//GEN-LAST:event_btn_skills_leftActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1266,30 +920,14 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JPanel bdy_background;
     private javax.swing.JPanel bdy_charInfo;
     private javax.swing.JPanel bdy_features;
-    private javax.swing.JPanel bdy_skillsProfs;
     private javax.swing.JPanel bdy_spellsAndEquipment;
-    private javax.swing.JComboBox<String> jComboBox19;
-    private javax.swing.JComboBox<String> jComboBox20;
-    private javax.swing.JComboBox<String> jComboBox21;
-    private javax.swing.JComboBox<String> jComboBox22;
-    private javax.swing.JComboBox<String> jComboBox23;
-    private javax.swing.JComboBox<String> jComboBox24;
-    private javax.swing.JComboBox<String> jComboBox25;
-    private javax.swing.JComboBox<String> jComboBox26;
-    private javax.swing.JComboBox<String> jComboBox27;
-    private javax.swing.JComboBox<String> jComboBox28;
-    private javax.swing.JComboBox<String> jComboBox29;
-    private javax.swing.JComboBox<String> jComboBox30;
-    private javax.swing.JComboBox<String> jComboBox31;
-    private javax.swing.JComboBox<String> jComboBox32;
-    private javax.swing.JComboBox<String> jComboBox33;
-    private javax.swing.JComboBox<String> jComboBox34;
-    private javax.swing.JComboBox<String> jComboBox35;
-    private javax.swing.JComboBox<String> jComboBox36;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
+    private javax.swing.JButton btn_skills_left;
+    private javax.swing.JButton btn_skills_right;
+    private javax.swing.JPanel deck_defense;
+    private javax.swing.JPanel deck_skillsProfs;
+    private javax.swing.JButton defense_switch_left;
+    private javax.swing.JButton defense_switch_right;
+    private javax.swing.JPanel defense_title;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -1300,24 +938,7 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
@@ -1334,51 +955,8 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel55;
-    private javax.swing.JLabel jLabel56;
-    private javax.swing.JLabel jLabel57;
-    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel61;
-    private javax.swing.JLabel jLabel62;
-    private javax.swing.JLabel jLabel63;
-    private javax.swing.JLabel jLabel64;
-    private javax.swing.JLabel jLabel65;
-    private javax.swing.JLabel jLabel66;
-    private javax.swing.JLabel jLabel67;
-    private javax.swing.JLabel jLabel68;
-    private javax.swing.JLabel jLabel69;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel70;
-    private javax.swing.JLabel jLabel71;
-    private javax.swing.JLabel jLabel72;
-    private javax.swing.JLabel jLabel73;
-    private javax.swing.JLabel jLabel74;
-    private javax.swing.JLabel jLabel75;
-    private javax.swing.JLabel jLabel76;
-    private javax.swing.JLabel jLabel77;
-    private javax.swing.JLabel jLabel78;
-    private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel80;
-    private javax.swing.JLabel jLabel81;
-    private javax.swing.JLabel jLabel82;
-    private javax.swing.JLabel jLabel83;
-    private javax.swing.JLabel jLabel84;
-    private javax.swing.JLabel jLabel85;
-    private javax.swing.JLabel jLabel86;
-    private javax.swing.JLabel jLabel87;
-    private javax.swing.JLabel jLabel88;
-    private javax.swing.JLabel jLabel89;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabel90;
-    private javax.swing.JLabel jLabel91;
-    private javax.swing.JLabel jLabel92;
-    private javax.swing.JLabel jLabel93;
-    private javax.swing.JLabel jLabel94;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -1395,47 +973,25 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField24;
-    private javax.swing.JTextField jTextField25;
-    private javax.swing.JTextField jTextField26;
-    private javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField28;
-    private javax.swing.JTextField jTextField29;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lbl_alignment;
+    private javax.swing.JLabel lbl_attk_bonus;
     private javax.swing.JLabel lbl_charHeight;
     private javax.swing.JLabel lbl_charInfo;
     private javax.swing.JLabel lbl_charName;
@@ -1446,10 +1002,16 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_constitutionModifier;
     private javax.swing.JLabel lbl_constitutionModifierTitle;
     private javax.swing.JLabel lbl_constitutionTitle;
+    private javax.swing.JLabel lbl_currSkilsProfsName;
+    private javax.swing.JLabel lbl_damage_bonus;
+    private javax.swing.JLabel lbl_damage_roll;
+    private javax.swing.JLabel lbl_damage_type;
+    private javax.swing.JLabel lbl_deck_defense_name;
     private javax.swing.JLabel lbl_deity;
     private javax.swing.JLabel lbl_dexterityModifier;
     private javax.swing.JLabel lbl_dexterityModifierTitle;
     private javax.swing.JLabel lbl_dexterityTitle;
+    private javax.swing.JLabel lbl_offenseTitle;
     private javax.swing.JLabel lbl_panAttributes;
     private javax.swing.JLabel lbl_panBackground;
     private javax.swing.JLabel lbl_panCombat;
@@ -1460,15 +1022,17 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_strengthModifier;
     private javax.swing.JLabel lbl_strengthModifierTitle;
     private javax.swing.JLabel lbl_strengthTitle;
+    private javax.swing.JLabel lbl_weapon_name;
     private javax.swing.JPanel panAttributes;
     private javax.swing.JPanel panBackground;
     private javax.swing.JPanel panCharInfo;
     private javax.swing.JPanel panCombat;
     private javax.swing.JPanel panFeatures;
     private javax.swing.JPanel panForScrollPane;
-    private javax.swing.JPanel panSkillsProfs;
+    private javax.swing.JPanel panSkills;
     private javax.swing.JPanel panSpellsAndEquipment;
     private javax.swing.JPanel pan_charisma;
+    private javax.swing.JPanel pan_combatBody;
     private javax.swing.JPanel pan_conBody;
     private javax.swing.JPanel pan_constituion;
     private javax.swing.JPanel pan_defense;
@@ -1477,6 +1041,7 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JPanel pan_info;
     private javax.swing.JPanel pan_intelligence;
     private javax.swing.JPanel pan_offense;
+    private javax.swing.JPanel pan_offenseBody;
     private javax.swing.JPanel pan_photo;
     private javax.swing.JPanel pan_strBody;
     private javax.swing.JPanel pan_strength;
@@ -1484,16 +1049,21 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JPanel pan_wisdom;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JTextField txt_alignment;
+    private javax.swing.JTextArea txt_attack_bonus;
     private javax.swing.JTextField txt_charHeight;
     private javax.swing.JTextField txt_charName;
     private javax.swing.JTextField txt_charWeight;
     private javax.swing.JTextField txt_className;
     private javax.swing.JTextField txt_constitution;
+    private javax.swing.JTextArea txt_damage_bonus;
+    private javax.swing.JTextArea txt_damage_roll;
+    private javax.swing.JTextArea txt_damage_type;
     private javax.swing.JTextField txt_deity;
     private javax.swing.JTextField txt_dexterity;
     private javax.swing.JTextField txt_raceName;
     private javax.swing.JTextField txt_sizeName;
     private javax.swing.JTextField txt_strength;
+    private javax.swing.JTextArea txt_weapon_name;
     // End of variables declaration//GEN-END:variables
 
     private void setLblImageToFile(File selectedFile) {
@@ -1505,5 +1075,27 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_characterImage.setText("");
         lbl_characterImage.setIcon(photo);
 
+    }
+    
+    private void initCardsForDefense(){
+        DefensePanel card_defense = new DefensePanel();
+        ArmorPanel card_armor = new ArmorPanel();
+        ResistancesPanel card_resistance = new ResistancesPanel();
+        deck_defense.add(card_defense, Card.DEFENSE);
+        deck_defense.add(card_armor, Card.ARMOR);
+        deck_defense.add(card_resistance, Card.RESISTANCE);
+        Card.initCurrentDefenseCard();
+        CardLayout layout = (CardLayout) deck_defense.getLayout();
+        layout.show(deck_defense, Card.getCurrentDefenseCard());
+    }
+    
+    private void initCardsForSkillsProfs(){
+        SkillsPanel card_skills = new SkillsPanel();
+        ProfsPanel card_proficiencies = new ProfsPanel();
+        deck_skillsProfs.add(card_skills, Card.SKILLS);
+        deck_skillsProfs.add(card_proficiencies, Card.PROFICIENCIES);
+        Card.initCurrentSkillsProfsCard();
+        CardLayout layout = (CardLayout) deck_skillsProfs.getLayout();
+        layout.show(deck_skillsProfs, Card.getCurrentSkillsCard());
     }
 }

@@ -29,7 +29,7 @@ public class KeyReader {
         if(index == -1)
             return KEY.NULL;
         String low_key = key.substring(0, index);
-        index = low_key.indexOf("8");
+        index = low_key.indexOf("*");
         if(index == -1){
             return low_key;
         }
