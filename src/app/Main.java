@@ -1,6 +1,6 @@
 package app;
 
-import container.CharacterFrame;
+import gui.CharacterFrame;
 
 public class Main {
     public static void main(String args[]){

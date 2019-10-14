@@ -1,4 +1,4 @@
-package container;
+package gui;
 
 import app.AppManager;
 
@@ -11,9 +11,11 @@ import javax.swing.text.Document;
 public class TextChangeListener implements DocumentListener {
 
     private final String key;
+    private final AppManager manager;
 
-    public TextChangeListener(String key){
+    public TextChangeListener(String key, AppManager manager){
         this.key = key;
+        this.manager = manager;
     }
 
     @Override
@@ -35,7 +37,7 @@ public class TextChangeListener implements DocumentListener {
         Document document = e.getDocument();
         int length = document.getLength();
         try {
-            AppManager.updateData(key, document.getText(0,length));
+            manager.updateData(key, document.getText(0, length));
         } catch (BadLocationException ex) {
             ex.printStackTrace();
         }

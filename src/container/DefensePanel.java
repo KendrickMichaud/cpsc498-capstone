@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package container;
+package gui;
 
 /**
  *
@@ -28,78 +28,78 @@ public class DefensePanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel5 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        lbl_ac_title = new javax.swing.JLabel();
+        lbl_equal_sign = new javax.swing.JLabel();
+        lbl_armor_title = new javax.swing.JLabel();
+        lbl_dex_bonus_title = new javax.swing.JLabel();
+        lbl_bonus_ac_title = new javax.swing.JLabel();
+        lbl_derived_ac = new javax.swing.JLabel();
+        lbl_equal_sign2 = new javax.swing.JLabel();
+        lbl_derived_armor = new javax.swing.JLabel();
+        lbl_derived_dexterity_bonus = new javax.swing.JLabel();
+        txt_extra_ac_bonus = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        lbl_common_save_type_title = new javax.swing.JLabel();
+        lbl_common_save_total_title = new javax.swing.JLabel();
+        lbl_common_save_derived_title = new javax.swing.JLabel();
+        lbl_common_save_bonus_title = new javax.swing.JLabel();
+        lbl_common_save_dex_title = new javax.swing.JLabel();
+        lbl_derived_dex_total = new javax.swing.JLabel();
+        lbl_derived_dex_mod = new javax.swing.JLabel();
+        txt_dex_bonus = new javax.swing.JTextField();
+        lbl_common_save_wis_title = new javax.swing.JLabel();
+        lbl_derived_wis_total = new javax.swing.JLabel();
+        lbl_derived_wis_mod = new javax.swing.JLabel();
+        txt_wis_bonus = new javax.swing.JTextField();
+        lbl_common_save_cha_title = new javax.swing.JLabel();
+        lbl_derived_cha_total = new javax.swing.JLabel();
+        lbl_derived_cha_mod = new javax.swing.JLabel();
+        txt_cha_bonus = new javax.swing.JTextField();
 
         setLayout(new java.awt.BorderLayout());
 
         jPanel5.setLayout(new java.awt.GridLayout(2, 5));
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel11.setText("AC");
-        jPanel5.add(jLabel11);
+        lbl_ac_title.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        lbl_ac_title.setText("AC");
+        jPanel5.add(lbl_ac_title);
 
-        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel25.setText("= ");
-        jPanel5.add(jLabel25);
+        lbl_equal_sign.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        lbl_equal_sign.setText("= ");
+        jPanel5.add(lbl_equal_sign);
 
-        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel26.setText("ARM");
-        jPanel5.add(jLabel26);
+        lbl_armor_title.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        lbl_armor_title.setText("ARM");
+        jPanel5.add(lbl_armor_title);
 
-        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel27.setText("DEX");
-        jPanel5.add(jLabel27);
+        lbl_dex_bonus_title.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        lbl_dex_bonus_title.setText("DEX");
+        jPanel5.add(lbl_dex_bonus_title);
 
-        jLabel34.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel34.setText("EXTRA");
-        jPanel5.add(jLabel34);
+        lbl_bonus_ac_title.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        lbl_bonus_ac_title.setText("EXTRA");
+        jPanel5.add(lbl_bonus_ac_title);
 
-        jLabel35.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel35.setText("0");
-        jPanel5.add(jLabel35);
+        lbl_derived_ac.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        lbl_derived_ac.setText("0");
+        jPanel5.add(lbl_derived_ac);
 
-        jLabel36.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel36.setText("=");
-        jPanel5.add(jLabel36);
+        lbl_equal_sign2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        lbl_equal_sign2.setText("=");
+        jPanel5.add(lbl_equal_sign2);
 
-        jLabel37.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel37.setText("0");
-        jPanel5.add(jLabel37);
+        lbl_derived_armor.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        lbl_derived_armor.setText("0");
+        jPanel5.add(lbl_derived_armor);
 
-        jLabel38.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel38.setText("0");
-        jPanel5.add(jLabel38);
+        lbl_derived_dexterity_bonus.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        lbl_derived_dexterity_bonus.setText("0");
+        jPanel5.add(lbl_derived_dexterity_bonus);
 
-        jTextField10.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jPanel5.add(jTextField10);
+        txt_extra_ac_bonus.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jPanel5.add(txt_extra_ac_bonus);
 
         add(jPanel5, java.awt.BorderLayout.PAGE_START);
 
@@ -112,47 +112,47 @@ public class DefensePanel extends javax.swing.JPanel {
 
         jPanel9.setLayout(new java.awt.GridLayout(4, 4));
 
-        jLabel8.setText("Type");
-        jPanel9.add(jLabel8);
+        lbl_common_save_type_title.setText("Type");
+        jPanel9.add(lbl_common_save_type_title);
 
-        jLabel9.setText("Total");
-        jPanel9.add(jLabel9);
+        lbl_common_save_total_title.setText("Total");
+        jPanel9.add(lbl_common_save_total_title);
 
-        jLabel10.setText("Modifier");
-        jPanel9.add(jLabel10);
+        lbl_common_save_derived_title.setText("Modifier");
+        jPanel9.add(lbl_common_save_derived_title);
 
-        jLabel12.setText("Bonus");
-        jPanel9.add(jLabel12);
+        lbl_common_save_bonus_title.setText("Bonus");
+        jPanel9.add(lbl_common_save_bonus_title);
 
-        jLabel23.setText("DEX");
-        jPanel9.add(jLabel23);
+        lbl_common_save_dex_title.setText("DEX");
+        jPanel9.add(lbl_common_save_dex_title);
 
-        jLabel24.setText("0");
-        jPanel9.add(jLabel24);
+        lbl_derived_dex_total.setText("0");
+        jPanel9.add(lbl_derived_dex_total);
 
-        jLabel28.setText("0");
-        jPanel9.add(jLabel28);
-        jPanel9.add(jTextField4);
+        lbl_derived_dex_mod.setText("0");
+        jPanel9.add(lbl_derived_dex_mod);
+        jPanel9.add(txt_dex_bonus);
 
-        jLabel29.setText("WIS");
-        jPanel9.add(jLabel29);
+        lbl_common_save_wis_title.setText("WIS");
+        jPanel9.add(lbl_common_save_wis_title);
 
-        jLabel30.setText("0");
-        jPanel9.add(jLabel30);
+        lbl_derived_wis_total.setText("0");
+        jPanel9.add(lbl_derived_wis_total);
 
-        jLabel31.setText("0");
-        jPanel9.add(jLabel31);
-        jPanel9.add(jTextField8);
+        lbl_derived_wis_mod.setText("0");
+        jPanel9.add(lbl_derived_wis_mod);
+        jPanel9.add(txt_wis_bonus);
 
-        jLabel32.setText("CHA");
-        jPanel9.add(jLabel32);
+        lbl_common_save_cha_title.setText("CHA");
+        jPanel9.add(lbl_common_save_cha_title);
 
-        jLabel33.setText("0");
-        jPanel9.add(jLabel33);
+        lbl_derived_cha_total.setText("0");
+        jPanel9.add(lbl_derived_cha_total);
 
-        jLabel22.setText("0");
-        jPanel9.add(jLabel22);
-        jPanel9.add(jTextField9);
+        lbl_derived_cha_mod.setText("0");
+        jPanel9.add(lbl_derived_cha_mod);
+        jPanel9.add(txt_cha_bonus);
 
         jPanel8.add(jPanel9, java.awt.BorderLayout.CENTER);
 
@@ -161,35 +161,35 @@ public class DefensePanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JLabel lbl_ac_title;
+    private javax.swing.JLabel lbl_armor_title;
+    private javax.swing.JLabel lbl_bonus_ac_title;
+    private javax.swing.JLabel lbl_common_save_bonus_title;
+    private javax.swing.JLabel lbl_common_save_cha_title;
+    private javax.swing.JLabel lbl_common_save_derived_title;
+    private javax.swing.JLabel lbl_common_save_dex_title;
+    private javax.swing.JLabel lbl_common_save_total_title;
+    private javax.swing.JLabel lbl_common_save_type_title;
+    private javax.swing.JLabel lbl_common_save_wis_title;
+    private javax.swing.JLabel lbl_derived_ac;
+    private javax.swing.JLabel lbl_derived_armor;
+    private javax.swing.JLabel lbl_derived_cha_mod;
+    private javax.swing.JLabel lbl_derived_cha_total;
+    private javax.swing.JLabel lbl_derived_dex_mod;
+    private javax.swing.JLabel lbl_derived_dex_total;
+    private javax.swing.JLabel lbl_derived_dexterity_bonus;
+    private javax.swing.JLabel lbl_derived_wis_mod;
+    private javax.swing.JLabel lbl_derived_wis_total;
+    private javax.swing.JLabel lbl_dex_bonus_title;
+    private javax.swing.JLabel lbl_equal_sign;
+    private javax.swing.JLabel lbl_equal_sign2;
+    public javax.swing.JTextField txt_cha_bonus;
+    public javax.swing.JTextField txt_dex_bonus;
+    public javax.swing.JTextField txt_extra_ac_bonus;
+    public javax.swing.JTextField txt_wis_bonus;
     // End of variables declaration//GEN-END:variables
 }

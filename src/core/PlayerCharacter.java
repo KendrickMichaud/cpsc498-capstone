@@ -1,5 +1,6 @@
 package core;
 
+import app.AppManager;
 import constants.KEY;
 import constants.TEXT;
 import util.KeyReader;
@@ -9,8 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PlayerCharacter implements KeyValueReader<String, String> {
-    PlayerClass type;
-    PlayerRace race;
     List<Equipment> inventory;
     List<Spell> spellBook;
     Armor equippedArmor;
@@ -18,9 +17,8 @@ public class PlayerCharacter implements KeyValueReader<String, String> {
     Biography biographicalData;
     Background backgroundData;
     int[] attributes;
-    public PlayerCharacter(){
-        type = new PlayerClass();
-        race = new PlayerRace();
+    private final AppManager manager;
+    public PlayerCharacter(AppManager manager){
         inventory = new ArrayList<>();
         spellBook = new ArrayList<>();
         biographicalData = new Biography();
@@ -28,6 +26,7 @@ public class PlayerCharacter implements KeyValueReader<String, String> {
         equippedWeapon = new Weapon(TEXT.NONE, TEXT.NONE);
         backgroundData = new Background();
         attributes = new int[6];
+        this.manager = manager;
     }
 
     //This class checks for super key to determine proper field to pull from
@@ -55,8 +54,6 @@ public class PlayerCharacter implements KeyValueReader<String, String> {
         switch(KeyReader.getHighKey(key)){
             case KEY.H_BACKGROUND:backgroundData.updateValue(key,value);break;
             case KEY.H_BIOGRAPHICAL_DATA:biographicalData.updateValue(key,value);break;
-            case KEY.H_PLAYER_CLASS:type.updateValue(key,value);break;
-            case KEY.H_PLAYER_RACE:race.updateValue(key,value);break;
             case KEY.H_ATTRIBUTES:updateAttribute(key,value);break;
             case KEY.H_INVENTORY:updateInventoryItem(key,value);break;
             case KEY.H_SPELLBOOK:updateSpellbook(key,value);break;
@@ -68,23 +65,11 @@ public class PlayerCharacter implements KeyValueReader<String, String> {
     }
 
     private void updateSpellbook(String key, String value) {
-        int index = KeyReader.getRowIndex(key);
-        Spell spell = spellBook.get(index);
-        switch (KeyReader.getOptionalKey(key)){
-            case KEY.SPELL_NAME:break;
-            case KEY.SPELL_DESC:break;
-            case KEY.SPELL_LEVEL:break;
-        }
+
     }
 
     private void updateInventoryItem(String key, String value) {
-        int index = KeyReader.getRowIndex(key);
-        Equipment equipment = inventory.get(index);
-        switch (KeyReader.getOptionalKey(key)){
-            case KEY.ITEM_NAME:break;
-            case KEY.ITEM_DESC:break;
-            case KEY.EQUIPPED:break;
-        }
+
     }
 
     private void updateAttribute(String key, String value) {
@@ -101,8 +86,6 @@ public class PlayerCharacter implements KeyValueReader<String, String> {
     //Clears contents of all player manipulated data and resets all attributes to 10
     @Override
     public void clearContents() {
-        type.clearContents();
-        race.clearContents();
         inventory.clear();
         spellBook.clear();
         biographicalData.clearContents();

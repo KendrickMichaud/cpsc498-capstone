@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package container;
+package gui;
 
 /**
  *
@@ -97,9 +97,9 @@ public class ArmorPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField txt_armor_class;
-    private javax.swing.JTextArea txt_description;
-    private javax.swing.JTextField txt_dexterity_cap;
-    private javax.swing.JTextField txt_name;
+    public javax.swing.JTextField txt_armor_class;
+    public javax.swing.JTextArea txt_description;
+    public javax.swing.JTextField txt_dexterity_cap;
+    public javax.swing.JTextField txt_name;
     // End of variables declaration//GEN-END:variables
 }

@@ -2,7 +2,7 @@ package app;
 
 
 import constants.KEY;
-import container.CharacterFrame;
+import gui.CharacterFrame;
 import core.PlayerCharacter;
 import java.io.File;
 import util.KeyReader;
@@ -25,11 +25,12 @@ public class AppManager {
     }
 
     private AppManager(){
-        character = new PlayerCharacter();
+        character = new PlayerCharacter(manager);
     }
 
     public void updateData(String key, String value) {
         if(KeyReader.validKey(key) && value != null){
+            System.out.println(key.concat(" ").concat(value));
             character.updateValue(key, value);
             unsavedData = true;
         }

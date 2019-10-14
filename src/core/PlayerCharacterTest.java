@@ -30,10 +30,10 @@ class PlayerCharacterTest {
         String expectedName = "Shortsword";
         String expectedDescription = "A valiant guard's weapon of choice!";
         character.updateValue(KEY.K_WEAPON_NAME, expectedName);
-        character.updateValue(KEY.K_WEAPON_DESCRIPTION, expectedDescription);
+        character.updateValue(KEY.K_WEAPON_DAMAGE_TYPE, expectedDescription);
 
         assertEquals(expectedName, character.getValue(KEY.K_WEAPON_NAME));
-        assertEquals(expectedDescription, character.getValue(KEY.K_WEAPON_DESCRIPTION));
+        assertEquals(expectedDescription, character.getValue(KEY.K_WEAPON_DAMAGE_TYPE));
     }
 
     @Test
@@ -106,13 +106,13 @@ class PlayerCharacterTest {
         String expectedPersonalityBond = "Loves to steal";
         String expectedPersonalityFlaw = "Gets caught however";
 
-        character.updateValue(KEY.K_BACKGROUND_TITLE, expectedBackgroundTitle);
+        character.updateValue(KEY.K_BACKGROUND_NAME, expectedBackgroundTitle);
         character.updateValue(KEY.K_BACKGROUND_TRAIT, expectedPersonalityTrait);
         character.updateValue(KEY.K_BACKGROUND_IDEAL, expectedPersonalityIdeal);
         character.updateValue(KEY.K_BACKGROUND_BOND, expectedPersonalityBond);
         character.updateValue(KEY.K_BACKGROUND_FLAW, expectedPersonalityFlaw);
 
-        assertEquals(expectedBackgroundTitle, character.getValue(KEY.K_BACKGROUND_TITLE));
+        assertEquals(expectedBackgroundTitle, character.getValue(KEY.K_BACKGROUND_NAME));
         assertEquals(expectedPersonalityBond, character.getValue(KEY.K_BACKGROUND_BOND));
         assertEquals(expectedPersonalityFlaw, character.getValue(KEY.K_BACKGROUND_FLAW));
         assertEquals(expectedPersonalityIdeal, character.getValue(KEY.K_BACKGROUND_IDEAL));

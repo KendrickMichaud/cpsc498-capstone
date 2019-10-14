@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package container;
+package gui;
 
 /**
  *
@@ -28,26 +28,26 @@ public class ResistancesPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         panel_spell_resistance = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lbl_damage_resistance_title = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txt_damage_resistance = new javax.swing.JTextArea();
         panel_damage_resistance = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        lbl_spell_resistance_title = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        txt_spell_resistance = new javax.swing.JTextArea();
 
         setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.Y_AXIS));
 
         panel_spell_resistance.setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Damage Resistance");
-        panel_spell_resistance.add(jLabel1, java.awt.BorderLayout.PAGE_START);
+        lbl_damage_resistance_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_damage_resistance_title.setText("Damage Resistance");
+        panel_spell_resistance.add(lbl_damage_resistance_title, java.awt.BorderLayout.PAGE_START);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txt_damage_resistance.setColumns(20);
+        txt_damage_resistance.setLineWrap(true);
+        txt_damage_resistance.setRows(5);
+        jScrollPane1.setViewportView(txt_damage_resistance);
 
         panel_spell_resistance.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
@@ -55,14 +55,14 @@ public class ResistancesPanel extends javax.swing.JPanel {
 
         panel_damage_resistance.setLayout(new java.awt.BorderLayout());
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Spell Resistance");
-        panel_damage_resistance.add(jLabel2, java.awt.BorderLayout.PAGE_START);
+        lbl_spell_resistance_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_spell_resistance_title.setText("Spell Resistance");
+        panel_damage_resistance.add(lbl_spell_resistance_title, java.awt.BorderLayout.PAGE_START);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setLineWrap(true);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        txt_spell_resistance.setColumns(20);
+        txt_spell_resistance.setLineWrap(true);
+        txt_spell_resistance.setRows(5);
+        jScrollPane2.setViewportView(txt_spell_resistance);
 
         panel_damage_resistance.add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
@@ -71,13 +71,13 @@ public class ResistancesPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JLabel lbl_damage_resistance_title;
+    private javax.swing.JLabel lbl_spell_resistance_title;
     private javax.swing.JPanel panel_damage_resistance;
     private javax.swing.JPanel panel_spell_resistance;
+    public javax.swing.JTextArea txt_damage_resistance;
+    public javax.swing.JTextArea txt_spell_resistance;
     // End of variables declaration//GEN-END:variables
 }

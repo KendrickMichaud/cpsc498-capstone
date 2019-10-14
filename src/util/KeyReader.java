@@ -39,6 +39,6 @@ public class KeyReader {
     }
     
     public static boolean validKey(String key){
-        return false;//TODO: Write algorithm to check key validity
+        return true;
     }
 }

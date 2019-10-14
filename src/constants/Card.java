@@ -11,6 +11,9 @@ package constants;
  */
 public class Card {
 
+    public static String INVENTORY = "Inventory";
+    public static String SPELLS = "Spells";
+
     public static void initCurrentSkillsProfsCard() {
         currentSkillsCard = new SkillsProfsCard(DEFAULT);
     }
