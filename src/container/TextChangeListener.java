@@ -1,4 +1,4 @@
-package gui;
+package container;
 
 import app.AppManager;
 
@@ -8,6 +8,10 @@ import javax.swing.event.DocumentListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 
+/**
+ * @deprecated Class is no longer in effect as of latest updated.
+ * @author Kendrick
+ */
 public class TextChangeListener implements DocumentListener {
 
     private final String key;

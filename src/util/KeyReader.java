@@ -28,7 +28,7 @@ public class KeyReader {
         int index = key.indexOf("*");
         if(index == -1)
             return KEY.NULL;
-        String low_key = key.substring(0, index);
+        String low_key = key.substring(index+1,key.length());
         index = low_key.indexOf("*");
         if(index == -1){
             return low_key;

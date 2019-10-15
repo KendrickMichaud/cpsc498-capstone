@@ -1,7 +1,5 @@
 package app;
 
-import gui.CharacterFrame;
-
 public class Main {
     public static void main(String args[]){
         //NOTE to David, to run this you might have to create a separate class

@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package container;
 
 import app.AppManager;
 import constants.Card;
 import constants.GUI;
 import constants.KEY;
+import core.PlayerCharacter;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Image;
@@ -21,6 +22,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.JTextComponent;
+import util.Ability;
 
 /**
  *
@@ -29,6 +31,7 @@ import javax.swing.text.JTextComponent;
 public class CharacterFrame extends javax.swing.JFrame {
 
     private AppManager manager;
+    PlayerCharacter.Derived derived;
 
     /**
      * Creates new form CharacterFrame
@@ -106,19 +109,19 @@ public class CharacterFrame extends javax.swing.JFrame {
         jPanel13 = new javax.swing.JPanel();
         txt_intelligence = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        lbl_intelligence_modifier = new javax.swing.JLabel();
         pan_wisdom = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
         txt_wisdom = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
+        lbl_wisdom_modifier = new javax.swing.JLabel();
         pan_charisma = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jPanel17 = new javax.swing.JPanel();
         txt_charisma = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
+        lbl_charisma_modifier = new javax.swing.JLabel();
         pan_combat = new javax.swing.JPanel();
         lbl_panCombat = new javax.swing.JLabel();
         pan_combatBody = new javax.swing.JPanel();
@@ -467,9 +470,9 @@ public class CharacterFrame extends javax.swing.JFrame {
         jLabel14.setText("Modifier");
         pan_intelligence.add(jLabel14);
 
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("0");
-        pan_intelligence.add(jLabel15);
+        lbl_intelligence_modifier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_intelligence_modifier.setText("0");
+        pan_intelligence.add(lbl_intelligence_modifier);
 
         bdy_attributes.add(pan_intelligence);
 
@@ -492,9 +495,9 @@ public class CharacterFrame extends javax.swing.JFrame {
         jLabel17.setText("Modifier");
         pan_wisdom.add(jLabel17);
 
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("0");
-        pan_wisdom.add(jLabel18);
+        lbl_wisdom_modifier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_wisdom_modifier.setText("0");
+        pan_wisdom.add(lbl_wisdom_modifier);
 
         bdy_attributes.add(pan_wisdom);
 
@@ -517,9 +520,9 @@ public class CharacterFrame extends javax.swing.JFrame {
         jLabel20.setText("Modifier");
         pan_charisma.add(jLabel20);
 
-        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel21.setText("0");
-        pan_charisma.add(jLabel21);
+        lbl_charisma_modifier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_charisma_modifier.setText("0");
+        pan_charisma.add(lbl_charisma_modifier);
 
         bdy_attributes.add(pan_charisma);
 
@@ -1153,13 +1156,10 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel12;
@@ -1189,6 +1189,7 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_charSize;
     private javax.swing.JLabel lbl_charWeight;
     private javax.swing.JLabel lbl_characterImage;
+    private javax.swing.JLabel lbl_charisma_modifier;
     private javax.swing.JLabel lbl_className;
     private javax.swing.JLabel lbl_constitutionModifier;
     private javax.swing.JLabel lbl_constitutionModifierTitle;
@@ -1212,6 +1213,7 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_init_bonus_title;
     private javax.swing.JLabel lbl_init_name;
     private javax.swing.JLabel lbl_init_total;
+    private javax.swing.JLabel lbl_intelligence_modifier;
     private javax.swing.JLabel lbl_level;
     private javax.swing.JLabel lbl_offenseTitle;
     private javax.swing.JLabel lbl_panAttributes;
@@ -1240,6 +1242,7 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_strengthTitle;
     private javax.swing.JLabel lbl_util_title;
     private javax.swing.JLabel lbl_weapon_name;
+    private javax.swing.JLabel lbl_wisdom_modifier;
     private javax.swing.JMenuBar menu_bar;
     private javax.swing.JMenu menu_edit;
     private javax.swing.JMenu menu_file;
@@ -1417,7 +1420,86 @@ public class CharacterFrame extends javax.swing.JFrame {
     }
 
     private void setTextListener(JTextComponent component, String key) {
-        component.getDocument().addDocumentListener
-                (new TextChangeListener(key, manager));
+        //Experimental change, switching from doclistener to focus listener
+        //Should reduce redundant communications increasing efficiency.
+        component.addFocusListener(new TextFocusListener(key, component.getDocument(), manager));
+        
+        //Deprecated code, inefficient calls very bad now.
+        //component.getDocument().addDocumentListener
+                //(new TextChangeListener(key, manager));
     }
+    
+    ////////////////////////////////////////////////////////////////////////////
+    ///Update the Modifiers for labels.
+    public void updateStrengthLabel(int strengthModifier) {
+        lbl_strengthModifier.setText(Ability.modifierToString(strengthModifier));
+    }
+    public void updateDexterityLabel(int dexterityModifier) {
+        lbl_dexterityModifier.setText(Ability.modifierToString(dexterityModifier));
+    }
+    public void updateConstitutionLabel(int constituionModifier) {
+        lbl_constitutionModifier.setText(Ability.modifierToString(constituionModifier));
+    }
+    public void updateIntelligenceLabel(int intelligenceModifier) {
+        lbl_intelligence_modifier.setText(Ability.modifierToString(intelligenceModifier));
+    }
+    public void updateWisdomLabel(int wisdomModifier) {
+        lbl_wisdom_modifier.setText(Ability.modifierToString(wisdomModifier));
+    }
+    public void updateCharismaLabel(int charismaModifier) {
+        lbl_charisma_modifier.setText(Ability.modifierToString(charismaModifier));
+    }
+    ////////////////////////////////////////////////////////////////////////////
+
+
+
+    public void updateStrengthSkills(int strengthModifier, int proficiency) {
+
+    }
+
+    public void updateOffensiveAbilities(int strengthModifier, int proficiency) {
+        System.out.println("Strength Modifier = " + strengthModifier);
+        System.out.println("Proficiency Bonus = " + proficiency);
+    }
+
+    public void updateSkillsDexterity(int dexterityModifier, int proficiency) {
+
+    }
+
+    public void updateDexACBonus(int dexterityModifier) {
+    }
+
+    public void updateDexInitBonus(int dexterityModifier) {
+    }
+
+    public void updateDexSaveBonus(int dexterityModifier, int proficiency) {
+        
+    }
+
+
+
+    public void updateSkillsConstitution(int constituionModifier, int proficiency) {
+    }
+
+
+
+    public void updateSkillsIntelligence(int intelligenceModifier, int proficiency) {
+    }
+
+
+    public void updateWisdomSkills(int wisdomModifier, int proficiency) {
+    }
+
+    public void updateWisdomSave(int wisdomModifier, int proficiency) {
+    }
+
+
+
+    public void updateCharismaSkills(int charismaModifier, int proficiency) {
+    }
+
+    public void updateCharismaSave(int charismaModifier, int proficiency) {
+    }
+
+
 }
