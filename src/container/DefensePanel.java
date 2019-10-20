@@ -220,7 +220,6 @@ public class DefensePanel extends javax.swing.JPanel {
 
     void setArmorValues(int dex_mod, int dex_cap, int ac) {
         int armor_dex = 0;
-        System.out.println("DexMod(" + dex_mod + ") dex_cap(" + dex_cap + ")");
         if(dex_cap == 0 || dex_mod < dex_cap){
             armor_dex = dex_mod;
         }

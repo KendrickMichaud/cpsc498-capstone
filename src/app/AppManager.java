@@ -4,7 +4,6 @@ package app;
 import constants.Card;
 import constants.KEY;
 import container.CharacterFrame;
-import core.PlayerCharacter;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,7 +19,6 @@ public class AppManager {
     
     private static AppManager manager;
     private CharacterFrame main_frame;
-    private PlayerCharacter character;
     private boolean unsavedData;
 
     static AppManager getInstance() {
@@ -30,9 +28,7 @@ public class AppManager {
         return manager;
     }
 
-    private AppManager(){
-        character = new PlayerCharacter();
-    }
+    private AppManager(){}
 
     public boolean validateDataChange(String key, String value) {
         if(key != null && value != null){
@@ -79,14 +75,14 @@ public class AppManager {
     }
 
     void launchApplication() {
-        if(main_frame != null && character != null){
+        updateValues();
+        if(main_frame != null){
             main_frame.setVisible(true);
         }
     }
 
     void initFrame() {
         main_frame = new CharacterFrame(this);
-        character.setManager(this);
     }
 
     public boolean authorizedToExit() {
@@ -103,7 +99,6 @@ public class AppManager {
     }
 
     public void reinitializeEnvironment() {
-        character.clearContents();
         main_frame.dispose();
         main_frame = new CharacterFrame(this);
         launchApplication();

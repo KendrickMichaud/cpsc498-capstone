@@ -5,7 +5,12 @@
  */
 package container;
 
+import app.AppManager;
 import constants.KEY;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.text.JTextComponent;
 import util.Bundle;
 
 /**
@@ -496,15 +501,98 @@ public class SkillsPanel extends javax.swing.JPanel {
 
     void updateSkills(Bundle bundle) {
         if(bundle != null){
-            int str_mod, dex_mod, con_mod, int_mod, wis_mod, cha_mod;
+            int str_mod, dex_mod, int_mod, wis_mod, cha_mod;
             int prof_bonus;
             str_mod = bundle.getInteger(KEY.K_STRENGTH);
             dex_mod = bundle.getInteger(KEY.K_DEXTERITY);
-            con_mod = bundle.getInteger(KEY.K_CONSTITUTION);
             int_mod = bundle.getInteger(KEY.K_INTELLIGENCE);
             wis_mod = bundle.getInteger(KEY.K_WISDOM);
             cha_mod = bundle.getInteger(KEY.K_CHARISMA);
             prof_bonus = bundle.getInteger(KEY.K_PROFICIENCY_BONUS);
+            
+            setTotal(bonus_acrobatics, prof_acrobatics, dex_mod, prof_bonus, total_acrobatics);
+            setTotal(bonus_animalHandling, prof_animalHandling, wis_mod, prof_bonus, total_animalHandling);
+            setTotal(bonus_arcana, prof_arcana, int_mod, prof_bonus, total_arcana);
+            setTotal(bonus_athletics, prof_athletics, str_mod, prof_bonus, total_athletics);
+            setTotal(bonus_deception, prof_deception, cha_mod, prof_bonus, total_deception);
+            setTotal(bonus_history, prof_history, int_mod, prof_bonus, total_history);
+            setTotal(bonus_insight, prof_insight, wis_mod, prof_bonus, total_insight);
+            setTotal(bonus_intimidation, prof_intimidation, cha_mod, prof_bonus, total_intimidation);
+            setTotal(bonus_investigation, prof_investigation, int_mod, prof_bonus, total_investigation);
+            setTotal(bonus_medicine, prof_medicine, int_mod, prof_bonus, total_medicine);
+            setTotal(bonus_nature, prof_nature, wis_mod, prof_bonus, total_nature);
+            setTotal(bonus_perception, prof_perception, wis_mod, prof_bonus, total_perception);
+            setTotal(bonus_performance, prof_performance, cha_mod, prof_bonus, total_performance);
+            setTotal(bonus_persuasion, prof_persuasion, cha_mod, prof_bonus, total_persuasion);
+            setTotal(bonus_religion, prof_religion, wis_mod, prof_bonus, total_religion);
+            setTotal(bonus_sleight, prof_sleight, dex_mod, prof_bonus, total_sleight);
+            setTotal(bonus_stealth, prof_stealth, dex_mod, prof_bonus, total_stealth);
+            setTotal(bonus_survival, prof_survival, wis_mod, prof_bonus, total_survival);
         }
+    }
+
+    void initListenerForSkills(AppManager manager) {
+        setTextListener(bonus_acrobatics, KEY.K_ACROBATICS_BONUS, manager);
+        setTextListener(bonus_animalHandling, KEY.K_ANIMAL_BONUS, manager);
+        setTextListener(bonus_arcana, KEY.K_ARCANA_BONUS, manager);
+        setTextListener(bonus_athletics, KEY.K_ATHLETICS_BONUS, manager);
+        setTextListener(bonus_deception, KEY.K_DECEPTION_BONUS, manager);
+        setTextListener(bonus_history, KEY.K_HISTORY_BONUS, manager);
+        setTextListener(bonus_insight, KEY.K_INSIGHT_BONUS, manager);
+        setTextListener(bonus_intimidation, KEY.K_INTIMIDATION_BONUS, manager);
+        setTextListener(bonus_investigation, KEY.K_INVESTIGATION_BONUS, manager);
+        setTextListener(bonus_medicine, KEY.K_MEDICINE_BONUS, manager);
+        setTextListener(bonus_nature, KEY.K_NATURE_BONUS, manager);
+        setTextListener(bonus_perception, KEY.K_PERCEPTION_BONUS, manager);
+        setTextListener(bonus_performance, KEY.K_PERFORMANCE_BONUS, manager);
+        setTextListener(bonus_persuasion, KEY.K_PERSUASION_BONUS, manager);
+        setTextListener(bonus_religion, KEY.K_RELIGION_BONUS, manager);
+        setTextListener(bonus_sleight, KEY.K_SLEIGHT_BONUS, manager);
+        setTextListener(bonus_stealth, KEY.K_STEALTH_BONUS, manager);
+        setTextListener(bonus_survival, KEY.K_SURVIVAL_BONUS, manager);
+        
+        setComboBoxListener(prof_acrobatics, manager);
+        setComboBoxListener(prof_animalHandling, manager);
+        setComboBoxListener(prof_arcana, manager);
+        setComboBoxListener(prof_athletics, manager);
+        setComboBoxListener(prof_deception, manager);
+        setComboBoxListener(prof_history, manager);
+        setComboBoxListener(prof_insight, manager);
+        setComboBoxListener(prof_intimidation, manager);
+        setComboBoxListener(prof_investigation, manager);
+        setComboBoxListener(prof_medicine, manager);
+        setComboBoxListener(prof_nature, manager);
+        setComboBoxListener(prof_perception, manager);
+        setComboBoxListener(prof_religion, manager);
+        setComboBoxListener(prof_sleight, manager);
+        setComboBoxListener(prof_stealth, manager);
+        setComboBoxListener(prof_survival, manager);
+    }
+    
+    private void setTextListener(JTextComponent component, String key, AppManager manager) {
+        component.addFocusListener(new TextFocusListener(key, component.getDocument(), manager));
+    }
+
+    private void setTotal
+        (JTextField bonus, 
+        JComboBox<String> prof_type, 
+        int attr_mod, 
+        int prof_bonus, 
+        JLabel total_field) 
+        {
+            switch((String) prof_type.getSelectedItem()){
+                case "X":prof_bonus=0;break;
+                case "✓":prof_bonus=prof_bonus;break;
+                case "✓/2":prof_bonus = prof_bonus/2;break;
+                default:prof_bonus=0;
+            }
+            
+            int bon = Integer.parseInt(bonus.getText());
+            int total = attr_mod + bon + prof_bonus;
+            total_field.setText(Integer.toString(total));
+        }
+
+    private void setComboBoxListener(JComboBox<String> combo, AppManager manager) {
+        combo.addItemListener(new ComboItemListener(manager));
     }
 }

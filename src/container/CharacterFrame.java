@@ -9,9 +9,7 @@ import app.AppManager;
 import constants.Card;
 import constants.GUI;
 import constants.KEY;
-import core.PlayerCharacter;
 import java.awt.CardLayout;
-import java.awt.Component;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -33,10 +31,9 @@ import util.Bundle;
 public class CharacterFrame extends javax.swing.JFrame {
 
     private AppManager manager;
-    PlayerCharacter.Derived derived;
-
     /**
      * Creates new form CharacterFrame
+     * @param manager
      */
     public CharacterFrame(AppManager manager) {
         if(manager == null){
@@ -47,7 +44,8 @@ public class CharacterFrame extends javax.swing.JFrame {
         initCardsForDefense();
         initCardsForSkillsProfs();
         initCardsForSpellsInventory();
-        initComponentsForBackendInterfacing();
+        initComponentsForUserInterfacing();
+        combo_level.addItemListener(new ComboItemListener(manager));
     }
 
     /**
@@ -1445,7 +1443,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         layout.show(deck_spellsInventory, Card.SPELLS);
     }
     
-    private void initComponentsForBackendInterfacing(){
+    private void initComponentsForUserInterfacing(){
         //Biography
         setTextListener(txt_charName, KEY.K_CHARACTER_NAME);
         setTextListener(txt_class, KEY.K_CLASS);
@@ -1499,16 +1497,13 @@ public class CharacterFrame extends javax.swing.JFrame {
         setTextListener(txt_pers_bond, KEY.K_BACKGROUND_BOND);
         setTextListener(txt_pers_ideal, KEY.K_BACKGROUND_IDEAL);
         setTextListener(txt_pers_flaw, KEY.K_BACKGROUND_FLAW);
+        
+        //Skills
+        card_skills.initListenerForSkills(manager);
     }
 
     private void setTextListener(JTextComponent component, String key) {
-        //Experimental change, switching from doclistener to focus listener
-        //Should reduce redundant communications increasing efficiency.
         component.addFocusListener(new TextFocusListener(key, component.getDocument(), manager));
-        
-        //Deprecated code, inefficient calls very bad now.
-        //component.getDocument().addDocumentListener
-                //(new TextChangeListener(key, manager));
     }
     
     ////////////////////////////////////////////////////////////////////////////
