@@ -57,11 +57,15 @@ public class ArmorPanel extends javax.swing.JPanel {
         cf_lbl_ac.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         cf_lbl_ac.setText("Armor Class");
         jPanel1.add(cf_lbl_ac);
+
+        txt_armor_class.setText("0");
         jPanel1.add(txt_armor_class);
 
         cf_lbl_dex_cap.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         cf_lbl_dex_cap.setText("Dexterity Cap");
         jPanel1.add(cf_lbl_dex_cap);
+
+        txt_dexterity_cap.setText("0");
         jPanel1.add(txt_dexterity_cap);
 
         add(jPanel1);
@@ -102,4 +106,14 @@ public class ArmorPanel extends javax.swing.JPanel {
     public javax.swing.JTextField txt_dexterity_cap;
     public javax.swing.JTextField txt_name;
     // End of variables declaration//GEN-END:variables
+
+    int getDEX_CAP() {
+        return Integer.parseInt(txt_dexterity_cap.getText());
+    }
+    
+    int getAC(){
+        return Integer.parseInt(txt_armor_class.getText());
+    }
+
+
 }

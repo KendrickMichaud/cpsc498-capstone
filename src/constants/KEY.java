@@ -199,6 +199,9 @@ public class KEY {
     
     //Feats Keys
     public static final String K_FEATURES_DESCRIPTION = H_FEATURE + L_FEATURES_DESCRIPTION;
+    private static String L_PROFICIENCY_BONUS = "proficiencyBonus";
+    public static String K_PROFICIENCY_BONUS = H_SKILLS + L_PROFICIENCY_BONUS;
+
     
     //Inventory Keys
     public static String generateCoordinates(int row, int col){

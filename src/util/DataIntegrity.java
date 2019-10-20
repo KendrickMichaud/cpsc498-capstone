@@ -5,6 +5,8 @@
  */
 package util;
 
+import constants.KEY;
+
 /**
  *
  * @author Kendrick
@@ -20,7 +22,6 @@ public class DataIntegrity {
      * @return integer parsed from text, 10 otherwise
      */
     public static int convertToInt(String text){
-        text = removePlusesAndMinuses(text);
         try{
             int i = Integer.parseInt(text);
             return i;
@@ -29,10 +30,28 @@ public class DataIntegrity {
             return DEFAULT_INTEGER;
         }
     }
-    
 
-    private static String removePlusesAndMinuses(String text) {
-        return ""; //TODO;
+    public static boolean checkNumber(String value) {
+        try{
+            Integer.parseInt(value);
+            return true;
+        }
+        catch (NumberFormatException e){
+            return false;
+        }
+    }
+
+    public static boolean validAttribute(String value) {
+        int num = Integer.parseInt(value);
+        return (num > 0) && (num <= 20);
+    }
+
+    public static String getDefault(String key) {
+        if(KeyReader.getHighKey(key).equals(KEY.H_ATTRIBUTES)){
+            return "10";
+        }
+        else
+            return "0";
     }
 
 

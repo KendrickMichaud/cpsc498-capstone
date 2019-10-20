@@ -5,6 +5,8 @@
  */
 package util;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author Kendrick
@@ -20,5 +22,10 @@ public class Ability {
         else{
             return "+".concat(Integer.toString(modifier));
         }
+    }
+
+    public static int getModifier(int abilityScore) {
+        int modifier = abilityScore-10;
+        return Math.floorDiv(modifier, 2);
     }
 }

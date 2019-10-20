@@ -18,11 +18,13 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.JTextComponent;
 import util.Ability;
+import util.Bundle;
 
 /**
  *
@@ -131,18 +133,33 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_weapon_name = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_weapon_name = new javax.swing.JTextArea();
-        lbl_attk_bonus = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        txt_weapon_attk_bonus = new javax.swing.JTextArea();
         lbl_damage_roll = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         txt_weapon_damage_roll = new javax.swing.JTextArea();
-        lbl_damage_bonus = new javax.swing.JLabel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        txt_weapon_damage_bonus = new javax.swing.JTextArea();
         lbl_damage_type = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
         txt_weapon_damage_type = new javax.swing.JTextArea();
+        jPanel2 = new javax.swing.JPanel();
+        lbl_damage_type1 = new javax.swing.JLabel();
+        lbl_dmg_bonus_total = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jPanel20 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        lbl_dmg_str_bonus = new javax.swing.JLabel();
+        jPanel21 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        txt_weapon_damage_bonus = new javax.swing.JTextField();
+        jPanel7 = new javax.swing.JPanel();
+        lbl_damage_type3 = new javax.swing.JLabel();
+        lbl_attk_bonus_total = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel18 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        lbl_attk_str_bonus = new javax.swing.JLabel();
+        jPanel19 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        txt_weapon_attk_bonus = new javax.swing.JTextField();
         pan_defense = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         defense_title = new javax.swing.JPanel();
@@ -164,14 +181,14 @@ public class CharacterFrame extends javax.swing.JFrame {
         txt_speed_bonus = new javax.swing.JTextField();
         pan_pass_perception = new javax.swing.JPanel();
         lbl_passive_perception_name = new javax.swing.JLabel();
-        lbl_derived_passive_perception = new javax.swing.JLabel();
+        lbl_passive_perception = new javax.swing.JLabel();
         pan_initiative = new javax.swing.JPanel();
         lbl_init_name = new javax.swing.JLabel();
         lbl_dex_bonus_title = new javax.swing.JLabel();
         lbl_plus_sign_3 = new javax.swing.JLabel();
         lbl_init_bonus_title = new javax.swing.JLabel();
         lbl_init_total = new javax.swing.JLabel();
-        lbl_derived_init_dex_bonus = new javax.swing.JLabel();
+        lbl_init_dex_bonus = new javax.swing.JLabel();
         lbl_plus_sign4 = new javax.swing.JLabel();
         txt_init_bonus = new javax.swing.JTextField();
         pan_health = new javax.swing.JPanel();
@@ -396,7 +413,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         pan_strength.add(lbl_strengthModifierTitle);
 
         lbl_strengthModifier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_strengthModifier.setText("0");
+        lbl_strengthModifier.setText("+0");
         pan_strength.add(lbl_strengthModifier);
 
         bdy_attributes.add(pan_strength);
@@ -421,7 +438,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         pan_dexterity.add(lbl_dexterityModifierTitle);
 
         lbl_dexterityModifier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_dexterityModifier.setText("0");
+        lbl_dexterityModifier.setText("+0");
         pan_dexterity.add(lbl_dexterityModifier);
 
         bdy_attributes.add(pan_dexterity);
@@ -446,7 +463,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         pan_constituion.add(lbl_constitutionModifierTitle);
 
         lbl_constitutionModifier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_constitutionModifier.setText("0");
+        lbl_constitutionModifier.setText("+0");
         pan_constituion.add(lbl_constitutionModifier);
 
         bdy_attributes.add(pan_constituion);
@@ -471,7 +488,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         pan_intelligence.add(jLabel14);
 
         lbl_intelligence_modifier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_intelligence_modifier.setText("0");
+        lbl_intelligence_modifier.setText("+0");
         pan_intelligence.add(lbl_intelligence_modifier);
 
         bdy_attributes.add(pan_intelligence);
@@ -496,7 +513,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         pan_wisdom.add(jLabel17);
 
         lbl_wisdom_modifier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_wisdom_modifier.setText("0");
+        lbl_wisdom_modifier.setText("+0");
         pan_wisdom.add(lbl_wisdom_modifier);
 
         bdy_attributes.add(pan_wisdom);
@@ -521,7 +538,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         pan_charisma.add(jLabel20);
 
         lbl_charisma_modifier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_charisma_modifier.setText("0");
+        lbl_charisma_modifier.setText("+0");
         pan_charisma.add(lbl_charisma_modifier);
 
         bdy_attributes.add(pan_charisma);
@@ -564,19 +581,6 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         pan_offenseBody.add(jScrollPane1);
 
-        lbl_attk_bonus.setText("Attack Bonus");
-        pan_offenseBody.add(lbl_attk_bonus);
-
-        jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-
-        txt_weapon_attk_bonus.setColumns(20);
-        txt_weapon_attk_bonus.setLineWrap(true);
-        txt_weapon_attk_bonus.setRows(5);
-        jScrollPane4.setViewportView(txt_weapon_attk_bonus);
-
-        pan_offenseBody.add(jScrollPane4);
-
         lbl_damage_roll.setText("Damage Roll");
         pan_offenseBody.add(lbl_damage_roll);
 
@@ -590,19 +594,6 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         pan_offenseBody.add(jScrollPane5);
 
-        lbl_damage_bonus.setText("Damage Bonus");
-        pan_offenseBody.add(lbl_damage_bonus);
-
-        jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane6.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-
-        txt_weapon_damage_bonus.setColumns(20);
-        txt_weapon_damage_bonus.setLineWrap(true);
-        txt_weapon_damage_bonus.setRows(5);
-        jScrollPane6.setViewportView(txt_weapon_damage_bonus);
-
-        pan_offenseBody.add(jScrollPane6);
-
         lbl_damage_type.setText("Damage Type");
         pan_offenseBody.add(lbl_damage_type);
 
@@ -615,6 +606,80 @@ public class CharacterFrame extends javax.swing.JFrame {
         jScrollPane7.setViewportView(txt_weapon_damage_type);
 
         pan_offenseBody.add(jScrollPane7);
+
+        jPanel2.setLayout(new java.awt.BorderLayout());
+
+        lbl_damage_type1.setText("Damage Bonus");
+        jPanel2.add(lbl_damage_type1, java.awt.BorderLayout.PAGE_START);
+
+        lbl_dmg_bonus_total.setText("Total = 0");
+        jPanel2.add(lbl_dmg_bonus_total, java.awt.BorderLayout.PAGE_END);
+
+        pan_offenseBody.add(jPanel2);
+
+        jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.X_AXIS));
+
+        jPanel11.setLayout(new javax.swing.BoxLayout(jPanel11, javax.swing.BoxLayout.X_AXIS));
+
+        jPanel20.setLayout(new java.awt.BorderLayout());
+
+        jLabel9.setText("STR");
+        jPanel20.add(jLabel9, java.awt.BorderLayout.PAGE_START);
+
+        lbl_dmg_str_bonus.setText("0");
+        jPanel20.add(lbl_dmg_str_bonus, java.awt.BorderLayout.CENTER);
+
+        jPanel11.add(jPanel20);
+
+        jPanel21.setLayout(new java.awt.BorderLayout());
+
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Extra");
+        jPanel21.add(jLabel11, java.awt.BorderLayout.PAGE_START);
+
+        txt_weapon_damage_bonus.setText("0");
+        jPanel21.add(txt_weapon_damage_bonus, java.awt.BorderLayout.CENTER);
+
+        jPanel11.add(jPanel21);
+
+        jPanel5.add(jPanel11);
+
+        pan_offenseBody.add(jPanel5);
+
+        jPanel7.setLayout(new java.awt.BorderLayout());
+
+        lbl_damage_type3.setText("Attack  Bonus");
+        jPanel7.add(lbl_damage_type3, java.awt.BorderLayout.PAGE_START);
+
+        lbl_attk_bonus_total.setText("Total = 0");
+        jPanel7.add(lbl_attk_bonus_total, java.awt.BorderLayout.PAGE_END);
+
+        pan_offenseBody.add(jPanel7);
+
+        jPanel8.setLayout(new javax.swing.BoxLayout(jPanel8, javax.swing.BoxLayout.X_AXIS));
+
+        jPanel18.setLayout(new java.awt.BorderLayout());
+
+        jLabel6.setText("STR");
+        jPanel18.add(jLabel6, java.awt.BorderLayout.PAGE_START);
+
+        lbl_attk_str_bonus.setText("0");
+        jPanel18.add(lbl_attk_str_bonus, java.awt.BorderLayout.CENTER);
+
+        jPanel8.add(jPanel18);
+
+        jPanel19.setLayout(new java.awt.BorderLayout());
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Extra");
+        jPanel19.add(jLabel7, java.awt.BorderLayout.PAGE_START);
+
+        txt_weapon_attk_bonus.setText("0");
+        jPanel19.add(txt_weapon_attk_bonus, java.awt.BorderLayout.CENTER);
+
+        jPanel8.add(jPanel19);
+
+        pan_offenseBody.add(jPanel8);
 
         pan_offense.add(pan_offenseBody, java.awt.BorderLayout.CENTER);
 
@@ -690,6 +755,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_plus_sign2.setText("+");
         pan_speed.add(lbl_plus_sign2);
 
+        txt_speed_bonus.setText("0");
         txt_speed_bonus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_speed_bonusActionPerformed(evt);
@@ -704,9 +770,9 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_passive_perception_name.setText("Passive Perception");
         pan_pass_perception.add(lbl_passive_perception_name, java.awt.BorderLayout.LINE_START);
 
-        lbl_derived_passive_perception.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_derived_passive_perception.setText("10");
-        pan_pass_perception.add(lbl_derived_passive_perception, java.awt.BorderLayout.CENTER);
+        lbl_passive_perception.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_passive_perception.setText("10");
+        pan_pass_perception.add(lbl_passive_perception, java.awt.BorderLayout.CENTER);
 
         pan_util_body.add(pan_pass_perception);
 
@@ -727,12 +793,13 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_init_total.setText("0");
         pan_initiative.add(lbl_init_total);
 
-        lbl_derived_init_dex_bonus.setText("0");
-        pan_initiative.add(lbl_derived_init_dex_bonus);
+        lbl_init_dex_bonus.setText("0");
+        pan_initiative.add(lbl_init_dex_bonus);
 
         lbl_plus_sign4.setText("+");
         pan_initiative.add(lbl_plus_sign4);
 
+        txt_init_bonus.setText("0");
         txt_init_bonus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_init_bonusActionPerformed(evt);
@@ -1126,7 +1193,7 @@ public class CharacterFrame extends javax.swing.JFrame {
     private void combo_levelItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combo_levelItemStateChanged
         Object item = evt.getItem();
         if(item.getClass().equals(String.class)){
-            manager.updateData(KEY.K_LEVEL, (String) item);
+            manager.validateDataChange(KEY.K_LEVEL, (String) item);
         }
     }//GEN-LAST:event_combo_levelItemStateChanged
 
@@ -1154,34 +1221,46 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem item_options;
     private javax.swing.JMenuItem item_save;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JLabel lbl_alignment;
-    private javax.swing.JLabel lbl_attk_bonus;
+    private javax.swing.JLabel lbl_attk_bonus_total;
+    private javax.swing.JLabel lbl_attk_str_bonus;
     private javax.swing.JPanel lbl_background_name;
     private javax.swing.JLabel lbl_charHeight;
     private javax.swing.JLabel lbl_charInfo;
@@ -1195,22 +1274,24 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_constitutionModifierTitle;
     private javax.swing.JLabel lbl_constitutionTitle;
     private javax.swing.JLabel lbl_currSkilsProfsName;
-    private javax.swing.JLabel lbl_damage_bonus;
     private javax.swing.JLabel lbl_damage_roll;
     private javax.swing.JLabel lbl_damage_type;
+    private javax.swing.JLabel lbl_damage_type1;
+    private javax.swing.JLabel lbl_damage_type3;
     private javax.swing.JLabel lbl_deck_defense_name;
     private javax.swing.JLabel lbl_deck_spells_name;
     private javax.swing.JLabel lbl_deity;
-    private javax.swing.JLabel lbl_derived_init_dex_bonus;
-    private javax.swing.JLabel lbl_derived_passive_perception;
     private javax.swing.JLabel lbl_dex_bonus_title;
     private javax.swing.JLabel lbl_dexterityModifier;
     private javax.swing.JLabel lbl_dexterityModifierTitle;
     private javax.swing.JLabel lbl_dexterityTitle;
+    private javax.swing.JLabel lbl_dmg_bonus_total;
+    private javax.swing.JLabel lbl_dmg_str_bonus;
     private javax.swing.JLabel lbl_health_points_title;
     private javax.swing.JLabel lbl_health_title;
     private javax.swing.JLabel lbl_hit_die_title;
     private javax.swing.JLabel lbl_init_bonus_title;
+    private javax.swing.JLabel lbl_init_dex_bonus;
     private javax.swing.JLabel lbl_init_name;
     private javax.swing.JLabel lbl_init_total;
     private javax.swing.JLabel lbl_intelligence_modifier;
@@ -1222,6 +1303,7 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_panFeatures;
     private javax.swing.JLabel lbl_panSkillsProfs;
     private javax.swing.JLabel lbl_panSpellsAndEquipment;
+    private javax.swing.JLabel lbl_passive_perception;
     private javax.swing.JLabel lbl_passive_perception_name;
     private javax.swing.JLabel lbl_pers_bond;
     private javax.swing.JLabel lbl_pers_flaw;
@@ -1303,8 +1385,8 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txt_size;
     private javax.swing.JTextField txt_speed_bonus;
     private javax.swing.JTextField txt_strength;
-    private javax.swing.JTextArea txt_weapon_attk_bonus;
-    private javax.swing.JTextArea txt_weapon_damage_bonus;
+    private javax.swing.JTextField txt_weapon_attk_bonus;
+    private javax.swing.JTextField txt_weapon_damage_bonus;
     private javax.swing.JTextArea txt_weapon_damage_roll;
     private javax.swing.JTextArea txt_weapon_damage_type;
     private javax.swing.JTextArea txt_weapon_name;
@@ -1431,75 +1513,110 @@ public class CharacterFrame extends javax.swing.JFrame {
     
     ////////////////////////////////////////////////////////////////////////////
     ///Update the Modifiers for labels.
-    public void updateStrengthLabel(int strengthModifier) {
-        lbl_strengthModifier.setText(Ability.modifierToString(strengthModifier));
-    }
-    public void updateDexterityLabel(int dexterityModifier) {
-        lbl_dexterityModifier.setText(Ability.modifierToString(dexterityModifier));
-    }
-    public void updateConstitutionLabel(int constituionModifier) {
-        lbl_constitutionModifier.setText(Ability.modifierToString(constituionModifier));
-    }
-    public void updateIntelligenceLabel(int intelligenceModifier) {
-        lbl_intelligence_modifier.setText(Ability.modifierToString(intelligenceModifier));
-    }
-    public void updateWisdomLabel(int wisdomModifier) {
-        lbl_wisdom_modifier.setText(Ability.modifierToString(wisdomModifier));
-    }
-    public void updateCharismaLabel(int charismaModifier) {
-        lbl_charisma_modifier.setText(Ability.modifierToString(charismaModifier));
+    public void updateModifierLabel(JLabel label, int modifier){
+        if(label != null){
+            label.setText(Ability.modifierToString(modifier));
+        }
     }
     ////////////////////////////////////////////////////////////////////////////
 
-
-
-    public void updateStrengthSkills(int strengthModifier, int proficiency) {
-
+    public int getMOD(String key){
+        if(key != null){
+            JTextField field = null;
+            switch(key){
+                case KEY.K_STRENGTH:field=txt_strength;break;
+                case KEY.K_DEXTERITY:field=txt_dexterity;break;
+                case KEY.K_CONSTITUTION:field=txt_constitution;break;
+                case KEY.K_INTELLIGENCE:field=txt_intelligence;break;
+                case KEY.K_WISDOM:field=txt_wisdom;break;
+                case KEY.K_CHARISMA:field=txt_charisma;break;
+            }
+            if(field != null){
+                return Ability.getModifier(Integer.parseInt(field.getText()));
+            }
+        }
+        return 0;
+    }
+    
+    /**
+     * Updates the Attribute Panel label information
+     */
+    public void updateAttributePanel() {      
+        updateModifierLabel(lbl_strengthModifier, getMOD(KEY.K_STRENGTH));
+        updateModifierLabel(lbl_dexterityModifier, getMOD(KEY.K_DEXTERITY));
+        updateModifierLabel(lbl_constitutionModifier, getMOD(KEY.K_CONSTITUTION));
+        updateModifierLabel(lbl_intelligence_modifier, getMOD(KEY.K_INTELLIGENCE));
+        updateModifierLabel(lbl_wisdom_modifier, getMOD(KEY.K_WISDOM));
+        updateModifierLabel(lbl_charisma_modifier, getMOD(KEY.K_CHARISMA));
+    }
+    
+    public int getProficiencyBonus(){
+        int level = Integer.parseInt((String) combo_level.getSelectedItem());
+        if(level < 5)   return 2;
+        if(level < 9)   return 3;
+        if(level < 13)  return 4;
+        if(level < 17)  return 5;
+                        return 6;
     }
 
-    public void updateOffensiveAbilities(int strengthModifier, int proficiency) {
-        System.out.println("Strength Modifier = " + strengthModifier);
-        System.out.println("Proficiency Bonus = " + proficiency);
+    /**
+     * Updates the offensive panel information based on derived values
+     */
+    public void updateOffensivePanel() {
+        int strength = Integer.parseInt(txt_strength.getText());
+        int mod = Ability.getModifier(strength);
+        int prof = getProficiencyBonus();
+        lbl_attk_str_bonus.setText(Integer.toString(mod));
+        lbl_dmg_str_bonus.setText(Integer.toString(mod));
+        int attk_bonus, dmg_bonus;
+        attk_bonus = Integer.parseInt(txt_weapon_attk_bonus.getText()) + mod + prof;
+        dmg_bonus = Integer.parseInt(txt_weapon_damage_bonus.getText()) + mod + prof;
+        lbl_attk_bonus_total.setText(Integer.toString(attk_bonus));
+        lbl_dmg_bonus_total.setText(Integer.toString(dmg_bonus));
     }
 
-    public void updateSkillsDexterity(int dexterityModifier, int proficiency) {
-
+    public void updateDefensePanel() {
+        int dex_mod = getMOD(KEY.K_DEXTERITY);
+        int wis_mod = getMOD(KEY.K_WISDOM);
+        int cha_mod = getMOD(KEY.K_CHARISMA);
+        int prof = getProficiencyBonus();
+        int dex_cap = card_armor.getDEX_CAP();
+        int ac = card_armor.getAC();
+        card_defense.setArmorValues(dex_mod, dex_cap, ac);
+        card_defense.setCommonSaves(dex_mod, wis_mod, cha_mod);
     }
 
-    public void updateDexACBonus(int dexterityModifier) {
+    public void updateUtilityPanel() {
+        int wis_mod = getMOD(KEY.K_WISDOM);
+        int dex_mod = getMOD(KEY.K_DEXTERITY);
+        int init_extra = Integer.parseInt(txt_init_bonus.getText());
+        
+        int init_total = init_extra + dex_mod;
+        int passive_perception = 10 + wis_mod;  //10 is base needs refactor
+        
+        lbl_init_dex_bonus.setText(Integer.toString(dex_mod));
+        lbl_init_total.setText(Integer.toString(init_total));
+        lbl_passive_perception.setText(Integer.toString(passive_perception));
+        
+        int speed_bonus = Integer.parseInt(txt_speed_bonus.getText());
+        int speed_total = 30 + speed_bonus;
+        lbl_speed_total.setText(Integer.toString(speed_total));
     }
 
-    public void updateDexInitBonus(int dexterityModifier) {
+    public void updateSkillPanel() {
+        Bundle bundle = new Bundle();
+        bundle.putInteger(KEY.K_PROFICIENCY_BONUS, getProficiencyBonus());
+        bundle.putInteger(KEY.K_STRENGTH, getMOD(KEY.K_STRENGTH));
+        bundle.putInteger(KEY.K_DEXTERITY, getMOD(KEY.K_DEXTERITY));
+        bundle.putInteger(KEY.K_CONSTITUTION, getMOD(KEY.K_CONSTITUTION));
+        bundle.putInteger(KEY.K_INTELLIGENCE, getMOD(KEY.K_INTELLIGENCE));
+        bundle.putInteger(KEY.K_WISDOM, getMOD(KEY.K_WISDOM));
+        bundle.putInteger(KEY.K_CHARISMA, getMOD(KEY.K_CHARISMA));
+        card_skills.updateSkills(bundle);
     }
 
-    public void updateDexSaveBonus(int dexterityModifier, int proficiency) {
+    private void updateLabel(JLabel label, String text){
         
     }
-
-
-
-    public void updateSkillsConstitution(int constituionModifier, int proficiency) {
-    }
-
-
-
-    public void updateSkillsIntelligence(int intelligenceModifier, int proficiency) {
-    }
-
-
-    public void updateWisdomSkills(int wisdomModifier, int proficiency) {
-    }
-
-    public void updateWisdomSave(int wisdomModifier, int proficiency) {
-    }
-
-
-
-    public void updateCharismaSkills(int charismaModifier, int proficiency) {
-    }
-
-    public void updateCharismaSave(int charismaModifier, int proficiency) {
-    }
-
 
 }

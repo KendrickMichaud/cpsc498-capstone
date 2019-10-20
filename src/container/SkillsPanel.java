@@ -5,6 +5,9 @@
  */
 package container;
 
+import constants.KEY;
+import util.Bundle;
+
 /**
  *
  * @author Kendrick
@@ -490,4 +493,18 @@ public class SkillsPanel extends javax.swing.JPanel {
     private javax.swing.JLabel total_stealth;
     private javax.swing.JLabel total_survival;
     // End of variables declaration//GEN-END:variables
+
+    void updateSkills(Bundle bundle) {
+        if(bundle != null){
+            int str_mod, dex_mod, con_mod, int_mod, wis_mod, cha_mod;
+            int prof_bonus;
+            str_mod = bundle.getInteger(KEY.K_STRENGTH);
+            dex_mod = bundle.getInteger(KEY.K_DEXTERITY);
+            con_mod = bundle.getInteger(KEY.K_CONSTITUTION);
+            int_mod = bundle.getInteger(KEY.K_INTELLIGENCE);
+            wis_mod = bundle.getInteger(KEY.K_WISDOM);
+            cha_mod = bundle.getInteger(KEY.K_CHARISMA);
+            prof_bonus = bundle.getInteger(KEY.K_PROFICIENCY_BONUS);
+        }
+    }
 }

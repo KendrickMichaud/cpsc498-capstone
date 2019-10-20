@@ -33,10 +33,10 @@ public class DefensePanel extends javax.swing.JPanel {
         lbl_armor_title = new javax.swing.JLabel();
         lbl_dex_bonus_title = new javax.swing.JLabel();
         lbl_bonus_ac_title = new javax.swing.JLabel();
-        lbl_derived_ac = new javax.swing.JLabel();
+        lbl_ac_total = new javax.swing.JLabel();
         lbl_equal_sign2 = new javax.swing.JLabel();
-        lbl_derived_armor = new javax.swing.JLabel();
-        lbl_derived_dexterity_bonus = new javax.swing.JLabel();
+        lbl_ac = new javax.swing.JLabel();
+        lbl_ac_dex = new javax.swing.JLabel();
         txt_extra_ac_bonus = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -46,16 +46,16 @@ public class DefensePanel extends javax.swing.JPanel {
         lbl_common_save_derived_title = new javax.swing.JLabel();
         lbl_common_save_bonus_title = new javax.swing.JLabel();
         lbl_common_save_dex_title = new javax.swing.JLabel();
-        lbl_derived_dex_total = new javax.swing.JLabel();
-        lbl_derived_dex_mod = new javax.swing.JLabel();
+        lbl_save_dex_total = new javax.swing.JLabel();
+        lbl_save_dex_mod = new javax.swing.JLabel();
         txt_dex_bonus = new javax.swing.JTextField();
         lbl_common_save_wis_title = new javax.swing.JLabel();
-        lbl_derived_wis_total = new javax.swing.JLabel();
-        lbl_derived_wis_mod = new javax.swing.JLabel();
+        lbl_save_wis_total = new javax.swing.JLabel();
+        lbl_save_wis_mod = new javax.swing.JLabel();
         txt_wis_bonus = new javax.swing.JTextField();
         lbl_common_save_cha_title = new javax.swing.JLabel();
-        lbl_derived_cha_total = new javax.swing.JLabel();
-        lbl_derived_cha_mod = new javax.swing.JLabel();
+        lbl_save_cha_total = new javax.swing.JLabel();
+        lbl_save_cha_mod = new javax.swing.JLabel();
         txt_cha_bonus = new javax.swing.JTextField();
 
         setLayout(new java.awt.BorderLayout());
@@ -82,23 +82,24 @@ public class DefensePanel extends javax.swing.JPanel {
         lbl_bonus_ac_title.setText("EXTRA");
         jPanel5.add(lbl_bonus_ac_title);
 
-        lbl_derived_ac.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        lbl_derived_ac.setText("0");
-        jPanel5.add(lbl_derived_ac);
+        lbl_ac_total.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        lbl_ac_total.setText("0");
+        jPanel5.add(lbl_ac_total);
 
         lbl_equal_sign2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lbl_equal_sign2.setText("=");
         jPanel5.add(lbl_equal_sign2);
 
-        lbl_derived_armor.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        lbl_derived_armor.setText("0");
-        jPanel5.add(lbl_derived_armor);
+        lbl_ac.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        lbl_ac.setText("0");
+        jPanel5.add(lbl_ac);
 
-        lbl_derived_dexterity_bonus.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        lbl_derived_dexterity_bonus.setText("0");
-        jPanel5.add(lbl_derived_dexterity_bonus);
+        lbl_ac_dex.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        lbl_ac_dex.setText("0");
+        jPanel5.add(lbl_ac_dex);
 
         txt_extra_ac_bonus.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        txt_extra_ac_bonus.setText("0");
         jPanel5.add(txt_extra_ac_bonus);
 
         add(jPanel5, java.awt.BorderLayout.PAGE_START);
@@ -127,31 +128,37 @@ public class DefensePanel extends javax.swing.JPanel {
         lbl_common_save_dex_title.setText("DEX");
         jPanel9.add(lbl_common_save_dex_title);
 
-        lbl_derived_dex_total.setText("0");
-        jPanel9.add(lbl_derived_dex_total);
+        lbl_save_dex_total.setText("0");
+        jPanel9.add(lbl_save_dex_total);
 
-        lbl_derived_dex_mod.setText("0");
-        jPanel9.add(lbl_derived_dex_mod);
+        lbl_save_dex_mod.setText("0");
+        jPanel9.add(lbl_save_dex_mod);
+
+        txt_dex_bonus.setText("0");
         jPanel9.add(txt_dex_bonus);
 
         lbl_common_save_wis_title.setText("WIS");
         jPanel9.add(lbl_common_save_wis_title);
 
-        lbl_derived_wis_total.setText("0");
-        jPanel9.add(lbl_derived_wis_total);
+        lbl_save_wis_total.setText("0");
+        jPanel9.add(lbl_save_wis_total);
 
-        lbl_derived_wis_mod.setText("0");
-        jPanel9.add(lbl_derived_wis_mod);
+        lbl_save_wis_mod.setText("0");
+        jPanel9.add(lbl_save_wis_mod);
+
+        txt_wis_bonus.setText("0");
         jPanel9.add(txt_wis_bonus);
 
         lbl_common_save_cha_title.setText("CHA");
         jPanel9.add(lbl_common_save_cha_title);
 
-        lbl_derived_cha_total.setText("0");
-        jPanel9.add(lbl_derived_cha_total);
+        lbl_save_cha_total.setText("0");
+        jPanel9.add(lbl_save_cha_total);
 
-        lbl_derived_cha_mod.setText("0");
-        jPanel9.add(lbl_derived_cha_mod);
+        lbl_save_cha_mod.setText("0");
+        jPanel9.add(lbl_save_cha_mod);
+
+        txt_cha_bonus.setText("0");
         jPanel9.add(txt_cha_bonus);
 
         jPanel8.add(jPanel9, java.awt.BorderLayout.CENTER);
@@ -165,7 +172,10 @@ public class DefensePanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel lbl_ac;
+    private javax.swing.JLabel lbl_ac_dex;
     private javax.swing.JLabel lbl_ac_title;
+    private javax.swing.JLabel lbl_ac_total;
     private javax.swing.JLabel lbl_armor_title;
     private javax.swing.JLabel lbl_bonus_ac_title;
     private javax.swing.JLabel lbl_common_save_bonus_title;
@@ -175,21 +185,52 @@ public class DefensePanel extends javax.swing.JPanel {
     private javax.swing.JLabel lbl_common_save_total_title;
     private javax.swing.JLabel lbl_common_save_type_title;
     private javax.swing.JLabel lbl_common_save_wis_title;
-    private javax.swing.JLabel lbl_derived_ac;
-    private javax.swing.JLabel lbl_derived_armor;
-    private javax.swing.JLabel lbl_derived_cha_mod;
-    private javax.swing.JLabel lbl_derived_cha_total;
-    private javax.swing.JLabel lbl_derived_dex_mod;
-    private javax.swing.JLabel lbl_derived_dex_total;
-    private javax.swing.JLabel lbl_derived_dexterity_bonus;
-    private javax.swing.JLabel lbl_derived_wis_mod;
-    private javax.swing.JLabel lbl_derived_wis_total;
     private javax.swing.JLabel lbl_dex_bonus_title;
     private javax.swing.JLabel lbl_equal_sign;
     private javax.swing.JLabel lbl_equal_sign2;
+    private javax.swing.JLabel lbl_save_cha_mod;
+    private javax.swing.JLabel lbl_save_cha_total;
+    private javax.swing.JLabel lbl_save_dex_mod;
+    private javax.swing.JLabel lbl_save_dex_total;
+    private javax.swing.JLabel lbl_save_wis_mod;
+    private javax.swing.JLabel lbl_save_wis_total;
     public javax.swing.JTextField txt_cha_bonus;
     public javax.swing.JTextField txt_dex_bonus;
     public javax.swing.JTextField txt_extra_ac_bonus;
     public javax.swing.JTextField txt_wis_bonus;
     // End of variables declaration//GEN-END:variables
+
+
+    void setCommonSaves(int dex_mod, int wis_mod, int cha_mod) {
+        int dex_extra = Integer.parseInt(txt_dex_bonus.getText());
+        int wis_extra = Integer.parseInt(txt_wis_bonus.getText());
+        int cha_extra = Integer.parseInt(txt_cha_bonus.getText());
+        int dex_total = dex_mod + dex_extra;
+        int wis_total = wis_mod + wis_extra;
+        int cha_total = cha_mod + cha_extra;
+        
+        lbl_save_cha_mod.setText(Integer.toString(cha_mod));
+        lbl_save_wis_mod.setText(Integer.toString(wis_mod));
+        lbl_save_dex_mod.setText(Integer.toString(dex_mod));
+        
+        lbl_save_cha_total.setText(Integer.toString(cha_total));
+        lbl_save_wis_total.setText(Integer.toString(wis_total));
+        lbl_save_dex_total.setText(Integer.toString(dex_total));
+    }
+
+    void setArmorValues(int dex_mod, int dex_cap, int ac) {
+        int armor_dex = 0;
+        System.out.println("DexMod(" + dex_mod + ") dex_cap(" + dex_cap + ")");
+        if(dex_cap == 0 || dex_mod < dex_cap){
+            armor_dex = dex_mod;
+        }
+        else{
+            armor_dex = dex_cap;
+        }
+        int extraAC = Integer.parseInt(txt_extra_ac_bonus.getText());
+        int totalAC = extraAC + armor_dex + ac;
+        lbl_ac_dex.setText(Integer.toString(armor_dex));
+        lbl_ac.setText(Integer.toString(ac));
+        lbl_ac_total.setText(Integer.toString(totalAC));
+    }
 }

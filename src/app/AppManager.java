@@ -1,13 +1,19 @@
 package app;
 
 
+import constants.Card;
 import constants.KEY;
 import container.CharacterFrame;
 import core.PlayerCharacter;
 import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import util.KeyReader;
 
 import javax.swing.*;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Document;
+import util.DataIntegrity;
 
 public class AppManager {
     
@@ -28,13 +34,48 @@ public class AppManager {
         character = new PlayerCharacter();
     }
 
-    public void updateData(String key, String value) {
-        if(KeyReader.validKey(key) && value != null){
-            System.out.println(key.concat(" ").concat(value));
-            character.updateValue(key, value);
-            unsavedData = true;
+    public boolean validateDataChange(String key, String value) {
+        if(key != null && value != null){
+            //Few to keys to verify validity
+            //Anything involving numbers is pretty much the domain of keys
+            
+            //First we check if the value is a number
+            boolean isANumber = DataIntegrity.checkNumber(value);
+            if(KeyReader.getHighKey(key).equals(KEY.H_ATTRIBUTES)){
+                //We want to check if this is a valid attribute number
+                //and not some ridiculous -1000 or 1000
+                return isANumber && DataIntegrity.validAttribute(value);
+            }
+            else if(KeyReader.getHighKey(key).equals(KEY.H_SKILLS)){
+                //In this case it should be possible to allow for
+                //Homebrewing where you might get a -1 to a skill
+                //Just return if its a number
+                return isANumber;
+            }
+            //At this point we are just checking other values that could be
+            //Numeric. This can increase or decrease depending on future changes
+            //All in all, this is just one big if_else statement
+            switch(key){
+                //Offensive Panel
+                case KEY.K_WEAPON_ATTK_BONUS:
+                case KEY.K_WEAPON_DMG_BONUS:
+                //Util panel
+                case KEY.K_INIT_BONUS:
+                case KEY.K_SPEED_BONUS:
+                //Defense panel
+                case KEY.K_AC_EXTRA:
+                case KEY.K_DEX_SAVE_BONUS:
+                case KEY.K_CHA_SAVE_BONUS:
+                case KEY.K_WIS_SAVE_BONUS:
+                case KEY.K_ARMOR_AC:return isANumber;
+            }
+            //If it's none of the above, then it's a value we don't care
+            //about since it's not a number that affects others in the program
+            return true;
         }
- 
+        else{       
+            return false;
+        }
     }
 
     void launchApplication() {
@@ -83,107 +124,31 @@ public class AppManager {
         throw new IllegalArgumentException("The file cannot be opened");
     }
 
-    /**
-     * Updates all GUI components that are tied to strengthModifier
-     * JLabel strengthModifier
-     * Skills related to Strength
-     * Attack roll bonus
-     * Attack damage bonus
-     * 
-     * @param strengthModifier 
-     */
-    public void updateStrengthValues(int strengthModifier) {
-        int proficiency = character.derived.proficiencyBonus();
-        main_frame.updateStrengthLabel(strengthModifier);
-        main_frame.updateStrengthSkills(strengthModifier, proficiency);
-        main_frame.updateOffensiveAbilities(strengthModifier, proficiency);
+    public void restoreDefaultValue(String key, Document document) {
+        try {
+            String errorText = "Error, the value you entered ("
+                    .concat(document.getText(0, document.getLength()))
+                    .concat(") is not a valid number")
+                    .concat("A default value will be applied");
+            JOptionPane.showMessageDialog(main_frame, errorText, "Invalid Input", 0);
+        } catch (BadLocationException ex) {
+            Logger.getLogger(AppManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            document.remove(0, document.getLength());
+            document.insertString(0, DataIntegrity.getDefault(key), null);
+        } catch (BadLocationException ex) {
+            Logger.getLogger(AppManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-    /**
-     * Updates all GUI components tied to dexterity attribute
-     * Dexterity modifier
-     * Skills related to dexterity
-     * Dex AC bonus
-     * Initiative Dex Bonus
-     * 
-     * @param dexterityModifier 
-     */
-    public void updateDexterityValues(int dexterityModifier) {
-        int proficiency = character.derived.proficiencyBonus();
-        main_frame.updateDexterityLabel(dexterityModifier);
-        main_frame.updateSkillsDexterity(dexterityModifier, proficiency);
-        main_frame.updateDexACBonus(dexterityModifier);
-        main_frame.updateDexInitBonus(dexterityModifier);
-        main_frame.updateDexSaveBonus(dexterityModifier, proficiency);
-    }
-    
-    /**
-     * Updates all GUI components tied to constitution attribute
-     * Constitution modifier
-     * Skills related to constitution
-     * @param constitutionModifier 
-     */
-    public void updateConstituionValues(int constitutionModifier) {
-        int proficiency = character.derived.proficiencyBonus();
-        main_frame.updateConstitutionLabel(constitutionModifier);
-        main_frame.updateSkillsConstitution(constitutionModifier, proficiency);
-    }
-
-    /**
-     * Updates all GUI components tied to intelligence attribute
-     * Intelligence modifier
-     * Skills related to intelligence
-     * @param intelligenceModifier 
-     */
-    public void updateIntelligenceValues(int intelligenceModifier) {
-        int proficiency = character.derived.proficiencyBonus();
-        main_frame.updateIntelligenceLabel(intelligenceModifier);
-        main_frame.updateSkillsIntelligence(intelligenceModifier, proficiency);
-    }
-
-    /**
-     * Updates all GUI components tied to wisdom attribute
-     * Wisdom modifier
-     * Skills related to wisdom
-     * Wisdom save
-     * 
-     * @param wisdomModifier 
-     */
-    public void updateWisdomValues(int wisdomModifier) {
-        int proficiency = character.derived.proficiencyBonus();
-        main_frame.updateWisdomLabel(wisdomModifier);
-        main_frame.updateWisdomSkills(wisdomModifier, proficiency);
-        main_frame.updateWisdomSave(wisdomModifier, proficiency);
-    }
-
-    /**
-     * Updates all GUI components tied to charisma attribute
-     * Charisma modifier
-     * Skills related to Charisma
-     * Charisma save
-     * 
-     * @param charismaModifier 
-     */
-    public void updateCharismaValues(int charismaModifier) {
-        int proficiency = character.derived.proficiencyBonus();
-        main_frame.updateCharismaLabel(charismaModifier);
-        main_frame.updateCharismaSkills(charismaModifier, proficiency);
-        main_frame.updateCharismaSave(charismaModifier, proficiency);
-    }
-
-    /**
-     * If the level of the player has changed, then it will be necessary
-     * to update all related components (which are a lot). Therefore, pass
-     * attributes and let this method call necessary updates as a whole.
-     * @param attributes 
-     */
-    public void updateProficiencyBonusRelatedItems(int[] attributes) {
-        updateStrengthValues(attributes[0]);
-        updateDexterityValues(attributes[1]);
-        updateConstituionValues(attributes[2]);
-        updateIntelligenceValues(attributes[3]);
-        updateWisdomValues(attributes[4]);
-        updateCharismaValues(attributes[5]);
+    public void updateValues() {
+        main_frame.updateAttributePanel();
+        main_frame.updateOffensivePanel();
+        main_frame.updateDefensePanel();
+        main_frame.updateUtilityPanel();
+        main_frame.updateSkillPanel();
     }
 
     

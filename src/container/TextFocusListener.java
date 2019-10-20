@@ -39,7 +39,17 @@ public class TextFocusListener implements FocusListener{
         int length = document.getLength();
         if(length > 0){
             try {
-                manager.updateData(key, document.getText(0, length));
+                //if the user data change is not allowed by the manager
+                //manager will then notify JFrame to alert user to invalid data
+                //change and then lastly
+                //manager will revert document to default based on key.
+                if(!manager.validateDataChange(key, document.getText(0, length))){
+                    manager.restoreDefaultValue(key, document);
+                }
+                //regardlesss of data being valid or invalid. A Data change
+                //can result in a cascading effect. Therefore, related values
+                //must be updated based on the key.
+                manager.updateValues();
             } catch (BadLocationException ex) {
                 Logger.getLogger(TextFocusListener.class.getName()).log(Level.SEVERE, null, ex);
             }

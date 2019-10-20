@@ -41,7 +41,7 @@ public class TextChangeListener implements DocumentListener {
         Document document = e.getDocument();
         int length = document.getLength();
         try {
-            manager.updateData(key, document.getText(0, length));
+            manager.validateDataChange(key, document.getText(0, length));
         } catch (BadLocationException ex) {
             ex.printStackTrace();
         }
