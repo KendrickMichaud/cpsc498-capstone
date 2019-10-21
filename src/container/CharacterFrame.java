@@ -92,6 +92,8 @@ public class CharacterFrame extends javax.swing.JFrame {
         txt_strength = new javax.swing.JTextField();
         lbl_strengthModifierTitle = new javax.swing.JLabel();
         lbl_strengthModifier = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jLabel2 = new javax.swing.JLabel();
         pan_dexterity = new javax.swing.JPanel();
         lbl_dexterityTitle = new javax.swing.JLabel();
         pan_dexBody = new javax.swing.JPanel();
@@ -252,7 +254,6 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DND Character Sheet Editor");
-        setPreferredSize(new java.awt.Dimension(819, 600));
         setResizable(false);
         setSize(new java.awt.Dimension(0, 0));
 
@@ -264,7 +265,6 @@ public class CharacterFrame extends javax.swing.JFrame {
         pan_main.setMinimumSize(new java.awt.Dimension(800, 1190));
         pan_main.setPreferredSize(new java.awt.Dimension(800, 1200));
         pan_main.setRequestFocusEnabled(false);
-        pan_main.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pan_charInfo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pan_charInfo.setMaximumSize(new java.awt.Dimension(200, 420));
@@ -276,8 +276,6 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_charInfo.setPreferredSize(new java.awt.Dimension(120, 18));
         pan_charInfo.add(lbl_charInfo, java.awt.BorderLayout.PAGE_START);
 
-        bdy_charInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         pan_photo.setLayout(new java.awt.BorderLayout());
 
         lbl_characterImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -288,8 +286,6 @@ public class CharacterFrame extends javax.swing.JFrame {
             }
         });
         pan_photo.add(lbl_characterImage, java.awt.BorderLayout.CENTER);
-
-        bdy_charInfo.add(pan_photo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 150));
 
         pan_biography.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pan_biography.setLayout(new java.awt.GridLayout(9, 2, -72, 0));
@@ -374,11 +370,22 @@ public class CharacterFrame extends javax.swing.JFrame {
         });
         pan_biography.add(combo_level);
 
-        bdy_charInfo.add(pan_biography, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 198, 250));
+        javax.swing.GroupLayout bdy_charInfoLayout = new javax.swing.GroupLayout(bdy_charInfo);
+        bdy_charInfo.setLayout(bdy_charInfoLayout);
+        bdy_charInfoLayout.setHorizontalGroup(
+            bdy_charInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pan_photo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(pan_biography, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        bdy_charInfoLayout.setVerticalGroup(
+            bdy_charInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bdy_charInfoLayout.createSequentialGroup()
+                .addComponent(pan_photo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(pan_biography, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pan_charInfo.add(bdy_charInfo, java.awt.BorderLayout.CENTER);
-
-        pan_main.add(pan_charInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 200, 420));
 
         pan_attributes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pan_attributes.setMaximumSize(new java.awt.Dimension(550, 150));
@@ -391,18 +398,18 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         bdy_attributes.setLayout(new java.awt.GridLayout(1, 6));
 
-        pan_strength.setLayout(new java.awt.GridLayout(4, 3));
+        pan_strength.setLayout(new java.awt.GridLayout(6, 1));
 
         lbl_strengthTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_strengthTitle.setText("Strength");
         pan_strength.add(lbl_strengthTitle);
 
-        pan_strBody.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pan_strBody.setLayout(new java.awt.BorderLayout());
 
         txt_strength.setColumns(4);
         txt_strength.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_strength.setText("10");
-        pan_strBody.add(txt_strength, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 50, 30));
+        pan_strBody.add(txt_strength, java.awt.BorderLayout.CENTER);
 
         pan_strength.add(pan_strBody);
 
@@ -414,6 +421,12 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_strengthModifier.setText("+0");
         pan_strength.add(lbl_strengthModifier);
 
+        jCheckBox1.setText("Save Prof");
+        pan_strength.add(jCheckBox1);
+
+        jLabel2.setText("+0");
+        pan_strength.add(jLabel2);
+
         bdy_attributes.add(pan_strength);
 
         pan_dexterity.setLayout(new java.awt.GridLayout(4, 3));
@@ -422,12 +435,22 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_dexterityTitle.setText("Dexterity");
         pan_dexterity.add(lbl_dexterityTitle);
 
-        pan_dexBody.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         txt_dexterity.setColumns(4);
         txt_dexterity.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_dexterity.setText("10");
-        pan_dexBody.add(txt_dexterity, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 50, 30));
+
+        javax.swing.GroupLayout pan_dexBodyLayout = new javax.swing.GroupLayout(pan_dexBody);
+        pan_dexBody.setLayout(pan_dexBodyLayout);
+        pan_dexBodyLayout.setHorizontalGroup(
+            pan_dexBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pan_dexBodyLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(txt_dexterity, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        pan_dexBodyLayout.setVerticalGroup(
+            pan_dexBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txt_dexterity, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pan_dexterity.add(pan_dexBody);
 
@@ -447,12 +470,22 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_constitutionTitle.setText("Constituion");
         pan_constituion.add(lbl_constitutionTitle);
 
-        pan_conBody.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         txt_constitution.setColumns(4);
         txt_constitution.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_constitution.setText("10");
-        pan_conBody.add(txt_constitution, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 50, 30));
+
+        javax.swing.GroupLayout pan_conBodyLayout = new javax.swing.GroupLayout(pan_conBody);
+        pan_conBody.setLayout(pan_conBodyLayout);
+        pan_conBodyLayout.setHorizontalGroup(
+            pan_conBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pan_conBodyLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(txt_constitution, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        pan_conBodyLayout.setVerticalGroup(
+            pan_conBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txt_constitution, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pan_constituion.add(pan_conBody);
 
@@ -472,12 +505,22 @@ public class CharacterFrame extends javax.swing.JFrame {
         jLabel13.setText("Intelligence");
         pan_intelligence.add(jLabel13);
 
-        jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         txt_intelligence.setColumns(4);
         txt_intelligence.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_intelligence.setText("10");
-        jPanel13.add(txt_intelligence, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 50, 30));
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(txt_intelligence, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txt_intelligence, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pan_intelligence.add(jPanel13);
 
@@ -497,12 +540,22 @@ public class CharacterFrame extends javax.swing.JFrame {
         jLabel16.setText("Wisdom");
         pan_wisdom.add(jLabel16);
 
-        jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         txt_wisdom.setColumns(4);
         txt_wisdom.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_wisdom.setText("10");
-        jPanel15.add(txt_wisdom, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 50, 30));
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(txt_wisdom, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txt_wisdom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pan_wisdom.add(jPanel15);
 
@@ -522,12 +575,22 @@ public class CharacterFrame extends javax.swing.JFrame {
         jLabel19.setText("Charisma");
         pan_charisma.add(jLabel19);
 
-        jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         txt_charisma.setColumns(4);
         txt_charisma.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_charisma.setText("10");
-        jPanel17.add(txt_charisma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 50, 30));
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(txt_charisma, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txt_charisma, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pan_charisma.add(jPanel17);
 
@@ -542,8 +605,6 @@ public class CharacterFrame extends javax.swing.JFrame {
         bdy_attributes.add(pan_charisma);
 
         pan_attributes.add(bdy_attributes, java.awt.BorderLayout.CENTER);
-
-        pan_main.add(pan_attributes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 550, 150));
 
         pan_combat.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pan_combat.setMaximumSize(new java.awt.Dimension(550, 260));
@@ -840,8 +901,6 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         pan_combat.add(pan_combatBody, java.awt.BorderLayout.CENTER);
 
-        pan_main.add(pan_combat, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 550, 260));
-
         pan_skills.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pan_skills.setMaximumSize(new java.awt.Dimension(200, 420));
         pan_skills.setLayout(new java.awt.BorderLayout());
@@ -879,8 +938,6 @@ public class CharacterFrame extends javax.swing.JFrame {
         deck_skillsProfs.setLayout(new java.awt.CardLayout());
         pan_skills.add(deck_skillsProfs, java.awt.BorderLayout.CENTER);
 
-        pan_main.add(pan_skills, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 440, 420));
-
         pan_features.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pan_features.setMaximumSize(new java.awt.Dimension(550, 420));
         pan_features.setLayout(new java.awt.BorderLayout());
@@ -900,8 +957,6 @@ public class CharacterFrame extends javax.swing.JFrame {
         bdy_features.add(jScrollPane3, java.awt.BorderLayout.CENTER);
 
         pan_features.add(bdy_features, java.awt.BorderLayout.CENTER);
-
-        pan_main.add(pan_features, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 440, 310, 420));
 
         pan_spellsInventory.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pan_spellsInventory.setMaximumSize(new java.awt.Dimension(540, 320));
@@ -942,8 +997,6 @@ public class CharacterFrame extends javax.swing.JFrame {
         bdy_spellsAndEquipment.add(deck_spellsInventory, java.awt.BorderLayout.CENTER);
 
         pan_spellsInventory.add(bdy_spellsAndEquipment, java.awt.BorderLayout.CENTER);
-
-        pan_main.add(pan_spellsInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 870, 540, 320));
 
         pan_background.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pan_background.setLayout(new java.awt.BorderLayout());
@@ -1032,7 +1085,47 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         pan_background.add(bdy_background, java.awt.BorderLayout.CENTER);
 
-        pan_main.add(pan_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 870, 210, 320));
+        javax.swing.GroupLayout pan_mainLayout = new javax.swing.GroupLayout(pan_main);
+        pan_main.setLayout(pan_mainLayout);
+        pan_mainLayout.setHorizontalGroup(
+            pan_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pan_mainLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(pan_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pan_mainLayout.createSequentialGroup()
+                        .addComponent(pan_charInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addGroup(pan_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pan_attributes, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pan_combat, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pan_mainLayout.createSequentialGroup()
+                        .addComponent(pan_skills, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(pan_features, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pan_mainLayout.createSequentialGroup()
+                        .addComponent(pan_spellsInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(pan_background, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+        pan_mainLayout.setVerticalGroup(
+            pan_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pan_mainLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(pan_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pan_charInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pan_mainLayout.createSequentialGroup()
+                        .addComponent(pan_attributes, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(pan_combat, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(10, 10, 10)
+                .addGroup(pan_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pan_skills, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pan_features, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(pan_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pan_spellsInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pan_background, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
         scrollPane.setViewportView(pan_main);
 
@@ -1218,6 +1311,7 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem item_open;
     private javax.swing.JMenuItem item_options;
     private javax.swing.JMenuItem item_save;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
@@ -1225,6 +1319,7 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
