@@ -100,30 +100,40 @@ public class CharacterFrame extends javax.swing.JFrame {
         txt_dexterity = new javax.swing.JTextField();
         lbl_dexterityModifierTitle = new javax.swing.JLabel();
         lbl_dexterityModifier = new javax.swing.JLabel();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jLabel3 = new javax.swing.JLabel();
         pan_constituion = new javax.swing.JPanel();
         lbl_constitutionTitle = new javax.swing.JLabel();
         pan_conBody = new javax.swing.JPanel();
         txt_constitution = new javax.swing.JTextField();
         lbl_constitutionModifierTitle = new javax.swing.JLabel();
         lbl_constitutionModifier = new javax.swing.JLabel();
+        jCheckBox3 = new javax.swing.JCheckBox();
+        jLabel4 = new javax.swing.JLabel();
         pan_intelligence = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
         txt_intelligence = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         lbl_intelligence_modifier = new javax.swing.JLabel();
+        jCheckBox4 = new javax.swing.JCheckBox();
+        jLabel5 = new javax.swing.JLabel();
         pan_wisdom = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
         txt_wisdom = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         lbl_wisdom_modifier = new javax.swing.JLabel();
+        jCheckBox5 = new javax.swing.JCheckBox();
+        jLabel8 = new javax.swing.JLabel();
         pan_charisma = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jPanel17 = new javax.swing.JPanel();
         txt_charisma = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         lbl_charisma_modifier = new javax.swing.JLabel();
+        jCheckBox6 = new javax.swing.JCheckBox();
+        jLabel10 = new javax.swing.JLabel();
         pan_combat = new javax.swing.JPanel();
         lbl_panCombat = new javax.swing.JLabel();
         pan_combatBody = new javax.swing.JPanel();
@@ -259,6 +269,7 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         scrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setPreferredSize(new java.awt.Dimension(819, 600));
 
         pan_main.setBackground(new java.awt.Color(204, 204, 204));
         pan_main.setMaximumSize(new java.awt.Dimension(800, 1200));
@@ -404,12 +415,12 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_strengthTitle.setText("Strength");
         pan_strength.add(lbl_strengthTitle);
 
-        pan_strBody.setLayout(new java.awt.BorderLayout());
+        pan_strBody.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
         txt_strength.setColumns(4);
         txt_strength.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_strength.setText("10");
-        pan_strBody.add(txt_strength, java.awt.BorderLayout.CENTER);
+        pan_strBody.add(txt_strength);
 
         pan_strength.add(pan_strBody);
 
@@ -424,33 +435,24 @@ public class CharacterFrame extends javax.swing.JFrame {
         jCheckBox1.setText("Save Prof");
         pan_strength.add(jCheckBox1);
 
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("+0");
         pan_strength.add(jLabel2);
 
         bdy_attributes.add(pan_strength);
 
-        pan_dexterity.setLayout(new java.awt.GridLayout(4, 3));
+        pan_dexterity.setLayout(new java.awt.GridLayout(6, 0));
 
         lbl_dexterityTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_dexterityTitle.setText("Dexterity");
         pan_dexterity.add(lbl_dexterityTitle);
 
+        pan_dexBody.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+
         txt_dexterity.setColumns(4);
         txt_dexterity.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_dexterity.setText("10");
-
-        javax.swing.GroupLayout pan_dexBodyLayout = new javax.swing.GroupLayout(pan_dexBody);
-        pan_dexBody.setLayout(pan_dexBodyLayout);
-        pan_dexBodyLayout.setHorizontalGroup(
-            pan_dexBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pan_dexBodyLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(txt_dexterity, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        pan_dexBodyLayout.setVerticalGroup(
-            pan_dexBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_dexterity, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        pan_dexBody.add(txt_dexterity);
 
         pan_dexterity.add(pan_dexBody);
 
@@ -462,30 +464,27 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_dexterityModifier.setText("+0");
         pan_dexterity.add(lbl_dexterityModifier);
 
+        jCheckBox2.setText("Save Prof");
+        pan_dexterity.add(jCheckBox2);
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("+0");
+        pan_dexterity.add(jLabel3);
+
         bdy_attributes.add(pan_dexterity);
 
-        pan_constituion.setLayout(new java.awt.GridLayout(4, 3));
+        pan_constituion.setLayout(new java.awt.GridLayout(6, 3));
 
         lbl_constitutionTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_constitutionTitle.setText("Constituion");
         pan_constituion.add(lbl_constitutionTitle);
 
+        pan_conBody.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+
         txt_constitution.setColumns(4);
         txt_constitution.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_constitution.setText("10");
-
-        javax.swing.GroupLayout pan_conBodyLayout = new javax.swing.GroupLayout(pan_conBody);
-        pan_conBody.setLayout(pan_conBodyLayout);
-        pan_conBodyLayout.setHorizontalGroup(
-            pan_conBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pan_conBodyLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(txt_constitution, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        pan_conBodyLayout.setVerticalGroup(
-            pan_conBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_constitution, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        pan_conBody.add(txt_constitution);
 
         pan_constituion.add(pan_conBody);
 
@@ -497,30 +496,27 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_constitutionModifier.setText("+0");
         pan_constituion.add(lbl_constitutionModifier);
 
+        jCheckBox3.setText("Save Prof");
+        pan_constituion.add(jCheckBox3);
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("+0");
+        pan_constituion.add(jLabel4);
+
         bdy_attributes.add(pan_constituion);
 
-        pan_intelligence.setLayout(new java.awt.GridLayout(4, 3));
+        pan_intelligence.setLayout(new java.awt.GridLayout(6, 3));
 
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Intelligence");
         pan_intelligence.add(jLabel13);
 
+        jPanel13.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+
         txt_intelligence.setColumns(4);
         txt_intelligence.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_intelligence.setText("10");
-
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(txt_intelligence, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_intelligence, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        jPanel13.add(txt_intelligence);
 
         pan_intelligence.add(jPanel13);
 
@@ -532,30 +528,28 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_intelligence_modifier.setText("+0");
         pan_intelligence.add(lbl_intelligence_modifier);
 
+        jCheckBox4.setText("Save Prof");
+        pan_intelligence.add(jCheckBox4);
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("+0");
+        pan_intelligence.add(jLabel5);
+
         bdy_attributes.add(pan_intelligence);
 
-        pan_wisdom.setLayout(new java.awt.GridLayout(4, 3));
+        pan_wisdom.setLayout(new java.awt.GridLayout(6, 3));
 
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Wisdom");
         pan_wisdom.add(jLabel16);
 
+        jPanel15.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+
         txt_wisdom.setColumns(4);
         txt_wisdom.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_wisdom.setText("10");
-
-        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
-        jPanel15.setLayout(jPanel15Layout);
-        jPanel15Layout.setHorizontalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(txt_wisdom, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel15Layout.setVerticalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_wisdom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        txt_wisdom.setPreferredSize(new java.awt.Dimension(20, 20));
+        jPanel15.add(txt_wisdom);
 
         pan_wisdom.add(jPanel15);
 
@@ -567,30 +561,27 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_wisdom_modifier.setText("+0");
         pan_wisdom.add(lbl_wisdom_modifier);
 
+        jCheckBox5.setText("Save Prof");
+        pan_wisdom.add(jCheckBox5);
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("+0");
+        pan_wisdom.add(jLabel8);
+
         bdy_attributes.add(pan_wisdom);
 
-        pan_charisma.setLayout(new java.awt.GridLayout(4, 3));
+        pan_charisma.setLayout(new java.awt.GridLayout(6, 3));
 
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("Charisma");
         pan_charisma.add(jLabel19);
 
+        jPanel17.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+
         txt_charisma.setColumns(4);
         txt_charisma.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_charisma.setText("10");
-
-        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
-        jPanel17.setLayout(jPanel17Layout);
-        jPanel17Layout.setHorizontalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(txt_charisma, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel17Layout.setVerticalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_charisma, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        jPanel17.add(txt_charisma);
 
         pan_charisma.add(jPanel17);
 
@@ -601,6 +592,13 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_charisma_modifier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_charisma_modifier.setText("+0");
         pan_charisma.add(lbl_charisma_modifier);
+
+        jCheckBox6.setText("Save Prof");
+        pan_charisma.add(jCheckBox6);
+
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("+0");
+        pan_charisma.add(jLabel10);
 
         bdy_attributes.add(pan_charisma);
 
@@ -837,7 +835,7 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         pan_initiative.setLayout(new java.awt.GridLayout(2, 4));
 
-        lbl_init_name.setText("Initiative");
+        lbl_init_name.setText("Init");
         pan_initiative.add(lbl_init_name);
 
         lbl_dex_bonus_title.setText("= Dex");
@@ -1312,7 +1310,13 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem item_options;
     private javax.swing.JMenuItem item_save;
     private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JCheckBox jCheckBox4;
+    private javax.swing.JCheckBox jCheckBox5;
+    private javax.swing.JCheckBox jCheckBox6;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -1321,8 +1325,12 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
