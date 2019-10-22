@@ -48,7 +48,7 @@ public class DataIntegrity {
 
     public static String getDefault(String key) {
         if(KeyReader.getHighKey(key).equals(KEY.H_ATTRIBUTES)){
-            return "10";
+            return Integer.toString(DEFAULT_INTEGER);
         }
         else
             return "0";
