@@ -39,24 +39,14 @@ public class DefensePanel extends javax.swing.JPanel {
         lbl_ac_dex = new javax.swing.JLabel();
         txt_extra_ac_bonus = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jPanel9 = new javax.swing.JPanel();
-        lbl_common_save_type_title = new javax.swing.JLabel();
-        lbl_common_save_total_title = new javax.swing.JLabel();
-        lbl_common_save_derived_title = new javax.swing.JLabel();
-        lbl_common_save_bonus_title = new javax.swing.JLabel();
-        lbl_common_save_dex_title = new javax.swing.JLabel();
-        lbl_save_dex_total = new javax.swing.JLabel();
-        lbl_save_dex_mod = new javax.swing.JLabel();
-        txt_dex_bonus = new javax.swing.JTextField();
-        lbl_common_save_wis_title = new javax.swing.JLabel();
-        lbl_save_wis_total = new javax.swing.JLabel();
-        lbl_save_wis_mod = new javax.swing.JLabel();
-        txt_wis_bonus = new javax.swing.JTextField();
-        lbl_common_save_cha_title = new javax.swing.JLabel();
-        lbl_save_cha_total = new javax.swing.JLabel();
-        lbl_save_cha_mod = new javax.swing.JLabel();
-        txt_cha_bonus = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -106,117 +96,67 @@ public class DefensePanel extends javax.swing.JPanel {
 
         jPanel8.setLayout(new java.awt.BorderLayout());
 
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Common Saves");
-        jLabel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel8.add(jLabel7, java.awt.BorderLayout.PAGE_START);
+        jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jPanel9.setLayout(new java.awt.GridLayout(4, 4));
+        jLabel2.setText("Defense Bonuses");
+        jPanel1.add(jLabel2, java.awt.BorderLayout.CENTER);
 
-        lbl_common_save_type_title.setText("Type");
-        jPanel9.add(lbl_common_save_type_title);
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        lbl_common_save_total_title.setText("Total");
-        jPanel9.add(lbl_common_save_total_title);
+        jTextArea2.setColumns(20);
+        jTextArea2.setLineWrap(true);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
 
-        lbl_common_save_derived_title.setText("Modifier");
-        jPanel9.add(lbl_common_save_derived_title);
+        jPanel1.add(jScrollPane2, java.awt.BorderLayout.PAGE_END);
 
-        lbl_common_save_bonus_title.setText("Bonus");
-        jPanel9.add(lbl_common_save_bonus_title);
+        jPanel8.add(jPanel1, java.awt.BorderLayout.PAGE_END);
 
-        lbl_common_save_dex_title.setText("DEX");
-        jPanel9.add(lbl_common_save_dex_title);
+        jPanel2.setLayout(new java.awt.BorderLayout());
 
-        lbl_save_dex_total.setText("0");
-        jPanel9.add(lbl_save_dex_total);
+        jLabel1.setText("Damage Resistances");
+        jPanel2.add(jLabel1, java.awt.BorderLayout.PAGE_START);
 
-        lbl_save_dex_mod.setText("0");
-        jPanel9.add(lbl_save_dex_mod);
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        txt_dex_bonus.setText("0");
-        jPanel9.add(txt_dex_bonus);
+        jTextArea1.setColumns(20);
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
-        lbl_common_save_wis_title.setText("WIS");
-        jPanel9.add(lbl_common_save_wis_title);
+        jPanel2.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
-        lbl_save_wis_total.setText("0");
-        jPanel9.add(lbl_save_wis_total);
-
-        lbl_save_wis_mod.setText("0");
-        jPanel9.add(lbl_save_wis_mod);
-
-        txt_wis_bonus.setText("0");
-        jPanel9.add(txt_wis_bonus);
-
-        lbl_common_save_cha_title.setText("CHA");
-        jPanel9.add(lbl_common_save_cha_title);
-
-        lbl_save_cha_total.setText("0");
-        jPanel9.add(lbl_save_cha_total);
-
-        lbl_save_cha_mod.setText("0");
-        jPanel9.add(lbl_save_cha_mod);
-
-        txt_cha_bonus.setText("0");
-        jPanel9.add(txt_cha_bonus);
-
-        jPanel8.add(jPanel9, java.awt.BorderLayout.CENTER);
+        jPanel8.add(jPanel2, java.awt.BorderLayout.CENTER);
 
         add(jPanel8, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JLabel lbl_ac;
     private javax.swing.JLabel lbl_ac_dex;
     private javax.swing.JLabel lbl_ac_title;
     private javax.swing.JLabel lbl_ac_total;
     private javax.swing.JLabel lbl_armor_title;
     private javax.swing.JLabel lbl_bonus_ac_title;
-    private javax.swing.JLabel lbl_common_save_bonus_title;
-    private javax.swing.JLabel lbl_common_save_cha_title;
-    private javax.swing.JLabel lbl_common_save_derived_title;
-    private javax.swing.JLabel lbl_common_save_dex_title;
-    private javax.swing.JLabel lbl_common_save_total_title;
-    private javax.swing.JLabel lbl_common_save_type_title;
-    private javax.swing.JLabel lbl_common_save_wis_title;
     private javax.swing.JLabel lbl_dex_bonus_title;
     private javax.swing.JLabel lbl_equal_sign;
     private javax.swing.JLabel lbl_equal_sign2;
-    private javax.swing.JLabel lbl_save_cha_mod;
-    private javax.swing.JLabel lbl_save_cha_total;
-    private javax.swing.JLabel lbl_save_dex_mod;
-    private javax.swing.JLabel lbl_save_dex_total;
-    private javax.swing.JLabel lbl_save_wis_mod;
-    private javax.swing.JLabel lbl_save_wis_total;
-    public javax.swing.JTextField txt_cha_bonus;
-    public javax.swing.JTextField txt_dex_bonus;
     public javax.swing.JTextField txt_extra_ac_bonus;
-    public javax.swing.JTextField txt_wis_bonus;
     // End of variables declaration//GEN-END:variables
 
-
-    void setCommonSaves(int dex_mod, int wis_mod, int cha_mod) {
-        int dex_extra = Integer.parseInt(txt_dex_bonus.getText());
-        int wis_extra = Integer.parseInt(txt_wis_bonus.getText());
-        int cha_extra = Integer.parseInt(txt_cha_bonus.getText());
-        int dex_total = dex_mod + dex_extra;
-        int wis_total = wis_mod + wis_extra;
-        int cha_total = cha_mod + cha_extra;
-        
-        lbl_save_cha_mod.setText(Integer.toString(cha_mod));
-        lbl_save_wis_mod.setText(Integer.toString(wis_mod));
-        lbl_save_dex_mod.setText(Integer.toString(dex_mod));
-        
-        lbl_save_cha_total.setText(Integer.toString(cha_total));
-        lbl_save_wis_total.setText(Integer.toString(wis_total));
-        lbl_save_dex_total.setText(Integer.toString(dex_total));
-    }
 
     void setArmorValues(int dex_mod, int dex_cap, int ac) {
         int armor_dex = 0;

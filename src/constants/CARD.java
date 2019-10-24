@@ -9,10 +9,13 @@ package constants;
  *
  * @author Kendrick
  */
-public class Card {
+public class CARD {
 
     public static String INVENTORY = "Inventory";
     public static String SPELLS = "Spells";
+    public static String WEAPON_1 = "Weapon 1";
+    public static String WEAPON_2 = "Weapon 2";
+    public static String WEAPON_3 = "Weapon 3";
 
     public static void initCurrentSkillsProfsCard() {
         currentSkillsCard = new SkillsProfsCard(DEFAULT);

@@ -1,7 +1,7 @@
 package app;
 
 
-import constants.Card;
+import constants.CARD;
 import constants.KEY;
 import container.CharacterFrame;
 import java.io.File;
