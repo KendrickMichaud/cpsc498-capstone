@@ -13,6 +13,9 @@ import java.awt.CardLayout;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -20,6 +23,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Document;
 import javax.swing.text.JTextComponent;
 import util.Ability;
 import util.Bundle;
@@ -32,6 +37,7 @@ public class CharacterFrame extends javax.swing.JFrame {
     private Deck offense;
     private AppManager manager;
     private Deck defense;
+    private File associatedFile;
     /**
      * Creates new form CharacterFrame
      * @param manager
@@ -231,6 +237,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         item_new = new javax.swing.JMenuItem();
         item_open = new javax.swing.JMenuItem();
         item_save = new javax.swing.JMenuItem();
+        action_save_as = new javax.swing.JMenuItem();
         menu_edit = new javax.swing.JMenu();
         menu_tools = new javax.swing.JMenu();
         item_options = new javax.swing.JMenuItem();
@@ -1028,7 +1035,21 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         item_save.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         item_save.setText("Save...");
+        item_save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                item_saveActionPerformed(evt);
+            }
+        });
         menu_file.add(item_save);
+
+        action_save_as.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        action_save_as.setText("Save As...");
+        action_save_as.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                action_save_asActionPerformed(evt);
+            }
+        });
+        menu_file.add(action_save_as);
 
         menu_bar.add(menu_file);
 
@@ -1132,7 +1153,14 @@ public class CharacterFrame extends javax.swing.JFrame {
 
     private void item_openActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item_openActionPerformed
         if(manager.authorizedToExit()){
-            manager.reinitializeEnvironment(manager.getFileToOpen());
+            try {
+                File file = manager.getFileToOpen();
+                if(file != null){
+                    manager.reinitializeEnvironment(file);
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(CharacterFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_item_openActionPerformed
 
@@ -1169,8 +1197,28 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_weapon_title.setText(offense.getCardName());
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void item_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item_saveActionPerformed
+        if(associatedFile == null){
+            associatedFile = saveAs();
+        }
+        
+        if(associatedFile != null){
+            setTitle(associatedFile.getName());
+            save();
+        }
+    }//GEN-LAST:event_item_saveActionPerformed
+
+    private void action_save_asActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_action_save_asActionPerformed
+        associatedFile = saveAs();
+        if(associatedFile != null){
+            setTitle(associatedFile.getName());
+            save();
+        }
+    }//GEN-LAST:event_action_save_asActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem action_save_as;
     private javax.swing.JPanel bdy_attributes;
     private javax.swing.JPanel bdy_background;
     private javax.swing.JPanel bdy_charInfo;
@@ -1568,6 +1616,90 @@ public class CharacterFrame extends javax.swing.JFrame {
         offense.add(new WeaponPanel(), CARD.WEAPON_2);
         offense.add(new WeaponPanel(), CARD.WEAPON_3);
         offense.display();
+    }
+
+    private void save() {
+        Bundle character_info = collectCharacterData();
+        manager.saveData(associatedFile, character_info);
+    }
+
+    private File saveAs() {
+        try {
+            return manager.getFileToSave();
+        } catch (IOException ex) {
+            Logger.getLogger(CharacterFrame.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+
+    public void replaceValues(Bundle character_data) {
+        
+    }
+
+    private Bundle collectCharacterData() {
+        Bundle b = new Bundle();
+        //Please implement this method with appropriate data to be put in bundle.
+        /**
+         * List of things to put in this bundle
+         * 1: All attribute values
+         * 2: Character Info panel data
+         * 3: Weapon (1,2,3) data
+         * 4: Defense Data
+         * 5: Armor data
+         * 6: Utility & Surival Data
+         * 7: Skills data
+         * 8: Proficiency Data
+         * 9: Feats data
+         * 10 Spellbook and Inventory Data
+         * 11 Background data
+         */
+        
+        //Attributes
+        b.putString(KEY.K_STRENGTH, extractString(txt_strength.getDocument()));
+        b.putString(KEY.K_DEXTERITY, extractString(txt_dexterity.getDocument()));
+        b.putString(KEY.K_CONSTITUTION, extractString(txt_constitution.getDocument()));
+        
+        //Character Info Panel
+        b.putString(KEY.K_CHARACTER_NAME, extractString(txt_charName.getDocument()));
+        
+        //Weapon 1
+        b.putString(KEY.K_WEAPON_NAME, extractString(offense.getDocument(KEY.K_WEAPON_NAME, 0)));
+        
+        //Weapon 2
+        
+        //Weapon 3
+        
+        //Defense
+        
+        //Armor
+        
+        //Utility and Survival
+        
+        //Skills
+        
+        //Proficiency
+        
+        //Feats
+        
+        //Spellbook
+        
+        //Inventory
+        
+        //Background
+        
+        
+        //Done
+        return b;
+    }
+
+    private String extractString(Document component) {
+        try {
+            int length = component.getLength();
+            return component.getText(0, length);
+        } catch (BadLocationException ex) {
+            Logger.getLogger(CharacterFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return KEY.NULL;
     }
 
 }

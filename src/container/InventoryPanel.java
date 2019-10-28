@@ -5,11 +5,13 @@
  */
 package container;
 
+import javax.swing.text.Document;
+
 /**
  *
  * @author Kendrick
  */
-public class InventoryPanel extends javax.swing.JPanel {
+public class InventoryPanel extends javax.swing.JPanel implements CardDataHolder{
 
     /**
      * Creates new form InventoryPanel
@@ -92,4 +94,9 @@ public class InventoryPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public Document extractDocument(String key) {
+        return null;
+    }
 }
