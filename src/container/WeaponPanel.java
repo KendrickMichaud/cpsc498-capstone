@@ -5,14 +5,11 @@
  */
 package container;
 
-import constants.KEY;
-import javax.swing.text.Document;
-
 /**
  *
  * @author Kendrick
  */
-public class WeaponPanel extends javax.swing.JPanel implements CardDataHolder{
+public class WeaponPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form WeaponPanel
@@ -204,23 +201,10 @@ public class WeaponPanel extends javax.swing.JPanel implements CardDataHolder{
     private javax.swing.JLabel lbl_dmg_bonus_total;
     private javax.swing.JLabel lbl_dmg_str_bonus;
     private javax.swing.JLabel lbl_weapon_name;
-    public javax.swing.JTextField txt_weapon_attk_bonus;
-    public javax.swing.JTextField txt_weapon_damage_bonus;
-    public javax.swing.JTextArea txt_weapon_damage_roll;
-    public javax.swing.JTextArea txt_weapon_damage_type;
-    public javax.swing.JTextArea txt_weapon_name;
+    private javax.swing.JTextField txt_weapon_attk_bonus;
+    private javax.swing.JTextField txt_weapon_damage_bonus;
+    private javax.swing.JTextArea txt_weapon_damage_roll;
+    private javax.swing.JTextArea txt_weapon_damage_type;
+    private javax.swing.JTextArea txt_weapon_name;
     // End of variables declaration//GEN-END:variables
-
-
-    @Override
-    public Document extractDocument(String key) {
-        switch(key){
-            case KEY.K_WEAPON_NAME:return txt_weapon_name.getDocument();
-            case KEY.K_WEAPON_DAMAGE_TYPE:return txt_weapon_damage_type.getDocument();
-            case KEY.K_WEAPON_DMG_BONUS:return txt_weapon_damage_bonus.getDocument();
-            case KEY.K_WEAPON_ATTK_BONUS:return txt_weapon_attk_bonus.getDocument();
-            case KEY.K_WEAPON_DMG_ROLL:return txt_weapon_damage_roll.getDocument();
-        }
-        return null;
-    }
 }

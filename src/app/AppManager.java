@@ -5,7 +5,6 @@ import constants.CARD;
 import constants.KEY;
 import container.CharacterFrame;
 import java.io.File;
-import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import util.KeyReader;
@@ -13,7 +12,6 @@ import util.KeyReader;
 import javax.swing.*;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
-import util.Bundle;
 import util.DataIntegrity;
 
 public class AppManager {
@@ -107,50 +105,18 @@ public class AppManager {
     }
     
     public void reinitializeEnvironment(File openCharacterFile){
-        FileManager file_manager = new FileManager(
-                openCharacterFile, 
-                FileManager.TYPE.READ, 
-                FileManager.FILE.CHARACTER);
-        Bundle character_data = file_manager.getData();
-        if(character_data.getBoolean(FileManager.IO_SUCCESS)){
-            main_frame.replaceValues(character_data);
-        }
+        
     }
     
-    public File getFileToOpen() throws IOException{
+    public File getFileToOpen(){
         JFileChooser chooser = new JFileChooser();
-        File file = null;
-        switch(chooser.showOpenDialog(main_frame)){
-            case JFileChooser.APPROVE_OPTION:file = chooser.getSelectedFile();
-            case JFileChooser.CANCEL_OPTION:break;
-        }
+        chooser.setVisible(true);
+        File file = chooser.getSelectedFile();
         if(file != null && file.canRead() && file.isFile()){
             return file;
         }
-        else if(file == null){
-            return null;
-        }
-        else{
-            throw new IOException("The file cannot be opened");
-        }
-    }
-    
-    public File getFileToSave() throws IOException{
-        JFileChooser chooser = new JFileChooser();
-        File file = null;
-        switch(chooser.showSaveDialog(main_frame)){
-            case JFileChooser.APPROVE_OPTION:file = chooser.getSelectedFile();
-            case JFileChooser.CANCEL_OPTION:break;
-        }
-        if(file != null){
-            return file;
-        }
-        else if(file == null){
-            return null;
-        }
-        else{
-            throw new IOException("The file cannot be opened");
-        }
+        
+        throw new IllegalArgumentException("The file cannot be opened");
     }
 
     public void restoreDefaultValue(String key, Document document) {
@@ -178,12 +144,6 @@ public class AppManager {
         main_frame.updateDefensePanel();
         main_frame.updateUtilityPanel();
         main_frame.updateSkillPanel();
-    }
-
-    public void saveData(File file, Bundle bundle) {
-        FileManager file_manager = new FileManager
-        (file, FileManager.TYPE.WRITE, FileManager.FILE.CHARACTER);
-        file_manager.sendData(bundle);
     }
 
     

@@ -5,12 +5,9 @@
  */
 package container;
 
-import constants.KEY;
 import java.awt.CardLayout;
-import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JPanel;
-import javax.swing.text.Document;
 
 /**
  *
@@ -18,7 +15,6 @@ import javax.swing.text.Document;
  */
 public class Deck {
     private ArrayList<String> deck;
-    private ArrayList<CardDataHolder> panels;
     private JPanel holder;
     private int current_item;
     
@@ -29,17 +25,15 @@ public class Deck {
             throw new IllegalArgumentException("JPanel holder must use a CardLayout");
         }
         this.holder = holder;
-        panels = new ArrayList<>();
         deck = new ArrayList<>();
         current_item = 0;
     }
     
-    public boolean add(CardDataHolder card, String key){
+    public boolean add(JPanel card, String key){
         if(card == null || key == null)
             return false;
         deck.add(key);
-        panels.add(card);
-        holder.add((JPanel)card,key);
+        holder.add(card,key);
         return true;
     }
     
@@ -81,10 +75,5 @@ public class Deck {
         else{
             throw new IndexOutOfBoundsException("Deck does not have items");
         }
-    }
-
-    Document getDocument(String key, int i) {
-        CardDataHolder panel = panels.get(i);
-        return panel.extractDocument(key);
     }
 }

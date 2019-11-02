@@ -5,13 +5,11 @@
  */
 package container;
 
-import javax.swing.text.Document;
-
 /**
  *
  * @author Kendrick
  */
-public class ProfsPanel extends javax.swing.JPanel implements CardDataHolder{
+public class ProfsPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ProfsPanel
@@ -30,14 +28,14 @@ public class ProfsPanel extends javax.swing.JPanel implements CardDataHolder{
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        txt_profs = new javax.swing.JTextArea();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setLayout(new java.awt.BorderLayout());
 
-        txt_profs.setColumns(20);
-        txt_profs.setLineWrap(true);
-        txt_profs.setRows(5);
-        jScrollPane1.setViewportView(txt_profs);
+        jTextArea1.setColumns(20);
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         add(jScrollPane1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -45,11 +43,6 @@ public class ProfsPanel extends javax.swing.JPanel implements CardDataHolder{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea txt_profs;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
-
-    @Override
-    public Document extractDocument(String key) {
-        return txt_profs.getDocument();
-    }
 }

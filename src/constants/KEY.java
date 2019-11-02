@@ -74,7 +74,7 @@ public class KEY {
     public static final String L_AC = "ac";
     public static final String L_DEX_CAP = "dexCap";
     public static final String L_DAMAGE_RESISTANCE = "DamageResistance";
-    public static final String L_DEFENSE_BONUS = "DefenseBonus";
+    public static final String L_SPELL_RESISTANCE = "SpellResistance";
     public static final String L_AC_EXTRA = "ExtraAC";
     public static final String L_DEX_SAVE_BONUS = "DexSaveBonus";
     public static final String L_WIS_SAVE_BONUS = "WisSaveBonus";
@@ -86,7 +86,7 @@ public class KEY {
     public static final String K_ARMOR_AC = H_ARMOR + L_AC;
     public static final String K_ARMOR_DEX_CAP = H_ARMOR + L_DEX_CAP;
     public static final String K_DAMAGE_RESISTANCE = H_ARMOR + L_DAMAGE_RESISTANCE;
-    public static final String K_DEFENSE_BONUSES = H_ARMOR + L_DEFENSE_BONUS;
+    public static final String K_SPELL_RESISTANCE = H_ARMOR + L_SPELL_RESISTANCE;
     public static final String K_AC_EXTRA = H_ARMOR + L_AC_EXTRA;
     public static final String K_DEX_SAVE_BONUS = H_ARMOR + L_DEX_SAVE_BONUS;
     public static final String K_WIS_SAVE_BONUS = H_ARMOR + L_WIS_SAVE_BONUS;

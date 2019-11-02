@@ -10,7 +10,6 @@ import constants.KEY;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.text.Document;
 import javax.swing.text.JTextComponent;
 import util.Bundle;
 
@@ -18,7 +17,7 @@ import util.Bundle;
  *
  * @author Kendrick
  */
-public class SkillsPanel extends javax.swing.JPanel implements CardDataHolder{
+public class SkillsPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form SkillsPanel
@@ -595,10 +594,5 @@ public class SkillsPanel extends javax.swing.JPanel implements CardDataHolder{
 
     private void setComboBoxListener(JComboBox<String> combo, AppManager manager) {
         combo.addItemListener(new ComboItemListener(manager));
-    }
-
-    @Override
-    public Document extractDocument(String key) {
-        return null;
     }
 }

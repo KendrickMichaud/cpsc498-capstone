@@ -5,14 +5,11 @@
  */
 package container;
 
-import constants.KEY;
-import javax.swing.text.Document;
-
 /**
  *
  * @author Kendrick
  */
-public class DefensePanel extends javax.swing.JPanel implements CardDataHolder{
+public class DefensePanel extends javax.swing.JPanel {
 
     /**
      * Creates new form DefensePanel
@@ -45,11 +42,11 @@ public class DefensePanel extends javax.swing.JPanel implements CardDataHolder{
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        txt_defense_bonuses = new javax.swing.JTextArea();
+        jTextArea2 = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txt_damage_resist = new javax.swing.JTextArea();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -107,10 +104,10 @@ public class DefensePanel extends javax.swing.JPanel implements CardDataHolder{
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        txt_defense_bonuses.setColumns(20);
-        txt_defense_bonuses.setLineWrap(true);
-        txt_defense_bonuses.setRows(5);
-        jScrollPane2.setViewportView(txt_defense_bonuses);
+        jTextArea2.setColumns(20);
+        jTextArea2.setLineWrap(true);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
 
         jPanel1.add(jScrollPane2, java.awt.BorderLayout.PAGE_END);
 
@@ -124,10 +121,10 @@ public class DefensePanel extends javax.swing.JPanel implements CardDataHolder{
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        txt_damage_resist.setColumns(20);
-        txt_damage_resist.setLineWrap(true);
-        txt_damage_resist.setRows(5);
-        jScrollPane1.setViewportView(txt_damage_resist);
+        jTextArea1.setColumns(20);
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         jPanel2.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
@@ -146,6 +143,8 @@ public class DefensePanel extends javax.swing.JPanel implements CardDataHolder{
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JLabel lbl_ac;
     private javax.swing.JLabel lbl_ac_dex;
     private javax.swing.JLabel lbl_ac_title;
@@ -155,8 +154,6 @@ public class DefensePanel extends javax.swing.JPanel implements CardDataHolder{
     private javax.swing.JLabel lbl_dex_bonus_title;
     private javax.swing.JLabel lbl_equal_sign;
     private javax.swing.JLabel lbl_equal_sign2;
-    private javax.swing.JTextArea txt_damage_resist;
-    private javax.swing.JTextArea txt_defense_bonuses;
     public javax.swing.JTextField txt_extra_ac_bonus;
     // End of variables declaration//GEN-END:variables
 
@@ -174,15 +171,5 @@ public class DefensePanel extends javax.swing.JPanel implements CardDataHolder{
         lbl_ac_dex.setText(Integer.toString(armor_dex));
         lbl_ac.setText(Integer.toString(ac));
         lbl_ac_total.setText(Integer.toString(totalAC));
-    }
-
-    @Override
-    public Document extractDocument(String key) {
-        switch(key){
-            case KEY.K_AC_EXTRA:return txt_extra_ac_bonus.getDocument();
-            case KEY.K_DAMAGE_RESISTANCE:return txt_damage_resist.getDocument();
-            case KEY.K_DEFENSE_BONUSES:return txt_defense_bonuses.getDocument();
-        }
-        return null;
     }
 }

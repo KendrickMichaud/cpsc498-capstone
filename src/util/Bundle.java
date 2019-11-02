@@ -37,20 +37,6 @@ public class Bundle extends HashMap<String, Object>{
         else
            throw new IllegalArgumentException("Calling for a type that is not a Integer"); 
     }
-
-    public void putBoolean(String key, Boolean value) {
-        if(key != null){
-            put(key, value);
-        }
-    }
-
-    public boolean getBoolean(String key) {
-        Object potentialBoolean = get(key);
-        if(potentialBoolean instanceof Boolean)
-            return (Boolean) potentialBoolean;
-        else
-           throw new IllegalArgumentException("Calling for a type that is not a Boolean"); 
-    }
     
     
 }

@@ -5,14 +5,11 @@
  */
 package container;
 
-import constants.KEY;
-import javax.swing.text.Document;
-
 /**
  *
  * @author Kendrick
  */
-public class ArmorPanel extends javax.swing.JPanel implements CardDataHolder{
+public class ArmorPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ArmorPanel
@@ -116,17 +113,6 @@ public class ArmorPanel extends javax.swing.JPanel implements CardDataHolder{
     
     int getAC(){
         return Integer.parseInt(txt_armor_class.getText());
-    }
-
-    @Override
-    public Document extractDocument(String key) {
-        switch(key){
-            case KEY.K_ARMOR_AC:return txt_armor_class.getDocument();
-            case KEY.K_ARMOR_DESCRIPTION:return txt_description.getDocument();
-            case KEY.K_ARMOR_DEX_CAP:return txt_dexterity_cap.getDocument();
-            case KEY.K_ARMOR_NAME:return txt_name.getDocument();
-        }
-        return null;
     }
 
 
