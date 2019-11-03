@@ -7,7 +7,7 @@ public class KeyReader {
         if(key == null)
             return KEY.NULL;
 
-        int index = key.indexOf("*");
+        int index = key.indexOf("ж");
         if(index == -1)
             return KEY.NULL;
         return key.substring(0, index+1);
@@ -25,11 +25,11 @@ public class KeyReader {
         if(key == null)
             return KEY.NULL;
 
-        int index = key.indexOf("*");
+        int index = key.indexOf("ж");
         if(index == -1)
             return KEY.NULL;
         String low_key = key.substring(index+1,key.length());
-        index = low_key.indexOf("*");
+        index = low_key.indexOf("ж");
         if(index == -1){
             return low_key;
         }

@@ -7,23 +7,26 @@ package app;
 
 import java.io.File;
 import util.Bundle;
+import util.XMLReader;
 
 /**
  *
  * @author Kendrick
  */
 public class FileInput {
+    private FileManager.FILE fileType;
+    private static final String INPUT_TYPE = "inType";
+    private final File file;
 
     FileInput(File file, FileManager.FILE fileType) {
-
+        this.file = file;
+        this.fileType = fileType;
     }
 
     Bundle getBundle() throws InterruptedException {
         Bundle b = new Bundle();
-        b.putBoolean(FileManager.IO_SUCCESS, Boolean.TRUE);
-        System.err.println("Waiting for 5 seconds");
-        Thread.sleep(5000);
-        System.err.println("Returning thing");
+        XMLReader reader = new XMLReader();
+        b = reader.readCharacter(file);
         return b;
     }
     

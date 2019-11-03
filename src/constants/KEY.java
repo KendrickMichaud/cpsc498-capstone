@@ -2,17 +2,23 @@ package constants;
 
 public class KEY {
 
-    //High keys
-    public static final String H_BIOGRAPHICAL_DATA = "biographicalData*";
-    public static final String H_BACKGROUND = "background*";
-    public static final String H_ATTRIBUTES = "attributes*";
-    public static final String H_INVENTORY = "inventory*";
-    public static final String H_SPELLBOOK = "spellbook*";
-    public static final String H_WEAPON = "equippedWeapon*";
-    public static final String H_ARMOR = "equippedArmor*";
-    public static final String H_FEATURE = "feature*";
-    public static final String H_SKILLS = "skills*";
-    public static final String H_UTILITY = "utility*";
+    //High keys and delimiters
+    
+    //Note: XML gets angry at me for asterisk and dash characters
+    //But since they're fine with Russian letters looking like asterisks
+    //.... might as well use it since localisation wouldn't affect this part.
+    public static final String DELIM = "ж";
+    public static final String I_DELIM = "ф";
+    public static final String H_BIOGRAPHY = "biographicalData" + DELIM;
+    public static final String H_BACKGROUND = "background" + DELIM;
+    public static final String H_ATTRIBUTES = "attributes" + DELIM;
+    public static final String H_INVENTORY = "inventory" + DELIM;
+    public static final String H_SPELLBOOK = "spellbook" + DELIM;
+    public static final String H_WEAPON = "equippedWeapon" + DELIM;
+    public static final String H_ARMOR = "equippedArmor" + DELIM;
+    public static final String H_FEATURE = "feature" + DELIM;
+    public static final String H_SKILLS = "skills" + DELIM;
+    public static final String H_UTILITY = "utility" + DELIM;
     
     //Generic Low Key
     public static final String L_NAME = "name";
@@ -30,15 +36,15 @@ public class KEY {
     public static final String L_LEVEL = "playerLevel";
 
     //Biographical Data Keys
-    public static final String K_CHARACTER_NAME = H_BIOGRAPHICAL_DATA + L_CHARACTER_NAME;
-    public static final String K_DEITY = H_BIOGRAPHICAL_DATA + L_DEITY;
-    public static final String K_ALIGNMENT = H_BIOGRAPHICAL_DATA + L_ALIGNMENT;
-    public static final String K_SIZE = H_BIOGRAPHICAL_DATA + L_SIZE;
-    public static final String K_HEIGHT = H_BIOGRAPHICAL_DATA + L_HEIGHT;
-    public static final String K_WEIGHT = H_BIOGRAPHICAL_DATA + L_WEIGHT;
-    public static final String K_CLASS = H_BIOGRAPHICAL_DATA + L_CLASS;
-    public static final String K_RACE = H_BIOGRAPHICAL_DATA + L_RACE;
-    public static final String K_LEVEL = H_BIOGRAPHICAL_DATA + L_LEVEL;
+    public static final String K_CHARACTER_NAME = H_BIOGRAPHY + L_CHARACTER_NAME;
+    public static final String K_DEITY = H_BIOGRAPHY + L_DEITY;
+    public static final String K_ALIGNMENT = H_BIOGRAPHY + L_ALIGNMENT;
+    public static final String K_SIZE = H_BIOGRAPHY + L_SIZE;
+    public static final String K_HEIGHT = H_BIOGRAPHY + L_HEIGHT;
+    public static final String K_WEIGHT = H_BIOGRAPHY + L_WEIGHT;
+    public static final String K_CLASS = H_BIOGRAPHY + L_CLASS;
+    public static final String K_RACE = H_BIOGRAPHY + L_RACE;
+    public static final String K_LEVEL = H_BIOGRAPHY + L_LEVEL;
 
     //Background low_keys
     public static final String L_TRAIT = "trait";
@@ -96,6 +102,10 @@ public class KEY {
     public static final String L_ATTK_BONUS = "attkBonus";
     public static final String L_DMG_ROLL = "dmgRoll";
     public static final String L_DMG_BONUS = "dmgBonus";
+    
+    public static String item(int i){
+        return DELIM + "item" + I_DELIM + Integer.toString(i);
+    }
 
     //Weapon Keys
     public static final String K_WEAPON_ATTK_BONUS = H_WEAPON + L_ATTK_BONUS;

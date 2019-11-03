@@ -1633,7 +1633,7 @@ public class CharacterFrame extends javax.swing.JFrame {
     }
 
     public void replaceValues(Bundle character_data) {
-        
+        setBackgroundValues(character_data);
     }
 
     private Bundle collectCharacterData() {
@@ -1652,6 +1652,7 @@ public class CharacterFrame extends javax.swing.JFrame {
          * 9: Feats data
          * 10 Spellbook and Inventory Data
          * 11 Background data
+         * 12 The Image (if it has one)
          */
         
         //Attributes
@@ -1663,11 +1664,18 @@ public class CharacterFrame extends javax.swing.JFrame {
         b.putString(KEY.K_CHARACTER_NAME, extractString(txt_charName.getDocument()));
         
         //Weapon 1
-        b.putString(KEY.K_WEAPON_NAME, extractString(offense.getDocument(KEY.K_WEAPON_NAME, 0)));
+        int curr = 0;
+        b.putString(KEY.K_WEAPON_NAME + KEY.item(curr), 
+                extractString(offense.getDocument(KEY.K_WEAPON_NAME, curr)));
         
         //Weapon 2
-        
+        curr = 1;
+        b.putString(KEY.K_WEAPON_NAME + KEY.item(curr),
+                extractString(offense.getDocument(KEY.K_WEAPON_NAME, curr)));
         //Weapon 3
+        curr = 2;
+        b.putString(KEY.K_WEAPON_NAME + KEY.item(curr), 
+                extractString(offense.getDocument(KEY.K_WEAPON_NAME, curr)));
         
         //Defense
         
@@ -1686,6 +1694,11 @@ public class CharacterFrame extends javax.swing.JFrame {
         //Inventory
         
         //Background
+        b.putString(KEY.K_BACKGROUND_NAME, extractString(txt_background_name.getDocument()));
+        b.putString(KEY.K_BACKGROUND_TRAIT, extractString(txt_pers_trait.getDocument()));
+        b.putString(KEY.K_BACKGROUND_BOND, extractString(txt_pers_bond.getDocument()));
+        b.putString(KEY.K_BACKGROUND_IDEAL, extractString(txt_pers_ideal.getDocument()));
+        b.putString(KEY.K_BACKGROUND_FLAW, extractString(txt_pers_flaw.getDocument()));
         
         
         //Done
@@ -1700,6 +1713,27 @@ public class CharacterFrame extends javax.swing.JFrame {
             Logger.getLogger(CharacterFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         return KEY.NULL;
+    }
+
+    private void setBackgroundValues(Bundle character_data) {
+        String name, ideal, bond, flaw, trait;
+        name = character_data.getString(KEY.K_BACKGROUND_NAME);
+        bond = character_data.getString(KEY.K_BACKGROUND_BOND);
+        flaw = character_data.getString(KEY.K_BACKGROUND_FLAW);
+        trait = character_data.getString(KEY.K_BACKGROUND_TRAIT);
+        ideal = character_data.getString(KEY.K_BACKGROUND_TRAIT);
+        
+        setText(txt_background_name, name);
+        setText(txt_pers_trait, trait);
+        setText(txt_pers_bond, bond);
+        setText(txt_pers_flaw, flaw);
+        setText(txt_pers_ideal, ideal);
+    }
+
+    private void setText(JTextComponent comp, String val) {
+        if(comp != null && val != null){
+            comp.setText(val);
+        }
     }
 
 }

@@ -77,7 +77,6 @@ public class AppManager {
     }
 
     void launchApplication() {
-        updateValues();
         if(main_frame != null){
             main_frame.setVisible(true);
         }

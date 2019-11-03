@@ -26,16 +26,21 @@ public class Bundle extends HashMap<String, Object>{
         Object potentialString = get(key);
         if(potentialString instanceof String)
             return (String) potentialString;
-        else
+        else if(potentialString != null)
            throw new IllegalArgumentException("Calling for a type that is not a String"); 
+        else{
+            return "";
+        }
     }
     
     public Integer getInteger(String key){
         Object potentialInteger = get(key);
         if(potentialInteger instanceof Integer)
             return (Integer) potentialInteger;
+        else if (potentialInteger != null)
+           throw new IllegalArgumentException("Calling for a type that is not a Integer");
         else
-           throw new IllegalArgumentException("Calling for a type that is not a Integer"); 
+            return 0;
     }
 
     public void putBoolean(String key, Boolean value) {
@@ -48,8 +53,10 @@ public class Bundle extends HashMap<String, Object>{
         Object potentialBoolean = get(key);
         if(potentialBoolean instanceof Boolean)
             return (Boolean) potentialBoolean;
-        else
+        else if(potentialBoolean != null)
            throw new IllegalArgumentException("Calling for a type that is not a Boolean"); 
+        else
+            return false;
     }
     
     
