@@ -51,9 +51,10 @@ public class XMLReader {
             Element feature = extractElement(character, KEY.H_FEATURE);
             Element inventory = extractElement(character, KEY.H_INVENTORY);
             Element spellbook = extractElement(character, KEY.H_SPELLBOOK);
-            
+            Element image = extractElement(character, KEY.H_IMAGE);
             
             extractDataFromBackground(background);
+            extractDataFromImage(image);
             
             bundle.putBoolean(FileManager.IO_SUCCESS, Boolean.TRUE);
             return bundle;
@@ -97,5 +98,12 @@ public class XMLReader {
         bundle.putString(KEY.K_BACKGROUND_BOND, bond);
         bundle.putString(KEY.K_BACKGROUND_IDEAL, ideal);
         bundle.putString(KEY.K_BACKGROUND_FLAW, flaw);
+    }
+
+    private void extractDataFromImage(Element image) {
+        String base64 = extractString(image, KEY.L_BASE);
+        if(base64 != null){
+            bundle.putString(KEY.K_IMAGE, base64);
+        }
     }
 }

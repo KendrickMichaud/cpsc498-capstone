@@ -84,6 +84,8 @@ public class XMLWriter {
         Element spellbook = document.createElement(KEY.H_SPELLBOOK);
         Element utility = document.createElement(KEY.H_UTILITY);
         Element features = document.createElement(KEY.H_FEATURE);
+        Element image = document.createElement(KEY.H_IMAGE);
+        addChildrenToImage(image);
         addChildrenToElement(biography);
         addChildrenToElement(background);
         
@@ -97,6 +99,7 @@ public class XMLWriter {
         character.appendChild(spellbook);
         character.appendChild(utility);
         character.appendChild(features);
+        character.appendChild(image);
         
         return true;
     }
@@ -145,6 +148,10 @@ public class XMLWriter {
             child.setTextContent(value);
             root.appendChild(child);
         }
+    }
+
+    private void addChildrenToImage(Element image) {
+        addChild(KEY.K_IMAGE, image);
     }
     
 }

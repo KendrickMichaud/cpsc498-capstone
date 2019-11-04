@@ -12,11 +12,16 @@ import constants.KEY;
 import java.awt.CardLayout;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.Base64;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
@@ -1407,14 +1412,25 @@ public class CharacterFrame extends javax.swing.JFrame {
     private SkillsPanel card_skills;
     private ProfsPanel card_proficiencies;
     
+    //Base 64 encoded image
+    private String baseImage;
+    
     private void setLblImageToFile(File selectedFile) {
-        ImageIcon photo = new ImageIcon(selectedFile.getAbsolutePath());
-        //https://stackoverflow.com/questions/6714045/how-to-resize-jlabel-imageicon for resizing
-        Image image = photo.getImage(); // transform it 
-        Image newimg = image.getScaledInstance(190, 140,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
-        photo = new ImageIcon(newimg);  // transform it back
-        lbl_characterImage.setText("");
-        lbl_characterImage.setIcon(photo);
+        try {
+            //ImageIcon photo = new ImageIcon(selectedFile.getAbsolutePath());
+            //Encode
+            FileInputStream fis = new FileInputStream(selectedFile.getAbsolutePath());
+            byte[] bytes = new byte[(int) selectedFile.length()];
+            fis.read(bytes);
+            baseImage = new String(Base64.getEncoder().encode(bytes), "UTF-8");
+            
+            loadImage();
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(CharacterFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(CharacterFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
 
     }
     
@@ -1633,6 +1649,7 @@ public class CharacterFrame extends javax.swing.JFrame {
     }
 
     public void replaceValues(Bundle character_data) {
+        setImage(character_data);
         setBackgroundValues(character_data);
     }
 
@@ -1700,6 +1717,11 @@ public class CharacterFrame extends javax.swing.JFrame {
         b.putString(KEY.K_BACKGROUND_IDEAL, extractString(txt_pers_ideal.getDocument()));
         b.putString(KEY.K_BACKGROUND_FLAW, extractString(txt_pers_flaw.getDocument()));
         
+        //Image
+        if(baseImage != null){
+            System.err.println("Putting baseImage in bundle");
+            b.putString(KEY.K_IMAGE, baseImage);
+        }
         
         //Done
         return b;
@@ -1733,6 +1755,31 @@ public class CharacterFrame extends javax.swing.JFrame {
     private void setText(JTextComponent comp, String val) {
         if(comp != null && val != null){
             comp.setText(val);
+        }
+    }
+
+    private void setImage(Bundle character_data) {
+        baseImage = character_data.getString(KEY.K_IMAGE);
+        if(baseImage != null && !baseImage.equals("")){
+            loadImage();
+        }
+    }
+
+    private void loadImage() {
+        try {
+            //Decode
+            byte[] dec = Base64.getDecoder().decode(baseImage);
+            BufferedImage buff = ImageIO.read(new ByteArrayInputStream(dec));
+            
+            ImageIcon photo = new ImageIcon(buff);
+            //https://stackoverflow.com/questions/6714045/how-to-resize-jlabel-imageicon for resizing
+            Image image = photo.getImage(); // transform it
+            Image newimg = image.getScaledInstance(190, 140,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+            photo = new ImageIcon(newimg);  // transform it back
+            lbl_characterImage.setText("");
+            lbl_characterImage.setIcon(photo);
+        } catch (IOException ex) {
+            Logger.getLogger(CharacterFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

@@ -19,6 +19,7 @@ public class KEY {
     public static final String H_FEATURE = "feature" + DELIM;
     public static final String H_SKILLS = "skills" + DELIM;
     public static final String H_UTILITY = "utility" + DELIM;
+    public static final String H_IMAGE = "Image" + DELIM;
     
     //Generic Low Key
     public static final String L_NAME = "name";
@@ -102,6 +103,7 @@ public class KEY {
     public static final String L_ATTK_BONUS = "attkBonus";
     public static final String L_DMG_ROLL = "dmgRoll";
     public static final String L_DMG_BONUS = "dmgBonus";
+    public static final String L_BASE = "Base64";
     
     public static String item(int i){
         return DELIM + "item" + I_DELIM + Integer.toString(i);
@@ -203,6 +205,8 @@ public class KEY {
     public static final String K_PERSUASION_PROF = H_SKILLS + L_PERSUASION_PROF;
     public static final String K_PERSUASION_BONUS = H_SKILLS + L_PERSUASION_BONUS;
     public static final String K_EQUIPMENT_PROFICIENCES = H_SKILLS + L_EQUIPMENT_PROFICIENCES;
+    public static final String K_IMAGE = H_IMAGE + L_BASE;
+
     
     //Feats Low Keys
     public static final String L_FEATURES_DESCRIPTION = "FeaturesDescription";
