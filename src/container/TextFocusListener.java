@@ -37,7 +37,7 @@ public class TextFocusListener implements FocusListener{
     @Override
     public void focusLost(FocusEvent e) {
         int length = document.getLength();
-        if(length > 0){
+        if(length >= 0){
             try {
                 //if the user data change is not allowed by the manager
                 //manager will then notify JFrame to alert user to invalid data
@@ -45,6 +45,9 @@ public class TextFocusListener implements FocusListener{
                 //manager will revert document to default based on key.
                 if(!manager.validateDataChange(key, document.getText(0, length))){
                     manager.restoreDefaultValue(key, document);
+                }
+                else{
+                    manager.dataChanged();
                 }
                 //regardlesss of data being valid or invalid. A Data change
                 //can result in a cascading effect. Therefore, related values

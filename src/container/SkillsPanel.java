@@ -601,4 +601,8 @@ public class SkillsPanel extends javax.swing.JPanel implements CardDataHolder{
     public Document extractDocument(String key) {
         return null;
     }
+
+    @Override
+    public void putDocument(String key, String value) {
+    }
 }

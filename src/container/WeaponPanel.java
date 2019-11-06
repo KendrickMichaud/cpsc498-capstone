@@ -7,6 +7,7 @@ package container;
 
 import constants.KEY;
 import javax.swing.text.Document;
+import util.KeyReader;
 
 /**
  *
@@ -216,11 +217,35 @@ public class WeaponPanel extends javax.swing.JPanel implements CardDataHolder{
     public Document extractDocument(String key) {
         switch(key){
             case KEY.K_WEAPON_NAME:return txt_weapon_name.getDocument();
-            case KEY.K_WEAPON_DAMAGE_TYPE:return txt_weapon_damage_type.getDocument();
+            case KEY.K_WEAPON_DESCRIPTION:return txt_weapon_damage_type.getDocument();
             case KEY.K_WEAPON_DMG_BONUS:return txt_weapon_damage_bonus.getDocument();
             case KEY.K_WEAPON_ATTK_BONUS:return txt_weapon_attk_bonus.getDocument();
             case KEY.K_WEAPON_DMG_ROLL:return txt_weapon_damage_roll.getDocument();
         }
         return null;
     }
+
+    @Override
+    public void putDocument(String key, String value) {
+        switch(KeyReader.getLowKey(key)){
+            case KEY.L_NAME:txt_weapon_name.setText(value);break;
+            case KEY.L_DESCRIPTION:txt_weapon_damage_type.setText(value);break;
+            case KEY.L_DMG_BONUS:txt_weapon_damage_bonus.setText(value);break;
+            case KEY.L_DMG_ROLL:txt_weapon_damage_roll.setText(value);break;
+            case KEY.L_ATTK_BONUS:txt_weapon_attk_bonus.setText(value);break;
+        }
+    }
+
+    void updateValues(int strMod, int prof) {
+        int extraDmg = Integer.parseInt(txt_weapon_damage_bonus.getText());
+        int extraAttk = Integer.parseInt(txt_weapon_attk_bonus.getText());
+        
+        int totalDmg = strMod + extraDmg;
+        int totalAttk = strMod + + prof + extraAttk;
+        
+        lbl_attk_bonus_total.setText(Integer.toString(totalAttk));
+        lbl_dmg_bonus_total.setText(Integer.toString(totalDmg));
+    }
+    
+    
 }

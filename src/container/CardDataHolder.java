@@ -14,5 +14,6 @@ import javax.swing.text.Document;
 public interface CardDataHolder {
     
     public Document extractDocument(String key);
-    
+
+    public void putDocument(String key, String value);    
 }

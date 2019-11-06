@@ -55,7 +55,7 @@ public class XMLReader {
             
             extractDataFromBackground(background);
             extractDataFromImage(image);
-            
+            extractWeapons(weapons);
             bundle.putBoolean(FileManager.IO_SUCCESS, Boolean.TRUE);
             return bundle;
         } catch (ParserConfigurationException | SAXException | IOException ex) {
@@ -104,6 +104,34 @@ public class XMLReader {
         String base64 = extractString(image, KEY.L_BASE);
         if(base64 != null){
             bundle.putString(KEY.K_IMAGE, base64);
+        }
+    }
+    
+    private void extractWeapons(Element weapons) {
+        NodeList items = weapons.getElementsByTagName("item");
+        for(int curr = 0; curr < 3; curr++){
+            Element item = items!=null?(Element) items.item(curr):null;
+            if(item != null){
+                String name, attkBonus, desc, dmgRoll, dmgBonus;
+                name = extractString(item, KEY.L_NAME);
+                attkBonus = extractString(item, KEY.L_ATTK_BONUS);
+                desc = extractString(item, KEY.L_DESCRIPTION);
+                dmgRoll = extractString(item, KEY.L_DMG_ROLL);
+                dmgBonus = extractString(item, KEY.L_DMG_BONUS);
+                
+                if(!DataIntegrity.checkNumber(attkBonus))
+                    attkBonus = "0";
+                if(!DataIntegrity.checkNumber(dmgBonus))
+                    dmgBonus = "0";
+                
+                System.out.println(name + " " + attkBonus + " " + desc + " " + dmgBonus + " " + dmgRoll);
+                
+                bundle.putString(KEY.K_WEAPON_NAME + KEY.item(curr), name);
+                bundle.putString(KEY.K_WEAPON_DMG_ROLL + KEY.item(curr), dmgRoll);
+                bundle.putString(KEY.K_WEAPON_DMG_BONUS + KEY.item(curr), dmgBonus);
+                bundle.putString(KEY.K_WEAPON_DESCRIPTION + KEY.item(curr), desc);
+                bundle.putString(KEY.K_WEAPON_ATTK_BONUS + KEY.item(curr), attkBonus);
+            }
         }
     }
 }

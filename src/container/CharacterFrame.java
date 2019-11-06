@@ -11,6 +11,8 @@ import constants.GUI;
 import constants.KEY;
 import java.awt.CardLayout;
 import java.awt.Image;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -39,10 +41,11 @@ import util.Bundle;
  * @author Kendrick
  */
 public class CharacterFrame extends javax.swing.JFrame {
-    private Deck offense;
+    private WeaponDeck offense;
     private AppManager manager;
     private Deck defense;
     private File associatedFile;
+    private Spellbook spellbook;
     /**
      * Creates new form CharacterFrame
      * @param manager
@@ -59,6 +62,40 @@ public class CharacterFrame extends javax.swing.JFrame {
         initCardsForSpellsInventory();
         initComponentsForUserInterfacing();
         combo_level.addItemListener(new ComboItemListener(manager));
+        
+        addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                if(manager.authorizedToExit()){
+                    manager.close();
+                }
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+            }
+        });
     }
 
     /**
@@ -209,12 +246,8 @@ public class CharacterFrame extends javax.swing.JFrame {
         jTextArea3 = new javax.swing.JTextArea();
         pan_spellsInventory = new javax.swing.JPanel();
         lbl_panSpellsAndEquipment = new javax.swing.JLabel();
-        bdy_spellsAndEquipment = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        lbl_deck_spells_name = new javax.swing.JLabel();
-        swap_spellbook = new javax.swing.JButton();
-        swap_inventory = new javax.swing.JButton();
-        deck_spellsInventory = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         pan_background = new javax.swing.JPanel();
         lbl_panBackground = new javax.swing.JLabel();
         bdy_background = new javax.swing.JPanel();
@@ -250,7 +283,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         item_about = new javax.swing.JMenuItem();
         item_guide = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("DND Character Sheet Editor");
         setResizable(false);
         setSize(new java.awt.Dimension(0, 0));
@@ -855,36 +888,16 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_panSpellsAndEquipment.setText("Spellbook and Inventory");
         pan_spellsInventory.add(lbl_panSpellsAndEquipment, java.awt.BorderLayout.PAGE_START);
 
-        bdy_spellsAndEquipment.setLayout(new java.awt.BorderLayout());
-
-        jPanel1.setLayout(new java.awt.BorderLayout());
-
-        lbl_deck_spells_name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_deck_spells_name.setText("Spells");
-        jPanel1.add(lbl_deck_spells_name, java.awt.BorderLayout.CENTER);
-
-        swap_spellbook.setText("Spellbook");
-        swap_spellbook.addActionListener(new java.awt.event.ActionListener() {
+        jButton3.setText("jButton3");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                swap_spellbookActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(swap_spellbook, java.awt.BorderLayout.LINE_START);
+        pan_spellsInventory.add(jButton3, java.awt.BorderLayout.LINE_START);
 
-        swap_inventory.setText("Inventory");
-        swap_inventory.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                swap_inventoryActionPerformed(evt);
-            }
-        });
-        jPanel1.add(swap_inventory, java.awt.BorderLayout.LINE_END);
-
-        bdy_spellsAndEquipment.add(jPanel1, java.awt.BorderLayout.PAGE_END);
-
-        deck_spellsInventory.setLayout(new java.awt.CardLayout());
-        bdy_spellsAndEquipment.add(deck_spellsInventory, java.awt.BorderLayout.CENTER);
-
-        pan_spellsInventory.add(bdy_spellsAndEquipment, java.awt.BorderLayout.CENTER);
+        jButton4.setText("jButton4");
+        pan_spellsInventory.add(jButton4, java.awt.BorderLayout.LINE_END);
 
         pan_background.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pan_background.setLayout(new java.awt.BorderLayout());
@@ -1173,18 +1186,6 @@ public class CharacterFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_combo_levelActionPerformed
 
-    private void swap_inventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_swap_inventoryActionPerformed
-        CardLayout layout = (CardLayout) deck_spellsInventory.getLayout();
-        layout.show(deck_spellsInventory, CARD.INVENTORY);
-        lbl_deck_spells_name.setText(CARD.INVENTORY);
-    }//GEN-LAST:event_swap_inventoryActionPerformed
-
-    private void swap_spellbookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_swap_spellbookActionPerformed
-        CardLayout layout = (CardLayout) deck_spellsInventory.getLayout();
-        layout.show(deck_spellsInventory, CARD.SPELLS);
-        lbl_deck_spells_name.setText(CARD.SPELLS);
-    }//GEN-LAST:event_swap_spellbookActionPerformed
-
     private void combo_levelItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combo_levelItemStateChanged
         Object item = evt.getItem();
         if(item.getClass().equals(String.class)){
@@ -1221,6 +1222,14 @@ public class CharacterFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_action_save_asActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if(spellbook == null){
+            spellbook = new Spellbook();
+        }
+        
+        spellbook.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem action_save_as;
@@ -1229,13 +1238,11 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JPanel bdy_charInfo;
     private javax.swing.JPanel bdy_features;
     private javax.swing.JPanel bdy_skills_swap;
-    private javax.swing.JPanel bdy_spellsAndEquipment;
     private javax.swing.JButton btn_skills_left;
     private javax.swing.JButton btn_skills_right;
     private javax.swing.JComboBox<String> combo_level;
     private javax.swing.JPanel deck_defense;
     private javax.swing.JPanel deck_skillsProfs;
-    private javax.swing.JPanel deck_spellsInventory;
     private javax.swing.JPanel deck_weapons;
     private javax.swing.JButton defense_switch_left;
     private javax.swing.JButton defense_switch_right;
@@ -1248,6 +1255,8 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem item_save;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
@@ -1267,7 +1276,6 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
@@ -1299,7 +1307,6 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_constitutionTitle;
     private javax.swing.JLabel lbl_currSkilsProfsName;
     private javax.swing.JLabel lbl_deck_defense_name;
-    private javax.swing.JLabel lbl_deck_spells_name;
     private javax.swing.JLabel lbl_deity;
     private javax.swing.JLabel lbl_dex_bonus_title;
     private javax.swing.JLabel lbl_dexterityModifier;
@@ -1377,8 +1384,6 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JPanel pan_utility;
     private javax.swing.JPanel pan_wisdom;
     private javax.swing.JScrollPane scrollPane;
-    private javax.swing.JButton swap_inventory;
-    private javax.swing.JButton swap_spellbook;
     private javax.swing.JTextField txt_alignment;
     private javax.swing.JTextField txt_background_name;
     private javax.swing.JTextField txt_charHeight;
@@ -1455,12 +1460,14 @@ public class CharacterFrame extends javax.swing.JFrame {
     }
     
     private void initCardsForSpellsInventory(){
+        /**
         card_spells = new SpellsPanel();
         card_inventory = new InventoryPanel();
         deck_spellsInventory.add(card_spells, CARD.SPELLS);
         deck_spellsInventory.add(card_inventory, CARD.INVENTORY);
         CardLayout layout = (CardLayout) deck_spellsInventory.getLayout();
         layout.show(deck_spellsInventory, CARD.SPELLS);
+        * */
     }
     
     private void initComponentsForUserInterfacing(){
@@ -1483,6 +1490,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         setTextListener(txt_charisma, KEY.K_CHARISMA);
         
         //Offense
+        offense.setTextListeners();
         //setTextListener(txt_weapon_name, KEY.K_WEAPON_NAME);
         //setTextListener(txt_weapon_attk_bonus, KEY.K_WEAPON_ATTK_BONUS);
         //setTextListener(txt_weapon_damage_bonus, KEY.K_WEAPON_DMG_BONUS);
@@ -1581,6 +1589,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         //dmg_bonus = Integer.parseInt(txt_weapon_damage_bonus.getText()) + mod + prof;
         //lbl_attk_bonus_total.setText(Integer.toString(attk_bonus));
         //lbl_dmg_bonus_total.setText(Integer.toString(dmg_bonus));
+        offense.updateWeapons(mod, prof);
     }
 
     public void updateDefensePanel() {
@@ -1627,7 +1636,7 @@ public class CharacterFrame extends javax.swing.JFrame {
     }
 
     private void initCardsForWeapons() {
-        offense = new Deck(deck_weapons);
+        offense = new WeaponDeck(deck_weapons);
         offense.add(new WeaponPanel(), CARD.WEAPON_1);
         offense.add(new WeaponPanel(), CARD.WEAPON_2);
         offense.add(new WeaponPanel(), CARD.WEAPON_3);
@@ -1651,6 +1660,7 @@ public class CharacterFrame extends javax.swing.JFrame {
     public void replaceValues(Bundle character_data) {
         setImage(character_data);
         setBackgroundValues(character_data);
+        setWeapons(character_data);
     }
 
     private Bundle collectCharacterData() {
@@ -1681,18 +1691,9 @@ public class CharacterFrame extends javax.swing.JFrame {
         b.putString(KEY.K_CHARACTER_NAME, extractString(txt_charName.getDocument()));
         
         //Weapon 1
-        int curr = 0;
-        b.putString(KEY.K_WEAPON_NAME + KEY.item(curr), 
-                extractString(offense.getDocument(KEY.K_WEAPON_NAME, curr)));
-        
-        //Weapon 2
-        curr = 1;
-        b.putString(KEY.K_WEAPON_NAME + KEY.item(curr),
-                extractString(offense.getDocument(KEY.K_WEAPON_NAME, curr)));
-        //Weapon 3
-        curr = 2;
-        b.putString(KEY.K_WEAPON_NAME + KEY.item(curr), 
-                extractString(offense.getDocument(KEY.K_WEAPON_NAME, curr)));
+        for(int curr = 0; curr < 3; curr++){
+            collectWeapon(curr, b);
+        }
         
         //Defense
         
@@ -1783,4 +1784,38 @@ public class CharacterFrame extends javax.swing.JFrame {
         }
     }
 
+    private void collectWeapon(int curr, Bundle b) {
+        if(curr >= 0 && curr < 3){
+            b.putString(KEY.K_WEAPON_NAME + KEY.item(curr), 
+                    extractString(offense.getDocument(KEY.K_WEAPON_NAME, curr)));
+            b.putString(KEY.K_WEAPON_DESCRIPTION + KEY.item(curr), 
+                    extractString(offense.getDocument(KEY.K_WEAPON_DESCRIPTION, curr)));
+            b.putString(KEY.K_WEAPON_DMG_BONUS + KEY.item(curr), 
+                    extractString(offense.getDocument(KEY.K_WEAPON_DMG_BONUS, curr)));
+            b.putString(KEY.K_WEAPON_DMG_ROLL + KEY.item(curr), 
+                    extractString(offense.getDocument(KEY.K_WEAPON_DMG_ROLL, curr)));
+            b.putString(KEY.K_WEAPON_ATTK_BONUS + KEY.item(curr), 
+                    extractString(offense.getDocument(KEY.K_WEAPON_ATTK_BONUS, curr))
+            );
+        }
+    }
+
+    private void setWeapons(Bundle b) {
+        String k_name = KEY.K_WEAPON_NAME;
+        String k_desc = KEY.K_WEAPON_DESCRIPTION;
+        String k_attkB = KEY.K_WEAPON_ATTK_BONUS;
+        String k_dmgB = KEY.K_WEAPON_DMG_BONUS;
+        String k_dmgR = KEY.K_WEAPON_DMG_ROLL;
+        String row;
+        
+        String name, desc, attkB, dmgB, dmgR;
+        for(int i = 0; i < 3; i++){
+            row = KEY.item(i);
+            offense.putDocument(k_name.concat(row), b.getString(k_name.concat(row)));
+            offense.putDocument(k_desc.concat(row), b.getString(k_desc.concat(row)));
+            offense.putDocument(k_attkB.concat(row), b.getString(k_attkB.concat(row)));
+            offense.putDocument(k_dmgB.concat(row), b.getString(k_dmgB.concat(row)));
+            offense.putDocument(k_dmgR.concat(row), b.getString(k_dmgR.concat(row)));
+        }
+    }
 }

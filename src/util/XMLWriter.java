@@ -88,6 +88,7 @@ public class XMLWriter {
         addChildrenToImage(image);
         addChildrenToElement(biography);
         addChildrenToElement(background);
+        addChildrenToElement(weapons);
         
         character.appendChild(biography);
         character.appendChild(background);
@@ -135,6 +136,12 @@ public class XMLWriter {
                 case KEY.H_BIOGRAPHY:break;
                 case KEY.H_ARMOR:break;
                 case KEY.H_FEATURE:break;
+                case KEY.H_WEAPON:
+                    for(int i = 0; i < 3; i++){
+                        addWeapon(i, ele);
+                    }
+                    break;
+                    
                 
             }
         }
@@ -152,6 +159,17 @@ public class XMLWriter {
 
     private void addChildrenToImage(Element image) {
         addChild(KEY.K_IMAGE, image);
+    }
+    
+    private void addWeapon(int curr, Element weapons) {
+        Element item = document.createElement("item");
+        item.setAttribute("id", Integer.toString(curr));
+        addChild(KEY.K_WEAPON_NAME + KEY.item(curr), item);
+        addChild(KEY.K_WEAPON_ATTK_BONUS + KEY.item(curr), item);
+        addChild(KEY.K_WEAPON_DESCRIPTION + KEY.item(curr), item);
+        addChild(KEY.K_WEAPON_DMG_ROLL + KEY.item(curr), item);
+        addChild(KEY.K_WEAPON_DMG_BONUS + KEY.item(curr), item);
+        weapons.appendChild(item);
     }
     
 }

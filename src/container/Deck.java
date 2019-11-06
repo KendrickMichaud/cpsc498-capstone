@@ -11,6 +11,7 @@ import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.text.Document;
+import util.KeyReader;
 
 /**
  *
@@ -18,7 +19,7 @@ import javax.swing.text.Document;
  */
 public class Deck {
     private ArrayList<String> deck;
-    private ArrayList<CardDataHolder> panels;
+    protected ArrayList<CardDataHolder> panels;
     private JPanel holder;
     private int current_item;
     
@@ -86,5 +87,13 @@ public class Deck {
     Document getDocument(String key, int i) {
         CardDataHolder panel = panels.get(i);
         return panel.extractDocument(key);
+    }
+
+    void putDocument(String key, String value) {
+        int index = KeyReader.getIndex(key);
+        if(index >= 0){
+            CardDataHolder panel = panels.get(index);
+            panel.putDocument(key, value);
+        }
     }
 }

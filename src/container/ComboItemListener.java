@@ -23,6 +23,7 @@ public class ComboItemListener implements ItemListener{
 
     @Override
     public void itemStateChanged(ItemEvent arg0) {
+        manager.dataChanged();
         manager.updateValues();
     }
     

@@ -52,4 +52,8 @@ public class ProfsPanel extends javax.swing.JPanel implements CardDataHolder{
     public Document extractDocument(String key) {
         return txt_profs.getDocument();
     }
+
+    @Override
+    public void putDocument(String key, String value) {
+    }
 }

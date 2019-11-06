@@ -114,7 +114,7 @@ public class KEY {
     public static final String K_WEAPON_DMG_ROLL = H_WEAPON + L_DMG_ROLL;
     public static final String K_WEAPON_DMG_BONUS = H_WEAPON + L_DMG_BONUS;
     public static final String K_WEAPON_NAME = H_WEAPON + L_NAME;
-    public static final String K_WEAPON_DAMAGE_TYPE = H_WEAPON + L_DESCRIPTION;
+    public static final String K_WEAPON_DESCRIPTION = H_WEAPON + L_DESCRIPTION;
    
     //Utility Low Keys
     public static final String L_SPEED_BONUS = "SpeedBonus";

@@ -33,6 +33,9 @@ public class DataIntegrity {
 
     public static boolean checkNumber(String value) {
         try{
+            if(value.equals("")){
+                return false;
+            }
             Integer.parseInt(value);
             return true;
         }

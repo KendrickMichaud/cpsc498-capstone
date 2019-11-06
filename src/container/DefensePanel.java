@@ -185,4 +185,8 @@ public class DefensePanel extends javax.swing.JPanel implements CardDataHolder{
         }
         return null;
     }
+
+    @Override
+    public void putDocument(String key, String value) {
+    }
 }

@@ -11,6 +11,8 @@ import java.util.logging.Logger;
 import util.KeyReader;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import util.Bundle;
@@ -23,7 +25,7 @@ public class AppManager {
     private CharacterFrame main_frame;
     private boolean unsavedData;
 
-    static AppManager getInstance() {
+    public static AppManager getInstance() {
         if(manager == null){
             manager = new AppManager();
         }
@@ -49,6 +51,13 @@ public class AppManager {
                 //Homebrewing where you might get a -1 to a skill
                 //Just return if its a number
                 return isANumber;
+            }
+            else if (KeyReader.getHighKey(key).equals(KEY.H_WEAPON)){
+                switch(KeyReader.getLowKey(key)){
+                    case KEY.L_ATTK_BONUS:
+                    case KEY.L_DMG_BONUS:return isANumber;
+                    default:
+                }
             }
             //At this point we are just checking other values that could be
             //Numeric. This can increase or decrease depending on future changes
@@ -118,9 +127,16 @@ public class AppManager {
     
     public File getFileToOpen() throws IOException{
         JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Character xml (*.cxml)", "cxml");
+        chooser.addChoosableFileFilter(filter);
+        chooser.setFileFilter(filter);
         File file = null;
         switch(chooser.showOpenDialog(main_frame)){
             case JFileChooser.APPROVE_OPTION:file = chooser.getSelectedFile();
+            if(!file.toString().endsWith(".cxml")){
+                JOptionPane.showMessageDialog(main_frame, "File does not end with .cxml");
+                file = null;;
+            }
             case JFileChooser.CANCEL_OPTION:break;
         }
         if(file != null && file.canRead() && file.isFile()){
@@ -136,20 +152,21 @@ public class AppManager {
     
     public File getFileToSave() throws IOException{
         JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Character xml (*.cxml)", "cxml");
+        chooser.addChoosableFileFilter(filter);
+        chooser.setFileFilter(filter);
         File file = null;
         switch(chooser.showSaveDialog(main_frame)){
-            case JFileChooser.APPROVE_OPTION:file = chooser.getSelectedFile();
-            case JFileChooser.CANCEL_OPTION:break;
+            case JFileChooser.APPROVE_OPTION:
+                file = chooser.getSelectedFile();
+                String filename = file.toString();
+                if(!filename.endsWith(".cxml")){
+                    file = new File(chooser.getSelectedFile() + ".cxml");
+                }
+                
         }
-        if(file != null){
-            return file;
-        }
-        else if(file == null){
-            return null;
-        }
-        else{
-            throw new IOException("The file cannot be opened");
-        }
+        
+        return file;
     }
 
     public void restoreDefaultValue(String key, Document document) {
@@ -183,6 +200,15 @@ public class AppManager {
         FileManager file_manager = new FileManager
         (file, FileManager.TYPE.WRITE, FileManager.FILE.CHARACTER);
         file_manager.sendData(bundle);
+    }
+
+    public void dataChanged() {
+        unsavedData = true;
+    }
+
+    public void close() {
+        main_frame.dispose();
+        System.exit(0);
     }
 
     
