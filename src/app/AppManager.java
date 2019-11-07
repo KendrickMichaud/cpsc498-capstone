@@ -40,7 +40,7 @@ public class AppManager {
             //Anything involving numbers is pretty much the domain of keys
             
             //First we check if the value is a number
-            boolean isANumber = DataIntegrity.checkNumber(value);
+            boolean isANumber = DataIntegrity.isNumeric(value);
             if(KeyReader.getHighKey(key).equals(KEY.H_ATTRIBUTES)){
                 //We want to check if this is a valid attribute number
                 //and not some ridiculous -1000 or 1000
@@ -70,10 +70,7 @@ public class AppManager {
                 case KEY.K_INIT_BONUS:
                 case KEY.K_SPEED_BONUS:
                 //Defense panel
-                case KEY.K_AC_EXTRA:
-                case KEY.K_DEX_SAVE_BONUS:
-                case KEY.K_CHA_SAVE_BONUS:
-                case KEY.K_WIS_SAVE_BONUS:
+                case KEY.K_DEFENSE_AC_EXTRA:
                 case KEY.K_ARMOR_AC:return isANumber;
             }
             //If it's none of the above, then it's a value we don't care

@@ -80,7 +80,8 @@ public class XMLWriter {
         Element attributes = document.createElement(KEY.H_ATTRIBUTES);
         Element inventory = document.createElement(KEY.H_INVENTORY);
         Element weapons = document.createElement(KEY.H_WEAPON);
-        Element defense = document.createElement(KEY.H_ARMOR);
+        Element armor = document.createElement(KEY.H_ARMOR);
+        Element defense = document.createElement(KEY.H_DEFENSE);
         Element spellbook = document.createElement(KEY.H_SPELLBOOK);
         Element utility = document.createElement(KEY.H_UTILITY);
         Element features = document.createElement(KEY.H_FEATURE);
@@ -90,6 +91,9 @@ public class XMLWriter {
         addChildrenToElement(background);
         addChildrenToElement(weapons);
         addChildrenToElement(attributes);
+        addChildrenToElement(armor);
+        addChildrenToElement(defense);
+        addChildrenToElement(utility);
         
         character.appendChild(biography);
         character.appendChild(background);
@@ -97,6 +101,7 @@ public class XMLWriter {
         character.appendChild(attributes);
         character.appendChild(inventory);
         character.appendChild(weapons);
+        character.appendChild(armor);
         character.appendChild(defense);
         character.appendChild(spellbook);
         character.appendChild(utility);
@@ -145,7 +150,17 @@ public class XMLWriter {
                     addChild(KEY.K_ALIGNMENT, ele);
                     addChild(KEY.K_LEVEL, ele);
                     break;
-                case KEY.H_ARMOR:break;
+                case KEY.H_ARMOR:
+                    addChild(KEY.K_ARMOR_AC, ele);
+                    addChild(KEY.K_ARMOR_DESCRIPTION, ele);
+                    addChild(KEY.K_ARMOR_DEX_CAP, ele);
+                    addChild(KEY.K_ARMOR_NAME, ele);
+                    break;
+                case KEY.H_DEFENSE:
+                    addChild(KEY.K_DEFENSE_DR, ele);
+                    addChild(KEY.K_DEFENSE_BONUSES, ele);
+                    addChild(KEY.K_DEFENSE_AC_EXTRA, ele);
+                    break;
                 case KEY.H_FEATURE:break;
                 case KEY.H_WEAPON:
                     for(int i = 0; i < 3; i++){
@@ -159,8 +174,19 @@ public class XMLWriter {
                     addChild(KEY.K_INTELLIGENCE, ele);
                     addChild(KEY.K_WISDOM, ele);
                     addChild(KEY.K_CHARISMA, ele);
+                    addChild(KEY.K_STRENGTH_PROF, ele);
+                    addChild(KEY.K_DEXTERITY_PROF, ele);
+                    addChild(KEY.K_CONSTITUTION_PROF, ele);
+                    addChild(KEY.K_INTELLIGENCE_PROF, ele);
+                    addChild(KEY.K_WISDOM_PROF, ele);
+                    addChild(KEY.K_CHARISMA_PROF, ele);
                     break;
-                    
+                case KEY.H_UTILITY:
+                    addChild(KEY.K_SPEED_BONUS,ele);
+                    addChild(KEY.K_INIT_BONUS, ele);
+                    addChild(KEY.K_HEALTH_POINTS, ele);
+                    addChild(KEY.K_HIT_DIE,ele);
+                    break;
                 
             }
         }

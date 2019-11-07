@@ -7,6 +7,8 @@ package container;
 
 import constants.KEY;
 import javax.swing.text.Document;
+import util.Bundle;
+import util.DataIntegrity;
 
 /**
  *
@@ -179,8 +181,8 @@ public class DefensePanel extends javax.swing.JPanel implements CardDataHolder{
     @Override
     public Document extractDocument(String key) {
         switch(key){
-            case KEY.K_AC_EXTRA:return txt_extra_ac_bonus.getDocument();
-            case KEY.K_DAMAGE_RESISTANCE:return txt_damage_resist.getDocument();
+            case KEY.K_DEFENSE_AC_EXTRA:return txt_extra_ac_bonus.getDocument();
+            case KEY.K_DEFENSE_DR:return txt_damage_resist.getDocument();
             case KEY.K_DEFENSE_BONUSES:return txt_defense_bonuses.getDocument();
         }
         return null;
@@ -188,5 +190,30 @@ public class DefensePanel extends javax.swing.JPanel implements CardDataHolder{
 
     @Override
     public void putDocument(String key, String value) {
+    }
+
+    @Override
+    public void getData(Bundle b) {
+        b.putString(KEY.K_DEFENSE_AC_EXTRA, txt_extra_ac_bonus.getText());
+        b.putString(KEY.K_DEFENSE_DR, txt_damage_resist.getText());
+        b.putString(KEY.K_DEFENSE_BONUSES, txt_defense_bonuses.getText());
+    }
+
+    @Override
+    public void update(Bundle b) {
+        String acExtra = b.getString(KEY.K_DEFENSE_AC_EXTRA);
+        String dr = b.getString(KEY.K_DEFENSE_DR);
+        String dfB = b.getString(KEY.K_DEFENSE_BONUSES);
+        
+        if(DataIntegrity.isNumeric(acExtra)){
+            txt_extra_ac_bonus.setText(acExtra);
+        }
+        else{
+            txt_extra_ac_bonus.setText(DataIntegrity.DEFAULT_ZERO_STR);
+        }
+        
+        txt_damage_resist.setText(dr);
+        txt_defense_bonuses.setText(dfB);
+        
     }
 }

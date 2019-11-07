@@ -6,6 +6,7 @@
 package container;
 
 import javax.swing.text.Document;
+import util.Bundle;
 
 /**
  *
@@ -16,4 +17,8 @@ public interface CardDataHolder {
     public Document extractDocument(String key);
 
     public void putDocument(String key, String value);    
+
+    public void getData(Bundle b);
+
+    public void update(Bundle b);
 }

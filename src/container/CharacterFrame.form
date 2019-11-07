@@ -543,12 +543,12 @@
                             <Property name="text" type="java.lang.String" value="+0"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+                        <Component class="javax.swing.JCheckBox" name="chk_str_prof">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Save Prof"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel2">
+                        <Component class="javax.swing.JLabel" name="prof_str_save">
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="+0"/>
@@ -596,12 +596,12 @@
                             <Property name="text" type="java.lang.String" value="+0"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox2">
+                        <Component class="javax.swing.JCheckBox" name="chk_dex_prof">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Save Prof"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel3">
+                        <Component class="javax.swing.JLabel" name="prof_dex_save">
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="+0"/>
@@ -649,12 +649,12 @@
                             <Property name="text" type="java.lang.String" value="+0"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox3">
+                        <Component class="javax.swing.JCheckBox" name="chk_con_prof">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Save Prof"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel4">
+                        <Component class="javax.swing.JLabel" name="prof_con_save">
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="+0"/>
@@ -702,12 +702,12 @@
                             <Property name="text" type="java.lang.String" value="+0"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox4">
+                        <Component class="javax.swing.JCheckBox" name="chk_int_prof">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Save Prof"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel5">
+                        <Component class="javax.swing.JLabel" name="prof_intel_save">
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="+0"/>
@@ -758,12 +758,12 @@
                             <Property name="text" type="java.lang.String" value="+0"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox5">
+                        <Component class="javax.swing.JCheckBox" name="chk_wis_prof">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Save Prof"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel8">
+                        <Component class="javax.swing.JLabel" name="prof_wis_save">
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="+0"/>
@@ -811,12 +811,12 @@
                             <Property name="text" type="java.lang.String" value="+0"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox6">
+                        <Component class="javax.swing.JCheckBox" name="chk_cha_prof">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Save Prof"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel10">
+                        <Component class="javax.swing.JLabel" name="prof_cha_save">
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="+0"/>

@@ -13,7 +13,8 @@ import constants.KEY;
  */
 public class DataIntegrity {
 
-    public static final int DEFAULT_INTEGER = 10;
+    public static final int DEFAULT_TEN = 10;
+    public static String DEFAULT_ZERO_STR = "0";
 
     /**
      * Returns an int if successfully converted
@@ -27,11 +28,11 @@ public class DataIntegrity {
             return i;
         }
         catch (NumberFormatException e){
-            return DEFAULT_INTEGER;
+            return DEFAULT_TEN;
         }
     }
 
-    public static boolean checkNumber(String value) {
+    public static boolean isNumeric(String value) {
         try{
             if(value.equals("")){
                 return false;
@@ -51,7 +52,7 @@ public class DataIntegrity {
 
     public static String getDefault(String key) {
         if(KeyReader.getHighKey(key).equals(KEY.H_ATTRIBUTES)){
-            return Integer.toString(DEFAULT_INTEGER);
+            return Integer.toString(DEFAULT_TEN);
         }
         else
             return "0";

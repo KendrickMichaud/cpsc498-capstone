@@ -7,6 +7,8 @@ package container;
 
 import constants.KEY;
 import javax.swing.text.Document;
+import util.Bundle;
+import util.DataIntegrity;
 
 /**
  *
@@ -131,6 +133,39 @@ public class ArmorPanel extends javax.swing.JPanel implements CardDataHolder{
 
     @Override
     public void putDocument(String key, String value) {
+    }
+
+    @Override
+    public void getData(Bundle b) {
+        b.putString(KEY.K_ARMOR_AC, txt_armor_class.getText());
+        b.putString(KEY.K_ARMOR_DESCRIPTION, txt_description.getText());
+        b.putString(KEY.K_ARMOR_DEX_CAP, txt_dexterity_cap.getText());
+        b.putString(KEY.K_ARMOR_NAME, txt_name.getText());
+    }
+
+    @Override
+    public void update(Bundle b) {
+        String ac, desc, dexC, name;
+        ac = b.getString(KEY.K_ARMOR_AC);
+        desc = b.getString(KEY.K_ARMOR_DESCRIPTION);
+        dexC = b.getString(KEY.K_ARMOR_DEX_CAP);
+        name = b.getString(KEY.K_ARMOR_NAME);
+        
+        if(DataIntegrity.isNumeric(ac)){
+            txt_armor_class.setText(ac);
+        }
+        else{
+            txt_armor_class.setText(DataIntegrity.DEFAULT_ZERO_STR);
+        }
+        if(DataIntegrity.isNumeric(dexC)){
+            txt_dexterity_cap.setText(dexC);
+        }
+        else{
+            txt_dexterity_cap.setText(DataIntegrity.DEFAULT_ZERO_STR);
+        }
+        
+        txt_description.setText(desc);
+        txt_name.setText(name);
     }
 
 

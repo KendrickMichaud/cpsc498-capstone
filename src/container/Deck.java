@@ -11,6 +11,7 @@ import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.text.Document;
+import util.Bundle;
 import util.KeyReader;
 
 /**
@@ -94,6 +95,20 @@ public class Deck {
         if(index >= 0){
             CardDataHolder panel = panels.get(index);
             panel.putDocument(key, value);
+        }
+    }
+
+    void collect(Bundle b) {
+        for(int i = 0; i < panels.size(); i++){
+            CardDataHolder h = panels.get(i);
+            h.getData(b);
+        }
+    }
+    
+    void update(Bundle b){
+        for(int i = 0; i < panels.size(); i++){
+            CardDataHolder h = panels.get(i);
+            h.update(b);
         }
     }
 }

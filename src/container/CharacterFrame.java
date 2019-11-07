@@ -25,6 +25,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageInputStream;
 import javax.swing.ImageIcon;
+import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
@@ -64,6 +65,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         initCardsForSpellsInventory();
         initComponentsForUserInterfacing();
         combo_level.addItemListener(new ComboItemListener(manager));
+        
         
         addWindowListener(new WindowListener() {
             @Override
@@ -144,48 +146,48 @@ public class CharacterFrame extends javax.swing.JFrame {
         txt_strength = new javax.swing.JTextField();
         lbl_strengthModifierTitle = new javax.swing.JLabel();
         lbl_strengthModifier = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jLabel2 = new javax.swing.JLabel();
+        chk_str_prof = new javax.swing.JCheckBox();
+        prof_str_save = new javax.swing.JLabel();
         pan_dexterity = new javax.swing.JPanel();
         lbl_dexterityTitle = new javax.swing.JLabel();
         pan_dexBody = new javax.swing.JPanel();
         txt_dexterity = new javax.swing.JTextField();
         lbl_dexterityModifierTitle = new javax.swing.JLabel();
         lbl_dexterityModifier = new javax.swing.JLabel();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jLabel3 = new javax.swing.JLabel();
+        chk_dex_prof = new javax.swing.JCheckBox();
+        prof_dex_save = new javax.swing.JLabel();
         pan_constituion = new javax.swing.JPanel();
         lbl_constitutionTitle = new javax.swing.JLabel();
         pan_conBody = new javax.swing.JPanel();
         txt_constitution = new javax.swing.JTextField();
         lbl_constitutionModifierTitle = new javax.swing.JLabel();
         lbl_constitutionModifier = new javax.swing.JLabel();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jLabel4 = new javax.swing.JLabel();
+        chk_con_prof = new javax.swing.JCheckBox();
+        prof_con_save = new javax.swing.JLabel();
         pan_intelligence = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
         txt_intelligence = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         lbl_intelligence_modifier = new javax.swing.JLabel();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jLabel5 = new javax.swing.JLabel();
+        chk_int_prof = new javax.swing.JCheckBox();
+        prof_intel_save = new javax.swing.JLabel();
         pan_wisdom = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
         txt_wisdom = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         lbl_wisdom_modifier = new javax.swing.JLabel();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jLabel8 = new javax.swing.JLabel();
+        chk_wis_prof = new javax.swing.JCheckBox();
+        prof_wis_save = new javax.swing.JLabel();
         pan_charisma = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jPanel17 = new javax.swing.JPanel();
         txt_charisma = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         lbl_charisma_modifier = new javax.swing.JLabel();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jLabel10 = new javax.swing.JLabel();
+        chk_cha_prof = new javax.swing.JCheckBox();
+        prof_cha_save = new javax.swing.JLabel();
         pan_combat = new javax.swing.JPanel();
         lbl_panCombat = new javax.swing.JLabel();
         pan_combatBody = new javax.swing.JPanel();
@@ -453,12 +455,12 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_strengthModifier.setText("+0");
         pan_strength.add(lbl_strengthModifier);
 
-        jCheckBox1.setText("Save Prof");
-        pan_strength.add(jCheckBox1);
+        chk_str_prof.setText("Save Prof");
+        pan_strength.add(chk_str_prof);
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("+0");
-        pan_strength.add(jLabel2);
+        prof_str_save.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        prof_str_save.setText("+0");
+        pan_strength.add(prof_str_save);
 
         bdy_attributes.add(pan_strength);
 
@@ -485,12 +487,12 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_dexterityModifier.setText("+0");
         pan_dexterity.add(lbl_dexterityModifier);
 
-        jCheckBox2.setText("Save Prof");
-        pan_dexterity.add(jCheckBox2);
+        chk_dex_prof.setText("Save Prof");
+        pan_dexterity.add(chk_dex_prof);
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("+0");
-        pan_dexterity.add(jLabel3);
+        prof_dex_save.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        prof_dex_save.setText("+0");
+        pan_dexterity.add(prof_dex_save);
 
         bdy_attributes.add(pan_dexterity);
 
@@ -517,12 +519,12 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_constitutionModifier.setText("+0");
         pan_constituion.add(lbl_constitutionModifier);
 
-        jCheckBox3.setText("Save Prof");
-        pan_constituion.add(jCheckBox3);
+        chk_con_prof.setText("Save Prof");
+        pan_constituion.add(chk_con_prof);
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("+0");
-        pan_constituion.add(jLabel4);
+        prof_con_save.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        prof_con_save.setText("+0");
+        pan_constituion.add(prof_con_save);
 
         bdy_attributes.add(pan_constituion);
 
@@ -549,12 +551,12 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_intelligence_modifier.setText("+0");
         pan_intelligence.add(lbl_intelligence_modifier);
 
-        jCheckBox4.setText("Save Prof");
-        pan_intelligence.add(jCheckBox4);
+        chk_int_prof.setText("Save Prof");
+        pan_intelligence.add(chk_int_prof);
 
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("+0");
-        pan_intelligence.add(jLabel5);
+        prof_intel_save.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        prof_intel_save.setText("+0");
+        pan_intelligence.add(prof_intel_save);
 
         bdy_attributes.add(pan_intelligence);
 
@@ -582,12 +584,12 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_wisdom_modifier.setText("+0");
         pan_wisdom.add(lbl_wisdom_modifier);
 
-        jCheckBox5.setText("Save Prof");
-        pan_wisdom.add(jCheckBox5);
+        chk_wis_prof.setText("Save Prof");
+        pan_wisdom.add(chk_wis_prof);
 
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("+0");
-        pan_wisdom.add(jLabel8);
+        prof_wis_save.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        prof_wis_save.setText("+0");
+        pan_wisdom.add(prof_wis_save);
 
         bdy_attributes.add(pan_wisdom);
 
@@ -614,12 +616,12 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_charisma_modifier.setText("+0");
         pan_charisma.add(lbl_charisma_modifier);
 
-        jCheckBox6.setText("Save Prof");
-        pan_charisma.add(jCheckBox6);
+        chk_cha_prof.setText("Save Prof");
+        pan_charisma.add(chk_cha_prof);
 
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("+0");
-        pan_charisma.add(jLabel10);
+        prof_cha_save.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        prof_cha_save.setText("+0");
+        pan_charisma.add(prof_cha_save);
 
         bdy_attributes.add(pan_charisma);
 
@@ -1242,6 +1244,12 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JPanel bdy_skills_swap;
     private javax.swing.JButton btn_skills_left;
     private javax.swing.JButton btn_skills_right;
+    private javax.swing.JCheckBox chk_cha_prof;
+    private javax.swing.JCheckBox chk_con_prof;
+    private javax.swing.JCheckBox chk_dex_prof;
+    private javax.swing.JCheckBox chk_int_prof;
+    private javax.swing.JCheckBox chk_str_prof;
+    private javax.swing.JCheckBox chk_wis_prof;
     private javax.swing.JComboBox<String> combo_level;
     private javax.swing.JPanel deck_defense;
     private javax.swing.JPanel deck_skillsProfs;
@@ -1259,25 +1267,13 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
@@ -1385,6 +1381,12 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JPanel pan_util_body;
     private javax.swing.JPanel pan_utility;
     private javax.swing.JPanel pan_wisdom;
+    private javax.swing.JLabel prof_cha_save;
+    private javax.swing.JLabel prof_con_save;
+    private javax.swing.JLabel prof_dex_save;
+    private javax.swing.JLabel prof_intel_save;
+    private javax.swing.JLabel prof_str_save;
+    private javax.swing.JLabel prof_wis_save;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JTextField txt_alignment;
     private javax.swing.JTextField txt_background_name;
@@ -1491,13 +1493,21 @@ public class CharacterFrame extends javax.swing.JFrame {
         setTextListener(txt_wisdom, KEY.K_WISDOM);
         setTextListener(txt_charisma, KEY.K_CHARISMA);
         
+        setCheckListener(chk_str_prof);
+        chk_str_prof.setName(KEY.K_STRENGTH);
+        setCheckListener(chk_dex_prof);
+        chk_dex_prof.setName(KEY.K_DEXTERITY);
+        setCheckListener(chk_con_prof);
+        chk_con_prof.setName(KEY.K_CONSTITUTION);
+        setCheckListener(chk_int_prof);
+        chk_int_prof.setName(KEY.K_INTELLIGENCE);
+        setCheckListener(chk_wis_prof);
+        chk_wis_prof.setName(KEY.K_WISDOM);
+        setCheckListener(chk_cha_prof);
+        chk_cha_prof.setName(KEY.K_CHARISMA);
+        
         //Offense
         offense.setTextListeners();
-        //setTextListener(txt_weapon_name, KEY.K_WEAPON_NAME);
-        //setTextListener(txt_weapon_attk_bonus, KEY.K_WEAPON_ATTK_BONUS);
-        //setTextListener(txt_weapon_damage_bonus, KEY.K_WEAPON_DMG_BONUS);
-        //setTextListener(txt_weapon_damage_roll, KEY.K_WEAPON_DMG_ROLL);
-        //setTextListener(txt_weapon_damage_type, KEY.K_WEAPON_DAMAGE_TYPE);
         
         //Defense-armor
         setTextListener(card_armor.txt_description, KEY.K_ARMOR_DESCRIPTION);
@@ -1506,7 +1516,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         setTextListener(card_armor.txt_dexterity_cap, KEY.K_ARMOR_DEX_CAP);
         
         //Defense-main-defense
-        setTextListener(card_defense.txt_extra_ac_bonus, KEY.K_AC_EXTRA);
+        setTextListener(card_defense.txt_extra_ac_bonus, KEY.K_DEFENSE_AC_EXTRA);
 
         //Utility
         setTextListener(txt_health_points, KEY.K_HEALTH_POINTS);
@@ -1566,6 +1576,14 @@ public class CharacterFrame extends javax.swing.JFrame {
         updateModifierLabel(lbl_intelligence_modifier, getMOD(KEY.K_INTELLIGENCE));
         updateModifierLabel(lbl_wisdom_modifier, getMOD(KEY.K_WISDOM));
         updateModifierLabel(lbl_charisma_modifier, getMOD(KEY.K_CHARISMA));
+        
+        updateAttributeProficiency(chk_str_prof, prof_str_save);
+        updateAttributeProficiency(chk_dex_prof, prof_dex_save);
+        updateAttributeProficiency(chk_con_prof, prof_con_save);
+        updateAttributeProficiency(chk_int_prof, prof_intel_save);
+        updateAttributeProficiency(chk_wis_prof, prof_wis_save);
+        updateAttributeProficiency(chk_cha_prof, prof_cha_save);
+        
     }
     
     public int getProficiencyBonus(){
@@ -1664,6 +1682,8 @@ public class CharacterFrame extends javax.swing.JFrame {
         setWeapons(character_data);
         setBiography(character_data);
         setAttributes(character_data);
+        setDefenseArmor(character_data);
+        setUtility(character_data);
         manager.updateValues();
     }
 
@@ -1694,7 +1714,16 @@ public class CharacterFrame extends javax.swing.JFrame {
         //Either way works.
         b.putString(KEY.K_INTELLIGENCE, JText.extractString(txt_intelligence));
         b.putString(KEY.K_WISDOM, JText.extractString(txt_wisdom));
-        b.putString(KEY.K_CHARISMA, JText.extractString(txt_charisma));        
+        b.putString(KEY.K_CHARISMA, JText.extractString(txt_charisma));     
+        
+        //Puts save proficiencies
+        b.putString(KEY.K_STRENGTH_PROF, Boolean.toString(chk_str_prof.isSelected()));
+        b.putString(KEY.K_DEXTERITY_PROF, Boolean.toString(chk_dex_prof.isSelected()));
+        b.putString(KEY.K_CONSTITUTION_PROF, Boolean.toString(chk_con_prof.isSelected()));
+        b.putString(KEY.K_INTELLIGENCE_PROF, Boolean.toString(chk_int_prof.isSelected()));
+        b.putString(KEY.K_WISDOM_PROF, Boolean.toString(chk_wis_prof.isSelected()));
+        b.putString(KEY.K_CHARISMA_PROF, Boolean.toString(chk_cha_prof.isSelected()));
+        
         
         //Character Info Panel
         b.putString(KEY.K_CHARACTER_NAME, JText.extractString(txt_charName));
@@ -1713,10 +1742,13 @@ public class CharacterFrame extends javax.swing.JFrame {
         }
         
         //Defense
-        
-        //Armor
+        defense.collect(b);
         
         //Utility and Survival
+        b.putString(KEY.K_SPEED_BONUS, JText.extractString(txt_speed_bonus));
+        b.putString(KEY.K_INIT_BONUS, JText.extractString(txt_init_bonus));
+        b.putString(KEY.K_HEALTH_POINTS, JText.extractString(txt_health_points));
+        b.putString(KEY.K_HIT_DIE, JText.extractString(txt_hit_die));
         
         //Skills
         
@@ -1869,7 +1901,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         txt_alignment.setText(align);
         txt_deity.setText(deity);
         
-        if(DataIntegrity.checkNumber(level)){
+        if(DataIntegrity.isNumeric(level)){
             int index = Integer.parseInt(level);
             index--; //Levels start at 1 so if I'm level 1 I need to be at index 0
             if(index >= 0 && index <= 19){ //Between levels 1-20
@@ -1893,14 +1925,70 @@ public class CharacterFrame extends javax.swing.JFrame {
         setAttribute(txt_intelligence, intel);
         setAttribute(txt_wisdom, wis);
         setAttribute(txt_charisma, cha);
+        
+        Boolean pStr, pDex, pCon, pIntel, pWis, pCha;
+        pStr = Boolean.getBoolean(bun.getString(KEY.K_STRENGTH_PROF));
+        pDex = Boolean.getBoolean(bun.getString(KEY.K_DEXTERITY_PROF));
+        pCon = Boolean.getBoolean(bun.getString(KEY.K_CONSTITUTION_PROF));
+        pIntel = Boolean.getBoolean(bun.getString(KEY.K_INTELLIGENCE_PROF));
+        pWis = Boolean.getBoolean(bun.getString(KEY.K_WISDOM_PROF));
+        pCha = Boolean.getBoolean(bun.getString(KEY.K_CHARISMA_PROF));
+        
+        chk_str_prof.setSelected(pStr);
+        chk_dex_prof.setSelected(pDex);
+        chk_con_prof.setSelected(pCon);
+        chk_int_prof.setSelected(pIntel);
+        chk_wis_prof.setSelected(pWis);
+        chk_cha_prof.setSelected(pCha);
     }
     
     private void setAttribute(JTextField attr, String num){
-        if(DataIntegrity.checkNumber(num)){
+        if(DataIntegrity.isNumeric(num)){
             attr.setText(num);
         }
         else{
             attr.setText("10");
         }
+    }
+
+
+    private void setDefenseArmor(Bundle character_data) {
+        defense.update(character_data);
+    }
+
+    private void setUtility(Bundle character_data) {
+        String speed, init, health, hitDie;
+        speed = character_data.getString(KEY.K_SPEED_BONUS);
+        init = character_data.getString(KEY.K_INIT_BONUS);
+        health = character_data.getString(KEY.K_HEALTH_POINTS);
+        hitDie = character_data.getString(KEY.K_HIT_DIE);
+        if(!DataIntegrity.isNumeric(speed)){
+            speed = DataIntegrity.DEFAULT_ZERO_STR;
+        }
+        if(!DataIntegrity.isNumeric(init)){
+            init = DataIntegrity.DEFAULT_ZERO_STR;
+        }
+        
+        txt_speed_bonus.setText(speed);
+        txt_init_bonus.setText(init);
+        txt_health_points.setText(health);
+        txt_hit_die.setText(hitDie);
+    }
+
+    private void setCheckListener(JCheckBox checkBox) {
+        checkBox.addActionListener(new CheckBoxListener(manager));
+    }
+
+    private void updateAttributeProficiency(JCheckBox attr, JLabel save) {
+        String total;
+        if(attr.isSelected()){
+            total = Integer.toString(getProficiencyBonus() + getMOD(attr.getName()));
+        }
+        else{
+            total = Integer.toString(getMOD(attr.getName()));
+        }
+            
+        save.setText("+".concat(total));
+
     }
 }

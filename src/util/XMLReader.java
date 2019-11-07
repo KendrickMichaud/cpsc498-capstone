@@ -52,12 +52,16 @@ public class XMLReader {
             Element inventory = extractElement(character, KEY.H_INVENTORY);
             Element spellbook = extractElement(character, KEY.H_SPELLBOOK);
             Element image = extractElement(character, KEY.H_IMAGE);
+            Element defense = extractElement(character, KEY.H_DEFENSE);
             
             
             extractDataFromBiography(biography);
             extractDataFromAttributes(attributes);
             extractDataFromBackground(background);
             extractDataFromImage(image);
+            extractDataFromArmor(armor);
+            extractDataFromDefense(defense);
+            extractDataFromUtility(utility);
             extractWeapons(weapons);
             bundle.putBoolean(FileManager.IO_SUCCESS, Boolean.TRUE);
             return bundle;
@@ -69,6 +73,9 @@ public class XMLReader {
     }
     
     private Element extractElement(Element root, String tag){
+        if(root == null || tag == null){
+            return null;
+        }
         NodeList list = root.getElementsByTagName(tag);
         if(list != null && list.getLength() > 0){
             Node item = list.item(0);
@@ -122,9 +129,9 @@ public class XMLReader {
                 dmgRoll = extractString(item, KEY.L_DMG_ROLL);
                 dmgBonus = extractString(item, KEY.L_DMG_BONUS);
                 
-                if(!DataIntegrity.checkNumber(attkBonus))
+                if(!DataIntegrity.isNumeric(attkBonus))
                     attkBonus = "0";
-                if(!DataIntegrity.checkNumber(dmgBonus))
+                if(!DataIntegrity.isNumeric(dmgBonus))
                     dmgBonus = "0";
                 
                 System.out.println(name + " " + attkBonus + " " + desc + " " + dmgBonus + " " + dmgRoll);
@@ -179,13 +186,56 @@ public class XMLReader {
         bundle.putString(KEY.K_WISDOM, wis);
         bundle.putString(KEY.K_CHARISMA, cha);
         
-        /*
+        
         pStr = extractString(attributes, KEY.L_STRPROF);
         pDex = extractString(attributes, KEY.L_DEXPROF);
         pCon = extractString(attributes, KEY.L_CONPROF);
         pIntel = extractString(attributes, KEY.L_INTPROF);
         pWis = extractString(attributes, KEY.L_WISPROF);
         pCha = extractString(attributes, KEY.L_CHAPROF);
-        */
+        
+        bundle.putString(KEY.K_STRENGTH_PROF, pStr);
+        bundle.putString(KEY.K_DEXTERITY_PROF, pDex);
+        bundle.putString(KEY.K_CONSTITUTION_PROF, pCon);
+        bundle.putString(KEY.K_INTELLIGENCE_PROF, pIntel);
+        bundle.putString(KEY.K_WISDOM_PROF, pWis);
+        bundle.putString(KEY.K_CHARISMA_PROF, pCha);
+    }
+
+    private void extractDataFromArmor(Element armor) {
+        String ac, desc, dexC, name;
+        ac = extractString(armor, KEY.L_AC);
+        desc = extractString(armor, KEY.L_DESCRIPTION);
+        dexC = extractString(armor, KEY.L_DEX_CAP);
+        name = extractString(armor, KEY.L_NAME);
+        
+        bundle.putString(KEY.K_ARMOR_AC, ac);
+        bundle.putString(KEY.K_ARMOR_DESCRIPTION, desc);
+        bundle.putString(KEY.K_ARMOR_DEX_CAP, dexC);
+        bundle.putString(KEY.K_ARMOR_NAME, name);
+    }
+
+    private void extractDataFromDefense(Element defense) {
+        String dr, bon, acExtra;
+        dr = extractString(defense, KEY.L_DAMAGE_RESISTANCE);
+        bon = extractString(defense, KEY.L_DEFENSE_BONUS);
+        acExtra = extractString(defense, KEY.L_AC_EXTRA);
+        
+        bundle.putString(KEY.K_DEFENSE_DR, dr);
+        bundle.putString(KEY.K_DEFENSE_BONUSES, bon);
+        bundle.putString(KEY.K_DEFENSE_AC_EXTRA, acExtra);
+    }
+
+    private void extractDataFromUtility(Element utility) {
+        String speed, init, health, hitDie;
+        speed = extractString(utility, KEY.L_SPEED_BONUS);
+        init = extractString(utility, KEY.L_INIT_BONUS);
+        health = extractString(utility, KEY.L_HEALTH_POINTS);
+        hitDie = extractString(utility, KEY.L_HIT_DIE);
+        
+        bundle.putString(KEY.K_SPEED_BONUS, speed);
+        bundle.putString(KEY.K_INIT_BONUS, init);
+        bundle.putString(KEY.K_HEALTH_POINTS, health);
+        bundle.putString(KEY.K_HIT_DIE, hitDie);
     }
 }

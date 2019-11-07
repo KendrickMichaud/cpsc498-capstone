@@ -605,4 +605,12 @@ public class SkillsPanel extends javax.swing.JPanel implements CardDataHolder{
     @Override
     public void putDocument(String key, String value) {
     }
+
+    @Override
+    public void getData(Bundle b) {
+    }
+
+    @Override
+    public void update(Bundle b) {
+    }
 }

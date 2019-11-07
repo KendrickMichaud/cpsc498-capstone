@@ -7,6 +7,7 @@ package container;
 
 import constants.KEY;
 import javax.swing.text.Document;
+import util.Bundle;
 import util.KeyReader;
 
 /**
@@ -245,6 +246,15 @@ public class WeaponPanel extends javax.swing.JPanel implements CardDataHolder{
         
         lbl_attk_bonus_total.setText(Integer.toString(totalAttk));
         lbl_dmg_bonus_total.setText(Integer.toString(totalDmg));
+    }
+
+    
+    @Override
+    public void getData(Bundle b) {
+    }
+
+    @Override
+    public void update(Bundle b) {
     }
     
     

@@ -20,7 +20,8 @@ public class KEY {
     public static final String H_SKILLS = "skills" + DELIM;
     public static final String H_UTILITY = "utility" + DELIM;
     public static final String H_IMAGE = "Image" + DELIM;
-    
+    public static final String H_DEFENSE = "Defense" + DELIM;
+   
     //Generic Low Key
     public static final String L_NAME = "name";
     public static final String NULL = "NULL";
@@ -105,16 +106,14 @@ public class KEY {
     public static final String L_CHA_SAVE_BONUS = "ChaSaveBonus";
     
     //Armor Panel Keys
+    
     public static final String K_ARMOR_NAME = H_ARMOR + L_NAME;
     public static final String K_ARMOR_DESCRIPTION = H_ARMOR + L_DESCRIPTION;
     public static final String K_ARMOR_AC = H_ARMOR + L_AC;
     public static final String K_ARMOR_DEX_CAP = H_ARMOR + L_DEX_CAP;
-    public static final String K_DAMAGE_RESISTANCE = H_ARMOR + L_DAMAGE_RESISTANCE;
-    public static final String K_DEFENSE_BONUSES = H_ARMOR + L_DEFENSE_BONUS;
-    public static final String K_AC_EXTRA = H_ARMOR + L_AC_EXTRA;
-    public static final String K_DEX_SAVE_BONUS = H_ARMOR + L_DEX_SAVE_BONUS;
-    public static final String K_WIS_SAVE_BONUS = H_ARMOR + L_WIS_SAVE_BONUS;
-    public static final String K_CHA_SAVE_BONUS = H_ARMOR + L_CHA_SAVE_BONUS;
+    public static final String K_DEFENSE_DR = H_DEFENSE + L_DAMAGE_RESISTANCE;
+    public static final String K_DEFENSE_BONUSES = H_DEFENSE + L_DEFENSE_BONUS;
+    public static final String K_DEFENSE_AC_EXTRA = H_DEFENSE + L_AC_EXTRA;
 
     //Weapon Low Keys
     public static final String L_ATTK_BONUS = "attkBonus";

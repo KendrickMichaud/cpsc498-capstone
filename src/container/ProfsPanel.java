@@ -6,6 +6,7 @@
 package container;
 
 import javax.swing.text.Document;
+import util.Bundle;
 
 /**
  *
@@ -55,5 +56,13 @@ public class ProfsPanel extends javax.swing.JPanel implements CardDataHolder{
 
     @Override
     public void putDocument(String key, String value) {
+    }
+
+    @Override
+    public void getData(Bundle b) {
+    }
+
+    @Override
+    public void update(Bundle b) {
     }
 }
