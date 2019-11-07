@@ -35,6 +35,8 @@ import javax.swing.text.Document;
 import javax.swing.text.JTextComponent;
 import util.Ability;
 import util.Bundle;
+import util.DataIntegrity;
+import util.JText;
 
 /**
  *
@@ -1584,7 +1586,6 @@ public class CharacterFrame extends javax.swing.JFrame {
         int prof = getProficiencyBonus();
         //lbl_attk_str_bonus.setText(Integer.toString(mod));
         //lbl_dmg_str_bonus.setText(Integer.toString(mod));
-        int attk_bonus, dmg_bonus;
         //attk_bonus = Integer.parseInt(txt_weapon_attk_bonus.getText()) + mod + prof;
         //dmg_bonus = Integer.parseInt(txt_weapon_damage_bonus.getText()) + mod + prof;
         //lbl_attk_bonus_total.setText(Integer.toString(attk_bonus));
@@ -1657,10 +1658,13 @@ public class CharacterFrame extends javax.swing.JFrame {
         }
     }
 
-    public void replaceValues(Bundle character_data) {
+    public void updateValues(Bundle character_data) {
         setImage(character_data);
         setBackgroundValues(character_data);
         setWeapons(character_data);
+        setBiography(character_data);
+        setAttributes(character_data);
+        manager.updateValues();
     }
 
     private Bundle collectCharacterData() {
@@ -1683,12 +1687,25 @@ public class CharacterFrame extends javax.swing.JFrame {
          */
         
         //Attributes
-        b.putString(KEY.K_STRENGTH, extractString(txt_strength.getDocument()));
-        b.putString(KEY.K_DEXTERITY, extractString(txt_dexterity.getDocument()));
-        b.putString(KEY.K_CONSTITUTION, extractString(txt_constitution.getDocument()));
+        b.putString(KEY.K_STRENGTH, JText.extractString(txt_strength.getDocument()));
+        b.putString(KEY.K_DEXTERITY, JText.extractString(txt_dexterity.getDocument()));
+        b.putString(KEY.K_CONSTITUTION, JText.extractString(txt_constitution.getDocument()));
+        
+        //Either way works.
+        b.putString(KEY.K_INTELLIGENCE, JText.extractString(txt_intelligence));
+        b.putString(KEY.K_WISDOM, JText.extractString(txt_wisdom));
+        b.putString(KEY.K_CHARISMA, JText.extractString(txt_charisma));        
         
         //Character Info Panel
-        b.putString(KEY.K_CHARACTER_NAME, extractString(txt_charName.getDocument()));
+        b.putString(KEY.K_CHARACTER_NAME, JText.extractString(txt_charName));
+        b.putString(KEY.K_CLASS, JText.extractString(txt_class));
+        b.putString(KEY.K_RACE, JText.extractString(txt_race));
+        b.putString(KEY.K_SIZE, JText.extractString(txt_size));
+        b.putString(KEY.K_WEIGHT, JText.extractString(txt_charWeight));
+        b.putString(KEY.K_HEIGHT, JText.extractString(txt_charHeight));
+        b.putString(KEY.K_ALIGNMENT, JText.extractString(txt_alignment));
+        b.putString(KEY.K_DEITY, JText.extractString(txt_deity));
+        b.putString(KEY.K_LEVEL, (String) combo_level.getSelectedItem());
         
         //Weapon 1
         for(int curr = 0; curr < 3; curr++){
@@ -1737,6 +1754,15 @@ public class CharacterFrame extends javax.swing.JFrame {
         }
         return KEY.NULL;
     }
+    
+    private String extractString(JTextComponent comp){
+        if(comp != null){
+            return extractString(comp.getDocument());
+        }
+        else{
+            return "";
+        }
+    }
 
     private void setBackgroundValues(Bundle character_data) {
         String name, ideal, bond, flaw, trait;
@@ -1744,7 +1770,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         bond = character_data.getString(KEY.K_BACKGROUND_BOND);
         flaw = character_data.getString(KEY.K_BACKGROUND_FLAW);
         trait = character_data.getString(KEY.K_BACKGROUND_TRAIT);
-        ideal = character_data.getString(KEY.K_BACKGROUND_TRAIT);
+        ideal = character_data.getString(KEY.K_BACKGROUND_IDEAL);
         
         setText(txt_background_name, name);
         setText(txt_pers_trait, trait);
@@ -1816,6 +1842,65 @@ public class CharacterFrame extends javax.swing.JFrame {
             offense.putDocument(k_attkB.concat(row), b.getString(k_attkB.concat(row)));
             offense.putDocument(k_dmgB.concat(row), b.getString(k_dmgB.concat(row)));
             offense.putDocument(k_dmgR.concat(row), b.getString(k_dmgR.concat(row)));
+        }
+    }
+
+    private void setBiography(Bundle b) {
+                //Attributes
+  
+        
+        //Character Info Panel
+        String name = b.getString(KEY.K_CHARACTER_NAME);
+        String pClass = b.getString(KEY.K_CLASS);
+        String pRace = b.getString(KEY.K_RACE);
+        String size = b.getString(KEY.K_SIZE);
+        String weight = b.getString(KEY.K_WEIGHT);
+        String height = b.getString(KEY.K_HEIGHT);
+        String align = b.getString(KEY.K_ALIGNMENT);
+        String deity = b.getString(KEY.K_DEITY);
+        String level = b.getString(KEY.K_LEVEL);
+        
+        txt_charName.setText(name);
+        txt_class.setText(pClass);
+        txt_race.setText(pRace);
+        txt_size.setText(size);
+        txt_charWeight.setText(weight);
+        txt_charHeight.setText(height);
+        txt_alignment.setText(align);
+        txt_deity.setText(deity);
+        
+        if(DataIntegrity.checkNumber(level)){
+            int index = Integer.parseInt(level);
+            index--; //Levels start at 1 so if I'm level 1 I need to be at index 0
+            if(index >= 0 && index <= 19){ //Between levels 1-20
+                combo_level.setSelectedIndex(index);
+            }
+        }
+    }
+
+    private void setAttributes(Bundle bun) {
+        String str, dex, con, intel, wis, cha;
+        str = bun.getString(KEY.K_STRENGTH);
+        dex = bun.getString(KEY.K_DEXTERITY);
+        con = bun.getString(KEY.K_CONSTITUTION);
+        intel = bun.getString(KEY.K_INTELLIGENCE);
+        wis = bun.getString(KEY.K_WISDOM);
+        cha = bun.getString(KEY.K_CHARISMA);
+        
+        setAttribute(txt_strength, str);
+        setAttribute(txt_dexterity, dex);
+        setAttribute(txt_constitution, con);
+        setAttribute(txt_intelligence, intel);
+        setAttribute(txt_wisdom, wis);
+        setAttribute(txt_charisma, cha);
+    }
+    
+    private void setAttribute(JTextField attr, String num){
+        if(DataIntegrity.checkNumber(num)){
+            attr.setText(num);
+        }
+        else{
+            attr.setText("10");
         }
     }
 }

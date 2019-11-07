@@ -53,6 +53,9 @@ public class XMLReader {
             Element spellbook = extractElement(character, KEY.H_SPELLBOOK);
             Element image = extractElement(character, KEY.H_IMAGE);
             
+            
+            extractDataFromBiography(biography);
+            extractDataFromAttributes(attributes);
             extractDataFromBackground(background);
             extractDataFromImage(image);
             extractWeapons(weapons);
@@ -133,5 +136,56 @@ public class XMLReader {
                 bundle.putString(KEY.K_WEAPON_ATTK_BONUS + KEY.item(curr), attkBonus);
             }
         }
+    }
+
+    private void extractDataFromBiography(Element biography) {
+        String name, pClass, pRace, size, weight, height, align, deity, level;
+        name = extractString(biography, KEY.L_CHARACTER_NAME);
+        pClass = extractString(biography, KEY.L_CLASS);
+        pRace = extractString(biography, KEY.L_RACE);
+        size = extractString(biography, KEY.L_SIZE);
+        weight = extractString(biography, KEY.L_WEIGHT);
+        height = extractString(biography, KEY.L_HEIGHT);
+        align = extractString(biography, KEY.L_ALIGNMENT);
+        deity = extractString(biography, KEY.L_DEITY);
+        level = extractString(biography, KEY.L_LEVEL);
+        
+        bundle.putString(KEY.K_CHARACTER_NAME, name);
+        bundle.putString(KEY.K_CLASS, pClass);
+        bundle.putString(KEY.K_RACE, pRace);
+        bundle.putString(KEY.K_SIZE, size);
+        bundle.putString(KEY.K_WEIGHT, weight);
+        bundle.putString(KEY.K_HEIGHT, height);
+        bundle.putString(KEY.K_ALIGNMENT, align);
+        bundle.putString(KEY.K_DEITY, deity);
+        bundle.putString(KEY.K_LEVEL, level);
+    }
+
+    private void extractDataFromAttributes(Element attributes) {
+        String str, dex, con, intel, wis, cha;
+        String pStr, pDex, pCon, pIntel, pWis, pCha;
+        
+        str = extractString(attributes, KEY.L_STRENGTH);
+        dex = extractString(attributes, KEY.L_DEXTERITY);
+        con = extractString(attributes, KEY.L_CONSTITUION);
+        intel = extractString(attributes, KEY.L_INTELLIGENCE);
+        wis = extractString(attributes, KEY.L_WISDOM);
+        cha = extractString(attributes, KEY.L_CHARISMA);
+        
+        bundle.putString(KEY.K_STRENGTH, str);
+        bundle.putString(KEY.K_DEXTERITY, dex);
+        bundle.putString(KEY.K_CONSTITUTION, con);
+        bundle.putString(KEY.K_INTELLIGENCE, intel);
+        bundle.putString(KEY.K_WISDOM, wis);
+        bundle.putString(KEY.K_CHARISMA, cha);
+        
+        /*
+        pStr = extractString(attributes, KEY.L_STRPROF);
+        pDex = extractString(attributes, KEY.L_DEXPROF);
+        pCon = extractString(attributes, KEY.L_CONPROF);
+        pIntel = extractString(attributes, KEY.L_INTPROF);
+        pWis = extractString(attributes, KEY.L_WISPROF);
+        pCha = extractString(attributes, KEY.L_CHAPROF);
+        */
     }
 }

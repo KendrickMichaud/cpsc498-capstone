@@ -89,6 +89,7 @@ public class XMLWriter {
         addChildrenToElement(biography);
         addChildrenToElement(background);
         addChildrenToElement(weapons);
+        addChildrenToElement(attributes);
         
         character.appendChild(biography);
         character.appendChild(background);
@@ -133,13 +134,31 @@ public class XMLWriter {
                     addChild(KEY.K_BACKGROUND_FLAW, ele);
                     addChild(KEY.K_BACKGROUND_TRAIT, ele);
                     break;
-                case KEY.H_BIOGRAPHY:break;
+                case KEY.H_BIOGRAPHY:
+                    addChild(KEY.K_CHARACTER_NAME,ele);
+                    addChild(KEY.K_CLASS, ele);
+                    addChild(KEY.K_RACE, ele);
+                    addChild(KEY.K_SIZE, ele);
+                    addChild(KEY.K_WEIGHT, ele);
+                    addChild(KEY.K_HEIGHT, ele);
+                    addChild(KEY.K_DEITY, ele);
+                    addChild(KEY.K_ALIGNMENT, ele);
+                    addChild(KEY.K_LEVEL, ele);
+                    break;
                 case KEY.H_ARMOR:break;
                 case KEY.H_FEATURE:break;
                 case KEY.H_WEAPON:
                     for(int i = 0; i < 3; i++){
                         addWeapon(i, ele);
                     }
+                    break;
+                case KEY.H_ATTRIBUTES:
+                    addChild(KEY.K_STRENGTH, ele);
+                    addChild(KEY.K_DEXTERITY, ele);
+                    addChild(KEY.K_CONSTITUTION, ele);
+                    addChild(KEY.K_INTELLIGENCE, ele);
+                    addChild(KEY.K_WISDOM, ele);
+                    addChild(KEY.K_CHARISMA, ele);
                     break;
                     
                 

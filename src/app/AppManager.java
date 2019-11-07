@@ -121,7 +121,7 @@ public class AppManager {
                 FileManager.FILE.CHARACTER);
         Bundle character_data = file_manager.getData();
         if(character_data.getBoolean(FileManager.IO_SUCCESS)){
-            main_frame.replaceValues(character_data);
+            main_frame.updateValues(character_data);
         }
     }
     
