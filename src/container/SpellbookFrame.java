@@ -9,12 +9,12 @@ package container;
  *
  * @author Kendrick-Laptop
  */
-public class Spellbook extends javax.swing.JFrame {
+public class SpellbookFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form Spellbook
      */
-    public Spellbook() {
+    public SpellbookFrame() {
         initComponents();
     }
 
@@ -79,6 +79,7 @@ public class Spellbook extends javax.swing.JFrame {
         pan_dc9 = new javax.swing.JPanel();
         lbl_dc9 = new javax.swing.JLabel();
 
+        setTitle("Spellbook");
         setMaximumSize(new java.awt.Dimension(500, 300));
         setMinimumSize(new java.awt.Dimension(500, 300));
         setPreferredSize(new java.awt.Dimension(500, 300));
@@ -596,20 +597,21 @@ public class Spellbook extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Spellbook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SpellbookFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Spellbook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SpellbookFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Spellbook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SpellbookFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Spellbook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SpellbookFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Spellbook().setVisible(true);
+                new SpellbookFrame().setVisible(true);
             }
         });
     }

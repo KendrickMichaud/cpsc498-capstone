@@ -16,4 +16,7 @@ public class GUI {
     public static final String IDEAL = "Ideal";
     public static final String BOND = "Bond";
     public static final String FLAW = "Flaw";
+    public static final String IMG_ICON_STATUS_RED = "/img/ico_status_red.png";
+    public static final String IMG_ICON_STATUS_YELLOW = "/img/ico_status_yellow.png";
+    public static final String IMG_ICON_STATUS_GREEN = "/img/ico_status_green.png";
 }

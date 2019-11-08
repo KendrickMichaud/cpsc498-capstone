@@ -48,7 +48,8 @@ public class CharacterFrame extends javax.swing.JFrame {
     private AppManager manager;
     private Deck defense;
     private File associatedFile;
-    private Spellbook spellbook;
+    private SpellbookFrame spellbook;
+    private InventoryFrame inventory;
     /**
      * Creates new form CharacterFrame
      * @param manager
@@ -64,6 +65,9 @@ public class CharacterFrame extends javax.swing.JFrame {
         initCardsForSkillsProfs();
         initCardsForSpellsInventory();
         initComponentsForUserInterfacing();
+        spellbook = new SpellbookFrame();
+        inventory = new InventoryFrame();
+        inventory.setLimit(Integer.parseInt(extractString(txt_strength)));
         combo_level.addItemListener(new ComboItemListener(manager));
         
         
@@ -901,6 +905,11 @@ public class CharacterFrame extends javax.swing.JFrame {
         pan_spellsInventory.add(jButton3, java.awt.BorderLayout.LINE_START);
 
         jButton4.setText("jButton4");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         pan_spellsInventory.add(jButton4, java.awt.BorderLayout.LINE_END);
 
         pan_background.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -1228,11 +1237,19 @@ public class CharacterFrame extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if(spellbook == null){
-            spellbook = new Spellbook();
+            spellbook = new SpellbookFrame();
         }
         
         spellbook.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if(inventory == null){
+            inventory = new InventoryFrame();
+        }
+        
+        inventory.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1684,6 +1701,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         setAttributes(character_data);
         setDefenseArmor(character_data);
         setUtility(character_data);
+        inventory.setLimit(Integer.parseInt(extractString(txt_strength)));
         manager.updateValues();
     }
 
@@ -1751,6 +1769,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         b.putString(KEY.K_HIT_DIE, JText.extractString(txt_hit_die));
         
         //Skills
+        
         
         //Proficiency
         
