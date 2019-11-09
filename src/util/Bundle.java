@@ -5,7 +5,9 @@
  */
 package util;
 
+import constants.KEY;
 import java.util.HashMap;
+import structure.Inventory;
 
 /**
  *
@@ -57,6 +59,20 @@ public class Bundle extends HashMap<String, Object>{
            throw new IllegalArgumentException("Calling for a type that is not a Boolean"); 
         else
             return false;
+    }
+
+    public void putInventory(Inventory inventory) {
+        put(KEY.K_INVENTORY, inventory);
+    }
+    
+    public Inventory getInventory(){
+        Object o = get(KEY.K_INVENTORY);
+        if(o != null && o instanceof Inventory){
+            return (Inventory) o;
+        }
+        else{
+            return null;
+        }
     }
     
     

@@ -255,7 +255,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         pan_spellsInventory = new javax.swing.JPanel();
         lbl_panSpellsAndEquipment = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         pan_background = new javax.swing.JPanel();
         lbl_panBackground = new javax.swing.JLabel();
         bdy_background = new javax.swing.JPanel();
@@ -904,13 +904,19 @@ public class CharacterFrame extends javax.swing.JFrame {
         });
         pan_spellsInventory.add(jButton3, java.awt.BorderLayout.LINE_START);
 
-        jButton4.setText("jButton4");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ico_bag.png"))); // NOI18N
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
             }
         });
-        pan_spellsInventory.add(jButton4, java.awt.BorderLayout.LINE_END);
+        jLabel2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jLabel2KeyTyped(evt);
+            }
+        });
+        pan_spellsInventory.add(jLabel2, java.awt.BorderLayout.CENTER);
 
         pan_background.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pan_background.setLayout(new java.awt.BorderLayout());
@@ -1243,13 +1249,17 @@ public class CharacterFrame extends javax.swing.JFrame {
         spellbook.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jLabel2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel2KeyTyped
+        
+    }//GEN-LAST:event_jLabel2KeyTyped
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         if(inventory == null){
             inventory = new InventoryFrame();
         }
         
         inventory.setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jLabel2MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1283,13 +1293,13 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel12;
@@ -1701,6 +1711,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         setAttributes(character_data);
         setDefenseArmor(character_data);
         setUtility(character_data);
+        inventory.updateInventory(character_data.getInventory());
         inventory.setLimit(Integer.parseInt(extractString(txt_strength)));
         manager.updateValues();
     }
@@ -1778,6 +1789,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         //Spellbook
         
         //Inventory
+        b.putInventory(inventory.getInventory());
         
         //Background
         b.putString(KEY.K_BACKGROUND_NAME, extractString(txt_background_name.getDocument()));

@@ -120,6 +120,7 @@ public class KEY {
     public static final String L_DMG_ROLL = "dmgRoll";
     public static final String L_DMG_BONUS = "dmgBonus";
     public static final String L_BASE = "Base64";
+    public static String L_QUANTITY = "Quantity";
     
     public static String item(int i){
         return DELIM + "item" + I_DELIM + Integer.toString(i);
@@ -222,6 +223,8 @@ public class KEY {
     public static final String K_PERSUASION_BONUS = H_SKILLS + L_PERSUASION_BONUS;
     public static final String K_EQUIPMENT_PROFICIENCES = H_SKILLS + L_EQUIPMENT_PROFICIENCES;
     public static final String K_IMAGE = H_IMAGE + L_BASE;
+    
+    public static final String K_INVENTORY = "Inventory"; //Unique key doesn't need hkey or low key
 
     
     //Feats Low Keys

@@ -19,6 +19,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+import structure.Inventory;
+import structure.Item;
 
 /**
  *
@@ -63,6 +65,7 @@ public class XMLReader {
             extractDataFromDefense(defense);
             extractDataFromUtility(utility);
             extractWeapons(weapons);
+            extractDataFromInventory(inventory);
             bundle.putBoolean(FileManager.IO_SUCCESS, Boolean.TRUE);
             return bundle;
         } catch (ParserConfigurationException | SAXException | IOException ex) {
@@ -237,5 +240,24 @@ public class XMLReader {
         bundle.putString(KEY.K_INIT_BONUS, init);
         bundle.putString(KEY.K_HEALTH_POINTS, health);
         bundle.putString(KEY.K_HIT_DIE, hitDie);
+    }
+
+    private void extractDataFromInventory(Element inventory) {
+        NodeList list = inventory.getChildNodes();
+        Inventory inv = new Inventory();
+        for(int i = 0; i < list.getLength(); i++){
+            Node node = list.item(i);
+            if(node instanceof Element){                      
+                Element ele = (Element) node;
+                String name, desc, weight, quantity;
+                name = extractString(ele, KEY.L_NAME);
+                desc = extractString(ele, KEY.L_DESCRIPTION);
+                weight = extractString(ele, KEY.L_WEIGHT);
+                quantity = extractString(ele, KEY.L_QUANTITY);
+                Item item = new Item(name, desc, quantity, weight);
+                inv.store(item);
+            }
+        }
+        bundle.putInventory(inv);
     }
 }

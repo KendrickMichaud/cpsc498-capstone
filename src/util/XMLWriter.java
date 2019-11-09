@@ -25,6 +25,8 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import structure.Inventory;
+import structure.Item;
 
 /**
  *
@@ -94,6 +96,7 @@ public class XMLWriter {
         addChildrenToElement(armor);
         addChildrenToElement(defense);
         addChildrenToElement(utility);
+        addChildrenToElement(inventory);
         
         character.appendChild(biography);
         character.appendChild(background);
@@ -187,7 +190,15 @@ public class XMLWriter {
                     addChild(KEY.K_HEALTH_POINTS, ele);
                     addChild(KEY.K_HIT_DIE,ele);
                     break;
-                
+                case KEY.H_INVENTORY:
+                    Inventory inv = bundle.getInventory();
+                    if(inv != null){
+                        for(int i = 0; i < inv.size(); i++){
+                            Item item = inv.get(i);
+                            addItem(item, ele);
+                        }
+                    }
+                    break;
             }
         }
     }
@@ -215,6 +226,23 @@ public class XMLWriter {
         addChild(KEY.K_WEAPON_DMG_ROLL + KEY.item(curr), item);
         addChild(KEY.K_WEAPON_DMG_BONUS + KEY.item(curr), item);
         weapons.appendChild(item);
+    }
+
+    private void addItem(Item item, Element inventory) {
+        Element itemRow = document.createElement("item");
+        itemRow.appendChild(createElement(KEY.L_NAME, item.name));
+        itemRow.appendChild(createElement(KEY.L_DESCRIPTION, item.desc));
+        itemRow.appendChild(createElement(KEY.L_QUANTITY, item.quantity));
+        itemRow.appendChild(createElement(KEY.L_WEIGHT, item.weight));
+        inventory.appendChild(itemRow);
+    }
+    
+    private Element createElement(String tag, String value){
+        Element ele = document.createElement(tag);
+        if(value != null){
+            ele.setTextContent(value);
+        }
+        return ele;
     }
     
 }

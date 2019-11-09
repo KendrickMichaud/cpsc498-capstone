@@ -13,6 +13,8 @@ import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
+import structure.Inventory;
+import structure.Item;
 
 /**
  *
@@ -24,7 +26,7 @@ public class InventoryFrame extends javax.swing.JFrame {
     
     /**
      * Sets the weight limit of the inventory.
-     * @param strengthMod Strength (not modifier but strength total)
+     * @param strengthAttr Strength (not modifier but strength total)
      */
     public void setLimit(int strength){
         int mult = (15*strength);
@@ -43,6 +45,36 @@ public class InventoryFrame extends javax.swing.JFrame {
             case STABLE:
                 icon_status.setIcon(new ImageIcon(getClass().getResource(GUI.IMG_ICON_STATUS_GREEN)));
                 break;
+        }
+    }
+
+    private Item item(int row) {
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        String name = (String) model.getValueAt(row, 0);
+        String desc = (String) model.getValueAt(row, 1);
+        Integer quantity = (Integer) model.getValueAt(row, 2);
+        Double weight = (Double) model.getValueAt(row, 3);
+        
+        String qString = quantity==null?null:quantity.toString();
+        String wString = weight==null?null:weight.toString();
+        
+        Item item = new Item(name, desc, qString, wString);
+        return item;
+    }
+
+    void updateInventory(Inventory inventory) {
+        for(int i = 0; i < inventory.size(); i++){
+            Item item = inventory.get(i);
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            String name = item.name;
+            String desc = item.desc;
+            String quantityStr = item.quantity;
+            String weightStr = item.weight;
+            System.out.println("quantity: ".concat(quantityStr).concat(" weight:".concat(weightStr)));
+            Double weight = (weightStr==null||weightStr.equals(""))?null:Double.parseDouble(weightStr);
+            Integer quantity = (quantityStr==null||quantityStr.equals(""))?null:Integer.parseInt(quantityStr);
+            
+            model.insertRow(i, new Object[] {name, desc, quantity, weight});
         }
     }
     
@@ -68,8 +100,8 @@ public class InventoryFrame extends javax.swing.JFrame {
             Object quantity = model.getValueAt(row, 2);
             Object weight = model.getValueAt(row, 3);
             if(weight != null && quantity != null){
-                int q = (Integer) quantity;
-                double w = (Double) weight;
+                int q = ((Integer) quantity).intValue();
+                double w = ((Double) weight).doubleValue();
                 sum += ((double) q) * w;
             }
         }
@@ -193,6 +225,7 @@ public class InventoryFrame extends javax.swing.JFrame {
     private void btn_add_rowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_rowActionPerformed
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         model.addRow(new Object[] {null,null,null,null});
+        table.setRowSelectionInterval(model.getRowCount()-1, model.getRowCount()-1);
     }//GEN-LAST:event_btn_add_rowActionPerformed
 
     private void btn_remove_selected_rowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_remove_selected_rowActionPerformed
@@ -261,4 +294,14 @@ public class InventoryFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_max_weight;
     private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
+
+    public Inventory getInventory(){
+        Inventory inventory = new Inventory();
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        for(int row = 0; row < model.getRowCount(); row++){
+            inventory.store(item(row));
+        }
+        return inventory;
+    }
+    
 }
