@@ -13,8 +13,8 @@ import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
-import structure.Inventory;
-import structure.Item;
+import data_structure.Inventory;
+import data_structure.Item;
 
 /**
  *

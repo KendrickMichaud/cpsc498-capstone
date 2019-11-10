@@ -5,6 +5,15 @@
  */
 package container;
 
+import app.AppManager;
+import constants.KEY;
+import java.util.ArrayList;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import data_structure.Spell;
+import data_structure.Spellbook;
+
 /**
  *
  * @author Kendrick-Laptop
@@ -30,64 +39,119 @@ public class SpellbookFrame extends javax.swing.JFrame {
         tab_pane = new javax.swing.JTabbedPane();
         pan_cant = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbl_0 = new javax.swing.JTable();
         pan_dc = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         lbl_dc = new javax.swing.JLabel();
+        lbl_dc_num0 = new javax.swing.JLabel();
+        pan_interaction = new javax.swing.JPanel();
+        add_row0 = new javax.swing.JButton();
+        rem_row0 = new javax.swing.JButton();
         pan1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tbl_1 = new javax.swing.JTable();
         pan_dc1 = new javax.swing.JPanel();
-        lbl_dc1 = new javax.swing.JLabel();
+        pan_interaction1 = new javax.swing.JPanel();
+        add_row1 = new javax.swing.JButton();
+        rem_row1 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        lbl_dc10 = new javax.swing.JLabel();
+        lbl_dc_num1 = new javax.swing.JLabel();
         pan2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tbl_2 = new javax.swing.JTable();
         pan_dc2 = new javax.swing.JPanel();
-        lbl_dc2 = new javax.swing.JLabel();
+        pan_interaction2 = new javax.swing.JPanel();
+        add_row2 = new javax.swing.JButton();
+        rem_row2 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        lbl_dc11 = new javax.swing.JLabel();
+        lbl_dc_num2 = new javax.swing.JLabel();
         pan3 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        tbl_3 = new javax.swing.JTable();
         pan_dc3 = new javax.swing.JPanel();
-        lbl_dc3 = new javax.swing.JLabel();
+        pan_interaction3 = new javax.swing.JPanel();
+        add_row3 = new javax.swing.JButton();
+        rem_row3 = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        lbl_dc12 = new javax.swing.JLabel();
+        lbl_dc_num3 = new javax.swing.JLabel();
         pan4 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        tbl_4 = new javax.swing.JTable();
         pan_dc4 = new javax.swing.JPanel();
-        lbl_dc4 = new javax.swing.JLabel();
+        pan_interaction4 = new javax.swing.JPanel();
+        add_row4 = new javax.swing.JButton();
+        rem_row4 = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        lbl_dc13 = new javax.swing.JLabel();
+        lbl_dc_num4 = new javax.swing.JLabel();
         pan5 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable6 = new javax.swing.JTable();
+        tbl_5 = new javax.swing.JTable();
         pan_dc5 = new javax.swing.JPanel();
-        lbl_dc5 = new javax.swing.JLabel();
+        pan_interaction5 = new javax.swing.JPanel();
+        add_row5 = new javax.swing.JButton();
+        rem_row5 = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        lbl_dc14 = new javax.swing.JLabel();
+        lbl_dc_num5 = new javax.swing.JLabel();
         pan6 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTable7 = new javax.swing.JTable();
+        tbl_6 = new javax.swing.JTable();
         pan_dc6 = new javax.swing.JPanel();
-        lbl_dc6 = new javax.swing.JLabel();
+        pan_interaction6 = new javax.swing.JPanel();
+        add_row6 = new javax.swing.JButton();
+        rem_row6 = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        lbl_dc15 = new javax.swing.JLabel();
+        lbl_dc_num6 = new javax.swing.JLabel();
         pan7 = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTable8 = new javax.swing.JTable();
+        tbl_7 = new javax.swing.JTable();
         pan_dc7 = new javax.swing.JPanel();
-        lbl_dc7 = new javax.swing.JLabel();
+        pan_interaction7 = new javax.swing.JPanel();
+        add_row7 = new javax.swing.JButton();
+        rem_row7 = new javax.swing.JButton();
+        jPanel9 = new javax.swing.JPanel();
+        lbl_dc16 = new javax.swing.JLabel();
+        lbl_dc_num7 = new javax.swing.JLabel();
         pan8 = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTable9 = new javax.swing.JTable();
+        tbl_8 = new javax.swing.JTable();
         pan_dc8 = new javax.swing.JPanel();
-        lbl_dc8 = new javax.swing.JLabel();
+        pan_interaction8 = new javax.swing.JPanel();
+        add_row8 = new javax.swing.JButton();
+        rem_row8 = new javax.swing.JButton();
+        jPanel10 = new javax.swing.JPanel();
+        lbl_dc17 = new javax.swing.JLabel();
+        lbl_dc_num8 = new javax.swing.JLabel();
         pan9 = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
-        jTable10 = new javax.swing.JTable();
+        tbl_9 = new javax.swing.JTable();
         pan_dc9 = new javax.swing.JPanel();
-        lbl_dc9 = new javax.swing.JLabel();
+        pan_interaction9 = new javax.swing.JPanel();
+        add_row9 = new javax.swing.JButton();
+        rem_row9 = new javax.swing.JButton();
+        jPanel11 = new javax.swing.JPanel();
+        lbl_dc18 = new javax.swing.JLabel();
+        lbl_dc_num9 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        lbl_caster_type = new javax.swing.JLabel();
+        combo_caster = new javax.swing.JComboBox<>();
 
         setTitle("Spellbook");
-        setMaximumSize(new java.awt.Dimension(500, 300));
+        setMaximumSize(new java.awt.Dimension(10000, 10000));
         setMinimumSize(new java.awt.Dimension(500, 300));
-        setPreferredSize(new java.awt.Dimension(500, 300));
+        setPreferredSize(new java.awt.Dimension(700, 400));
         setResizable(false);
+
+        tab_pane.setPreferredSize(new java.awt.Dimension(600, 463));
 
         pan_cant.setLayout(new java.awt.BorderLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_0.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -120,15 +184,38 @@ public class SpellbookFrame extends javax.swing.JFrame {
                 "Spell", "Description"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbl_0);
 
         pan_cant.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
         pan_dc.setLayout(new java.awt.BorderLayout());
 
         lbl_dc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_dc.setText("Spell DC: 10");
-        pan_dc.add(lbl_dc, java.awt.BorderLayout.CENTER);
+        lbl_dc.setText("Spell DC:");
+        jPanel1.add(lbl_dc);
+
+        lbl_dc_num0.setText("10");
+        jPanel1.add(lbl_dc_num0);
+
+        pan_dc.add(jPanel1, java.awt.BorderLayout.CENTER);
+
+        add_row0.setText("Add Row");
+        add_row0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_row0ActionPerformed(evt);
+            }
+        });
+        pan_interaction.add(add_row0);
+
+        rem_row0.setText("Remove Row");
+        rem_row0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rem_row0ActionPerformed(evt);
+            }
+        });
+        pan_interaction.add(rem_row0);
+
+        pan_dc.add(pan_interaction, java.awt.BorderLayout.LINE_END);
 
         pan_cant.add(pan_dc, java.awt.BorderLayout.PAGE_START);
 
@@ -136,7 +223,7 @@ public class SpellbookFrame extends javax.swing.JFrame {
 
         pan1.setLayout(new java.awt.BorderLayout());
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -169,15 +256,38 @@ public class SpellbookFrame extends javax.swing.JFrame {
                 "Spell", "Description"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tbl_1);
 
         pan1.add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
         pan_dc1.setLayout(new java.awt.BorderLayout());
 
-        lbl_dc1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_dc1.setText("Spell DC: 10");
-        pan_dc1.add(lbl_dc1, java.awt.BorderLayout.CENTER);
+        add_row1.setText("Add Row");
+        add_row1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_row1ActionPerformed(evt);
+            }
+        });
+        pan_interaction1.add(add_row1);
+
+        rem_row1.setText("Remove Row");
+        rem_row1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rem_row1ActionPerformed(evt);
+            }
+        });
+        pan_interaction1.add(rem_row1);
+
+        pan_dc1.add(pan_interaction1, java.awt.BorderLayout.LINE_END);
+
+        lbl_dc10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_dc10.setText("Spell DC:");
+        jPanel3.add(lbl_dc10);
+
+        lbl_dc_num1.setText("10");
+        jPanel3.add(lbl_dc_num1);
+
+        pan_dc1.add(jPanel3, java.awt.BorderLayout.CENTER);
 
         pan1.add(pan_dc1, java.awt.BorderLayout.PAGE_START);
 
@@ -185,7 +295,7 @@ public class SpellbookFrame extends javax.swing.JFrame {
 
         pan2.setLayout(new java.awt.BorderLayout());
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -218,15 +328,38 @@ public class SpellbookFrame extends javax.swing.JFrame {
                 "Spell", "Description"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(tbl_2);
 
         pan2.add(jScrollPane3, java.awt.BorderLayout.CENTER);
 
         pan_dc2.setLayout(new java.awt.BorderLayout());
 
-        lbl_dc2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_dc2.setText("Spell DC: 10");
-        pan_dc2.add(lbl_dc2, java.awt.BorderLayout.CENTER);
+        add_row2.setText("Add Row");
+        add_row2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_row2ActionPerformed(evt);
+            }
+        });
+        pan_interaction2.add(add_row2);
+
+        rem_row2.setText("Remove Row");
+        rem_row2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rem_row2ActionPerformed(evt);
+            }
+        });
+        pan_interaction2.add(rem_row2);
+
+        pan_dc2.add(pan_interaction2, java.awt.BorderLayout.LINE_END);
+
+        lbl_dc11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_dc11.setText("Spell DC:");
+        jPanel4.add(lbl_dc11);
+
+        lbl_dc_num2.setText("10");
+        jPanel4.add(lbl_dc_num2);
+
+        pan_dc2.add(jPanel4, java.awt.BorderLayout.CENTER);
 
         pan2.add(pan_dc2, java.awt.BorderLayout.PAGE_START);
 
@@ -234,7 +367,7 @@ public class SpellbookFrame extends javax.swing.JFrame {
 
         pan3.setLayout(new java.awt.BorderLayout());
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -267,15 +400,38 @@ public class SpellbookFrame extends javax.swing.JFrame {
                 "Spell", "Description"
             }
         ));
-        jScrollPane4.setViewportView(jTable4);
+        jScrollPane4.setViewportView(tbl_3);
 
         pan3.add(jScrollPane4, java.awt.BorderLayout.CENTER);
 
         pan_dc3.setLayout(new java.awt.BorderLayout());
 
-        lbl_dc3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_dc3.setText("Spell DC: 10");
-        pan_dc3.add(lbl_dc3, java.awt.BorderLayout.CENTER);
+        add_row3.setText("Add Row");
+        add_row3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_row3ActionPerformed(evt);
+            }
+        });
+        pan_interaction3.add(add_row3);
+
+        rem_row3.setText("Remove Row");
+        rem_row3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rem_row3ActionPerformed(evt);
+            }
+        });
+        pan_interaction3.add(rem_row3);
+
+        pan_dc3.add(pan_interaction3, java.awt.BorderLayout.LINE_END);
+
+        lbl_dc12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_dc12.setText("Spell DC:");
+        jPanel5.add(lbl_dc12);
+
+        lbl_dc_num3.setText("10");
+        jPanel5.add(lbl_dc_num3);
+
+        pan_dc3.add(jPanel5, java.awt.BorderLayout.CENTER);
 
         pan3.add(pan_dc3, java.awt.BorderLayout.PAGE_START);
 
@@ -283,7 +439,7 @@ public class SpellbookFrame extends javax.swing.JFrame {
 
         pan4.setLayout(new java.awt.BorderLayout());
 
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -316,15 +472,38 @@ public class SpellbookFrame extends javax.swing.JFrame {
                 "Spell", "Description"
             }
         ));
-        jScrollPane5.setViewportView(jTable5);
+        jScrollPane5.setViewportView(tbl_4);
 
         pan4.add(jScrollPane5, java.awt.BorderLayout.CENTER);
 
         pan_dc4.setLayout(new java.awt.BorderLayout());
 
-        lbl_dc4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_dc4.setText("Spell DC: 10");
-        pan_dc4.add(lbl_dc4, java.awt.BorderLayout.CENTER);
+        add_row4.setText("Add Row");
+        add_row4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_row4ActionPerformed(evt);
+            }
+        });
+        pan_interaction4.add(add_row4);
+
+        rem_row4.setText("Remove Row");
+        rem_row4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rem_row4ActionPerformed(evt);
+            }
+        });
+        pan_interaction4.add(rem_row4);
+
+        pan_dc4.add(pan_interaction4, java.awt.BorderLayout.LINE_END);
+
+        lbl_dc13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_dc13.setText("Spell DC:");
+        jPanel6.add(lbl_dc13);
+
+        lbl_dc_num4.setText("10");
+        jPanel6.add(lbl_dc_num4);
+
+        pan_dc4.add(jPanel6, java.awt.BorderLayout.CENTER);
 
         pan4.add(pan_dc4, java.awt.BorderLayout.PAGE_START);
 
@@ -332,7 +511,7 @@ public class SpellbookFrame extends javax.swing.JFrame {
 
         pan5.setLayout(new java.awt.BorderLayout());
 
-        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_5.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -365,15 +544,38 @@ public class SpellbookFrame extends javax.swing.JFrame {
                 "Spell", "Description"
             }
         ));
-        jScrollPane6.setViewportView(jTable6);
+        jScrollPane6.setViewportView(tbl_5);
 
         pan5.add(jScrollPane6, java.awt.BorderLayout.CENTER);
 
         pan_dc5.setLayout(new java.awt.BorderLayout());
 
-        lbl_dc5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_dc5.setText("Spell DC: 10");
-        pan_dc5.add(lbl_dc5, java.awt.BorderLayout.CENTER);
+        add_row5.setText("Add Row");
+        add_row5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_row5ActionPerformed(evt);
+            }
+        });
+        pan_interaction5.add(add_row5);
+
+        rem_row5.setText("Remove Row");
+        rem_row5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rem_row5ActionPerformed(evt);
+            }
+        });
+        pan_interaction5.add(rem_row5);
+
+        pan_dc5.add(pan_interaction5, java.awt.BorderLayout.LINE_END);
+
+        lbl_dc14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_dc14.setText("Spell DC:");
+        jPanel7.add(lbl_dc14);
+
+        lbl_dc_num5.setText("10");
+        jPanel7.add(lbl_dc_num5);
+
+        pan_dc5.add(jPanel7, java.awt.BorderLayout.CENTER);
 
         pan5.add(pan_dc5, java.awt.BorderLayout.PAGE_START);
 
@@ -381,7 +583,7 @@ public class SpellbookFrame extends javax.swing.JFrame {
 
         pan6.setLayout(new java.awt.BorderLayout());
 
-        jTable7.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_6.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -414,15 +616,38 @@ public class SpellbookFrame extends javax.swing.JFrame {
                 "Spell", "Description"
             }
         ));
-        jScrollPane7.setViewportView(jTable7);
+        jScrollPane7.setViewportView(tbl_6);
 
         pan6.add(jScrollPane7, java.awt.BorderLayout.CENTER);
 
         pan_dc6.setLayout(new java.awt.BorderLayout());
 
-        lbl_dc6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_dc6.setText("Spell DC: 10");
-        pan_dc6.add(lbl_dc6, java.awt.BorderLayout.CENTER);
+        add_row6.setText("Add Row");
+        add_row6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_row6ActionPerformed(evt);
+            }
+        });
+        pan_interaction6.add(add_row6);
+
+        rem_row6.setText("Remove Row");
+        rem_row6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rem_row6ActionPerformed(evt);
+            }
+        });
+        pan_interaction6.add(rem_row6);
+
+        pan_dc6.add(pan_interaction6, java.awt.BorderLayout.LINE_END);
+
+        lbl_dc15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_dc15.setText("Spell DC:");
+        jPanel8.add(lbl_dc15);
+
+        lbl_dc_num6.setText("10");
+        jPanel8.add(lbl_dc_num6);
+
+        pan_dc6.add(jPanel8, java.awt.BorderLayout.CENTER);
 
         pan6.add(pan_dc6, java.awt.BorderLayout.PAGE_START);
 
@@ -430,7 +655,7 @@ public class SpellbookFrame extends javax.swing.JFrame {
 
         pan7.setLayout(new java.awt.BorderLayout());
 
-        jTable8.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_7.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -463,15 +688,38 @@ public class SpellbookFrame extends javax.swing.JFrame {
                 "Spell", "Description"
             }
         ));
-        jScrollPane8.setViewportView(jTable8);
+        jScrollPane8.setViewportView(tbl_7);
 
         pan7.add(jScrollPane8, java.awt.BorderLayout.CENTER);
 
         pan_dc7.setLayout(new java.awt.BorderLayout());
 
-        lbl_dc7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_dc7.setText("Spell DC: 10");
-        pan_dc7.add(lbl_dc7, java.awt.BorderLayout.CENTER);
+        add_row7.setText("Add Row");
+        add_row7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_row7ActionPerformed(evt);
+            }
+        });
+        pan_interaction7.add(add_row7);
+
+        rem_row7.setText("Remove Row");
+        rem_row7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rem_row7ActionPerformed(evt);
+            }
+        });
+        pan_interaction7.add(rem_row7);
+
+        pan_dc7.add(pan_interaction7, java.awt.BorderLayout.LINE_END);
+
+        lbl_dc16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_dc16.setText("Spell DC:");
+        jPanel9.add(lbl_dc16);
+
+        lbl_dc_num7.setText("10");
+        jPanel9.add(lbl_dc_num7);
+
+        pan_dc7.add(jPanel9, java.awt.BorderLayout.CENTER);
 
         pan7.add(pan_dc7, java.awt.BorderLayout.PAGE_START);
 
@@ -479,7 +727,7 @@ public class SpellbookFrame extends javax.swing.JFrame {
 
         pan8.setLayout(new java.awt.BorderLayout());
 
-        jTable9.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_8.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -512,15 +760,38 @@ public class SpellbookFrame extends javax.swing.JFrame {
                 "Spell", "Description"
             }
         ));
-        jScrollPane9.setViewportView(jTable9);
+        jScrollPane9.setViewportView(tbl_8);
 
         pan8.add(jScrollPane9, java.awt.BorderLayout.CENTER);
 
         pan_dc8.setLayout(new java.awt.BorderLayout());
 
-        lbl_dc8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_dc8.setText("Spell DC: 10");
-        pan_dc8.add(lbl_dc8, java.awt.BorderLayout.CENTER);
+        add_row8.setText("Add Row");
+        add_row8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_row8ActionPerformed(evt);
+            }
+        });
+        pan_interaction8.add(add_row8);
+
+        rem_row8.setText("Remove Row");
+        rem_row8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rem_row8ActionPerformed(evt);
+            }
+        });
+        pan_interaction8.add(rem_row8);
+
+        pan_dc8.add(pan_interaction8, java.awt.BorderLayout.LINE_END);
+
+        lbl_dc17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_dc17.setText("Spell DC:");
+        jPanel10.add(lbl_dc17);
+
+        lbl_dc_num8.setText("10");
+        jPanel10.add(lbl_dc_num8);
+
+        pan_dc8.add(jPanel10, java.awt.BorderLayout.CENTER);
 
         pan8.add(pan_dc8, java.awt.BorderLayout.PAGE_START);
 
@@ -528,7 +799,7 @@ public class SpellbookFrame extends javax.swing.JFrame {
 
         pan9.setLayout(new java.awt.BorderLayout());
 
-        jTable10.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_9.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -561,15 +832,38 @@ public class SpellbookFrame extends javax.swing.JFrame {
                 "Spell", "Description"
             }
         ));
-        jScrollPane10.setViewportView(jTable10);
+        jScrollPane10.setViewportView(tbl_9);
 
         pan9.add(jScrollPane10, java.awt.BorderLayout.CENTER);
 
         pan_dc9.setLayout(new java.awt.BorderLayout());
 
-        lbl_dc9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_dc9.setText("Spell DC: 10");
-        pan_dc9.add(lbl_dc9, java.awt.BorderLayout.CENTER);
+        add_row9.setText("Add Row");
+        add_row9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_row9ActionPerformed(evt);
+            }
+        });
+        pan_interaction9.add(add_row9);
+
+        rem_row9.setText("Remove Row");
+        rem_row9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rem_row9ActionPerformed(evt);
+            }
+        });
+        pan_interaction9.add(rem_row9);
+
+        pan_dc9.add(pan_interaction9, java.awt.BorderLayout.LINE_END);
+
+        lbl_dc18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_dc18.setText("Spell DC:");
+        jPanel11.add(lbl_dc18);
+
+        lbl_dc_num9.setText("10");
+        jPanel11.add(lbl_dc_num9);
+
+        pan_dc9.add(jPanel11, java.awt.BorderLayout.CENTER);
 
         pan9.add(pan_dc9, java.awt.BorderLayout.PAGE_START);
 
@@ -577,8 +871,105 @@ public class SpellbookFrame extends javax.swing.JFrame {
 
         getContentPane().add(tab_pane, java.awt.BorderLayout.CENTER);
 
+        lbl_caster_type.setText("Caster Type");
+        jPanel2.add(lbl_caster_type);
+
+        combo_caster.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Intelligence", "Wisdom", "Charisma" }));
+        combo_caster.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_casterActionPerformed(evt);
+            }
+        });
+        jPanel2.add(combo_caster);
+
+        getContentPane().add(jPanel2, java.awt.BorderLayout.PAGE_START);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void add_row0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_row0ActionPerformed
+        addRow(tbl_0);
+    }//GEN-LAST:event_add_row0ActionPerformed
+
+    private void rem_row0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rem_row0ActionPerformed
+        remRow(tbl_0);
+    }//GEN-LAST:event_rem_row0ActionPerformed
+
+    private void add_row1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_row1ActionPerformed
+        addRow(tbl_1);
+    }//GEN-LAST:event_add_row1ActionPerformed
+
+    private void rem_row1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rem_row1ActionPerformed
+        remRow(tbl_1);
+    }//GEN-LAST:event_rem_row1ActionPerformed
+
+    private void add_row2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_row2ActionPerformed
+        addRow(tbl_2);
+    }//GEN-LAST:event_add_row2ActionPerformed
+
+    private void rem_row2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rem_row2ActionPerformed
+        remRow(tbl_2);
+    }//GEN-LAST:event_rem_row2ActionPerformed
+
+    private void add_row3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_row3ActionPerformed
+        addRow(tbl_3);
+    }//GEN-LAST:event_add_row3ActionPerformed
+
+    private void rem_row3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rem_row3ActionPerformed
+        remRow(tbl_3);
+    }//GEN-LAST:event_rem_row3ActionPerformed
+
+    private void add_row4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_row4ActionPerformed
+        addRow(tbl_4);
+    }//GEN-LAST:event_add_row4ActionPerformed
+
+    private void rem_row4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rem_row4ActionPerformed
+        remRow(tbl_4);
+    }//GEN-LAST:event_rem_row4ActionPerformed
+
+    private void add_row5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_row5ActionPerformed
+        addRow(tbl_5);
+    }//GEN-LAST:event_add_row5ActionPerformed
+
+    private void rem_row5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rem_row5ActionPerformed
+        remRow(tbl_5);
+    }//GEN-LAST:event_rem_row5ActionPerformed
+
+    private void add_row6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_row6ActionPerformed
+        addRow(tbl_6);
+    }//GEN-LAST:event_add_row6ActionPerformed
+
+    private void rem_row6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rem_row6ActionPerformed
+        remRow(tbl_6);
+    }//GEN-LAST:event_rem_row6ActionPerformed
+
+    private void add_row7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_row7ActionPerformed
+        addRow(tbl_7);
+    }//GEN-LAST:event_add_row7ActionPerformed
+
+    private void rem_row7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rem_row7ActionPerformed
+        remRow(tbl_7);
+    }//GEN-LAST:event_rem_row7ActionPerformed
+
+    private void add_row8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_row8ActionPerformed
+        addRow(tbl_8);
+    }//GEN-LAST:event_add_row8ActionPerformed
+
+    private void rem_row8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rem_row8ActionPerformed
+        remRow(tbl_8);
+    }//GEN-LAST:event_rem_row8ActionPerformed
+
+    private void add_row9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_row9ActionPerformed
+        addRow(tbl_9);
+    }//GEN-LAST:event_add_row9ActionPerformed
+
+    private void rem_row9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rem_row9ActionPerformed
+        remRow(tbl_9);
+    }//GEN-LAST:event_rem_row9ActionPerformed
+
+    private void combo_casterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_casterActionPerformed
+        AppManager.getInstance().updateValues();
+    }//GEN-LAST:event_combo_casterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -617,6 +1008,28 @@ public class SpellbookFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton add_row0;
+    private javax.swing.JButton add_row1;
+    private javax.swing.JButton add_row2;
+    private javax.swing.JButton add_row3;
+    private javax.swing.JButton add_row4;
+    private javax.swing.JButton add_row5;
+    private javax.swing.JButton add_row6;
+    private javax.swing.JButton add_row7;
+    private javax.swing.JButton add_row8;
+    private javax.swing.JButton add_row9;
+    private javax.swing.JComboBox<String> combo_caster;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
@@ -627,26 +1040,27 @@ public class SpellbookFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable10;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
-    private javax.swing.JTable jTable6;
-    private javax.swing.JTable jTable7;
-    private javax.swing.JTable jTable8;
-    private javax.swing.JTable jTable9;
+    private javax.swing.JLabel lbl_caster_type;
     private javax.swing.JLabel lbl_dc;
-    private javax.swing.JLabel lbl_dc1;
-    private javax.swing.JLabel lbl_dc2;
-    private javax.swing.JLabel lbl_dc3;
-    private javax.swing.JLabel lbl_dc4;
-    private javax.swing.JLabel lbl_dc5;
-    private javax.swing.JLabel lbl_dc6;
-    private javax.swing.JLabel lbl_dc7;
-    private javax.swing.JLabel lbl_dc8;
-    private javax.swing.JLabel lbl_dc9;
+    private javax.swing.JLabel lbl_dc10;
+    private javax.swing.JLabel lbl_dc11;
+    private javax.swing.JLabel lbl_dc12;
+    private javax.swing.JLabel lbl_dc13;
+    private javax.swing.JLabel lbl_dc14;
+    private javax.swing.JLabel lbl_dc15;
+    private javax.swing.JLabel lbl_dc16;
+    private javax.swing.JLabel lbl_dc17;
+    private javax.swing.JLabel lbl_dc18;
+    private javax.swing.JLabel lbl_dc_num0;
+    private javax.swing.JLabel lbl_dc_num1;
+    private javax.swing.JLabel lbl_dc_num2;
+    private javax.swing.JLabel lbl_dc_num3;
+    private javax.swing.JLabel lbl_dc_num4;
+    private javax.swing.JLabel lbl_dc_num5;
+    private javax.swing.JLabel lbl_dc_num6;
+    private javax.swing.JLabel lbl_dc_num7;
+    private javax.swing.JLabel lbl_dc_num8;
+    private javax.swing.JLabel lbl_dc_num9;
     private javax.swing.JPanel pan1;
     private javax.swing.JPanel pan2;
     private javax.swing.JPanel pan3;
@@ -667,6 +1081,172 @@ public class SpellbookFrame extends javax.swing.JFrame {
     private javax.swing.JPanel pan_dc7;
     private javax.swing.JPanel pan_dc8;
     private javax.swing.JPanel pan_dc9;
+    private javax.swing.JPanel pan_interaction;
+    private javax.swing.JPanel pan_interaction1;
+    private javax.swing.JPanel pan_interaction2;
+    private javax.swing.JPanel pan_interaction3;
+    private javax.swing.JPanel pan_interaction4;
+    private javax.swing.JPanel pan_interaction5;
+    private javax.swing.JPanel pan_interaction6;
+    private javax.swing.JPanel pan_interaction7;
+    private javax.swing.JPanel pan_interaction8;
+    private javax.swing.JPanel pan_interaction9;
+    private javax.swing.JButton rem_row0;
+    private javax.swing.JButton rem_row1;
+    private javax.swing.JButton rem_row2;
+    private javax.swing.JButton rem_row3;
+    private javax.swing.JButton rem_row4;
+    private javax.swing.JButton rem_row5;
+    private javax.swing.JButton rem_row6;
+    private javax.swing.JButton rem_row7;
+    private javax.swing.JButton rem_row8;
+    private javax.swing.JButton rem_row9;
     private javax.swing.JTabbedPane tab_pane;
+    private javax.swing.JTable tbl_0;
+    private javax.swing.JTable tbl_1;
+    private javax.swing.JTable tbl_2;
+    private javax.swing.JTable tbl_3;
+    private javax.swing.JTable tbl_4;
+    private javax.swing.JTable tbl_5;
+    private javax.swing.JTable tbl_6;
+    private javax.swing.JTable tbl_7;
+    private javax.swing.JTable tbl_8;
+    private javax.swing.JTable tbl_9;
     // End of variables declaration//GEN-END:variables
+
+    private void addRow(JTable table) {
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        model.addRow(new Object[] {null, null});
+        table.setRowSelectionInterval(model.getRowCount()-1, model.getRowCount()-1);
+    }
+    
+    private void remRow(JTable table){
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        int row = table.getSelectedRow();
+        if(row != -1){
+            model.removeRow(row);
+            if(model.getRowCount() > 0){
+                if(row == 0){
+                    row = 1;
+                }
+                table.setRowSelectionInterval(row-1, row-1);
+            }
+        }
+    }
+    
+    public Spellbook getSpellbook(){
+        Spellbook book = new Spellbook(combo_caster.getSelectedIndex());
+        ArrayList<Spell> cantrips,first,second,third,fourth,fifth,sixth,seventh,eighth,ninth;
+        cantrips = collectSpells(tbl_0);
+        first = collectSpells(tbl_1);
+        second = collectSpells(tbl_2);
+        third = collectSpells(tbl_3);
+        fourth = collectSpells(tbl_4);
+        fifth = collectSpells(tbl_5);
+        sixth = collectSpells(tbl_6);
+        seventh = collectSpells(tbl_7);
+        eighth = collectSpells(tbl_8);
+        ninth = collectSpells(tbl_9);
+        
+        book.addSpellsCollection(cantrips);
+        book.addSpellsCollection(first);
+        book.addSpellsCollection(second);
+        book.addSpellsCollection(third);
+        book.addSpellsCollection(fourth);
+        book.addSpellsCollection(fifth);
+        book.addSpellsCollection(sixth);
+        book.addSpellsCollection(seventh);
+        book.addSpellsCollection(eighth);
+        book.addSpellsCollection(ninth);
+        
+        return book;
+    }
+    
+    public void updateSpellbook(Spellbook book){
+        if(book != null){
+            int index = book.getCasterType();
+            combo_caster.setSelectedIndex(index);
+            for(int lvl = 0;lvl < book.length(); lvl++){
+                ArrayList<Spell> spells = book.getCollection(lvl);
+                JTable table= null;
+                switch(lvl){
+                    case 0:table=tbl_0;break;
+                    case 1:table=tbl_1;break;
+                    case 2:table=tbl_2;break;
+                    case 3:table=tbl_3;break;
+                    case 4:table=tbl_4;break;
+                    case 5:table=tbl_5;break;
+                    case 6:table=tbl_6;break;
+                    case 7:table=tbl_7;break;
+                    case 8:table=tbl_8;break;
+                    case 9:table=tbl_9;break;
+                }
+                
+                if(table != null){
+                    updateSpells(spells, table);
+                }
+            }
+        }
+    }
+
+    private ArrayList<Spell> collectSpells(JTable table) {
+        ArrayList<Spell> spells = new ArrayList<>();
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        for(int row = 0; row < model.getRowCount(); row++){
+            String name = (String) model.getValueAt(row, 0);
+            String desc = (String) model.getValueAt(row, 1);
+            
+            spells.add(new Spell(name, desc));
+        }
+        return spells;
+    }
+
+    private void updateSpells(ArrayList<Spell> spells, JTable table) {
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        while(model.getRowCount() > 0){
+            model.removeRow(0);
+        }
+        
+        for(int i = 0; i < spells.size(); i++){
+            Spell spell = spells.get(i);
+            model.insertRow(i, new Object[] {spell.name, spell.description});
+        }
+    }
+
+    String getCasterType() {
+        int row = combo_caster.getSelectedIndex();
+        switch(row){
+            case 0:return KEY.K_INTELLIGENCE;
+            case 1:return KEY.K_WISDOM;
+            case 2:return KEY.K_CHARISMA;
+        }
+        return "";
+    }
+
+    void updateSpellDC(int mod) {
+        int dc;
+        JLabel lbl = null;
+        for(int i = 0;i < 10; i++){
+            dc = 10+i+mod;
+            switch(i){
+                case 0:lbl=lbl_dc_num0;break;
+                case 1:lbl=lbl_dc_num1;break;
+                case 2:lbl=lbl_dc_num2;break;
+                case 3:lbl=lbl_dc_num3;break;
+                case 4:lbl=lbl_dc_num4;break;
+                case 5:lbl=lbl_dc_num5;break;
+                case 6:lbl=lbl_dc_num6;break;
+                case 7:lbl=lbl_dc_num7;break;
+                case 8:lbl=lbl_dc_num8;break;
+                case 9:lbl=lbl_dc_num9;break;
+            }
+            updateDCLabel(lbl, dc);
+        }
+    }
+
+    private void updateDCLabel(JLabel lbl, int dc) {
+        if(lbl != null){
+            lbl.setText(Integer.toString(dc));
+        }
+    }
 }

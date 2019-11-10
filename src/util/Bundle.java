@@ -7,7 +7,9 @@ package util;
 
 import constants.KEY;
 import java.util.HashMap;
-import structure.Inventory;
+import data_structure.Inventory;
+import data_structure.Skills;
+import data_structure.Spellbook;
 
 /**
  *
@@ -67,12 +69,39 @@ public class Bundle extends HashMap<String, Object>{
     
     public Inventory getInventory(){
         Object o = get(KEY.K_INVENTORY);
-        if(o != null && o instanceof Inventory){
+        if(o instanceof Inventory){
             return (Inventory) o;
         }
         else{
             return null;
         }
+    }
+
+    public void putSpellbook(Spellbook spellbook) {
+        put(KEY.K_SPELLBOOK, spellbook);
+    }
+    
+    public Spellbook getSpellbook(){
+        Object o = get(KEY.K_SPELLBOOK);
+        if(o instanceof Spellbook){
+            return (Spellbook) o;
+        }
+        else{
+            return null;
+        }
+    }
+
+    public void putSkills(Skills skills) {
+        put(KEY.K_SKILLS, skills);
+    }
+    
+    public Skills getSkills(){
+        Object o = get(KEY.K_SKILLS);
+        if(o instanceof Skills){
+            return (Skills) o;
+        }
+        else
+            return null;
     }
     
     

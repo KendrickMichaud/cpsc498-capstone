@@ -11,6 +11,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.DocumentBuilder;
@@ -25,8 +26,12 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import structure.Inventory;
-import structure.Item;
+import data_structure.Inventory;
+import data_structure.Item;
+import data_structure.Skill;
+import data_structure.Skills;
+import data_structure.Spell;
+import data_structure.Spellbook;
 
 /**
  *
@@ -97,6 +102,8 @@ public class XMLWriter {
         addChildrenToElement(defense);
         addChildrenToElement(utility);
         addChildrenToElement(inventory);
+        addChildrenToElement(spellbook);
+        addChildrenToElement(skills);
         
         character.appendChild(biography);
         character.appendChild(background);
@@ -199,6 +206,23 @@ public class XMLWriter {
                         }
                     }
                     break;
+                case KEY.H_SPELLBOOK:
+                    Spellbook book = bundle.getSpellbook();
+                    if(book != null){
+                        ele.appendChild(createElement("caster", Integer.toString(book.getCasterType())));
+                        for(int i = 0; i < book.length(); i++){
+                            addSpells(book.getCollection(i), ele, i);
+                        }
+                    }
+                    break;
+                case KEY.H_SKILLS:
+                    Skills skills = bundle.getSkills();
+                    if(skills != null){
+                        for(int i = 0; i < skills.size(); i++){
+                            addSkill(skills.getSkill(i), ele);
+                        }
+                    }
+                    break;
             }
         }
     }
@@ -243,6 +267,25 @@ public class XMLWriter {
             ele.setTextContent(value);
         }
         return ele;
+    }
+    
+    private void addSpells(ArrayList<Spell> spells, Element spellbook, int pageNum){
+        Element page = document.createElement("page");
+        page.setAttribute("num", Integer.toString(pageNum));
+        for(Spell spell : spells){
+            Element eleSpell = document.createElement("spell");
+            eleSpell.appendChild(createElement(KEY.L_NAME, spell.name));
+            eleSpell.appendChild(createElement(KEY.L_DESCRIPTION, spell.description));
+            page.appendChild(eleSpell);
+        }
+        spellbook.appendChild(page);
+    }
+
+    private void addSkill(Skill skill, Element skills) {
+        Element eleSkill = document.createElement("skill");
+        eleSkill.appendChild(createElement(KEY.L_SKILL_TYPE, Integer.toString(skill.type)));
+        eleSkill.appendChild(createElement(KEY.L_SKILL_BONUS, Integer.toString(skill.bonusAmount)));
+        skills.appendChild(eleSkill);
     }
     
 }

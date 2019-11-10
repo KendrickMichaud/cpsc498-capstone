@@ -7,12 +7,15 @@ package container;
 
 import app.AppManager;
 import constants.KEY;
+import data_structure.Skill;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.text.Document;
 import javax.swing.text.JTextComponent;
+import data_structure.Skills;
 import util.Bundle;
+import util.JText;
 
 /**
  *
@@ -113,7 +116,7 @@ public class SkillsPanel extends javax.swing.JPanel implements CardDataHolder{
         bonus_persuasion = new javax.swing.JTextField();
         total_persuasion = new javax.swing.JLabel();
 
-        setLayout(new java.awt.GridLayout(19, 4));
+        setLayout(new java.awt.GridLayout(19, 1));
 
         lbl_skillsColName.setText("Name");
         lbl_skillsColName.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -608,9 +611,186 @@ public class SkillsPanel extends javax.swing.JPanel implements CardDataHolder{
 
     @Override
     public void getData(Bundle b) {
+        Skills skills = new Skills();
+        Skill athletics, acrobatics, sleight, stealth, arcana, history, 
+                investigation, nature, religion, animalHandling, insight,
+                medicine, perception, survival, deception, intimidation,
+                performance, persuasion;
+        
+        athletics = getSkill(prof_athletics, bonus_athletics);
+        acrobatics = getSkill(prof_acrobatics, bonus_acrobatics);
+        sleight = getSkill(prof_sleight, bonus_sleight);
+        stealth = getSkill(prof_stealth, bonus_stealth);
+        arcana = getSkill(prof_arcana, bonus_arcana);
+        history = getSkill(prof_history, bonus_history);
+        investigation = getSkill(prof_investigation, bonus_investigation);
+        intimidation = getSkill(prof_intimidation, bonus_intimidation);
+        nature = getSkill(prof_nature, bonus_nature);
+        religion = getSkill(prof_religion, bonus_religion);
+        animalHandling = getSkill(prof_animalHandling, bonus_animalHandling);
+        insight = getSkill(prof_insight, bonus_insight);
+        medicine = getSkill(prof_medicine, bonus_medicine);
+        survival = getSkill(prof_survival, bonus_survival);
+        perception = getSkill(prof_perception, bonus_perception);
+        deception = getSkill(prof_deception, bonus_deception);
+        performance = getSkill(prof_performance, bonus_performance);
+        persuasion = getSkill(prof_persuasion, bonus_persuasion);
+        
+        //Should be 18 total or 6 * 3 rows of skils
+        skills.addSkill(athletics);
+        skills.addSkill(acrobatics);
+        skills.addSkill(sleight);
+        
+        skills.addSkill(stealth);
+        skills.addSkill(arcana);
+        skills.addSkill(history);
+        
+        skills.addSkill(investigation);
+        skills.addSkill(nature);
+        skills.addSkill(religion);
+        
+        skills.addSkill(animalHandling);
+        skills.addSkill(insight);
+        skills.addSkill(medicine);
+        
+        skills.addSkill(perception);
+        skills.addSkill(survival);
+        skills.addSkill(deception);
+        
+        skills.addSkill(intimidation);
+        skills.addSkill(performance);
+        skills.addSkill(persuasion);
+        
+        b.putSkills(skills);
     }
 
     @Override
+    /**
+     *         
+     *  skills.addSkill(athletics);
+        skills.addSkill(acrobatics);
+        skills.addSkill(sleight);
+        
+        skills.addSkill(stealth);
+        skills.addSkill(arcana);
+        skills.addSkill(history);
+        
+        skills.addSkill(investigation);
+        skills.addSkill(nature);
+        skills.addSkill(religion);
+        
+        skills.addSkill(animalHandling);
+        skills.addSkill(insight);
+        skills.addSkill(medicine);
+        
+        skills.addSkill(perception);
+        skills.addSkill(survival);
+        skills.addSkill(deception);
+        
+        skills.addSkill(intimidation);
+        skills.addSkill(performance);
+        skills.addSkill(persuasion);
+     */
     public void update(Bundle b) {
+        Skills skills = b.getSkills();
+        if(skills != null){
+            for(int i = 0; i < skills.size(); i++){
+                Skill skill = skills.getSkill(i);
+                JComboBox prof = null; JTextField bonus = null;
+                switch(i){
+                    case 0:
+                        prof=prof_athletics;
+                        bonus=bonus_athletics;
+                        break;
+                    case 1:
+                        prof=prof_acrobatics;
+                        bonus=bonus_acrobatics;
+                        break;
+                    case 2:
+                        prof = prof_sleight;
+                        bonus = bonus_sleight;
+                        break;
+                    case 3:
+                        prof = prof_stealth;
+                        bonus = bonus_stealth;
+                        break;
+                    case 4:
+                        prof = prof_arcana;
+                        bonus = bonus_arcana;
+                        break;
+                    case 5:
+                        prof = prof_history;
+                        bonus = bonus_arcana;
+                        break;
+                    case 6:
+                        prof = prof_investigation;
+                        bonus = bonus_investigation;
+                        break;
+                    case 7:
+                        prof = prof_nature;
+                        bonus = bonus_nature;
+                        break;
+                    case 8:
+                        prof = prof_religion;
+                        bonus = bonus_religion;
+                        break;
+                    case 9:
+                        prof = prof_animalHandling;
+                        bonus = bonus_animalHandling;
+                        break;
+                    case 10:
+                        prof = prof_insight;
+                        bonus = bonus_insight;
+                        break;
+                    case 11:
+                        prof = prof_medicine;
+                        bonus = bonus_medicine;
+                        break;
+                    case 12:
+                        prof = prof_perception;
+                        bonus = bonus_perception;
+                        break;
+                    case 13:
+                        prof = prof_survival;
+                        bonus = bonus_survival;
+                        break;
+                    case 14:
+                        prof = prof_deception;
+                        bonus = bonus_deception;
+                        break;
+                    case 15:
+                        prof = prof_intimidation;
+                        bonus = bonus_intimidation;
+                        break;
+                    case 16:
+                        prof = prof_performance;
+                        bonus = bonus_performance;
+                        break;
+                    case 17:
+                        prof = prof_persuasion;
+                        bonus = bonus_persuasion;
+                        break;
+                }
+                
+                updateSkill(prof, bonus, skill);
+            }
+        }
+    }
+
+    private Skill getSkill(JComboBox<String> prof, JTextField bonus) {
+        int type = prof.getSelectedIndex();
+        int bonusAmount = Integer.parseInt(bonus.getText());
+        
+        return new Skill(type, bonusAmount);
+    }
+
+    private void updateSkill(JComboBox prof, JTextField bonus, Skill skill) {
+        if(prof != null && skill.type <= 2 && skill.type > -1){
+            prof.setSelectedIndex(skill.type);
+        }
+        
+        if(bonus != null){
+            bonus.setText(Integer.toString(skill.bonusAmount));
+        }
     }
 }

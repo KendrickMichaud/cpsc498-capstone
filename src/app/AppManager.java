@@ -191,6 +191,7 @@ public class AppManager {
         main_frame.updateDefensePanel();
         main_frame.updateUtilityPanel();
         main_frame.updateSkillPanel();
+        main_frame.updateOthers();
     }
 
     public void saveData(File file, Bundle bundle) {

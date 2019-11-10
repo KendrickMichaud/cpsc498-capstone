@@ -47,6 +47,7 @@ public class CharacterFrame extends javax.swing.JFrame {
     private WeaponDeck offense;
     private AppManager manager;
     private Deck defense;
+    private Deck skillsProfs;
     private File associatedFile;
     private SpellbookFrame spellbook;
     private InventoryFrame inventory;
@@ -1161,17 +1162,13 @@ public class CharacterFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_health_pointsActionPerformed
 
     private void btn_skills_rightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_skills_rightActionPerformed
-        CARD.changeSkillsCard(CARD.INCREMENT);
-        CardLayout layout = (CardLayout) deck_skillsProfs.getLayout();
-        lbl_currSkilsProfsName.setText("Current Panel: ".concat(CARD.getCurrentSkillsCard()));
-        layout.show(deck_skillsProfs, CARD.getCurrentSkillsCard());
+        skillsProfs.nextCard();
+        lbl_currSkilsProfsName.setText(skillsProfs.getCardName());
     }//GEN-LAST:event_btn_skills_rightActionPerformed
 
     private void btn_skills_leftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_skills_leftActionPerformed
-        CARD.changeSkillsCard(CARD.DECREMENT);
-        CardLayout layout = (CardLayout) deck_skillsProfs.getLayout();
-        lbl_currSkilsProfsName.setText("Current Panel: ".concat(CARD.getCurrentSkillsCard()));
-        layout.show(deck_skillsProfs, CARD.getCurrentSkillsCard());
+        skillsProfs.previousCard();
+        lbl_currSkilsProfsName.setText(skillsProfs.getCardName());
     }//GEN-LAST:event_btn_skills_leftActionPerformed
 
     private void item_optionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item_optionsActionPerformed
@@ -1481,13 +1478,12 @@ public class CharacterFrame extends javax.swing.JFrame {
     }
     
     private void initCardsForSkillsProfs(){
+        skillsProfs = new Deck(deck_skillsProfs);
         card_skills = new SkillsPanel();
         card_proficiencies = new ProfsPanel();
-        deck_skillsProfs.add(card_skills, CARD.SKILLS);
-        deck_skillsProfs.add(card_proficiencies, CARD.PROFICIENCIES);
-        CARD.initCurrentSkillsProfsCard();
-        CardLayout layout = (CardLayout) deck_skillsProfs.getLayout();
-        layout.show(deck_skillsProfs, CARD.getCurrentSkillsCard());
+        skillsProfs.add(card_skills, CARD.SKILLS);
+        skillsProfs.add(card_proficiencies, CARD.PROFICIENCIES);
+        skillsProfs.display();
     }
     
     private void initCardsForSpellsInventory(){
@@ -1712,7 +1708,8 @@ public class CharacterFrame extends javax.swing.JFrame {
         setDefenseArmor(character_data);
         setUtility(character_data);
         inventory.updateInventory(character_data.getInventory());
-        inventory.setLimit(Integer.parseInt(extractString(txt_strength)));
+        spellbook.updateSpellbook(character_data.getSpellbook());
+        skillsProfs.update(character_data);
         manager.updateValues();
     }
 
@@ -1780,13 +1777,14 @@ public class CharacterFrame extends javax.swing.JFrame {
         b.putString(KEY.K_HIT_DIE, JText.extractString(txt_hit_die));
         
         //Skills
-        
+        skillsProfs.collect(b);
         
         //Proficiency
         
         //Feats
         
         //Spellbook
+        b.putSpellbook(spellbook.getSpellbook());
         
         //Inventory
         b.putInventory(inventory.getInventory());
@@ -2021,5 +2019,10 @@ public class CharacterFrame extends javax.swing.JFrame {
             
         save.setText("+".concat(total));
 
+    }
+
+    public void updateOthers() {
+        inventory.setLimit(Integer.parseInt(extractString(txt_strength)));
+        spellbook.updateSpellDC(getMOD(spellbook.getCasterType()));
     }
 }

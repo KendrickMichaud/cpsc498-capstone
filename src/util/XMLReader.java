@@ -9,6 +9,7 @@ import app.FileManager;
 import constants.KEY;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.DocumentBuilder;
@@ -19,8 +20,12 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-import structure.Inventory;
-import structure.Item;
+import data_structure.Inventory;
+import data_structure.Item;
+import data_structure.Skill;
+import data_structure.Skills;
+import data_structure.Spell;
+import data_structure.Spellbook;
 
 /**
  *
@@ -66,6 +71,8 @@ public class XMLReader {
             extractDataFromUtility(utility);
             extractWeapons(weapons);
             extractDataFromInventory(inventory);
+            extractDataFromSpellbook(spellbook);
+            extractDataFromSkills(skills);
             bundle.putBoolean(FileManager.IO_SUCCESS, Boolean.TRUE);
             return bundle;
         } catch (ParserConfigurationException | SAXException | IOException ex) {
@@ -136,9 +143,7 @@ public class XMLReader {
                     attkBonus = "0";
                 if(!DataIntegrity.isNumeric(dmgBonus))
                     dmgBonus = "0";
-                
-                System.out.println(name + " " + attkBonus + " " + desc + " " + dmgBonus + " " + dmgRoll);
-                
+                                
                 bundle.putString(KEY.K_WEAPON_NAME + KEY.item(curr), name);
                 bundle.putString(KEY.K_WEAPON_DMG_ROLL + KEY.item(curr), dmgRoll);
                 bundle.putString(KEY.K_WEAPON_DMG_BONUS + KEY.item(curr), dmgBonus);
@@ -259,5 +264,53 @@ public class XMLReader {
             }
         }
         bundle.putInventory(inv);
+    }
+
+    private void extractDataFromSpellbook(Element spellbook) {
+        String caster = extractString(spellbook, "caster");
+        int cast = 0;
+        if(DataIntegrity.isNumeric(caster)){
+            cast = Integer.parseInt(caster);
+            if(cast > 2 || cast < 0){
+                cast = 0;
+            }
+        }
+        Spellbook book = new Spellbook(cast);
+        NodeList pages = spellbook.getElementsByTagName("page");
+        for(int pageNum = 0; pageNum < pages.getLength(); pageNum++){
+            Element page = (Element) pages.item(pageNum);
+            NodeList spells = page.getElementsByTagName("spell");
+            ArrayList<Spell> list = new ArrayList<>();
+            for(int curr = 0; curr < spells.getLength(); curr++){
+                Element spell = (Element) spells.item(curr);
+                String name = extractString(spell, KEY.L_NAME);
+                String desc = extractString(spell, KEY.L_DESCRIPTION);
+                
+                Spell sp = new Spell(name, desc);
+                list.add(sp);
+            }
+            book.addSpellsCollection(list);
+        }
+        bundle.putSpellbook(book);
+    }
+
+    private void extractDataFromSkills(Element skills) {
+        Skills skillList = new Skills();
+        NodeList list = skills.getElementsByTagName("skill");
+        for(int i = 0; i < list.getLength(); i++){
+            Element skill = (Element) list.item(i);
+            try{
+                int type = Integer.parseInt(extractString(skill, KEY.L_SKILL_TYPE));
+                int bonus = Integer.parseInt(extractString(skill, KEY.L_SKILL_BONUS));
+                Skill sk = new Skill(type, bonus);
+                skillList.addSkill(sk);
+            }
+            catch (NumberFormatException e){
+                Logger.getLogger(XMLReader.class.getName()).log(Level.SEVERE, "Improper format of data for skill");
+            }
+
+        }
+        
+        bundle.putSkills(skillList);
     }
 }

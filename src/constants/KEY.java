@@ -21,6 +21,14 @@ public class KEY {
     public static final String H_UTILITY = "utility" + DELIM;
     public static final String H_IMAGE = "Image" + DELIM;
     public static final String H_DEFENSE = "Defense" + DELIM;
+    
+    //Special Keys 
+    public static final String K_INVENTORY = "Inventory"; //Unique key doesn't need hkey or low key
+    public static final String K_SPELLBOOK = "Spellbook";
+    public static final String K_SKILLS = "Skills";
+    public static final String L_SKILL_TYPE = "SkillType";
+    public static final String L_SKILL_BONUS = "SkillBonus";
+    
    
     //Generic Low Key
     public static final String L_NAME = "name";
@@ -223,8 +231,7 @@ public class KEY {
     public static final String K_PERSUASION_BONUS = H_SKILLS + L_PERSUASION_BONUS;
     public static final String K_EQUIPMENT_PROFICIENCES = H_SKILLS + L_EQUIPMENT_PROFICIENCES;
     public static final String K_IMAGE = H_IMAGE + L_BASE;
-    
-    public static final String K_INVENTORY = "Inventory"; //Unique key doesn't need hkey or low key
+
 
     
     //Feats Low Keys
