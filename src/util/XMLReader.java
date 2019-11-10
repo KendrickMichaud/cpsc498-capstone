@@ -72,6 +72,7 @@ public class XMLReader {
             extractWeapons(weapons);
             extractDataFromInventory(inventory);
             extractDataFromSpellbook(spellbook);
+            extractDataFromFeatures(feature);
             extractDataFromSkills(skills);
             bundle.putBoolean(FileManager.IO_SUCCESS, Boolean.TRUE);
             return bundle;
@@ -201,7 +202,7 @@ public class XMLReader {
         pIntel = extractString(attributes, KEY.L_INTPROF);
         pWis = extractString(attributes, KEY.L_WISPROF);
         pCha = extractString(attributes, KEY.L_CHAPROF);
-        
+                
         bundle.putString(KEY.K_STRENGTH_PROF, pStr);
         bundle.putString(KEY.K_DEXTERITY_PROF, pDex);
         bundle.putString(KEY.K_CONSTITUTION_PROF, pCon);
@@ -310,7 +311,18 @@ public class XMLReader {
             }
 
         }
+        String str = extractString(skills, KEY.L_EQUIPMENT_PROFICIENCES);
+        if(str != null){
+            bundle.putString(KEY.K_EQUIPMENT_PROFICIENCES, str);
+        }
         
         bundle.putSkills(skillList);
+    }
+
+    private void extractDataFromFeatures(Element feature) {
+        String str = extractString(feature, KEY.L_FEATURES_DESCRIPTION);
+        if(str != null){
+            bundle.putString(KEY.K_FEATURES_DESCRIPTION, str);
+        }
     }
 }

@@ -7,10 +7,7 @@ package util;
 
 import app.FileManager;
 import constants.KEY;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -104,6 +101,7 @@ public class XMLWriter {
         addChildrenToElement(inventory);
         addChildrenToElement(spellbook);
         addChildrenToElement(skills);
+        addChildrenToElement(features);
         
         character.appendChild(biography);
         character.appendChild(background);
@@ -171,7 +169,6 @@ public class XMLWriter {
                     addChild(KEY.K_DEFENSE_BONUSES, ele);
                     addChild(KEY.K_DEFENSE_AC_EXTRA, ele);
                     break;
-                case KEY.H_FEATURE:break;
                 case KEY.H_WEAPON:
                     for(int i = 0; i < 3; i++){
                         addWeapon(i, ele);
@@ -222,13 +219,16 @@ public class XMLWriter {
                             addSkill(skills.getSkill(i), ele);
                         }
                     }
+                    addChild(KEY.K_EQUIPMENT_PROFICIENCES, ele);
+                    break;
+                case KEY.H_FEATURE:
+                    addChild(KEY.K_FEATURES_DESCRIPTION, ele);
                     break;
             }
         }
     }
     
     private void addChild(String key, Element root){
-        System.out.println("Pulling for root: " + key);
         String value = bundle.getString(key);
         if(value != null){
             Element child = document.createElement(KeyReader.getLowKey(key));

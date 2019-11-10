@@ -7,9 +7,7 @@ package container;
 
 import app.AppManager;
 import constants.CARD;
-import constants.GUI;
 import constants.KEY;
-import java.awt.CardLayout;
 import java.awt.Image;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -23,12 +21,10 @@ import java.util.Base64;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.BadLocationException;
@@ -252,7 +248,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_panFeatures = new javax.swing.JLabel();
         bdy_features = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        txt_area_feats = new javax.swing.JTextArea();
         pan_spellsInventory = new javax.swing.JPanel();
         lbl_panSpellsAndEquipment = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
@@ -880,10 +876,10 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         bdy_features.setLayout(new java.awt.BorderLayout());
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setLineWrap(true);
-        jTextArea3.setRows(5);
-        jScrollPane3.setViewportView(jTextArea3);
+        txt_area_feats.setColumns(20);
+        txt_area_feats.setLineWrap(true);
+        txt_area_feats.setRows(5);
+        jScrollPane3.setViewportView(txt_area_feats);
 
         bdy_features.add(jScrollPane3, java.awt.BorderLayout.CENTER);
 
@@ -1313,7 +1309,6 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JLabel lbl_alignment;
     private javax.swing.JPanel lbl_background_name;
     private javax.swing.JLabel lbl_charHeight;
@@ -1413,6 +1408,7 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel prof_wis_save;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JTextField txt_alignment;
+    private javax.swing.JTextArea txt_area_feats;
     private javax.swing.JTextField txt_background_name;
     private javax.swing.JTextField txt_charHeight;
     private javax.swing.JTextField txt_charName;
@@ -1707,6 +1703,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         setAttributes(character_data);
         setDefenseArmor(character_data);
         setUtility(character_data);
+        setFeatures(character_data);
         inventory.updateInventory(character_data.getInventory());
         spellbook.updateSpellbook(character_data.getSpellbook());
         skillsProfs.update(character_data);
@@ -1776,12 +1773,11 @@ public class CharacterFrame extends javax.swing.JFrame {
         b.putString(KEY.K_HEALTH_POINTS, JText.extractString(txt_health_points));
         b.putString(KEY.K_HIT_DIE, JText.extractString(txt_hit_die));
         
-        //Skills
+        //Skills and Proficiencies
         skillsProfs.collect(b);
         
-        //Proficiency
-        
         //Feats
+        b.putString(KEY.K_FEATURES_DESCRIPTION, JText.extractString(txt_area_feats));
         
         //Spellbook
         b.putSpellbook(spellbook.getSpellbook());
@@ -1956,12 +1952,12 @@ public class CharacterFrame extends javax.swing.JFrame {
         setAttribute(txt_charisma, cha);
         
         Boolean pStr, pDex, pCon, pIntel, pWis, pCha;
-        pStr = Boolean.getBoolean(bun.getString(KEY.K_STRENGTH_PROF));
-        pDex = Boolean.getBoolean(bun.getString(KEY.K_DEXTERITY_PROF));
-        pCon = Boolean.getBoolean(bun.getString(KEY.K_CONSTITUTION_PROF));
-        pIntel = Boolean.getBoolean(bun.getString(KEY.K_INTELLIGENCE_PROF));
-        pWis = Boolean.getBoolean(bun.getString(KEY.K_WISDOM_PROF));
-        pCha = Boolean.getBoolean(bun.getString(KEY.K_CHARISMA_PROF));
+        pStr = bun.getString(KEY.K_STRENGTH_PROF).equals("true");
+        pDex = bun.getString(KEY.K_DEXTERITY_PROF).equals("true");
+        pCon = bun.getString(KEY.K_CONSTITUTION_PROF).equals("true");
+        pIntel = bun.getString(KEY.K_INTELLIGENCE_PROF).equals("true");
+        pWis = bun.getString(KEY.K_WISDOM_PROF).equals("true");
+        pCha = bun.getString(KEY.K_CHARISMA_PROF).equals("true");
         
         chk_str_prof.setSelected(pStr);
         chk_dex_prof.setSelected(pDex);
@@ -2024,5 +2020,12 @@ public class CharacterFrame extends javax.swing.JFrame {
     public void updateOthers() {
         inventory.setLimit(Integer.parseInt(extractString(txt_strength)));
         spellbook.updateSpellDC(getMOD(spellbook.getCasterType()));
+    }
+
+    private void setFeatures(Bundle character_data) {
+        String desc = character_data.getString(KEY.K_FEATURES_DESCRIPTION);
+        if(desc != null){
+            txt_area_feats.setText(desc);
+        }
     }
 }

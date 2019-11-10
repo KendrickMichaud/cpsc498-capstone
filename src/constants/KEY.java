@@ -20,6 +20,7 @@ public class KEY {
     public static final String H_SKILLS = "skills" + DELIM;
     public static final String H_UTILITY = "utility" + DELIM;
     public static final String H_IMAGE = "Image" + DELIM;
+    public static final String H_PROFICIENCIES = "Proficiencies" + DELIM;
     public static final String H_DEFENSE = "Defense" + DELIM;
     
     //Special Keys 
@@ -231,7 +232,6 @@ public class KEY {
     public static final String K_PERSUASION_BONUS = H_SKILLS + L_PERSUASION_BONUS;
     public static final String K_EQUIPMENT_PROFICIENCES = H_SKILLS + L_EQUIPMENT_PROFICIENCES;
     public static final String K_IMAGE = H_IMAGE + L_BASE;
-
 
     
     //Feats Low Keys

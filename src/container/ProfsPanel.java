@@ -5,8 +5,10 @@
  */
 package container;
 
+import constants.KEY;
 import javax.swing.text.Document;
 import util.Bundle;
+import util.JText;
 
 /**
  *
@@ -60,9 +62,14 @@ public class ProfsPanel extends javax.swing.JPanel implements CardDataHolder{
 
     @Override
     public void getData(Bundle b) {
+        b.putString(KEY.K_EQUIPMENT_PROFICIENCES, JText.extractString(txt_profs));
     }
 
     @Override
     public void update(Bundle b) {
+        String desc = b.getString(KEY.K_EQUIPMENT_PROFICIENCES);
+        if(desc != null){
+            txt_profs.setText(desc);
+        }
     }
 }
