@@ -47,6 +47,7 @@ public class CharacterFrame extends javax.swing.JFrame {
     private File associatedFile;
     private SpellbookFrame spellbook;
     private InventoryFrame inventory;
+    private BackgroundFrame background;
     /**
      * Creates new form CharacterFrame
      * @param manager
@@ -64,6 +65,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         initComponentsForUserInterfacing();
         spellbook = new SpellbookFrame();
         inventory = new InventoryFrame();
+        background = new BackgroundFrame();
         inventory.setLimit(Integer.parseInt(extractString(txt_strength)));
         combo_level.addItemListener(new ComboItemListener(manager));
         
@@ -138,6 +140,10 @@ public class CharacterFrame extends javax.swing.JFrame {
         txt_alignment = new javax.swing.JTextField();
         lbl_level = new javax.swing.JLabel();
         combo_level = new javax.swing.JComboBox<>();
+        jPanel1 = new javax.swing.JPanel();
+        open_inventory = new javax.swing.JLabel();
+        open_spellbook = new javax.swing.JLabel();
+        open_background = new javax.swing.JLabel();
         pan_attributes = new javax.swing.JPanel();
         lbl_panAttributes = new javax.swing.JLabel();
         bdy_attributes = new javax.swing.JPanel();
@@ -249,32 +255,6 @@ public class CharacterFrame extends javax.swing.JFrame {
         bdy_features = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txt_area_feats = new javax.swing.JTextArea();
-        pan_spellsInventory = new javax.swing.JPanel();
-        lbl_panSpellsAndEquipment = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        pan_background = new javax.swing.JPanel();
-        lbl_panBackground = new javax.swing.JLabel();
-        bdy_background = new javax.swing.JPanel();
-        lbl_background_name = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        txt_background_name = new javax.swing.JTextField();
-        jPanel9 = new javax.swing.JPanel();
-        lbl_pers_trait = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txt_pers_trait = new javax.swing.JTextArea();
-        jPanel10 = new javax.swing.JPanel();
-        lbl_pers_ideal = new javax.swing.JLabel();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        txt_pers_ideal = new javax.swing.JTextArea();
-        jPanel12 = new javax.swing.JPanel();
-        lbl_pers_bond = new javax.swing.JLabel();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        txt_pers_bond = new javax.swing.JTextArea();
-        jPanel14 = new javax.swing.JPanel();
-        lbl_pers_flaw = new javax.swing.JLabel();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        txt_pers_flaw = new javax.swing.JTextArea();
         menu_bar = new javax.swing.JMenuBar();
         menu_file = new javax.swing.JMenu();
         item_new = new javax.swing.JMenuItem();
@@ -300,7 +280,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         pan_main.setBackground(new java.awt.Color(204, 204, 204));
         pan_main.setMaximumSize(new java.awt.Dimension(800, 1200));
         pan_main.setMinimumSize(new java.awt.Dimension(800, 1190));
-        pan_main.setPreferredSize(new java.awt.Dimension(800, 1200));
+        pan_main.setPreferredSize(new java.awt.Dimension(700, 916));
         pan_main.setRequestFocusEnabled(false);
 
         pan_charInfo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -422,6 +402,40 @@ public class CharacterFrame extends javax.swing.JFrame {
         );
 
         pan_charInfo.add(bdy_charInfo, java.awt.BorderLayout.CENTER);
+
+        jPanel1.setLayout(new java.awt.GridLayout(1, 3));
+
+        open_inventory.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        open_inventory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ico_bag.png"))); // NOI18N
+        open_inventory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        open_inventory.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                open_inventoryMouseClicked(evt);
+            }
+        });
+        jPanel1.add(open_inventory);
+
+        open_spellbook.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        open_spellbook.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/spellbook.png"))); // NOI18N
+        open_spellbook.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        open_spellbook.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                open_spellbookMouseClicked(evt);
+            }
+        });
+        jPanel1.add(open_spellbook);
+
+        open_background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        open_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_person.png"))); // NOI18N
+        open_background.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        open_background.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                open_backgroundMouseClicked(evt);
+            }
+        });
+        jPanel1.add(open_background);
+
+        pan_charInfo.add(jPanel1, java.awt.BorderLayout.PAGE_END);
 
         pan_attributes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pan_attributes.setMaximumSize(new java.awt.Dimension(550, 150));
@@ -885,122 +899,6 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         pan_features.add(bdy_features, java.awt.BorderLayout.CENTER);
 
-        pan_spellsInventory.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pan_spellsInventory.setMaximumSize(new java.awt.Dimension(540, 320));
-        pan_spellsInventory.setLayout(new java.awt.BorderLayout());
-
-        lbl_panSpellsAndEquipment.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_panSpellsAndEquipment.setText("Spellbook and Inventory");
-        pan_spellsInventory.add(lbl_panSpellsAndEquipment, java.awt.BorderLayout.PAGE_START);
-
-        jButton3.setText("jButton3");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        pan_spellsInventory.add(jButton3, java.awt.BorderLayout.LINE_START);
-
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ico_bag.png"))); // NOI18N
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
-            }
-        });
-        jLabel2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jLabel2KeyTyped(evt);
-            }
-        });
-        pan_spellsInventory.add(jLabel2, java.awt.BorderLayout.CENTER);
-
-        pan_background.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pan_background.setLayout(new java.awt.BorderLayout());
-
-        lbl_panBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_panBackground.setText("Background");
-        pan_background.add(lbl_panBackground, java.awt.BorderLayout.PAGE_START);
-
-        bdy_background.setLayout(new javax.swing.BoxLayout(bdy_background, javax.swing.BoxLayout.Y_AXIS));
-
-        lbl_background_name.setLayout(new javax.swing.BoxLayout(lbl_background_name, javax.swing.BoxLayout.LINE_AXIS));
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Name");
-        lbl_background_name.add(jLabel1);
-
-        txt_background_name.setColumns(16);
-        lbl_background_name.add(txt_background_name);
-
-        bdy_background.add(lbl_background_name);
-
-        jPanel9.setLayout(new java.awt.BorderLayout());
-
-        lbl_pers_trait.setText("Personality Trait");
-        jPanel9.add(lbl_pers_trait, java.awt.BorderLayout.PAGE_START);
-
-        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
-        txt_pers_trait.setColumns(20);
-        txt_pers_trait.setLineWrap(true);
-        txt_pers_trait.setRows(2);
-        jScrollPane2.setViewportView(txt_pers_trait);
-
-        jPanel9.add(jScrollPane2, java.awt.BorderLayout.CENTER);
-
-        bdy_background.add(jPanel9);
-
-        jPanel10.setLayout(new java.awt.BorderLayout());
-
-        lbl_pers_ideal.setText("Ideal");
-        jPanel10.add(lbl_pers_ideal, java.awt.BorderLayout.PAGE_START);
-
-        jScrollPane8.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
-        txt_pers_ideal.setColumns(20);
-        txt_pers_ideal.setLineWrap(true);
-        txt_pers_ideal.setRows(2);
-        jScrollPane8.setViewportView(txt_pers_ideal);
-
-        jPanel10.add(jScrollPane8, java.awt.BorderLayout.CENTER);
-
-        bdy_background.add(jPanel10);
-
-        jPanel12.setLayout(new java.awt.BorderLayout());
-
-        lbl_pers_bond.setText("Bond");
-        jPanel12.add(lbl_pers_bond, java.awt.BorderLayout.PAGE_START);
-
-        jScrollPane9.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
-        txt_pers_bond.setColumns(20);
-        txt_pers_bond.setLineWrap(true);
-        txt_pers_bond.setRows(2);
-        jScrollPane9.setViewportView(txt_pers_bond);
-
-        jPanel12.add(jScrollPane9, java.awt.BorderLayout.CENTER);
-
-        bdy_background.add(jPanel12);
-
-        jPanel14.setLayout(new java.awt.BorderLayout());
-
-        lbl_pers_flaw.setText("Flaw");
-        jPanel14.add(lbl_pers_flaw, java.awt.BorderLayout.PAGE_START);
-
-        jScrollPane10.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
-        txt_pers_flaw.setColumns(20);
-        txt_pers_flaw.setLineWrap(true);
-        txt_pers_flaw.setRows(2);
-        jScrollPane10.setViewportView(txt_pers_flaw);
-
-        jPanel14.add(jScrollPane10, java.awt.BorderLayout.CENTER);
-
-        bdy_background.add(jPanel14);
-
-        pan_background.add(bdy_background, java.awt.BorderLayout.CENTER);
-
         javax.swing.GroupLayout pan_mainLayout = new javax.swing.GroupLayout(pan_main);
         pan_main.setLayout(pan_mainLayout);
         pan_mainLayout.setHorizontalGroup(
@@ -1017,11 +915,7 @@ public class CharacterFrame extends javax.swing.JFrame {
                     .addGroup(pan_mainLayout.createSequentialGroup()
                         .addComponent(pan_skills, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
-                        .addComponent(pan_features, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pan_mainLayout.createSequentialGroup()
-                        .addComponent(pan_spellsInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(pan_background, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(pan_features, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         pan_mainLayout.setVerticalGroup(
             pan_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1032,15 +926,12 @@ public class CharacterFrame extends javax.swing.JFrame {
                     .addGroup(pan_mainLayout.createSequentialGroup()
                         .addComponent(pan_attributes, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
-                        .addComponent(pan_combat, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(pan_combat, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(10, 10, 10)
                 .addGroup(pan_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pan_skills, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pan_features, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(pan_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pan_spellsInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pan_background, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(318, 318, 318))
         );
 
         scrollPane.setViewportView(pan_main);
@@ -1124,49 +1015,6 @@ public class CharacterFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lbl_characterImageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_characterImageMouseClicked
-        JFileChooser chooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter(
-            "JPG Images", "jpg");
-        chooser.setFileFilter(filter);
-        int condition = chooser.showOpenDialog(null);
-        if(condition == JFileChooser.APPROVE_OPTION){
-            setLblImageToFile(chooser.getSelectedFile());
-        }
-    }//GEN-LAST:event_lbl_characterImageMouseClicked
-
-    private void txt_speed_bonusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_speed_bonusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_speed_bonusActionPerformed
-
-    private void txt_init_bonusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_init_bonusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_init_bonusActionPerformed
-
-    private void defense_switch_rightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defense_switch_rightActionPerformed
-        defense.nextCard();
-        lbl_deck_defense_name.setText(defense.getCardName());
-    }//GEN-LAST:event_defense_switch_rightActionPerformed
-
-    private void defense_switch_leftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defense_switch_leftActionPerformed
-        defense.previousCard();
-        lbl_deck_defense_name.setText(defense.getCardName());
-    }//GEN-LAST:event_defense_switch_leftActionPerformed
-
-    private void txt_health_pointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_health_pointsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_health_pointsActionPerformed
-
-    private void btn_skills_rightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_skills_rightActionPerformed
-        skillsProfs.nextCard();
-        lbl_currSkilsProfsName.setText(skillsProfs.getCardName());
-    }//GEN-LAST:event_btn_skills_rightActionPerformed
-
-    private void btn_skills_leftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_skills_leftActionPerformed
-        skillsProfs.previousCard();
-        lbl_currSkilsProfsName.setText(skillsProfs.getCardName());
-    }//GEN-LAST:event_btn_skills_leftActionPerformed
-
     private void item_optionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item_optionsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_item_optionsActionPerformed
@@ -1194,27 +1042,6 @@ public class CharacterFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_item_openActionPerformed
 
-    private void combo_levelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_levelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_combo_levelActionPerformed
-
-    private void combo_levelItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combo_levelItemStateChanged
-        Object item = evt.getItem();
-        if(item.getClass().equals(String.class)){
-            manager.validateDataChange(KEY.K_LEVEL, (String) item);
-        }
-    }//GEN-LAST:event_combo_levelItemStateChanged
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        offense.nextCard();
-        lbl_weapon_title.setText(offense.getCardName());
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        offense.previousCard();
-        lbl_weapon_title.setText(offense.getCardName());
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void item_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item_saveActionPerformed
         if(associatedFile == null){
             associatedFile = saveAs();
@@ -1234,31 +1061,95 @@ public class CharacterFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_action_save_asActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        if(spellbook == null){
-            spellbook = new SpellbookFrame();
+    private void btn_skills_leftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_skills_leftActionPerformed
+        skillsProfs.previousCard();
+        lbl_currSkilsProfsName.setText(skillsProfs.getCardName());
+    }//GEN-LAST:event_btn_skills_leftActionPerformed
+
+    private void btn_skills_rightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_skills_rightActionPerformed
+        skillsProfs.nextCard();
+        lbl_currSkilsProfsName.setText(skillsProfs.getCardName());
+    }//GEN-LAST:event_btn_skills_rightActionPerformed
+
+    private void txt_health_pointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_health_pointsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_health_pointsActionPerformed
+
+    private void txt_init_bonusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_init_bonusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_init_bonusActionPerformed
+
+    private void txt_speed_bonusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_speed_bonusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_speed_bonusActionPerformed
+
+    private void defense_switch_leftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defense_switch_leftActionPerformed
+        defense.previousCard();
+        lbl_deck_defense_name.setText(defense.getCardName());
+    }//GEN-LAST:event_defense_switch_leftActionPerformed
+
+    private void defense_switch_rightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defense_switch_rightActionPerformed
+        defense.nextCard();
+        lbl_deck_defense_name.setText(defense.getCardName());
+    }//GEN-LAST:event_defense_switch_rightActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        offense.previousCard();
+        lbl_weapon_title.setText(offense.getCardName());
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        offense.nextCard();
+        lbl_weapon_title.setText(offense.getCardName());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void combo_levelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_levelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combo_levelActionPerformed
+
+    private void combo_levelItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combo_levelItemStateChanged
+        Object item = evt.getItem();
+        if(item.getClass().equals(String.class)){
+            manager.validateDataChange(KEY.K_LEVEL, (String) item);
         }
-        
-        spellbook.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_combo_levelItemStateChanged
 
-    private void jLabel2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel2KeyTyped
-        
-    }//GEN-LAST:event_jLabel2KeyTyped
+    private void lbl_characterImageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_characterImageMouseClicked
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(
+            "JPG Images", "jpg");
+        chooser.setFileFilter(filter);
+        int condition = chooser.showOpenDialog(null);
+        if(condition == JFileChooser.APPROVE_OPTION){
+            setLblImageToFile(chooser.getSelectedFile());
+        }
+    }//GEN-LAST:event_lbl_characterImageMouseClicked
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void open_inventoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_open_inventoryMouseClicked
         if(inventory == null){
             inventory = new InventoryFrame();
         }
-        
         inventory.setVisible(true);
-    }//GEN-LAST:event_jLabel2MouseClicked
+    }//GEN-LAST:event_open_inventoryMouseClicked
+
+    private void open_spellbookMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_open_spellbookMouseClicked
+        if(spellbook == null){
+            spellbook = new SpellbookFrame();
+        }
+        spellbook.setVisible(true);
+    }//GEN-LAST:event_open_spellbookMouseClicked
+
+    private void open_backgroundMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_open_backgroundMouseClicked
+        if(background == null){
+            background = new BackgroundFrame();
+        }
+        background.setVisible(true);
+    }//GEN-LAST:event_open_backgroundMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem action_save_as;
     private javax.swing.JPanel bdy_attributes;
-    private javax.swing.JPanel bdy_background;
     private javax.swing.JPanel bdy_charInfo;
     private javax.swing.JPanel bdy_features;
     private javax.swing.JPanel bdy_skills_swap;
@@ -1285,32 +1176,21 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem item_save;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JLabel lbl_alignment;
-    private javax.swing.JPanel lbl_background_name;
     private javax.swing.JLabel lbl_charHeight;
     private javax.swing.JLabel lbl_charInfo;
     private javax.swing.JLabel lbl_charName;
@@ -1339,17 +1219,11 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_intelligence_modifier;
     private javax.swing.JLabel lbl_level;
     private javax.swing.JLabel lbl_panAttributes;
-    private javax.swing.JLabel lbl_panBackground;
     private javax.swing.JLabel lbl_panCombat;
     private javax.swing.JLabel lbl_panFeatures;
     private javax.swing.JLabel lbl_panSkillsProfs;
-    private javax.swing.JLabel lbl_panSpellsAndEquipment;
     private javax.swing.JLabel lbl_passive_perception;
     private javax.swing.JLabel lbl_passive_perception_name;
-    private javax.swing.JLabel lbl_pers_bond;
-    private javax.swing.JLabel lbl_pers_flaw;
-    private javax.swing.JLabel lbl_pers_ideal;
-    private javax.swing.JLabel lbl_pers_trait;
     private javax.swing.JLabel lbl_plus_sign;
     private javax.swing.JLabel lbl_plus_sign2;
     private javax.swing.JLabel lbl_plus_sign4;
@@ -1371,8 +1245,10 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JMenu menu_file;
     private javax.swing.JMenu menu_help;
     private javax.swing.JMenu menu_tools;
+    private javax.swing.JLabel open_background;
+    private javax.swing.JLabel open_inventory;
+    private javax.swing.JLabel open_spellbook;
     private javax.swing.JPanel pan_attributes;
-    private javax.swing.JPanel pan_background;
     private javax.swing.JPanel pan_biography;
     private javax.swing.JPanel pan_charInfo;
     private javax.swing.JPanel pan_charisma;
@@ -1394,7 +1270,6 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JPanel pan_photo;
     private javax.swing.JPanel pan_skills;
     private javax.swing.JPanel pan_speed;
-    private javax.swing.JPanel pan_spellsInventory;
     private javax.swing.JPanel pan_strBody;
     private javax.swing.JPanel pan_strength;
     private javax.swing.JPanel pan_util_body;
@@ -1409,7 +1284,6 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JTextField txt_alignment;
     private javax.swing.JTextArea txt_area_feats;
-    private javax.swing.JTextField txt_background_name;
     private javax.swing.JTextField txt_charHeight;
     private javax.swing.JTextField txt_charName;
     private javax.swing.JTextField txt_charWeight;
@@ -1422,10 +1296,6 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txt_hit_die;
     private javax.swing.JTextField txt_init_bonus;
     private javax.swing.JTextField txt_intelligence;
-    private javax.swing.JTextArea txt_pers_bond;
-    private javax.swing.JTextArea txt_pers_flaw;
-    private javax.swing.JTextArea txt_pers_ideal;
-    private javax.swing.JTextArea txt_pers_trait;
     private javax.swing.JTextField txt_race;
     private javax.swing.JTextField txt_size;
     private javax.swing.JTextField txt_speed_bonus;
@@ -1544,11 +1414,10 @@ public class CharacterFrame extends javax.swing.JFrame {
         setTextListener(txt_speed_bonus, KEY.K_SPEED_BONUS);
         
         //Background
-        setTextListener(txt_background_name, KEY.K_BACKGROUND_NAME);
-        setTextListener(txt_pers_trait, KEY.K_BACKGROUND_TRAIT);
-        setTextListener(txt_pers_bond, KEY.K_BACKGROUND_BOND);
-        setTextListener(txt_pers_ideal, KEY.K_BACKGROUND_IDEAL);
-        setTextListener(txt_pers_flaw, KEY.K_BACKGROUND_FLAW);
+        //setTextListener(txt_pers_trait, KEY.K_BACKGROUND_TRAIT);
+        //setTextListener(txt_pers_bond, KEY.K_BACKGROUND_BOND);
+        //setTextListener(txt_pers_ideal, KEY.K_BACKGROUND_IDEAL);
+        //setTextListener(txt_pers_flaw, KEY.K_BACKGROUND_FLAW);
         
         //Skills
         card_skills.initListenerForSkills(manager);
@@ -1786,11 +1655,6 @@ public class CharacterFrame extends javax.swing.JFrame {
         b.putInventory(inventory.getInventory());
         
         //Background
-        b.putString(KEY.K_BACKGROUND_NAME, extractString(txt_background_name.getDocument()));
-        b.putString(KEY.K_BACKGROUND_TRAIT, extractString(txt_pers_trait.getDocument()));
-        b.putString(KEY.K_BACKGROUND_BOND, extractString(txt_pers_bond.getDocument()));
-        b.putString(KEY.K_BACKGROUND_IDEAL, extractString(txt_pers_ideal.getDocument()));
-        b.putString(KEY.K_BACKGROUND_FLAW, extractString(txt_pers_flaw.getDocument()));
         
         //Image
         if(baseImage != null){
@@ -1828,12 +1692,6 @@ public class CharacterFrame extends javax.swing.JFrame {
         flaw = character_data.getString(KEY.K_BACKGROUND_FLAW);
         trait = character_data.getString(KEY.K_BACKGROUND_TRAIT);
         ideal = character_data.getString(KEY.K_BACKGROUND_IDEAL);
-        
-        setText(txt_background_name, name);
-        setText(txt_pers_trait, trait);
-        setText(txt_pers_bond, bond);
-        setText(txt_pers_flaw, flaw);
-        setText(txt_pers_ideal, ideal);
     }
 
     private void setText(JTextComponent comp, String val) {
