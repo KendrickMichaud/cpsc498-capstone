@@ -84,6 +84,7 @@ public class AppManager {
 
     void launchApplication() {
         if(main_frame != null){
+            updateValues();
             main_frame.setVisible(true);
         }
     }

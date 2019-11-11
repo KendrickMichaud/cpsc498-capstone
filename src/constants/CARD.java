@@ -97,7 +97,7 @@ public class CARD {
     public static final String ARMOR = "Armor";
     public static final String RESISTANCE = "Resistances";
     public static final String SKILLS = "Skills";
-    public static final String PROFICIENCIES = "Equipment Proficiencies";
+    public static final String PROFICIENCIES = "Equipment Proficiencies & Languages";
     
     
     private static DefenseCard currentDefenseCard;

@@ -101,7 +101,7 @@ public class CharacterFrame extends javax.swing.JFrame {
             public void windowDeactivated(WindowEvent e) {
             }
         });
-    }
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -871,7 +871,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         pan_features.setLayout(new java.awt.BorderLayout());
 
         lbl_panFeatures.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_panFeatures.setText("Feats, Features, and Languages");
+        lbl_panFeatures.setText("Feats, Class Features, Race Features");
         pan_features.add(lbl_panFeatures, java.awt.BorderLayout.PAGE_START);
 
         bdy_features.setLayout(new java.awt.BorderLayout());

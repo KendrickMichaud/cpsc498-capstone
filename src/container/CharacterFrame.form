@@ -1363,7 +1363,7 @@
                 <Component class="javax.swing.JLabel" name="lbl_panFeatures">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="Feats, Features, and Languages"/>
+                    <Property name="text" type="java.lang.String" value="Feats, Class Features, Race Features"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
