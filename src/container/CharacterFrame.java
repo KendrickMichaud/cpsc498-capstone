@@ -68,7 +68,14 @@ public class CharacterFrame extends javax.swing.JFrame {
         background = new BackgroundFrame();
         inventory.setLimit(Integer.parseInt(extractString(txt_strength)));
         combo_level.addItemListener(new ComboItemListener(manager));
-        
+        BufferedImage img;
+        try {
+            img = ImageIO.read(new File(getClass().getResource("/img/icon_logo.jpg").getPath()));
+            setIconImage    (img);
+        } catch (IOException ex) {
+            Logger.getLogger(CharacterFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         
         addWindowListener(new WindowListener() {
             @Override
@@ -269,7 +276,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         item_guide = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("DND Character Sheet Editor");
+        setTitle("5EMaker");
         setResizable(false);
         setSize(new java.awt.Dimension(0, 0));
 
@@ -1129,6 +1136,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         if(inventory == null){
             inventory = new InventoryFrame();
         }
+        hideAllWindows();
         inventory.setVisible(true);
     }//GEN-LAST:event_open_inventoryMouseClicked
 
@@ -1136,6 +1144,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         if(spellbook == null){
             spellbook = new SpellbookFrame();
         }
+        hideAllWindows();
         spellbook.setVisible(true);
     }//GEN-LAST:event_open_spellbookMouseClicked
 
@@ -1143,6 +1152,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         if(background == null){
             background = new BackgroundFrame();
         }
+        hideAllWindows();
         background.setVisible(true);
     }//GEN-LAST:event_open_backgroundMouseClicked
 
@@ -1655,6 +1665,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         b.putInventory(inventory.getInventory());
         
         //Background
+        background.collectData(b);
         
         //Image
         if(baseImage != null){
@@ -1686,12 +1697,7 @@ public class CharacterFrame extends javax.swing.JFrame {
     }
 
     private void setBackgroundValues(Bundle character_data) {
-        String name, ideal, bond, flaw, trait;
-        name = character_data.getString(KEY.K_BACKGROUND_NAME);
-        bond = character_data.getString(KEY.K_BACKGROUND_BOND);
-        flaw = character_data.getString(KEY.K_BACKGROUND_FLAW);
-        trait = character_data.getString(KEY.K_BACKGROUND_TRAIT);
-        ideal = character_data.getString(KEY.K_BACKGROUND_IDEAL);
+        background.updateData(character_data);
     }
 
     private void setText(JTextComponent comp, String val) {
@@ -1885,5 +1891,14 @@ public class CharacterFrame extends javax.swing.JFrame {
         if(desc != null){
             txt_area_feats.setText(desc);
         }
+    }
+
+    private void hideAllWindows() {
+        if(inventory != null)
+            inventory.setVisible(false);
+        if(spellbook != null)
+            inventory.setVisible(false);
+        if(background != null)
+            background.setVisible(false);
     }
 }

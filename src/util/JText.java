@@ -8,6 +8,7 @@ package util;
 import constants.KEY;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTextArea;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import javax.swing.text.JTextComponent;
@@ -33,6 +34,12 @@ public class JText {
         }
         else{
             return "";
+        }
+    }
+
+    public static void putString(String str, JTextComponent target) {
+        if(str != null && target != null){
+            target.setText(str);
         }
     }
 }

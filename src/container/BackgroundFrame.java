@@ -5,6 +5,18 @@
  */
 package container;
 
+import constants.KEY;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.JPanel;
+import util.Bundle;
+import util.JText;
+
 /**
  *
  * @author Kendrick
@@ -27,18 +39,100 @@ public class BackgroundFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setTitle("Background");
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txt_name = new javax.swing.JTextArea();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txt_trait = new javax.swing.JTextArea();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txt_ideal = new javax.swing.JTextArea();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        txt_bond = new javax.swing.JTextArea();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        txt_flaw = new javax.swing.JTextArea();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setTitle("Background");
+        setResizable(false);
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(500, 400));
+        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel2.setLayout(new java.awt.GridLayout(1, 2));
+
+        jLabel1.setText("Background Name");
+        jPanel2.add(jLabel1);
+
+        txt_name.setColumns(20);
+        txt_name.setRows(5);
+        jScrollPane2.setViewportView(txt_name);
+
+        jPanel2.add(jScrollPane2);
+
+        jPanel1.add(jPanel2);
+
+        jPanel3.setLayout(new java.awt.GridLayout());
+
+        jLabel2.setText("Background Trait");
+        jPanel3.add(jLabel2);
+
+        txt_trait.setColumns(20);
+        txt_trait.setRows(5);
+        jScrollPane1.setViewportView(txt_trait);
+
+        jPanel3.add(jScrollPane1);
+
+        jPanel1.add(jPanel3);
+
+        jPanel4.setLayout(new java.awt.GridLayout());
+
+        jLabel3.setText("Background Ideal");
+        jPanel4.add(jLabel3);
+
+        txt_ideal.setColumns(20);
+        txt_ideal.setRows(5);
+        jScrollPane3.setViewportView(txt_ideal);
+
+        jPanel4.add(jScrollPane3);
+
+        jPanel1.add(jPanel4);
+
+        jPanel5.setLayout(new java.awt.GridLayout());
+
+        jLabel4.setText("Background Bond");
+        jPanel5.add(jLabel4);
+
+        txt_bond.setColumns(20);
+        txt_bond.setRows(5);
+        jScrollPane4.setViewportView(txt_bond);
+
+        jPanel5.add(jScrollPane4);
+
+        jPanel1.add(jPanel5);
+
+        jPanel6.setLayout(new java.awt.GridLayout());
+
+        jLabel5.setText("Background Flaw");
+        jPanel6.add(jLabel5);
+
+        txt_flaw.setColumns(20);
+        txt_flaw.setRows(5);
+        jScrollPane5.setViewportView(txt_flaw);
+
+        jPanel6.add(jScrollPane5);
+
+        jPanel1.add(jPanel6);
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -78,6 +172,51 @@ public class BackgroundFrame extends javax.swing.JFrame {
         });
     }
 
+    void collectData(Bundle b) {
+        b.putString(KEY.K_BACKGROUND_NAME, JText.extractString(txt_name));
+        b.putString(KEY.K_BACKGROUND_FLAW, JText.extractString(txt_flaw));
+        b.putString(KEY.K_BACKGROUND_IDEAL, JText.extractString(txt_ideal));
+        b.putString(KEY.K_BACKGROUND_BOND, JText.extractString(txt_bond));
+        b.putString(KEY.K_BACKGROUND_TRAIT, JText.extractString(txt_trait));
+    }
+    
+    void updateData(Bundle b){
+        String name, ideal, flaw, bond, trait;
+        name = b.getString(KEY.K_BACKGROUND_NAME);
+        ideal = b.getString(KEY.K_BACKGROUND_IDEAL);
+        bond = b.getString(KEY.K_BACKGROUND_BOND);
+        trait = b.getString(KEY.K_BACKGROUND_TRAIT);
+        flaw = b.getString(KEY.K_BACKGROUND_FLAW);
+        
+        JText.putString(name, txt_name);
+        JText.putString(ideal, txt_ideal);
+        JText.putString(bond, txt_bond);
+        JText.putString(trait, txt_trait);
+        JText.putString(flaw, txt_flaw);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JTextArea txt_bond;
+    private javax.swing.JTextArea txt_flaw;
+    private javax.swing.JTextArea txt_ideal;
+    private javax.swing.JTextArea txt_name;
+    private javax.swing.JTextArea txt_trait;
     // End of variables declaration//GEN-END:variables
+
 }
