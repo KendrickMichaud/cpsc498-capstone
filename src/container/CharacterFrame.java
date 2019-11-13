@@ -268,6 +268,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         item_open = new javax.swing.JMenuItem();
         item_save = new javax.swing.JMenuItem();
         action_save_as = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menu_edit = new javax.swing.JMenu();
         menu_tools = new javax.swing.JMenu();
         item_options = new javax.swing.JMenuItem();
@@ -983,6 +984,15 @@ public class CharacterFrame extends javax.swing.JFrame {
         });
         menu_file.add(action_save_as);
 
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setText("Open Template...");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        menu_file.add(jMenuItem1);
+
         menu_bar.add(menu_file);
 
         menu_edit.setText("Edit");
@@ -1156,6 +1166,10 @@ public class CharacterFrame extends javax.swing.JFrame {
         background.setVisible(true);
     }//GEN-LAST:event_open_backgroundMouseClicked
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        manager.readTemplate();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem action_save_as;
@@ -1192,6 +1206,7 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel15;

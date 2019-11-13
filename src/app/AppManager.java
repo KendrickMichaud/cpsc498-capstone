@@ -6,6 +6,7 @@ import constants.KEY;
 import container.CharacterFrame;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import util.KeyReader;
@@ -15,6 +16,9 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
+import templates.BackgroundTemplates;
+import templates.BackgroundTemplates.Background;
+import templates.BackgroundTemplates.Background.STORY;
 import util.Bundle;
 import util.DataIntegrity;
 
@@ -116,7 +120,7 @@ public class AppManager {
         FileManager file_manager = new FileManager(
                 openCharacterFile, 
                 FileManager.TYPE.READ, 
-                FileManager.FILE.CHARACTER);
+                FileManager.FILE.CXML);
         Bundle character_data = file_manager.getData();
         if(character_data.getBoolean(FileManager.IO_SUCCESS)){
             main_frame.updateValues(character_data);
@@ -197,8 +201,9 @@ public class AppManager {
 
     public void saveData(File file, Bundle bundle) {
         FileManager file_manager = new FileManager
-        (file, FileManager.TYPE.WRITE, FileManager.FILE.CHARACTER);
+        (file, FileManager.TYPE.WRITE, FileManager.FILE.CXML);
         file_manager.sendData(bundle);
+        unsavedData = false;
     }
 
     public void dataChanged() {
@@ -208,6 +213,21 @@ public class AppManager {
     public void close() {
         main_frame.dispose();
         System.exit(0);
+    }
+
+    public void readTemplate() {
+        FileManager fm = new FileManager
+        (new File(getClass().getResource("/templates/backgrounds.xml").getPath())
+                ,FileManager.TYPE.READ, FileManager.FILE.T_BACKGROUND);
+        Bundle bundle = fm.getData();
+        BackgroundTemplates t = (BackgroundTemplates) bundle.getTemplate(templates.Templates.TYPE.T_BACKGROUND);
+        if(t != null){
+            System.out.println("Not null");
+            Background b = t.getBackground(1);
+            ArrayList<String> bonds;
+            bonds = b.getStrings(STORY.BOND);
+            System.out.println(b.getName());
+        }
     }
 
     

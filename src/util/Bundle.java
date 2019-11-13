@@ -10,6 +10,8 @@ import java.util.HashMap;
 import data_structure.Inventory;
 import data_structure.Skills;
 import data_structure.Spellbook;
+import templates.BackgroundTemplates;
+import templates.Templates;
 
 /**
  *
@@ -102,6 +104,21 @@ public class Bundle extends HashMap<String, Object>{
         }
         else
             return null;
+    }
+
+    void putTemplate(templates.Templates.TYPE template, BackgroundTemplates templates) {
+        if(templates != null){
+            put(template.toString(), templates);
+        }
+
+    }
+
+    public Templates getTemplate(Templates.TYPE type) {
+        Object o = get(type.toString());
+        if(o instanceof Templates){
+            return (Templates) o;
+        }
+        return null;
     }
     
     

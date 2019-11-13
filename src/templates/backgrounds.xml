@@ -49,9 +49,61 @@ and open the template in the editor.
                 <skill>ReligionProf</skill>
             </skills>
         </proficiencies>
-        <feature>
-            <title>Shelter of the Faithful</title>
-            <body>As an acolyte, you command the respect of those who share your faith, and you can perform the religious ceremonies of your deity. You and your adventuring companions can expect to receive free healing and care at a temple, shrine, or other established presence of your faith, though you must provide any material components needed for spells. Those who share your religion will support you (but only you) at a modest lifestyle. You might also have ties to a specific temple dedicated to your chosen deity or pantheon, and you have a residence there. This could be the temple where you used to serve, if you remain on good terms with it, or a temple where you have found a new home. While near your temple, you can call upon the priests for assistance, provided the assistance you ask for is not hazardous and you remain in good standing with your temple.</body>
-        </feature>
+        <features>
+            <item>
+                <title>Shelter of the Faithful</title>
+                <body>As an acolyte, you command the respect of those who share your faith, and you can perform the religious ceremonies of your deity. You and your adventuring companions can expect to receive free healing and care at a temple, shrine, or other established presence of your faith, though you must provide any material components needed for spells. Those who share your religion will support you (but only you) at a modest lifestyle. You might also have ties to a specific temple dedicated to your chosen deity or pantheon, and you have a residence there. This could be the temple where you used to serve, if you remain on good terms with it, or a temple where you have found a new home. While near your temple, you can call upon the priests for assistance, provided the assistance you ask for is not hazardous and you remain in good standing with your temple.</body>
+            </item>
+        </features>
+    </background>
+    
+    <background>
+        <name>Also an Acolyte</name>
+        <trait>
+            <option num="1">I idolize a particular hero of my faith, and constantly refer to that person’s deeds and example.</option>
+            <option num="2">I can find Common ground between the fiercest enemies, empathizing with them and always working toward peace.</option>
+            <option num="3">I see omens in every event and action. The gods try to speak to us, we just need to listen</option>
+            <option num="4">Nothing can shake my optimistic attitude.</option>
+            <option num="5">I quote (or misquote) sacred texts and proverbs in almost every situation.</option>
+            <option num="6">I am tolerant (or intolerant) of other faiths and respect (or condemn) the worship of other gods.</option>
+            <option num="7">I’ve enjoyed fine food, drink, and high society among my temple’s elite. Rough living grates on me.</option>
+            <option num="8">I’ve spent so long in the Temple that I have little practical experience dealing with people in the outside world.</option>
+        </trait>
+        <ideal>
+            <option name="1">Tradition. The ancient traditions of worship and sacrifice must be preserved and upheld. (Lawful)</option>
+            <option name="2">Charity. I always try to help those in need, no matter what the personal cost. (Good)</option>
+            <option name="3">Change. We must help bring about the changes the gods are constantly working in the world. (Chaotic)</option>
+            <option name="4">Power. I hope to one day rise to the top of my faith’s religious hierarchy. (Lawful)</option>
+            <option name="5">Faith. I trust that my deity will guide my Actions. I have faith that if I work hard, things will go well. (Lawful)</option>
+            <option name="6">Aspiration. I seek to prove myself worthy of my god’s favor by matching my Actions against his or her teachings. (Any)</option>
+        </ideal>
+        <bond>
+            <option name="1">I would die to recover an ancient relic of my faith that was lost long ago.</option>
+            <option name="2">I will someday get revenge on the corrupt Temple hierarchy who branded me a heretic.</option>
+            <option name="3">I owe my life to the Priest who took me in when my Parents died.</option>
+            <option name="4">Everything I do is for the Common people.</option>
+            <option name="5">I will do anything to protect the Temple where I served.</option>
+            <option name="6">I seek to preserve a sacred text that my enemies consider heretical and seek to destroy.</option>
+        </bond>
+        <flaw>
+            <option name="1">I judge others harshly, and myself even more severely.</option>
+            <option name="2">I put too much trust in those who wield power within my temple’s hierarchy.</option>
+            <option name="3">My piety sometimes leads me to blindly trust those that profess faith in my god.</option>
+            <option name="4">I am inflexible in my thinking.</option>
+            <option name="5">I am suspicious of strangers and expect the worst of them.</option>
+            <option name="6">Once I pick a goal, I become obsessed with it to the detriment of everything else in my life.</option>
+        </flaw>
+        <proficiencies>
+            <skills>
+                <skill>InsightProf</skill>
+                <skill>ReligionProf</skill>
+            </skills>
+        </proficiencies>
+        <features>
+            <item>
+                <title>Shelter of the Faithful</title>
+                <body>As an acolyte, you command the respect of those who share your faith, and you can perform the religious ceremonies of your deity. You and your adventuring companions can expect to receive free healing and care at a temple, shrine, or other established presence of your faith, though you must provide any material components needed for spells. Those who share your religion will support you (but only you) at a modest lifestyle. You might also have ties to a specific temple dedicated to your chosen deity or pantheon, and you have a residence there. This could be the temple where you used to serve, if you remain on good terms with it, or a temple where you have found a new home. While near your temple, you can call upon the priests for assistance, provided the assistance you ask for is not hazardous and you remain in good standing with your temple.</body>
+            </item>
+        </features>
     </background>
 </backgrounds>

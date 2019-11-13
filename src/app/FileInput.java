@@ -5,6 +5,8 @@
  */
 package app;
 
+import static app.FileManager.FILE.CXML;
+import static app.FileManager.FILE.T_BACKGROUND;
 import java.io.File;
 import util.Bundle;
 import util.XMLReader;
@@ -26,7 +28,16 @@ public class FileInput {
     Bundle getBundle() throws InterruptedException {
         Bundle b = new Bundle();
         XMLReader reader = new XMLReader();
-        b = reader.readCharacter(file);
+        if(fileType == CXML){
+            b = reader.readCharacter(file);
+        }
+        else{
+            switch(fileType){
+                case T_BACKGROUND:b = reader.readBackgrounds(file);break;
+                case T_CLASS:b = reader.readClasses(file);break;
+                case T_RACE:b = reader.readRaces(file);break;
+            }
+        }
         return b;
     }
     

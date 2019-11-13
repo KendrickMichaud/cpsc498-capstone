@@ -23,7 +23,7 @@ public class FileManager {
     private final TYPE type;
     private FILE fileType;
     public enum TYPE{READ,WRITE};
-    public enum FILE{CHARACTER,TEMPLATE,SETTINGS};
+    public enum FILE{CXML,T_BACKGROUND, T_CLASS, T_RACE,SETTINGS};
     public FileManager(File file, TYPE ioType, FILE fileType){
         if(file == null){
             throw new NullPointerException("File cannot be null");

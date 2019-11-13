@@ -26,6 +26,10 @@ import data_structure.Skill;
 import data_structure.Skills;
 import data_structure.Spell;
 import data_structure.Spellbook;
+import templates.BackgroundTemplates;
+import templates.BackgroundTemplates.Background;
+import templates.Feature;
+import templates.Templates;
 
 /**
  *
@@ -324,5 +328,121 @@ public class XMLReader {
         if(str != null){
             bundle.putString(KEY.K_FEATURES_DESCRIPTION, str);
         }
+    }
+
+    public Bundle readBackgrounds(File file) {
+        bundle = new Bundle();
+        try{
+            if(file == null){
+                bundle.putBoolean(FileManager.IO_SUCCESS, Boolean.FALSE);
+                return bundle;
+            }
+            
+            DocumentBuilderFactory fact = DocumentBuilderFactory.newInstance();
+            DocumentBuilder build = fact.newDocumentBuilder();
+            Document doc = build.parse(file);
+            
+            doc.getDocumentElement().normalize();
+            Element root = doc.getDocumentElement();
+            NodeList backgrounds = root.getElementsByTagName("background");
+            if(backgrounds != null && backgrounds.getLength() > 0){
+                BackgroundTemplates templates;
+                templates = new BackgroundTemplates();
+                for(int index = 0; index < backgrounds.getLength(); index++){
+                    BackgroundTemplates.Background background = new Background();
+                    Element iBackground = (Element) backgrounds.item(index);
+                    Element name,trait,ideal,bond,flaw;
+                    Element proficiencies, features;
+                    
+                    name = extractElement(iBackground, "name");
+                    trait = extractElement(iBackground, "trait");
+                    ideal = extractElement(iBackground, "ideal");
+                    bond = extractElement(iBackground, "bond");
+                    flaw = extractElement(iBackground, "flaw");
+                    
+                    String strName = name.getTextContent();
+                    ArrayList<String> traits, ideals, bonds, flaws;
+                    String arrayTagName = "option";
+                    traits = extractStrings(trait, arrayTagName);
+                    ideals = extractStrings(ideal, arrayTagName);
+                    bonds = extractStrings(bond, arrayTagName);
+                    flaws = extractStrings(flaw, arrayTagName);
+                    background.setName(strName);
+                    background.addStrings(traits, Background.STORY.TRAIT);
+                    background.addStrings(ideals, Background.STORY.IDEAL);
+                    background.addStrings(bonds, Background.STORY.BOND);
+                    background.addStrings(flaws, Background.STORY.FLAW);
+                    
+                    proficiencies = extractElement(iBackground, "proficiencies");
+                    if(proficiencies != null){
+                        Element skills = extractElement(proficiencies, "skills");
+                        if(skills != null){
+                            ArrayList<String> skillProficincies;
+                            skillProficincies = extractStrings(skills, "skill");
+                            background.addSkills(skillProficincies);
+                        }
+                    }
+                    features = extractElement(iBackground, "features");
+                    if(features != null){
+                        ArrayList<Feature> featuresList;
+                        featuresList = extractFeatures(features);
+                        background.addFeatures(featuresList);
+                    }
+                    
+                    templates.addBackground(background);
+                }
+                
+                bundle.putTemplate(Templates.TYPE.T_BACKGROUND, templates);
+            }
+            bundle.putBoolean(FileManager.IO_SUCCESS, Boolean.TRUE);
+        } catch (SAXException | IOException | ParserConfigurationException ex) {
+            Logger.getLogger(XMLReader.class.getName()).log(Level.SEVERE, null, ex);
+            bundle.putBoolean(FileManager.IO_SUCCESS, Boolean.FALSE);
+        }
+        return bundle;
+        
+    }
+
+    public Bundle readClasses(File file) {
+        return new Bundle();
+    }
+
+    public Bundle readRaces(File file) {
+        return new Bundle();
+    }
+
+    private ArrayList<String> extractStrings(Element root, String tagName) {
+        NodeList nodes = root.getElementsByTagName(tagName);
+        if(nodes != null && nodes.getLength() > 0){
+            ArrayList<String> strings = new ArrayList<>();
+            for(int i = 0; i < nodes.getLength(); i++){
+                String item = ((Element) nodes.item(i)).getTextContent();
+                if(item != null){
+                    strings.add(item);
+                }
+            }
+        }
+        return new ArrayList<>();
+    }
+
+    private ArrayList<Feature> extractFeatures(Element root) {
+        if(root == null)
+            return null;
+        ArrayList<Feature> features = new ArrayList<>();
+        NodeList nodes = root.getElementsByTagName("item");
+        if(nodes != null){
+            for(int i = 0; i < nodes.getLength(); i++){
+                Element item = (Element) nodes.item(i);
+                if(item != null){
+                    String name, desc;
+                    name = extractString(item, "title");
+                    desc = extractString(item, "body");
+                    if(name != null && desc != null){
+                        features.add(new Feature(name, desc));
+                    }
+                }
+            }
+        }
+        return features;
     }
 }

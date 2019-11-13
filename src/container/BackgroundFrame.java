@@ -42,8 +42,7 @@ public class BackgroundFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txt_name = new javax.swing.JTextArea();
+        txt_name = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -71,21 +70,19 @@ public class BackgroundFrame extends javax.swing.JFrame {
 
         jLabel1.setText("Background Name");
         jPanel2.add(jLabel1);
-
-        txt_name.setColumns(20);
-        txt_name.setRows(5);
-        jScrollPane2.setViewportView(txt_name);
-
-        jPanel2.add(jScrollPane2);
+        jPanel2.add(txt_name);
 
         jPanel1.add(jPanel2);
 
-        jPanel3.setLayout(new java.awt.GridLayout());
+        jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel2.setText("Background Trait");
         jPanel3.add(jLabel2);
 
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
         txt_trait.setColumns(20);
+        txt_trait.setLineWrap(true);
         txt_trait.setRows(5);
         jScrollPane1.setViewportView(txt_trait);
 
@@ -93,12 +90,15 @@ public class BackgroundFrame extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3);
 
-        jPanel4.setLayout(new java.awt.GridLayout());
+        jPanel4.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel3.setText("Background Ideal");
         jPanel4.add(jLabel3);
 
+        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
         txt_ideal.setColumns(20);
+        txt_ideal.setLineWrap(true);
         txt_ideal.setRows(5);
         jScrollPane3.setViewportView(txt_ideal);
 
@@ -106,12 +106,15 @@ public class BackgroundFrame extends javax.swing.JFrame {
 
         jPanel1.add(jPanel4);
 
-        jPanel5.setLayout(new java.awt.GridLayout());
+        jPanel5.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel4.setText("Background Bond");
         jPanel5.add(jLabel4);
 
+        jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
         txt_bond.setColumns(20);
+        txt_bond.setLineWrap(true);
         txt_bond.setRows(5);
         jScrollPane4.setViewportView(txt_bond);
 
@@ -119,12 +122,15 @@ public class BackgroundFrame extends javax.swing.JFrame {
 
         jPanel1.add(jPanel5);
 
-        jPanel6.setLayout(new java.awt.GridLayout());
+        jPanel6.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel5.setText("Background Flaw");
         jPanel6.add(jLabel5);
 
+        jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
         txt_flaw.setColumns(20);
+        txt_flaw.setLineWrap(true);
         txt_flaw.setRows(5);
         jScrollPane5.setViewportView(txt_flaw);
 
@@ -208,14 +214,13 @@ public class BackgroundFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextArea txt_bond;
     private javax.swing.JTextArea txt_flaw;
     private javax.swing.JTextArea txt_ideal;
-    private javax.swing.JTextArea txt_name;
+    private javax.swing.JTextField txt_name;
     private javax.swing.JTextArea txt_trait;
     // End of variables declaration//GEN-END:variables
 
