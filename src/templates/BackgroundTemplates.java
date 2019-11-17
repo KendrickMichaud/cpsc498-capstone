@@ -6,28 +6,13 @@
 package templates;
 
 import java.util.ArrayList;
+import templates.BackgroundTemplates.Background;
 
 /**
  *
  * @author Kendrick-Laptop
  */
-public class BackgroundTemplates extends Templates{
-    
-    public BackgroundTemplates(){
-        backgrounds = new ArrayList<Background>();
-    }
-
-    private final ArrayList<Background> backgrounds;
-
-    public void addBackground(Background background) {
-        if(background != null){
-            backgrounds.add(background);
-        }
-    }
-
-    public Background getBackground(int i) {
-        return backgrounds.get(i);
-    }
+public class BackgroundTemplates extends Templates<Background>{
 
     public static class Background {
 
@@ -75,5 +60,4 @@ public class BackgroundTemplates extends Templates{
             }
         }
     }
-    
 }

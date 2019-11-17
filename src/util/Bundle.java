@@ -106,7 +106,7 @@ public class Bundle extends HashMap<String, Object>{
             return null;
     }
 
-    void putTemplate(templates.Templates.TYPE template, BackgroundTemplates templates) {
+    void putTemplate(templates.Templates.TYPE template, Templates templates) {
         if(templates != null){
             put(template.toString(), templates);
         }

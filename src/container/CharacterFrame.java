@@ -285,7 +285,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         scrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setPreferredSize(new java.awt.Dimension(819, 600));
 
-        pan_main.setBackground(new java.awt.Color(204, 204, 204));
+        pan_main.setBackground(java.awt.Color.black);
         pan_main.setMaximumSize(new java.awt.Dimension(800, 1200));
         pan_main.setMinimumSize(new java.awt.Dimension(800, 1190));
         pan_main.setPreferredSize(new java.awt.Dimension(700, 916));

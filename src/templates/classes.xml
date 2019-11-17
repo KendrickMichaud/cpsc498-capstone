@@ -6,6 +6,59 @@ and open the template in the editor.
 -->
 
 
-<root>
-    
-</root>
+<classes>
+    <class>
+        <name>Paladin</name>
+        <casterType>charisma</casterType>
+        <features>
+            <feature level="1">
+                <title>Divine Sense</title>
+                <body>Until the end of your next turn, you know the location of any celestial, fiend, or undead within 60 feet of you that is not behind total cover. You can use this feature a number of times equal to 1 + your Charisma modifier. When you finish a long rest, you regain all expended uses.</body>
+            </feature>
+            <feature level="1">
+                <title>Lay on Hands</title>
+                <body>You may restore a total number of hit points of yourself or a creature you touch equal to your paladin level x 5. Alternatively you can spend 5 points to neutralize a poison or cure the target</body>
+            </feature>
+        </features>
+        <proficiencies>
+            <skills>
+                <option>AthleticsProf</option>
+                <option>InsightProf</option>
+                <option>IntimidationProf</option>
+                <option>MedicineProf</option>
+                <option>PersuasionProf</option>
+                <option>ReligionProf</option>
+            </skills>
+            <savingThrows>
+                <attribute>wisdom</attribute>
+                <attribute>charisma</attribute>
+            </savingThrows>
+            <equipment>
+                <weapon>Simple, Martial</weapon>
+                <armor>All Armor, Shields</armor>
+                <tool>None</tool>
+            </equipment>
+        </proficiencies>
+        <health>
+            <hitDie>1d10</hitDie>
+            <attribute>constitution</attribute>
+        </health>
+        <flavorText>Noble and inspiring, a paladin swears to uphold justice and righteousness, to stand with the good things of the world against the encroaching darkness, and to hunt the forces of evil wherever they lurk. Different paladins focus on various aspects of the cause of righteousness, but all are bound by the oaths that grant them power to do their sacred work. Although many paladins are devoted to gods of good, a paladin’s power comes as much from a commitment to justice itself as it does from a god.</flavorText>
+        <powerRating>
+            <magic>
+                <defense>8</defense>
+                <offense>5</offense>
+                <utility>4</utility>
+            </magic>
+            <martial>
+                <defense>6</defense>
+                <offense>7</offense>
+                <utility>1</utility>
+            </martial>
+            <position>
+                <ranged>3</ranged>
+                <melee>7</melee>
+            </position>
+        </powerRating>
+    </class>
+</classes>

@@ -78,7 +78,7 @@ and open the template in the editor.
             <option name="6">Aspiration. I seek to prove myself worthy of my god’s favor by matching my Actions against his or her teachings. (Any)</option>
         </ideal>
         <bond>
-            <option name="1">I would die to recover an ancient relic of my faith that was lost long ago.</option>
+            <option name="1">I wouldn't die to recover an ancient relic of my faith that was lost long ago.</option>
             <option name="2">I will someday get revenge on the corrupt Temple hierarchy who branded me a heretic.</option>
             <option name="3">I owe my life to the Priest who took me in when my Parents died.</option>
             <option name="4">Everything I do is for the Common people.</option>

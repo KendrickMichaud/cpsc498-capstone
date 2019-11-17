@@ -5,14 +5,10 @@
  */
 package templates;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author Kendrick-Laptop
- * @param <T>
  */
-public abstract class Templates<T> extends ArrayList<T>{
-    public enum TYPE{T_BACKGROUND, T_CLASS, T_RACE}
+public class ClassTemplates extends Templates<PlayerClass>{
     
 }

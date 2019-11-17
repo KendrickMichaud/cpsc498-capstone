@@ -28,7 +28,10 @@ import data_structure.Spell;
 import data_structure.Spellbook;
 import templates.BackgroundTemplates;
 import templates.BackgroundTemplates.Background;
+import templates.ClassTemplates;
 import templates.Feature;
+import templates.PlayerClass;
+import templates.PlayerClassBuilder;
 import templates.Templates;
 
 /**
@@ -359,7 +362,7 @@ public class XMLReader {
                     ideal = extractElement(iBackground, "ideal");
                     bond = extractElement(iBackground, "bond");
                     flaw = extractElement(iBackground, "flaw");
-                    
+                                        
                     String strName = name.getTextContent();
                     ArrayList<String> traits, ideals, bonds, flaws;
                     String arrayTagName = "option";
@@ -389,7 +392,7 @@ public class XMLReader {
                         background.addFeatures(featuresList);
                     }
                     
-                    templates.addBackground(background);
+                    templates.add(background);
                 }
                 
                 bundle.putTemplate(Templates.TYPE.T_BACKGROUND, templates);
@@ -404,7 +407,60 @@ public class XMLReader {
     }
 
     public Bundle readClasses(File file) {
-        return new Bundle();
+        bundle = new Bundle();
+        try{
+            if(file == null){
+                bundle.putBoolean(FileManager.IO_SUCCESS, Boolean.FALSE);
+                return bundle;
+            }
+            
+            DocumentBuilderFactory fact = DocumentBuilderFactory.newInstance();
+            DocumentBuilder build = fact.newDocumentBuilder();
+            Document doc = build.parse(file);
+            
+            doc.getDocumentElement().normalize();
+            Element root = doc.getDocumentElement();
+            NodeList classes = root.getElementsByTagName("class");
+            if(classes != null && classes.getLength() > 0){
+                ClassTemplates templates;
+                templates = new ClassTemplates();
+                for(int index = 0; index < classes.getLength(); index++){
+
+                    PlayerClassBuilder builder = new PlayerClassBuilder();
+                    Element pClass = (Element) classes.item(index);
+                    Element health = extractElement(pClass, "health");
+                    Element profs = extractElement(pClass, "proficiencies");
+                    Element skills = extractElement(profs, "skills");
+                    Element saves = extractElement(profs, "savingThrows");
+                    Element equip = extractElement(profs, "equipment");
+                    Element feature = extractElement(pClass, "features");
+                    ArrayList<String> equipmentProfs = new ArrayList<>();
+                    equipmentProfs.add(extractString(equip, "weapon"));
+                    equipmentProfs.add(extractString(equip, "armor"));
+                    equipmentProfs.add(extractString(equip, "tool"));
+                    
+                    builder.setName(extractString(pClass, "name"))
+                            .setFlavorText(extractString(pClass, "flavorText"))
+                            .setCasterType(extractString(pClass, "casterType"))
+                            .setHitDie(extractString(health, "hitDie"))
+                            .setHitDieAttribute(extractString(health, "attribute"))
+                            .setSkillsProfs(extractStrings(skills, "option"))
+                            .setSavingThrows(extractStrings(saves, "attribute"))
+                            .setEquipmentProfs(equipmentProfs)
+                            .setFeatures(extractFeatures(feature));
+                    if(builder.validClass()){
+                        templates.add(builder.createPlayerClass());
+                    }
+                }
+                
+                bundle.putTemplate(Templates.TYPE.T_CLASS, templates);
+            }
+            bundle.putBoolean(FileManager.IO_SUCCESS, Boolean.TRUE);
+        } catch (SAXException | IOException | ParserConfigurationException ex) {
+            Logger.getLogger(XMLReader.class.getName()).log(Level.SEVERE, null, ex);
+            bundle.putBoolean(FileManager.IO_SUCCESS, Boolean.FALSE);
+        }
+        return bundle;
     }
 
     public Bundle readRaces(File file) {
@@ -421,6 +477,7 @@ public class XMLReader {
                     strings.add(item);
                 }
             }
+            return strings;
         }
         return new ArrayList<>();
     }

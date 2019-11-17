@@ -19,6 +19,9 @@ import javax.swing.text.Document;
 import templates.BackgroundTemplates;
 import templates.BackgroundTemplates.Background;
 import templates.BackgroundTemplates.Background.STORY;
+import templates.ClassTemplates;
+import templates.PlayerClass;
+import templates.Templates;
 import util.Bundle;
 import util.DataIntegrity;
 
@@ -217,16 +220,32 @@ public class AppManager {
 
     public void readTemplate() {
         FileManager fm = new FileManager
-        (new File(getClass().getResource("/templates/backgrounds.xml").getPath())
-                ,FileManager.TYPE.READ, FileManager.FILE.T_BACKGROUND);
+        (new File(getClass().getResource("/templates/classes.xml").getPath())
+                ,FileManager.TYPE.READ, FileManager.FILE.T_CLASS);
         Bundle bundle = fm.getData();
         BackgroundTemplates t = (BackgroundTemplates) bundle.getTemplate(templates.Templates.TYPE.T_BACKGROUND);
         if(t != null){
-            System.out.println("Not null");
-            Background b = t.getBackground(1);
+            Background b = t.get(1);
             ArrayList<String> bonds;
             bonds = b.getStrings(STORY.BOND);
-            System.out.println(b.getName());
+            for(String s : bonds){
+                System.out.println(s);
+            }
+            
+            b = t.get(0);
+            bonds = b.getStrings(STORY.BOND);
+            for(String s : bonds){
+                System.out.println(s);
+            }
+        }
+        
+        ClassTemplates c = (ClassTemplates) bundle.getTemplate(Templates.TYPE.T_CLASS);
+        if(c != null){
+            System.out.println("Class Templates is here!");
+            PlayerClass good = c.get(0);
+        }
+        else{
+            System.out.println("Not here!");
         }
     }
 
