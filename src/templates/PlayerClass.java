@@ -12,15 +12,15 @@ import java.util.ArrayList;
  * @author Kendrick-Laptop
  */
 public class PlayerClass {
-    String name;
-    String casterType;
-    ArrayList<Feature> features;
-    ArrayList<String> skillProfs;
-    ArrayList<String> savingThrows;
-    public ArrayList<String> equipmentProfs;
-    String hitDie;
-    String hitDieAttribute;
-    String flavorText;
+    public final String name;
+    public final String casterType;
+    public final ArrayList<Feature> features;
+    public final ArrayList<String> skillProfs;
+    public final ArrayList<String> savingThrows;
+    public final ArrayList<String> equipmentProfs;
+    public final String hitDie;
+    public final String hitDieAttribute;
+    public final String flavorText;
     
     public PlayerClass(String name, String casterType, ArrayList<Feature> features, ArrayList<String> skillsProfs,
             ArrayList<String> savingThrows, ArrayList<String> equipmentProfs, String hitDie, String hitDieAttribute, String flavorText){

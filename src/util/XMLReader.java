@@ -32,6 +32,7 @@ import templates.ClassTemplates;
 import templates.Feature;
 import templates.PlayerClass;
 import templates.PlayerClassBuilder;
+import templates.RaceTemplates;
 import templates.Templates;
 
 /**
@@ -464,7 +465,77 @@ public class XMLReader {
     }
 
     public Bundle readRaces(File file) {
-        return new Bundle();
+        bundle = new Bundle();
+        try{
+            if(file == null){
+                bundle.putBoolean(FileManager.IO_SUCCESS, Boolean.FALSE);
+                return bundle;
+            }
+            
+            DocumentBuilderFactory fact = DocumentBuilderFactory.newInstance();
+            DocumentBuilder build = fact.newDocumentBuilder();
+            Document doc = build.parse(file);
+            
+            doc.getDocumentElement().normalize();
+            Element root = doc.getDocumentElement();
+            NodeList races = root.getElementsByTagName("race");
+            if(races != null && races.getLength() > 0){
+                RaceTemplates templates;
+                templates = new RaceTemplates();
+                for(int index = 0; index < races.getLength(); index++){
+                    Element race = (Element) races.item(index);
+                    if(race != null){
+                        String name, size;
+                        ArrayList<String> lang;
+                        Bundle languages = new Bundle();
+                        Bundle attributes = new Bundle();
+                        ArrayList<Feature> features;
+                        name = extractString(race, KEY.L_NAME);
+                        size = extractString(race, KEY.L_SIZE);
+                        
+                        lang = new ArrayList<>();
+                        Element langs = extractElement(race, "languages");
+                        if(langs != null){
+                            lang.addAll(extractStrings(langs, "item"));
+                            String wild = extractString(langs, "wildcard");
+                            int wAmount = 0;
+                            if(wild != null && DataIntegrity.isNumeric(wild)){
+                                wAmount = Integer.parseInt(wild);
+                                if(wAmount < 0)
+                                    wAmount = 0;
+                            }
+                            
+                            languages.putInteger("wildcard", wAmount);
+                            languages.putInteger(KEY.L_SIZE, lang.size());
+                            for(int i = 0; i < lang.size(); i++){
+                                languages.putString(Integer.toString(i), lang.get(i));
+                            }
+                        }
+                        
+                        Element attr = extractElement(race, "attributes");
+                        if(attr != null){
+                            String str, dex, con, intel, wis, cha;
+                            Element wild;
+                            str = extractString(attr, KEY.L_STRENGTH);
+                            dex = extractString(attr, KEY.L_DEXTERITY);
+                            con = extractString(attr, KEY.L_CONSTITUION);
+                            intel = extractString(attr, KEY.L_INTELLIGENCE);
+                            wis = extractString(attr, KEY.L_WISDOM);
+                            cha = extractString(attr, KEY.L_CHARISMA);
+                            wild = extractElement(attr, "wildcard");
+                        }
+                        
+                    }
+                }
+                
+                bundle.putTemplate(Templates.TYPE.T_RACE, templates);
+            }
+            bundle.putBoolean(FileManager.IO_SUCCESS, Boolean.TRUE);
+        } catch (SAXException | IOException | ParserConfigurationException ex) {
+            Logger.getLogger(XMLReader.class.getName()).log(Level.SEVERE, null, ex);
+            bundle.putBoolean(FileManager.IO_SUCCESS, Boolean.FALSE);
+        }
+        return bundle;
     }
 
     private ArrayList<String> extractStrings(Element root, String tagName) {
