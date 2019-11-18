@@ -32,6 +32,7 @@ import templates.ClassTemplates;
 import templates.Feature;
 import templates.PlayerClass;
 import templates.PlayerClassBuilder;
+import templates.PlayerRace;
 import templates.RaceTemplates;
 import templates.Templates;
 
@@ -489,10 +490,14 @@ public class XMLReader {
                         ArrayList<String> lang;
                         Bundle languages = new Bundle();
                         Bundle attributes = new Bundle();
-                        ArrayList<Feature> features;
+                        ArrayList<Feature> features = new ArrayList<>();
                         name = extractString(race, KEY.L_NAME);
                         size = extractString(race, KEY.L_SIZE);
                         
+                        Element feature = extractElement(race, "features");
+                        if(feature != null){
+                            features.addAll(extractFeatures(feature));
+                        }
                         lang = new ArrayList<>();
                         Element langs = extractElement(race, "languages");
                         if(langs != null){
@@ -523,9 +528,45 @@ public class XMLReader {
                             wis = extractString(attr, KEY.L_WISDOM);
                             cha = extractString(attr, KEY.L_CHARISMA);
                             wild = extractElement(attr, "wildcard");
+                           
+                            if(str != null && DataIntegrity.isNumeric(str)){
+                                attributes.putInteger(KEY.L_STRENGTH, Integer.parseInt(str));
+                            }
+                            if(dex != null && DataIntegrity.isNumeric(dex)){
+                                attributes.putInteger(KEY.L_DEXTERITY, Integer.parseInt(dex));
+                            }
+                            if(con != null && DataIntegrity.isNumeric(con)){
+                                attributes.putInteger(KEY.L_CONSTITUION, Integer.parseInt(con));
+                            }
+                            if(intel != null && DataIntegrity.isNumeric(intel)){
+                                attributes.putInteger(KEY.L_INTELLIGENCE, Integer.parseInt(intel));
+                            }
+                            if(wis != null && DataIntegrity.isNumeric(wis)){
+                                attributes.putInteger(KEY.L_WISDOM, Integer.parseInt(wis));
+                            }
+                            if(cha != null && DataIntegrity.isNumeric(cha)){
+                                attributes.putInteger(KEY.L_CHARISMA, Integer.parseInt(cha));
+                            }
+                            if(wild != null){
+                                String amt = wild.getAttribute("amt");
+                                String bonus = wild.getTextContent();
+                                if(amt != null && bonus != null && DataIntegrity.isNumeric(amt) && DataIntegrity.isNumeric(bonus)){
+                                    int amount = Integer.parseInt(amt);
+                                    int bon = Integer.parseInt(bonus);
+                                    
+                                    attributes.putInteger("wildcard", bon);
+                                    attributes.putInteger("wildcardAmount", amount);
+                                }
+                            }
                         }
+                        PlayerRace r = new PlayerRace(
+                        name,attributes,size,languages,features
+                        );
                         
+                        templates.add(r);
                     }
+                    
+                    
                 }
                 
                 bundle.putTemplate(Templates.TYPE.T_RACE, templates);

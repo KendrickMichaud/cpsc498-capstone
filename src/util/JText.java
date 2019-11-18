@@ -6,6 +6,8 @@
 package util;
 
 import constants.KEY;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTextArea;
@@ -41,5 +43,23 @@ public class JText {
         if(str != null && target != null){
             target.setText(str);
         }
+    }
+    
+    public static void addTabFocusChanger(JTextArea area){
+        //https://kodejava.org/how-do-i-move-focus-from-jtextarea-using-tab-key/
+        area.addKeyListener(new KeyAdapter(){
+            @Override
+            public void keyPressed(KeyEvent e){
+                if(e.getKeyCode() == KeyEvent.VK_TAB){
+                    if(e.getModifiers() > 0){
+                        area.transferFocusBackward();
+                    }
+                else{
+                        area.transferFocus();
+                    }
+                    e.consume();
+                }
+            }
+        });
     }
 }

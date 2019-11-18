@@ -21,6 +21,8 @@ import templates.BackgroundTemplates.Background;
 import templates.BackgroundTemplates.Background.STORY;
 import templates.ClassTemplates;
 import templates.PlayerClass;
+import templates.PlayerRace;
+import templates.RaceTemplates;
 import templates.Templates;
 import util.Bundle;
 import util.DataIntegrity;
@@ -220,8 +222,8 @@ public class AppManager {
 
     public void readTemplate() {
         FileManager fm = new FileManager
-        (new File(getClass().getResource("/templates/classes.xml").getPath())
-                ,FileManager.TYPE.READ, FileManager.FILE.T_CLASS);
+        (new File(getClass().getResource("/templates/races.xml").getPath())
+                ,FileManager.TYPE.READ, FileManager.FILE.T_RACE);
         Bundle bundle = fm.getData();
         BackgroundTemplates t = (BackgroundTemplates) bundle.getTemplate(templates.Templates.TYPE.T_BACKGROUND);
         if(t != null){
@@ -243,6 +245,18 @@ public class AppManager {
         if(c != null){
             System.out.println("Class Templates is here!");
             PlayerClass good = c.get(0);
+        }
+        else{
+            System.out.println("Not here!");
+        }
+        
+        RaceTemplates r = (RaceTemplates) bundle.getTemplate(Templates.TYPE.T_RACE);
+        if(r != null){
+            System.out.println("Race templates is here!");
+            PlayerRace race = r.get(0);
+            if(race != null){
+                System.out.println(race.name);
+            }
         }
         else{
             System.out.println("Not here!");

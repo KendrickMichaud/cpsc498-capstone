@@ -6,8 +6,11 @@
 package container;
 
 import constants.KEY;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javax.swing.text.Document;
 import util.Bundle;
+import util.JText;
 import util.KeyReader;
 
 /**
@@ -21,6 +24,10 @@ public class WeaponPanel extends javax.swing.JPanel implements CardDataHolder{
      */
     public WeaponPanel() {
         initComponents();
+        JText.addTabFocusChanger(txt_weapon_name);
+        JText.addTabFocusChanger(txt_weapon_damage_roll);
+        JText.addTabFocusChanger(txt_weapon_damage_type);
+        
     }
 
     /**
@@ -74,6 +81,11 @@ public class WeaponPanel extends javax.swing.JPanel implements CardDataHolder{
         txt_weapon_name.setColumns(20);
         txt_weapon_name.setLineWrap(true);
         txt_weapon_name.setRows(5);
+        txt_weapon_name.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_weapon_nameKeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(txt_weapon_name);
 
         add(jScrollPane1);
@@ -178,6 +190,10 @@ public class WeaponPanel extends javax.swing.JPanel implements CardDataHolder{
 
         add(jPanel8);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txt_weapon_nameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_weapon_nameKeyTyped
+
+    }//GEN-LAST:event_txt_weapon_nameKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

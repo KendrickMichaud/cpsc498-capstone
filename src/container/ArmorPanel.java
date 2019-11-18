@@ -9,6 +9,7 @@ import constants.KEY;
 import javax.swing.text.Document;
 import util.Bundle;
 import util.DataIntegrity;
+import util.JText;
 
 /**
  *
@@ -21,6 +22,7 @@ public class ArmorPanel extends javax.swing.JPanel implements CardDataHolder{
      */
     public ArmorPanel() {
         initComponents();
+        JText.addTabFocusChanger(txt_description);
     }
 
     /**

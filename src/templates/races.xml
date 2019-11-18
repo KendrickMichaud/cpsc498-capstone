@@ -20,18 +20,18 @@ and open the template in the editor.
             <wildcard>1</wildcard>
         </languages>
         <features>
-            <feature>
-                <name>Darkvision</name>
-                <description>You can see in dim light within 60ft of you. You cannot discern colors</description>
-            </feature>
-            <feature>
-                <name>Fey Ancestry</name>
-                <description>You have advantage in saving throws against being charmed and cannot be put to sleep.</description>
-            </feature>
-            <feature>
-                <name>Skill Versatility</name>
-                <description>You gain proficiency in two skills of your choice</description>
-            </feature>
+            <item>
+                <title>Darkvision</title>
+                <body>You can see in dim light within 60ft of you. You cannot discern colors</body>
+            </item>
+            <item>
+                <title>Fey Ancestry</title>
+                <body>You have advantage in saving throws against being charmed and cannot be put to sleep.</body>
+            </item>
+            <item>
+                <title>Skill Versatility</title>
+                <body>You gain proficiency in two skills of your choice</body>
+            </item>
         </features>
     </race>
 </races>

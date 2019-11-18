@@ -9,6 +9,7 @@ import constants.KEY;
 import javax.swing.text.Document;
 import util.Bundle;
 import util.DataIntegrity;
+import util.JText;
 
 /**
  *
@@ -21,6 +22,8 @@ public class DefensePanel extends javax.swing.JPanel implements CardDataHolder{
      */
     public DefensePanel() {
         initComponents();
+        JText.addTabFocusChanger(txt_defense_bonuses);
+        JText.addTabFocusChanger(txt_damage_resist);
     }
 
     /**
