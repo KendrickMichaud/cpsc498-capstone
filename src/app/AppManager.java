@@ -3,7 +3,9 @@ package app;
 
 import constants.CARD;
 import constants.KEY;
+import container.BuilderFrame;
 import container.CharacterFrame;
+import container.MenuFrame;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,6 +42,8 @@ public class AppManager {
         }
         return manager;
     }
+    private MenuFrame menuFrame;
+    private BuilderFrame builderFrame;
 
     private AppManager(){}
 
@@ -91,14 +95,14 @@ public class AppManager {
         }
     }
 
-    void launchApplication() {
+    private void launchCharacterFrame() {
         if(main_frame != null){
             updateValues();
             main_frame.setVisible(true);
         }
     }
 
-    void initFrame() {
+    private void initCharacterFrame() {
         main_frame = new CharacterFrame(this);
     }
 
@@ -118,7 +122,7 @@ public class AppManager {
     public void reinitializeEnvironment() {
         main_frame.dispose();
         main_frame = new CharacterFrame(this);
-        launchApplication();
+        launchCharacterFrame();
     }
     
     public void reinitializeEnvironment(File openCharacterFile){
@@ -260,6 +264,59 @@ public class AppManager {
         }
         else{
             System.out.println("Not here!");
+        }
+    }
+
+    void initMenuFrame() {
+        menuFrame = new MenuFrame();
+    }
+
+    void launchMenuFrame() {
+        if(menuFrame != null){
+            menuFrame.setVisible(true);
+        }
+    }
+
+    private void initBuilderFrame() {
+        builderFrame = new BuilderFrame(manager.pullTemplates());
+    }
+    
+    private Bundle pullTemplates(){
+        File fRace, fClass, fBackground;
+        fRace = new File(getClass().getResource(Templates.FILE_RACE).getFile());
+        fClass = new File(getClass().getResource(Templates.FILE_CLASS).getFile());
+        fBackground = new File(getClass().getResource(Templates.FILE_BACKGROUND).getFile());
+        FileManager raceManager = new FileManager(fRace, FileManager.TYPE.READ, FileManager.FILE.T_RACE);
+        FileManager classManager = new FileManager(fClass, FileManager.TYPE.READ, FileManager.FILE.T_CLASS);
+        FileManager backManager = new FileManager(fBackground, FileManager.TYPE.READ, FileManager.FILE.T_BACKGROUND);
+        
+        Bundle templates = new Bundle();
+        templates.put(Templates.TYPE.T_BACKGROUND.toString(), backManager.getData());
+        templates.put(Templates.TYPE.T_RACE.toString(), raceManager.getData());
+        templates.put(Templates.TYPE.T_CLASS.toString(), classManager.getData());
+        
+        return templates;
+    }
+
+    public void startUpCharacterFrame(File f) {
+        if(f == null){
+            manager.initCharacterFrame();
+            menuFrame.setVisible(false);
+            manager.launchCharacterFrame();
+        }
+        else{
+            manager.initCharacterFrame();
+            manager.reinitializeEnvironment(f);
+            menuFrame.setVisible(false);
+            manager.launchCharacterFrame();
+        }
+    }
+
+    public void startUpBuilderFrame() {
+        initBuilderFrame();
+        if(true){
+            menuFrame.setVisible(false);
+            builderFrame.setVisible(true);
         }
     }
 

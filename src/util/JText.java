@@ -6,10 +6,14 @@
 package util;
 
 import constants.KEY;
+import java.awt.Font;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
@@ -61,5 +65,28 @@ public class JText {
                 }
             }
         });
+    }
+
+    
+    private static Bundle qHighlight;
+    public static void highlightLabel(JLabel lbl) {
+        if(qHighlight == null){
+            qHighlight = new Bundle();
+        }
+        Font font = lbl.getFont();
+        Font highlight = new Font(font.getFontName(), Font.PLAIN, font.getSize());
+        qHighlight.putInteger(lbl.toString(), font.getSize());
+        lbl.setFont(highlight);
+    }
+    
+    public static void unHighlightLabel(JLabel lbl){
+        if(qHighlight != null){
+            Integer fontSize = qHighlight.getInteger(lbl.toString());
+            if(fontSize <= 0)
+                fontSize = 11;
+            Font font = lbl.getFont();
+            Font un = new Font(font.getFontName(), Font.PLAIN, fontSize);
+            lbl.setFont(un);
+        }
     }
 }

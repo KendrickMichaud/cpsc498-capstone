@@ -22,7 +22,7 @@ public class Deck {
     private ArrayList<String> deck;
     protected ArrayList<CardDataHolder> panels;
     private JPanel holder;
-    private int current_item;
+    protected int current_item;
     
     public Deck(JPanel holder){
         if(holder == null)
@@ -64,7 +64,7 @@ public class Deck {
         revealCard();
     }
 
-    private void revealCard() {
+    protected void revealCard() {
         CardLayout layout = (CardLayout) holder.getLayout();
         String name = deck.get(current_item);
         layout.show(holder, name);

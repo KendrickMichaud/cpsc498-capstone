@@ -15,4 +15,8 @@ import java.util.ArrayList;
 public abstract class Templates<T> extends ArrayList<T>{
     public enum TYPE{T_BACKGROUND, T_CLASS, T_RACE}
     
+    public static final String FILE_RACE = "/templates/races.xml";
+    public static final String FILE_CLASS = "/templates/classes.xml";
+    public static final String FILE_BACKGROUND = "/templates/backgrounds.xml";
+    
 }

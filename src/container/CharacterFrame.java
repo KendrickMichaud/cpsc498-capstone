@@ -269,7 +269,6 @@ public class CharacterFrame extends javax.swing.JFrame {
         item_save = new javax.swing.JMenuItem();
         action_save_as = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
-        menu_edit = new javax.swing.JMenu();
         menu_tools = new javax.swing.JMenu();
         item_options = new javax.swing.JMenuItem();
         menu_help = new javax.swing.JMenu();
@@ -984,23 +983,15 @@ public class CharacterFrame extends javax.swing.JFrame {
         });
         menu_file.add(action_save_as);
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("Open Template...");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setText("Main Menu...");
         menu_file.add(jMenuItem1);
 
         menu_bar.add(menu_file);
 
-        menu_edit.setText("Edit");
-        menu_bar.add(menu_edit);
-
         menu_tools.setText("Tools");
 
-        item_options.setText("Options");
+        item_options.setText("Builder");
         item_options.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 item_optionsActionPerformed(evt);
@@ -1166,10 +1157,6 @@ public class CharacterFrame extends javax.swing.JFrame {
         background.setVisible(true);
     }//GEN-LAST:event_open_backgroundMouseClicked
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        manager.readTemplate();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem action_save_as;
@@ -1266,7 +1253,6 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_weapon_title;
     private javax.swing.JLabel lbl_wisdom_modifier;
     private javax.swing.JMenuBar menu_bar;
-    private javax.swing.JMenu menu_edit;
     private javax.swing.JMenu menu_file;
     private javax.swing.JMenu menu_help;
     private javax.swing.JMenu menu_tools;
