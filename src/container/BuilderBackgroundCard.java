@@ -6,6 +6,7 @@
 package container;
 
 import javax.swing.text.Document;
+import templates.BackgroundTemplates;
 import util.Bundle;
 
 /**
@@ -54,6 +55,10 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
 
     @Override
     public void update(Bundle b) {
+    }
+
+    BackgroundTemplates.Background getSelectedBackground() {
+        return null;
     }
 
 

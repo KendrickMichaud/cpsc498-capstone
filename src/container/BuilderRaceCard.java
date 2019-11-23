@@ -6,6 +6,7 @@
 package container;
 
 import javax.swing.text.Document;
+import templates.PlayerRace;
 import util.Bundle;
 
 /**
@@ -54,6 +55,10 @@ public class BuilderRaceCard extends javax.swing.JPanel implements CardDataHolde
 
     @Override
     public void update(Bundle b) {
+    }
+
+    public PlayerRace getSelectedRace() {
+        return null;
     }
 
 

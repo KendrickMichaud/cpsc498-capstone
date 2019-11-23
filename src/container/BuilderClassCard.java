@@ -5,7 +5,12 @@
  */
 package container;
 
+import java.util.Vector;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.text.Document;
+import templates.ClassTemplates;
+import templates.PlayerClass;
+import templates.Templates;
 import util.Bundle;
 
 /**
@@ -14,6 +19,7 @@ import util.Bundle;
  */
 public class BuilderClassCard extends javax.swing.JPanel implements CardDataHolder{
 
+    private ClassTemplates cTemplates;
     /**
      * Creates new form BuilderClassCard
      */
@@ -30,17 +36,81 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        combo_classes = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextPane2 = new javax.swing.JTextPane();
+        jLabel2 = new javax.swing.JLabel();
+
+        setPreferredSize(new java.awt.Dimension(300, 577));
+        setLayout(new java.awt.BorderLayout());
+
+        jLabel1.setText("Class");
+        add(jLabel1, java.awt.BorderLayout.PAGE_START);
+
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
+        jPanel2.setLayout(new java.awt.BorderLayout());
+
+        jTextPane1.setEditable(false);
+        jTextPane1.setText("There are many types of classes in tabletop rpgs. From Wizards to Fighters to Druids, they primarily fall under two categories, Martial and Magic (just differing types of magic), and futher Ranged and Melee. Use the Character Analyzer to gauge your playstyle.");
+        jScrollPane1.setViewportView(jTextPane1);
+
+        jPanel2.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+
+        jPanel4.setPreferredSize(new java.awt.Dimension(300, 20));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel4, java.awt.BorderLayout.NORTH);
+
+        jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
+
+        jPanel3.setLayout(null);
+
+        combo_classes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
+        combo_classes.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                combo_classesItemStateChanged(evt);
+            }
+        });
+        jPanel3.add(combo_classes);
+        combo_classes.setBounds(20, 40, 250, 20);
+
+        jTextPane2.setEditable(false);
+        jScrollPane2.setViewportView(jTextPane2);
+
+        jPanel3.add(jScrollPane2);
+        jScrollPane2.setBounds(20, 72, 250, 380);
+
+        jLabel2.setText("Select your Class here...");
+        jPanel3.add(jLabel2);
+        jLabel2.setBounds(20, 10, 250, 14);
+
+        jPanel1.add(jPanel3, java.awt.BorderLayout.CENTER);
+
+        add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void combo_classesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combo_classesItemStateChanged
+        BuilderFrame frame = BuilderFrame.getInstance();
+        frame.updateValues();
+    }//GEN-LAST:event_combo_classesItemStateChanged
 
     @Override
     public Document extractDocument(String key) {return null;}
@@ -58,5 +128,32 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> combo_classes;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JTextPane jTextPane2;
     // End of variables declaration//GEN-END:variables
+
+    void putTemplate(Templates templates) {
+        if(templates != null && templates instanceof ClassTemplates){
+            cTemplates = (ClassTemplates) templates;
+            Vector<String> classNames = new Vector<>();
+            cTemplates.forEach((c) -> {
+                classNames.add(c.name);
+            });
+            DefaultComboBoxModel<String> model = new DefaultComboBoxModel(classNames);
+            combo_classes.setModel(model);
+        }
+    }
+
+    PlayerClass getSelectedClass() {
+        return null;
+    }
 }

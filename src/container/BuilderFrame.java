@@ -7,6 +7,10 @@ package container;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import templates.BackgroundTemplates;
+import templates.PlayerClass;
+import templates.PlayerRace;
+import templates.Templates;
 import util.Bundle;
 
 /**
@@ -22,6 +26,31 @@ public class BuilderFrame extends javax.swing.JFrame {
     public static final String CARD_CLASS = "Building Class";
     public static final String CARD_RACE =  "Building Race";
     public static final String CARD_BACKGROUND = "Building Background";
+
+    void updateValues() {
+        PlayerClass cl = classCard.getSelectedClass();
+        PlayerRace ra = raceCard.getSelectedRace();
+        BackgroundTemplates.Background ba = backCard.getSelectedBackground();
+        
+        processClass(cl);
+        processRace(ra);
+        processBackground(ba);
+    }
+
+    private void processClass(PlayerClass cl) {
+        if(cl == null)
+            return;
+    }
+
+    private void processRace(PlayerRace ra) {
+        if(ra == null)
+            return;
+    }
+
+    private void processBackground(BackgroundTemplates.Background ba) {
+        if(ba == null)
+            return;
+    }
     
     private static class BuilderDeck extends Deck{
 
@@ -33,17 +62,18 @@ public class BuilderFrame extends javax.swing.JFrame {
             previous.setEnabled(false);
             this.next = next;
             this.previous = previous;
+            current_item = 0;
         }
 
         @Override
         public void nextCard() {
-            System.out.println(panels.size());
             if(!tail(current_item)){
                 current_item++;
                 previous.setEnabled(true);
                 if(tail(current_item)){
                     next.setEnabled(false);
                 }
+                revealCard();
             }
         }
 
@@ -55,6 +85,7 @@ public class BuilderFrame extends javax.swing.JFrame {
                 if(head(current_item)){
                     previous.setEnabled(false);
                 }
+                revealCard();
             }
         }
 
@@ -70,9 +101,24 @@ public class BuilderFrame extends javax.swing.JFrame {
         
     }
 
-    public BuilderFrame(Bundle pullTemplates) {
+    private static BuilderFrame frame;
+    
+    public static void createInstance(Bundle templates){
+        frame = new BuilderFrame(templates);
+    }
+    
+    public static boolean instanceNotNull(){
+        return frame != null;
+    }
+    
+    public static BuilderFrame getInstance(){
+        return frame;
+    }
+    
+    private BuilderFrame(Bundle templates) {
         initComponents();
         classCard = new BuilderClassCard();
+        classCard.putTemplate(templates.getTemplate(Templates.TYPE.T_CLASS));
         raceCard = new BuilderRaceCard();
         backCard = new BuilderBackgroundCard();
         deck = new BuilderDeck(pan_deck, btn_next_card, btn_previous_card);
@@ -105,31 +151,31 @@ public class BuilderFrame extends javax.swing.JFrame {
         pan_stats_offense = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jProgressBar1 = new javax.swing.JProgressBar();
-        jProgressBar2 = new javax.swing.JProgressBar();
+        lbl_off_magic = new javax.swing.JLabel();
+        bar_off_magic = new javax.swing.JProgressBar();
+        bar_off_martial = new javax.swing.JProgressBar();
+        lbl_off_martial = new javax.swing.JLabel();
         pan_stats_defense = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jProgressBar3 = new javax.swing.JProgressBar();
-        jLabel10 = new javax.swing.JLabel();
-        jProgressBar4 = new javax.swing.JProgressBar();
-        jLabel11 = new javax.swing.JLabel();
+        bar_def_martial = new javax.swing.JProgressBar();
+        lbl_def_martial = new javax.swing.JLabel();
+        lbl_def_magic = new javax.swing.JLabel();
+        bar_def_magic = new javax.swing.JProgressBar();
         pan_stats_utility = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jProgressBar5 = new javax.swing.JProgressBar();
-        jLabel12 = new javax.swing.JLabel();
-        jProgressBar6 = new javax.swing.JProgressBar();
-        jLabel13 = new javax.swing.JLabel();
+        bar_util_martial = new javax.swing.JProgressBar();
+        lbl_util_martial = new javax.swing.JLabel();
+        lbl_util_magic = new javax.swing.JLabel();
+        bar_util_magic = new javax.swing.JProgressBar();
         pan_stats_ranged_melee = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        jProgressBar7 = new javax.swing.JProgressBar();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jProgressBar8 = new javax.swing.JProgressBar();
+        bar_style_melee = new javax.swing.JProgressBar();
+        lbl_style_melee = new javax.swing.JLabel();
+        lbl_style_ranged = new javax.swing.JLabel();
+        bar_style_ranged = new javax.swing.JProgressBar();
         pan_stats_flavor_text = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
@@ -188,6 +234,7 @@ public class BuilderFrame extends javax.swing.JFrame {
 
         jPanel2.setLayout(new java.awt.BorderLayout());
 
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Character Analyzer");
         jPanel2.add(jLabel2, java.awt.BorderLayout.PAGE_START);
 
@@ -201,18 +248,19 @@ public class BuilderFrame extends javax.swing.JFrame {
         jPanel4.setPreferredSize(new java.awt.Dimension(250, 103));
         jPanel4.setLayout(null);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ico_magic.png"))); // NOI18N
-        jLabel8.setText("Magic");
-        jPanel4.add(jLabel8);
-        jLabel8.setBounds(10, 10, 60, 30);
+        lbl_off_magic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ico_magic.png"))); // NOI18N
+        lbl_off_magic.setText("Magic");
+        jPanel4.add(lbl_off_magic);
+        lbl_off_magic.setBounds(10, 10, 80, 30);
+        jPanel4.add(bar_off_magic);
+        bar_off_magic.setBounds(90, 14, 140, 20);
+        jPanel4.add(bar_off_martial);
+        bar_off_martial.setBounds(90, 60, 140, 20);
 
-        jLabel9.setText("Martial");
-        jPanel4.add(jLabel9);
-        jLabel9.setBounds(10, 70, 50, 14);
-        jPanel4.add(jProgressBar1);
-        jProgressBar1.setBounds(80, 70, 146, 14);
-        jPanel4.add(jProgressBar2);
-        jProgressBar2.setBounds(80, 10, 146, 14);
+        lbl_off_martial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ico_crossed_swords.png"))); // NOI18N
+        lbl_off_martial.setText("Martial");
+        jPanel4.add(lbl_off_martial);
+        lbl_off_martial.setBounds(10, 60, 80, 30);
 
         pan_stats_offense.add(jPanel4, java.awt.BorderLayout.CENTER);
 
@@ -225,18 +273,20 @@ public class BuilderFrame extends javax.swing.JFrame {
 
         jPanel5.setPreferredSize(new java.awt.Dimension(250, 103));
         jPanel5.setLayout(null);
-        jPanel5.add(jProgressBar3);
-        jProgressBar3.setBounds(80, 10, 146, 14);
+        jPanel5.add(bar_def_martial);
+        bar_def_martial.setBounds(90, 60, 140, 20);
 
-        jLabel10.setText("Magic");
-        jPanel5.add(jLabel10);
-        jLabel10.setBounds(10, 10, 50, 14);
-        jPanel5.add(jProgressBar4);
-        jProgressBar4.setBounds(80, 70, 146, 14);
+        lbl_def_martial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ico_crossed_swords.png"))); // NOI18N
+        lbl_def_martial.setText("Martial");
+        jPanel5.add(lbl_def_martial);
+        lbl_def_martial.setBounds(10, 60, 80, 30);
 
-        jLabel11.setText("Martial");
-        jPanel5.add(jLabel11);
-        jLabel11.setBounds(10, 70, 50, 14);
+        lbl_def_magic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ico_magic.png"))); // NOI18N
+        lbl_def_magic.setText("Magic");
+        jPanel5.add(lbl_def_magic);
+        lbl_def_magic.setBounds(10, 10, 80, 30);
+        jPanel5.add(bar_def_magic);
+        bar_def_magic.setBounds(90, 14, 140, 20);
 
         pan_stats_defense.add(jPanel5, java.awt.BorderLayout.CENTER);
 
@@ -249,18 +299,20 @@ public class BuilderFrame extends javax.swing.JFrame {
 
         jPanel6.setPreferredSize(new java.awt.Dimension(250, 103));
         jPanel6.setLayout(null);
-        jPanel6.add(jProgressBar5);
-        jProgressBar5.setBounds(80, 10, 146, 14);
+        jPanel6.add(bar_util_martial);
+        bar_util_martial.setBounds(90, 60, 140, 20);
 
-        jLabel12.setText("Magic");
-        jPanel6.add(jLabel12);
-        jLabel12.setBounds(10, 10, 50, 14);
-        jPanel6.add(jProgressBar6);
-        jProgressBar6.setBounds(80, 70, 146, 14);
+        lbl_util_martial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ico_crossed_swords.png"))); // NOI18N
+        lbl_util_martial.setText("Martial");
+        jPanel6.add(lbl_util_martial);
+        lbl_util_martial.setBounds(10, 60, 80, 30);
 
-        jLabel13.setText("Martial");
-        jPanel6.add(jLabel13);
-        jLabel13.setBounds(10, 70, 50, 14);
+        lbl_util_magic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ico_magic.png"))); // NOI18N
+        lbl_util_magic.setText("Magic");
+        jPanel6.add(lbl_util_magic);
+        lbl_util_magic.setBounds(10, 10, 80, 30);
+        jPanel6.add(bar_util_magic);
+        bar_util_magic.setBounds(90, 14, 140, 20);
 
         pan_stats_utility.add(jPanel6, java.awt.BorderLayout.CENTER);
 
@@ -273,18 +325,20 @@ public class BuilderFrame extends javax.swing.JFrame {
 
         jPanel7.setPreferredSize(new java.awt.Dimension(250, 103));
         jPanel7.setLayout(null);
-        jPanel7.add(jProgressBar7);
-        jProgressBar7.setBounds(80, 10, 146, 14);
+        jPanel7.add(bar_style_melee);
+        bar_style_melee.setBounds(90, 60, 140, 20);
 
-        jLabel14.setText("Ranged");
-        jPanel7.add(jLabel14);
-        jLabel14.setBounds(10, 10, 50, 14);
+        lbl_style_melee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ico_crossed_swords.png"))); // NOI18N
+        lbl_style_melee.setText("Melee");
+        jPanel7.add(lbl_style_melee);
+        lbl_style_melee.setBounds(10, 60, 80, 30);
 
-        jLabel15.setText("Melee");
-        jPanel7.add(jLabel15);
-        jLabel15.setBounds(10, 70, 50, 14);
-        jPanel7.add(jProgressBar8);
-        jProgressBar8.setBounds(80, 70, 146, 14);
+        lbl_style_ranged.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ico_bow_and_arrow.png"))); // NOI18N
+        lbl_style_ranged.setText("Ranged");
+        jPanel7.add(lbl_style_ranged);
+        lbl_style_ranged.setBounds(10, 10, 80, 30);
+        jPanel7.add(bar_style_ranged);
+        bar_style_ranged.setBounds(90, 14, 140, 20);
 
         pan_stats_ranged_melee.add(jPanel7, java.awt.BorderLayout.CENTER);
 
@@ -298,6 +352,8 @@ public class BuilderFrame extends javax.swing.JFrame {
         jPanel8.setPreferredSize(new java.awt.Dimension(250, 103));
         jPanel8.setLayout(new java.awt.BorderLayout());
 
+        jTextPane1.setEditable(false);
+        jTextPane1.setText("This character is a mysterious one... There must be more information about them.");
         jScrollPane1.setViewportView(jTextPane1);
 
         jPanel8.add(jScrollPane1, java.awt.BorderLayout.CENTER);
@@ -317,33 +373,33 @@ public class BuilderFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_previous_cardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_previous_cardActionPerformed
-        deck.previousCard();
-    }//GEN-LAST:event_btn_previous_cardActionPerformed
-
     private void btn_next_cardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_next_cardActionPerformed
         deck.nextCard();
     }//GEN-LAST:event_btn_next_cardActionPerformed
 
+    private void btn_previous_cardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_previous_cardActionPerformed
+        deck.previousCard();
+    }//GEN-LAST:event_btn_previous_cardActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JProgressBar bar_def_magic;
+    private javax.swing.JProgressBar bar_def_martial;
+    private javax.swing.JProgressBar bar_off_magic;
+    private javax.swing.JProgressBar bar_off_martial;
+    private javax.swing.JProgressBar bar_style_melee;
+    private javax.swing.JProgressBar bar_style_ranged;
+    private javax.swing.JProgressBar bar_util_magic;
+    private javax.swing.JProgressBar bar_util_martial;
     private javax.swing.JButton btn_next_card;
     private javax.swing.JButton btn_previous_card;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -352,16 +408,16 @@ public class BuilderFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JProgressBar jProgressBar1;
-    private javax.swing.JProgressBar jProgressBar2;
-    private javax.swing.JProgressBar jProgressBar3;
-    private javax.swing.JProgressBar jProgressBar4;
-    private javax.swing.JProgressBar jProgressBar5;
-    private javax.swing.JProgressBar jProgressBar6;
-    private javax.swing.JProgressBar jProgressBar7;
-    private javax.swing.JProgressBar jProgressBar8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JLabel lbl_def_magic;
+    private javax.swing.JLabel lbl_def_martial;
+    private javax.swing.JLabel lbl_off_magic;
+    private javax.swing.JLabel lbl_off_martial;
+    private javax.swing.JLabel lbl_style_melee;
+    private javax.swing.JLabel lbl_style_ranged;
+    private javax.swing.JLabel lbl_util_magic;
+    private javax.swing.JLabel lbl_util_martial;
     private javax.swing.JPanel pan_container;
     private javax.swing.JPanel pan_deck;
     private javax.swing.JPanel pan_deck_controller;

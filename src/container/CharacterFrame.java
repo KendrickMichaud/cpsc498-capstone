@@ -284,7 +284,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         scrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setPreferredSize(new java.awt.Dimension(819, 600));
 
-        pan_main.setBackground(java.awt.Color.black);
+        pan_main.setBackground(new java.awt.Color(0, 51, 102));
         pan_main.setMaximumSize(new java.awt.Dimension(800, 1200));
         pan_main.setMinimumSize(new java.awt.Dimension(800, 1190));
         pan_main.setPreferredSize(new java.awt.Dimension(700, 916));
@@ -303,6 +303,7 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         lbl_characterImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_characterImage.setText("Set Your Character Photo...");
+        lbl_characterImage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbl_characterImage.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbl_characterImageMouseClicked(evt);

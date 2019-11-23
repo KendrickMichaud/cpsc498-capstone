@@ -278,7 +278,8 @@ public class AppManager {
     }
 
     private void initBuilderFrame() {
-        builderFrame = new BuilderFrame(manager.pullTemplates());
+        BuilderFrame.createInstance(pullTemplates());
+        builderFrame = BuilderFrame.getInstance();
     }
     
     private Bundle pullTemplates(){
@@ -291,9 +292,9 @@ public class AppManager {
         FileManager backManager = new FileManager(fBackground, FileManager.TYPE.READ, FileManager.FILE.T_BACKGROUND);
         
         Bundle templates = new Bundle();
-        templates.put(Templates.TYPE.T_BACKGROUND.toString(), backManager.getData());
-        templates.put(Templates.TYPE.T_RACE.toString(), raceManager.getData());
-        templates.put(Templates.TYPE.T_CLASS.toString(), classManager.getData());
+        templates.putTemplate(Templates.TYPE.T_CLASS, classManager.getData().getTemplate(Templates.TYPE.T_CLASS));
+        templates.putTemplate(Templates.TYPE.T_RACE, raceManager.getData().getTemplate(Templates.TYPE.T_RACE));
+        templates.putTemplate(Templates.TYPE.T_BACKGROUND, backManager.getData().getTemplate(Templates.TYPE.T_BACKGROUND));
         
         return templates;
     }
