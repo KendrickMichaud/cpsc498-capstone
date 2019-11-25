@@ -5,6 +5,9 @@
  */
 package container;
 
+import app.AppManager;
+import constants.KEY;
+import data_structure.Skill;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import templates.BackgroundTemplates;
@@ -18,6 +21,8 @@ import util.Bundle;
  * @author Kendrick-Laptop
  */
 public class BuilderFrame extends javax.swing.JFrame {
+
+    public static String FROM_BUILDER = "FromBuilder";
     
     private BuilderClassCard classCard;
     private BuilderRaceCard raceCard;
@@ -38,8 +43,13 @@ public class BuilderFrame extends javax.swing.JFrame {
     }
 
     private void processClass(PlayerClass cl) {
-        if(cl == null)
-            return;
+        if(cl == null){
+            classCard.resetComponents();
+        }
+        else{
+            classCard.updateComponents(cl);
+        }
+        
     }
 
     private void processRace(PlayerRace ra) {
@@ -141,6 +151,7 @@ public class BuilderFrame extends javax.swing.JFrame {
         pan_deck_controller = new javax.swing.JPanel();
         btn_next_card = new javax.swing.JButton();
         btn_previous_card = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         pan_deck = new javax.swing.JPanel();
         panel_deck_stats = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -213,6 +224,15 @@ public class BuilderFrame extends javax.swing.JFrame {
             }
         });
         pan_deck_controller.add(btn_previous_card, java.awt.BorderLayout.LINE_START);
+
+        jButton1.setBackground(new java.awt.Color(255, 204, 0));
+        jButton1.setText("BUILD");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        pan_deck_controller.add(jButton1, java.awt.BorderLayout.CENTER);
 
         pan_deck_holder.add(pan_deck_controller, java.awt.BorderLayout.PAGE_END);
 
@@ -381,6 +401,27 @@ public class BuilderFrame extends javax.swing.JFrame {
         deck.previousCard();
     }//GEN-LAST:event_btn_previous_cardActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        PlayerClass cl = classCard.getSelectedClass();
+        PlayerRace ra = raceCard.getSelectedRace();
+        BackgroundTemplates.Background ba = backCard.getSelectedBackground();
+        
+        Bundle character_info = new Bundle();
+        if(cl != null){
+            classCard.storeInfo(character_info);
+        }
+        if(ra != null){
+            raceCard.storeInfo(character_info);
+        }
+        if(ba != null){
+            backCard.storeInfo(character_info);
+        }
+        AppManager manager = AppManager.getInstance();
+        character_info.putBoolean(BuilderFrame.FROM_BUILDER, true);
+        setVisible(false);
+        manager.startUpCharacterFrame(character_info);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JProgressBar bar_def_magic;
@@ -393,6 +434,7 @@ public class BuilderFrame extends javax.swing.JFrame {
     private javax.swing.JProgressBar bar_util_martial;
     private javax.swing.JButton btn_next_card;
     private javax.swing.JButton btn_previous_card;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

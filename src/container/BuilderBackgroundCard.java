@@ -31,16 +31,68 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jLabel1 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        combo_backgrounds = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+
+        setLayout(new java.awt.BorderLayout());
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ico_background_deck_title.png"))); // NOI18N
+        add(jLabel1, java.awt.BorderLayout.PAGE_START);
+
+        jPanel4.setLayout(null);
+
+        jLabel2.setText("Select your Background");
+        jPanel4.add(jLabel2);
+        jLabel2.setBounds(10, 10, 170, 14);
+
+        combo_backgrounds.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(combo_backgrounds);
+        combo_backgrounds.setBounds(10, 30, 90, 20);
+
+        jLabel3.setText("Personality Trait");
+        jPanel4.add(jLabel3);
+        jLabel3.setBounds(10, 60, 370, 14);
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(jComboBox2);
+        jComboBox2.setBounds(10, 80, 240, 40);
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(jComboBox3);
+        jComboBox3.setBounds(10, 150, 240, 40);
+
+        jLabel4.setText("Personality Bond");
+        jPanel4.add(jLabel4);
+        jLabel4.setBounds(10, 130, 370, 14);
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(jComboBox4);
+        jComboBox4.setBounds(10, 220, 240, 40);
+
+        jLabel5.setText("Personality Ideal");
+        jPanel4.add(jLabel5);
+        jLabel5.setBounds(10, 200, 370, 14);
+
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(jComboBox5);
+        jComboBox5.setBounds(10, 290, 240, 40);
+
+        jLabel6.setText("Personality Flaw");
+        jPanel4.add(jLabel6);
+        jLabel6.setBounds(10, 270, 370, 14);
+
+        add(jPanel4, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     @Override
@@ -63,5 +115,20 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> combo_backgrounds;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
+
+    void storeInfo(Bundle character_info) {
+    }
 }

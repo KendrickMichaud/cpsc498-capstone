@@ -692,89 +692,140 @@ public class SkillsPanel extends javax.swing.JPanel implements CardDataHolder{
         skills.addSkill(persuasion);
      */
     public void update(Bundle b) {
-        Skills skills = b.getSkills();
-        if(skills != null){
-            for(int i = 0; i < skills.size(); i++){
-                Skill skill = skills.getSkill(i);
-                JComboBox prof = null; JTextField bonus = null;
-                switch(i){
-                    case 0:
-                        prof=prof_athletics;
-                        bonus=bonus_athletics;
-                        break;
-                    case 1:
-                        prof=prof_acrobatics;
-                        bonus=bonus_acrobatics;
-                        break;
-                    case 2:
-                        prof = prof_sleight;
-                        bonus = bonus_sleight;
-                        break;
-                    case 3:
-                        prof = prof_stealth;
-                        bonus = bonus_stealth;
-                        break;
-                    case 4:
-                        prof = prof_arcana;
-                        bonus = bonus_arcana;
-                        break;
-                    case 5:
-                        prof = prof_history;
-                        bonus = bonus_arcana;
-                        break;
-                    case 6:
-                        prof = prof_investigation;
-                        bonus = bonus_investigation;
-                        break;
-                    case 7:
-                        prof = prof_nature;
-                        bonus = bonus_nature;
-                        break;
-                    case 8:
-                        prof = prof_religion;
-                        bonus = bonus_religion;
-                        break;
-                    case 9:
-                        prof = prof_animalHandling;
-                        bonus = bonus_animalHandling;
-                        break;
-                    case 10:
-                        prof = prof_insight;
-                        bonus = bonus_insight;
-                        break;
-                    case 11:
-                        prof = prof_medicine;
-                        bonus = bonus_medicine;
-                        break;
-                    case 12:
-                        prof = prof_perception;
-                        bonus = bonus_perception;
-                        break;
-                    case 13:
-                        prof = prof_survival;
-                        bonus = bonus_survival;
-                        break;
-                    case 14:
-                        prof = prof_deception;
-                        bonus = bonus_deception;
-                        break;
-                    case 15:
-                        prof = prof_intimidation;
-                        bonus = bonus_intimidation;
-                        break;
-                    case 16:
-                        prof = prof_performance;
-                        bonus = bonus_performance;
-                        break;
-                    case 17:
-                        prof = prof_persuasion;
-                        bonus = bonus_persuasion;
-                        break;
+        if(b.getBoolean(BuilderFrame.FROM_BUILDER)){
+            int athletics, acrobatics, sleight
+                    , stealth, arcana, history,
+                    investigation, nature, religion,
+                    animalHandling,insight, medicine,
+                    perception, survival, deception,
+                    intimidation, performance, persuasion;
+            athletics = b.getInteger(KEY.L_ATHLETICS_PROF);
+            acrobatics = b.getInteger(KEY.L_ACROBATICS_PROF);
+            sleight = b.getInteger(KEY.L_SLEIGHT_PROF);
+            stealth = b.getInteger(KEY.L_STEALTH_PROF);
+            arcana = b.getInteger(KEY.L_ARCANA_PROF);
+            history = b.getInteger(KEY.L_HISTORY_PROF);
+            investigation = b.getInteger(KEY.L_INVESTIGATION_PROF);
+            nature = b.getInteger(KEY.L_NATURE_PROF);
+            religion = b.getInteger(KEY.L_RELIGION_PROF);
+            animalHandling = b.getInteger(KEY.L_ANIMAL_PROF);
+            insight = b.getInteger(KEY.L_INSIGHT_PROF);
+            medicine = b.getInteger(KEY.L_MEDICINE_PROF);
+            perception = b.getInteger(KEY.L_PERCEPTION_PROF);
+            survival = b.getInteger(KEY.L_SURVIVAL_PROF);
+            deception = b.getInteger(KEY.L_DECEPTION_PROF);
+            intimidation = b.getInteger(KEY.L_INTIMIDATION_PROF);
+            performance = b.getInteger(KEY.L_PERFORMANCE_PROF);
+            persuasion = b.getInteger(KEY.L_PERSUASION_PROF);
+            
+            System.out.println(athletics);
+            
+            prof_acrobatics.setSelectedIndex(acrobatics);
+            prof_athletics.setSelectedIndex(athletics);
+            prof_sleight.setSelectedIndex(sleight);
+            prof_stealth.setSelectedIndex(stealth);
+            prof_arcana.setSelectedIndex(arcana);
+            prof_history.setSelectedIndex(history);
+            prof_investigation.setSelectedIndex(investigation);
+            prof_nature.setSelectedIndex(nature);
+            prof_religion.setSelectedIndex(religion);
+            prof_animalHandling.setSelectedIndex(animalHandling);
+            prof_insight.setSelectedIndex(insight);
+            prof_medicine.setSelectedIndex(medicine);
+            prof_perception.setSelectedIndex(perception);
+            prof_survival.setSelectedIndex(survival);
+            prof_deception.setSelectedIndex(deception);
+            prof_intimidation.setSelectedIndex(intimidation);
+            prof_performance.setSelectedIndex(performance);
+            prof_persuasion.setSelectedIndex(persuasion);
+        }
+        else{
+            Skills skills = b.getSkills();
+            if(skills != null){
+                for(int i = 0; i < skills.size(); i++){
+                    Skill skill = skills.getSkill(i);
+                    JComboBox prof = null; JTextField bonus = null;
+                    switch(i){
+                        case 0:
+                            prof=prof_athletics;
+                            bonus=bonus_athletics;
+                            break;
+                        case 1:
+                            prof=prof_acrobatics;
+                            bonus=bonus_acrobatics;
+                            break;
+                        case 2:
+                            prof = prof_sleight;
+                            bonus = bonus_sleight;
+                            break;
+                        case 3:
+                            prof = prof_stealth;
+                            bonus = bonus_stealth;
+                            break;
+                        case 4:
+                            prof = prof_arcana;
+                            bonus = bonus_arcana;
+                            break;
+                        case 5:
+                            prof = prof_history;
+                            bonus = bonus_arcana;
+                            break;
+                        case 6:
+                            prof = prof_investigation;
+                            bonus = bonus_investigation;
+                            break;
+                        case 7:
+                            prof = prof_nature;
+                            bonus = bonus_nature;
+                            break;
+                        case 8:
+                            prof = prof_religion;
+                            bonus = bonus_religion;
+                            break;
+                        case 9:
+                            prof = prof_animalHandling;
+                            bonus = bonus_animalHandling;
+                            break;
+                        case 10:
+                            prof = prof_insight;
+                            bonus = bonus_insight;
+                            break;
+                        case 11:
+                            prof = prof_medicine;
+                            bonus = bonus_medicine;
+                            break;
+                        case 12:
+                            prof = prof_perception;
+                            bonus = bonus_perception;
+                            break;
+                        case 13:
+                            prof = prof_survival;
+                            bonus = bonus_survival;
+                            break;
+                        case 14:
+                            prof = prof_deception;
+                            bonus = bonus_deception;
+                            break;
+                        case 15:
+                            prof = prof_intimidation;
+                            bonus = bonus_intimidation;
+                            break;
+                        case 16:
+                            prof = prof_performance;
+                            bonus = bonus_performance;
+                            break;
+                        case 17:
+                            prof = prof_persuasion;
+                            bonus = bonus_persuasion;
+                            break;
+                    }
+
+                    updateSkill(prof, bonus, skill);
                 }
-                
-                updateSkill(prof, bonus, skill);
             }
         }
+        
+        
     }
 
     private Skill getSkill(JComboBox<String> prof, JTextField bonus) {

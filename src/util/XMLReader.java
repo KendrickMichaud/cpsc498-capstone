@@ -598,7 +598,7 @@ public class XMLReader {
         if(root == null)
             return null;
         ArrayList<Feature> features = new ArrayList<>();
-        NodeList nodes = root.getElementsByTagName("item");
+        NodeList nodes = root.getElementsByTagName("feature");
         if(nodes != null){
             for(int i = 0; i < nodes.getLength(); i++){
                 Element item = (Element) nodes.item(i);

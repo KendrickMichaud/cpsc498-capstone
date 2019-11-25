@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
+import util.Bundle;
 import util.JText;
 
 /**
@@ -244,7 +245,8 @@ public class MenuFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void action_sheetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_action_sheetMouseClicked
-        manager.startUpCharacterFrame(null);
+        Bundle b = new Bundle();
+        manager.startUpCharacterFrame(b);
     }//GEN-LAST:event_action_sheetMouseClicked
 
     private void action_sheetMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_action_sheetMouseEntered

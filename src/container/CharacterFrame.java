@@ -1577,17 +1577,26 @@ public class CharacterFrame extends javax.swing.JFrame {
     }
 
     public void updateValues(Bundle character_data) {
-        setImage(character_data);
-        setBackgroundValues(character_data);
-        setWeapons(character_data);
-        setBiography(character_data);
-        setAttributes(character_data);
-        setDefenseArmor(character_data);
-        setUtility(character_data);
-        setFeatures(character_data);
-        inventory.updateInventory(character_data.getInventory());
-        spellbook.updateSpellbook(character_data.getSpellbook());
-        skillsProfs.update(character_data);
+        if(character_data.getBoolean(BuilderFrame.FROM_BUILDER)){
+            setBiography(character_data);
+            skillsProfs.update(character_data);
+            setAttributes(character_data);
+            setFeatures(character_data);
+        }
+        else{
+            setImage(character_data);
+            setBackgroundValues(character_data);
+            setWeapons(character_data);
+            setBiography(character_data);
+            setAttributes(character_data);
+            setDefenseArmor(character_data);
+            setUtility(character_data);
+            setFeatures(character_data);
+            inventory.updateInventory(character_data.getInventory());
+            spellbook.updateSpellbook(character_data.getSpellbook());
+            skillsProfs.update(character_data);
+            
+        }
         manager.updateValues();
     }
 

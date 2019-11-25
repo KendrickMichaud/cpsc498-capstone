@@ -5,10 +5,15 @@
  */
 package container;
 
+import constants.KEY;
+import data_structure.Skill;
+import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JCheckBox;
 import javax.swing.text.Document;
 import templates.ClassTemplates;
+import templates.Feature;
 import templates.PlayerClass;
 import templates.Templates;
 import util.Bundle;
@@ -20,11 +25,13 @@ import util.Bundle;
 public class BuilderClassCard extends javax.swing.JPanel implements CardDataHolder{
 
     private ClassTemplates cTemplates;
+    public final int profCount;
     /**
      * Creates new form BuilderClassCard
      */
     public BuilderClassCard() {
         initComponents();
+        profCount = 4;
     }
 
     /**
@@ -41,17 +48,24 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
-        jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         combo_classes = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane2 = new javax.swing.JTextPane();
+        txt_pane_flavor = new javax.swing.JTextPane();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        prof_1 = new javax.swing.JCheckBox();
+        prof_2 = new javax.swing.JCheckBox();
+        prof_3 = new javax.swing.JCheckBox();
+        prof_4 = new javax.swing.JCheckBox();
+        prof_5 = new javax.swing.JCheckBox();
+        prof_6 = new javax.swing.JCheckBox();
 
         setPreferredSize(new java.awt.Dimension(300, 577));
         setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setText("Class");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ico_class_deck_title.png"))); // NOI18N
         add(jLabel1, java.awt.BorderLayout.PAGE_START);
 
         jPanel1.setLayout(new java.awt.BorderLayout());
@@ -63,21 +77,6 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
         jScrollPane1.setViewportView(jTextPane1);
 
         jPanel2.add(jScrollPane1, java.awt.BorderLayout.CENTER);
-
-        jPanel4.setPreferredSize(new java.awt.Dimension(300, 20));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
-        );
-
-        jPanel2.add(jPanel4, java.awt.BorderLayout.NORTH);
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
@@ -92,15 +91,73 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
         jPanel3.add(combo_classes);
         combo_classes.setBounds(20, 40, 250, 20);
 
-        jTextPane2.setEditable(false);
-        jScrollPane2.setViewportView(jTextPane2);
+        txt_pane_flavor.setEditable(false);
+        jScrollPane2.setViewportView(txt_pane_flavor);
 
         jPanel3.add(jScrollPane2);
-        jScrollPane2.setBounds(20, 72, 250, 380);
+        jScrollPane2.setBounds(20, 72, 250, 100);
 
         jLabel2.setText("Select your Class here...");
         jPanel3.add(jLabel2);
         jLabel2.setBounds(20, 10, 250, 14);
+
+        jLabel3.setText("Proficiencies (Select 4)");
+        jPanel3.add(jLabel3);
+        jLabel3.setBounds(20, 180, 360, 14);
+
+        prof_1.setText(" Item 1");
+        prof_1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prof_1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(prof_1);
+        prof_1.setBounds(20, 200, 260, 23);
+
+        prof_2.setText(" Item 2");
+        prof_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prof_2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(prof_2);
+        prof_2.setBounds(20, 230, 300, 23);
+
+        prof_3.setText(" Item 3");
+        prof_3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prof_3ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(prof_3);
+        prof_3.setBounds(20, 260, 330, 23);
+
+        prof_4.setText(" Item 4");
+        prof_4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prof_4ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(prof_4);
+        prof_4.setBounds(20, 290, 340, 23);
+
+        prof_5.setText(" Item 5");
+        prof_5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prof_5ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(prof_5);
+        prof_5.setBounds(20, 320, 350, 23);
+
+        prof_6.setText(" Item 6");
+        prof_6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prof_6ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(prof_6);
+        prof_6.setBounds(20, 350, 350, 23);
 
         jPanel1.add(jPanel3, java.awt.BorderLayout.CENTER);
 
@@ -111,6 +168,30 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
         BuilderFrame frame = BuilderFrame.getInstance();
         frame.updateValues();
     }//GEN-LAST:event_combo_classesItemStateChanged
+
+    private void prof_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prof_1ActionPerformed
+        determineProfs();
+    }//GEN-LAST:event_prof_1ActionPerformed
+
+    private void prof_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prof_2ActionPerformed
+        determineProfs();
+    }//GEN-LAST:event_prof_2ActionPerformed
+
+    private void prof_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prof_3ActionPerformed
+       determineProfs();
+    }//GEN-LAST:event_prof_3ActionPerformed
+
+    private void prof_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prof_4ActionPerformed
+        determineProfs();
+    }//GEN-LAST:event_prof_4ActionPerformed
+
+    private void prof_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prof_5ActionPerformed
+        determineProfs();
+    }//GEN-LAST:event_prof_5ActionPerformed
+
+    private void prof_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prof_6ActionPerformed
+        determineProfs();
+    }//GEN-LAST:event_prof_6ActionPerformed
 
     @Override
     public Document extractDocument(String key) {return null;}
@@ -131,14 +212,20 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
     private javax.swing.JComboBox<String> combo_classes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JTextPane jTextPane2;
+    private javax.swing.JCheckBox prof_1;
+    private javax.swing.JCheckBox prof_2;
+    private javax.swing.JCheckBox prof_3;
+    private javax.swing.JCheckBox prof_4;
+    private javax.swing.JCheckBox prof_5;
+    private javax.swing.JCheckBox prof_6;
+    private javax.swing.JTextPane txt_pane_flavor;
     // End of variables declaration//GEN-END:variables
 
     void putTemplate(Templates templates) {
@@ -148,12 +235,179 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
             cTemplates.forEach((c) -> {
                 classNames.add(c.name);
             });
+            classNames.add("(DEBUG_NULL)");
             DefaultComboBoxModel<String> model = new DefaultComboBoxModel(classNames);
             combo_classes.setModel(model);
         }
     }
 
-    PlayerClass getSelectedClass() {
+    public PlayerClass getSelectedClass() {
+        String item = (String) combo_classes.getSelectedItem();
+        for(PlayerClass c : cTemplates){
+            if(c.name.equals(item))
+                return c;
+        }
         return null;
     }
+
+    void updateComponents(PlayerClass cl) {
+        txt_pane_flavor.setText(cl.flavorText);
+        ArrayList<String> profs = cl.skillProfs;
+        if(profs != null){
+            int size = 6;
+            if(profs.size()+1 < 6){
+                size = profs.size();
+                for(int i = size; i < 6; i++){
+                    switch(i){
+                        case 0:prof_1.setVisible(false);break;
+                        case 1:prof_2.setVisible(false);break;
+                        case 2:prof_3.setVisible(false);break;
+                        case 3:prof_4.setVisible(false);break;
+                        case 4:prof_5.setVisible(false);break;
+                        case 5:prof_6.setVisible(false);break;
+                    }
+                }
+            }
+            for(int i = 0; i < size; i++){
+                String prof = profs.get(i);
+                switch(i){
+                    case 0:prof_1.setText(prof);prof_1.setVisible(true);break;
+                    case 1:prof_2.setText(prof);prof_2.setVisible(true);break;
+                    case 2:prof_3.setText(prof);prof_3.setVisible(true);break;
+                    case 3:prof_4.setText(prof);prof_4.setVisible(true);break;
+                    case 4:prof_5.setText(prof);prof_5.setVisible(true);break;
+                    case 5:prof_6.setText(prof);prof_6.setVisible(true);break;
+                }
+            }
+        }
+    }
+
+    void resetComponents() {
+        txt_pane_flavor.setText("");
+        prof_1.setVisible(false);
+        prof_2.setVisible(false);
+        prof_3.setVisible(false);
+        prof_4.setVisible(false);
+        prof_5.setVisible(false);
+        prof_6.setVisible(false);
+    }
+
+    private void determineProfs() {
+        if(numberOfSelectedProfs() == profCount){
+            disableUnselectedProfs();
+        }
+        else{
+            enableUnselectedProfs();
+        }
+    }
+
+    private void enableUnselectedProfs() {
+        changeProficiencyEnabled(prof_1, true);
+        changeProficiencyEnabled(prof_2, true);
+        changeProficiencyEnabled(prof_3, true);
+        changeProficiencyEnabled(prof_4, true);
+        changeProficiencyEnabled(prof_5, true);
+        changeProficiencyEnabled(prof_6, true);
+    }
+
+    private void disableUnselectedProfs() {
+        changeProficiencyEnabled(prof_1, false);
+        changeProficiencyEnabled(prof_2, false);
+        changeProficiencyEnabled(prof_3, false);
+        changeProficiencyEnabled(prof_4, false);   
+        changeProficiencyEnabled(prof_5, false);
+        changeProficiencyEnabled(prof_6, false);
+    }
+
+    public int numberOfSelectedProfs() {
+        int count = 0;
+        count += prof_1.isSelected()?1:0;
+        count += prof_2.isSelected()?1:0;
+        count += prof_3.isSelected()?1:0;
+        count += prof_4.isSelected()?1:0;
+        count += prof_5.isSelected()?1:0;
+        count += prof_6.isSelected()?1:0;
+        return count;
+    }
+
+    private void changeProficiencyEnabled(JCheckBox prof, Boolean condition) {
+        if(!prof.isSelected())
+            prof.setEnabled(condition);
+    }
+
+    void storeInfo(Bundle character_info) {
+        PlayerClass cl = getSelectedClass();
+        character_info.putString(KEY.K_CLASS, cl.name);
+        
+        storeProf(prof_1, character_info);
+        storeProf(prof_2, character_info);
+        storeProf(prof_3, character_info);
+        storeProf(prof_4, character_info);
+        storeProf(prof_5, character_info);
+        storeProf(prof_6, character_info);
+        
+        String equipment = character_info.getString(KEY.K_EQUIPMENT_PROFICIENCES);
+        if(equipment == null){
+            equipment = "";
+        }
+        
+        equipment = equipment.concat("-------------------").concat("\n");
+        for(String s : cl.equipmentProfs){
+            equipment = equipment.concat(s).concat("\n");
+        }
+        character_info.putString(KEY.K_EQUIPMENT_PROFICIENCES, equipment);
+        
+        String hitDie = cl.hitDie; 
+        character_info.putString(KEY.K_HIT_DIE, hitDie);
+        ArrayList<String> saves = cl.savingThrows;
+        if(saves != null){
+            for(String s : saves){
+                if(s != null){
+                    String key = null;
+                    switch(s){
+                        case KEY.L_STRENGTH:key = KEY.K_STRENGTH_PROF;break;
+                        case KEY.L_DEXTERITY:key = KEY.K_DEXTERITY_PROF;break;
+                        case KEY.L_CONSTITUION:key = KEY.K_CONSTITUTION_PROF;break;
+                        case KEY.L_INTELLIGENCE:key = KEY.K_INTELLIGENCE_PROF;break;
+                        case KEY.L_WISDOM:key = KEY.K_WISDOM_PROF;break;
+                        case KEY.L_CHARISMA:key = KEY.K_CHARISMA_PROF;break;
+                    }
+                    if(key != null){
+                        character_info.putString(key, "true");
+                    }
+                }
+            }
+        }
+        
+        ArrayList<Feature> features = cl.features;
+        if(features != null){
+            String feats = character_info.getString(KEY.K_FEATURES_DESCRIPTION);
+            if(feats == null){
+                feats = "";
+            }
+            for(Feature f : features){
+                String name = f.name.concat("\n");
+                String desc = f.description.concat("\n");
+                if(feats.equals("")){
+                    feats += name.concat(desc);
+                }
+                else{
+                    feats += "\n".concat(name).concat(desc);
+                }
+                
+            
+            }
+            
+            character_info.putString(KEY.K_FEATURES_DESCRIPTION, feats);
+            System.out.println(feats);
+        }
+    }
+
+    private void storeProf(JCheckBox prof, Bundle character_info) {
+        if(prof.isSelected() && prof.isVisible() && prof.isEnabled()){
+            character_info.putInteger(prof.getText(), Skill.FULL_PROF);
+        }
+    }
+    
+    
 }

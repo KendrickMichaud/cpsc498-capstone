@@ -63,6 +63,8 @@ public class InventoryFrame extends javax.swing.JFrame {
     }
 
     void updateInventory(Inventory inventory) {
+        if(inventory == null)
+            return;
         for(int i = 0; i < inventory.size(); i++){
             Item item = inventory.get(i);
             DefaultTableModel model = (DefaultTableModel) table.getModel();

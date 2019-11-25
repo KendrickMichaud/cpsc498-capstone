@@ -22,16 +22,16 @@ and open the template in the editor.
         </features>
         <proficiencies>
             <skills>
-                <option>AthleticsProf</option>
-                <option>InsightProf</option>
-                <option>IntimidationProf</option>
-                <option>MedicineProf</option>
-                <option>PersuasionProf</option>
-                <option>ReligionProf</option>
+                <option>Athletics</option>
+                <option>Insight</option>
+                <option>Intimidation</option>
+                <option>Medicine</option>
+                <option>Persuasion</option>
+                <option>Religion</option>
             </skills>
             <savingThrows>
-                <attribute>wisdom</attribute>
-                <attribute>charisma</attribute>
+                <attribute>Wisdom</attribute>
+                <attribute>Charisma</attribute>
             </savingThrows>
             <equipment>
                 <weapon>Simple, Martial</weapon>

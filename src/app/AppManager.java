@@ -321,6 +321,19 @@ public class AppManager {
         }
     }
 
+    public void startUpCharacterFrame(Bundle character_info) {
+        manager.initCharacterFrame();
+        manager.characterFrameUpdate(character_info);
+        manager.launchCharacterFrame();
+    }
+
+    private void characterFrameUpdate(Bundle character_info) {
+        if(character_info.getBoolean(BuilderFrame.FROM_BUILDER)){
+            main_frame.updateValues(character_info);
+        }
+        
+    }
+
     
 
 }
