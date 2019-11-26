@@ -8,6 +8,8 @@ package container;
 import app.AppManager;
 import constants.KEY;
 import data_structure.Skill;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import templates.BackgroundTemplates;
@@ -54,12 +56,16 @@ public class BuilderFrame extends javax.swing.JFrame {
 
     private void processRace(PlayerRace ra) {
         if(ra == null)
-            return;
+            raceCard.resetComponents();
+        else
+            raceCard.updateComponents(ra);
     }
 
     private void processBackground(BackgroundTemplates.Background ba) {
         if(ba == null)
-            return;
+            backCard.resetComponents();
+        else
+            backCard.updateComponents(ba);
     }
     
     private static class BuilderDeck extends Deck{
@@ -130,11 +136,52 @@ public class BuilderFrame extends javax.swing.JFrame {
         classCard = new BuilderClassCard();
         classCard.putTemplate(templates.getTemplate(Templates.TYPE.T_CLASS));
         raceCard = new BuilderRaceCard();
+        raceCard.putTemplate(templates.getTemplate(Templates.TYPE.T_RACE));
         backCard = new BuilderBackgroundCard();
+        backCard.putTemplate(templates.getTemplate(Templates.TYPE.T_BACKGROUND));
         deck = new BuilderDeck(pan_deck, btn_next_card, btn_previous_card);
         deck.add(classCard, BuilderFrame.CARD_CLASS);
         deck.add(raceCard, BuilderFrame.CARD_RACE);
         deck.add(backCard, BuilderFrame.CARD_BACKGROUND);
+        
+        classCard.updateComponents(classCard.getSelectedClass());
+        raceCard.updateComponents(raceCard.getSelectedRace());
+        backCard.updateComponents(backCard.getSelectedBackground());
+        
+        addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                AppManager manager = AppManager.getInstance();
+                if(manager.authorizedToExit()){
+                    manager.goToMainMenu();
+                }
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+            }
+        });
     }
 
     /**
@@ -193,7 +240,7 @@ public class BuilderFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Character Builder");
 
         pan_container.setBackground(new java.awt.Color(0, 51, 102));

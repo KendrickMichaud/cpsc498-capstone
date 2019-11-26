@@ -32,6 +32,10 @@ public class BackgroundFrame extends javax.swing.JFrame {
         JText.addTabFocusChanger(txt_flaw);
         JText.addTabFocusChanger(txt_ideal);
         JText.addTabFocusChanger(txt_trait);
+        JText.wrapWord(txt_bond);
+        JText.wrapWord(txt_flaw);
+        JText.wrapWord(txt_ideal);
+        JText.wrapWord(txt_trait);
     }
 
     /**

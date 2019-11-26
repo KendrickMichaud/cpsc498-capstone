@@ -68,6 +68,8 @@ public class CharacterFrame extends javax.swing.JFrame {
         background = new BackgroundFrame();
         inventory.setLimit(Integer.parseInt(extractString(txt_strength)));
         combo_level.addItemListener(new ComboItemListener(manager));
+        JText.addTabFocusChanger(txt_area_feats);
+        JText.wrapWord(txt_area_feats);
         BufferedImage img;
         try {
             img = ImageIO.read(new File(getClass().getResource("/img/icon_logo.jpg").getPath()));
@@ -986,6 +988,11 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem1.setText("Main Menu...");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         menu_file.add(jMenuItem1);
 
         menu_bar.add(menu_file);
@@ -1157,6 +1164,10 @@ public class CharacterFrame extends javax.swing.JFrame {
         hideAllWindows();
         background.setVisible(true);
     }//GEN-LAST:event_open_backgroundMouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        manager.goToMainMenu();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1582,6 +1593,7 @@ public class CharacterFrame extends javax.swing.JFrame {
             skillsProfs.update(character_data);
             setAttributes(character_data);
             setFeatures(character_data);
+            setBackgroundValues(character_data);
         }
         else{
             setImage(character_data);

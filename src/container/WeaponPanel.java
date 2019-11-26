@@ -27,7 +27,9 @@ public class WeaponPanel extends javax.swing.JPanel implements CardDataHolder{
         JText.addTabFocusChanger(txt_weapon_name);
         JText.addTabFocusChanger(txt_weapon_damage_roll);
         JText.addTabFocusChanger(txt_weapon_damage_type);
-        
+        JText.wrapWord(txt_weapon_name);
+        JText.wrapWord(txt_weapon_damage_roll);
+        JText.wrapWord(txt_weapon_damage_type);
     }
 
     /**

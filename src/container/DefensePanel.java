@@ -24,6 +24,8 @@ public class DefensePanel extends javax.swing.JPanel implements CardDataHolder{
         initComponents();
         JText.addTabFocusChanger(txt_defense_bonuses);
         JText.addTabFocusChanger(txt_damage_resist);
+        JText.wrapWord(txt_defense_bonuses);
+        JText.wrapWord(txt_damage_resist);
     }
 
     /**

@@ -334,6 +334,18 @@ public class AppManager {
         
     }
 
+    public void goToMainMenu() {
+        if(manager.authorizedToExit()){
+            if(main_frame != null)
+                main_frame.setVisible(false);
+            if(builderFrame != null)
+                builderFrame.setVisible(false);
+            menuFrame.setVisible(true);
+        }
+            
+
+    }
+
     
 
 }

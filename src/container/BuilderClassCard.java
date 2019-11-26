@@ -399,7 +399,6 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
             }
             
             character_info.putString(KEY.K_FEATURES_DESCRIPTION, feats);
-            System.out.println(feats);
         }
     }
 

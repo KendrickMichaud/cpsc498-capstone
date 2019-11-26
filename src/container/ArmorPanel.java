@@ -23,6 +23,7 @@ public class ArmorPanel extends javax.swing.JPanel implements CardDataHolder{
     public ArmorPanel() {
         initComponents();
         JText.addTabFocusChanger(txt_description);
+        JText.wrapWord(txt_description);
     }
 
     /**

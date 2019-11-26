@@ -5,8 +5,12 @@
  */
 package container;
 
+import constants.KEY;
+import java.util.Vector;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.text.Document;
 import templates.BackgroundTemplates;
+import templates.Templates;
 import util.Bundle;
 
 /**
@@ -14,6 +18,8 @@ import util.Bundle;
  * @author Kendrick-Laptop
  */
 public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDataHolder{
+
+    private BackgroundTemplates tBackgrounds;
 
     /**
      * Creates new form BuilderBackgroundCard
@@ -36,12 +42,12 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
         jLabel2 = new javax.swing.JLabel();
         combo_backgrounds = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        combo_trait = new javax.swing.JComboBox<>();
+        combo_bond = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        combo_ideal = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        combo_flaw = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
@@ -57,6 +63,11 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
         jLabel2.setBounds(10, 10, 170, 14);
 
         combo_backgrounds.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo_backgrounds.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                combo_backgroundsItemStateChanged(evt);
+            }
+        });
         jPanel4.add(combo_backgrounds);
         combo_backgrounds.setBounds(10, 30, 90, 20);
 
@@ -64,29 +75,29 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
         jPanel4.add(jLabel3);
         jLabel3.setBounds(10, 60, 370, 14);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel4.add(jComboBox2);
-        jComboBox2.setBounds(10, 80, 240, 40);
+        combo_trait.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(combo_trait);
+        combo_trait.setBounds(10, 80, 240, 40);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel4.add(jComboBox3);
-        jComboBox3.setBounds(10, 150, 240, 40);
+        combo_bond.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(combo_bond);
+        combo_bond.setBounds(10, 150, 240, 40);
 
         jLabel4.setText("Personality Bond");
         jPanel4.add(jLabel4);
         jLabel4.setBounds(10, 130, 370, 14);
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel4.add(jComboBox4);
-        jComboBox4.setBounds(10, 220, 240, 40);
+        combo_ideal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(combo_ideal);
+        combo_ideal.setBounds(10, 220, 240, 40);
 
         jLabel5.setText("Personality Ideal");
         jPanel4.add(jLabel5);
         jLabel5.setBounds(10, 200, 370, 14);
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel4.add(jComboBox5);
-        jComboBox5.setBounds(10, 290, 240, 40);
+        combo_flaw.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(combo_flaw);
+        combo_flaw.setBounds(10, 290, 240, 40);
 
         jLabel6.setText("Personality Flaw");
         jPanel4.add(jLabel6);
@@ -94,6 +105,11 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
 
         add(jPanel4, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void combo_backgroundsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combo_backgroundsItemStateChanged
+        BuilderFrame frame = BuilderFrame.getInstance();
+        frame.updateValues();
+    }//GEN-LAST:event_combo_backgroundsItemStateChanged
 
     @Override
     public Document extractDocument(String key) {return null;}
@@ -110,16 +126,21 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
     }
 
     BackgroundTemplates.Background getSelectedBackground() {
-        return null;
+        String item = (String) combo_backgrounds.getSelectedItem();
+        for(BackgroundTemplates.Background b : tBackgrounds){
+            if(b.getName().equals(item))
+                return b;
+        }
+        return null;        
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> combo_backgrounds;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JComboBox<String> combo_bond;
+    private javax.swing.JComboBox<String> combo_flaw;
+    private javax.swing.JComboBox<String> combo_ideal;
+    private javax.swing.JComboBox<String> combo_trait;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -130,5 +151,58 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
     // End of variables declaration//GEN-END:variables
 
     void storeInfo(Bundle character_info) {
+        if(character_info == null)
+            character_info = new Bundle();
+        
+        BackgroundTemplates.Background ba = getSelectedBackground();
+        if(ba != null){
+            character_info.putString(KEY.K_BACKGROUND_NAME, ba.getName());
+            character_info.putString(KEY.K_BACKGROUND_TRAIT, (String) combo_trait.getSelectedItem());
+            character_info.putString(KEY.K_BACKGROUND_IDEAL, (String) combo_ideal.getSelectedItem());
+            character_info.putString(KEY.K_BACKGROUND_FLAW, (String) combo_flaw.getSelectedItem());
+            character_info.putString(KEY.K_BACKGROUND_BOND, (String) combo_bond.getSelectedItem());
+        }
     }
+
+    void putTemplate(Templates template) {
+        if(template != null && template instanceof BackgroundTemplates){
+            tBackgrounds = (BackgroundTemplates) template;
+            
+            Vector<String> backgroundNames = new Vector<>();
+            tBackgrounds.forEach((b) -> {
+                backgroundNames.add(b.getName());
+            });
+            backgroundNames.add("(DEBUG_NULL)");
+            DefaultComboBoxModel<String> model = new DefaultComboBoxModel(backgroundNames);
+            combo_backgrounds.setModel(model);
+            
+            
+        }
+    }
+
+    void resetComponents() {
+    }
+
+    void updateComponents(BackgroundTemplates.Background ba) {
+            Vector<String> backgroundTraits = new Vector<>();
+            Vector<String> backgroundBonds = new Vector<>();
+            Vector<String> backgroundIdeals = new Vector<>();
+            Vector<String> backgroundFlaws = new Vector<>();     
+            backgroundTraits.addAll(ba.getStrings(BackgroundTemplates.Background.STORY.TRAIT));
+            backgroundBonds.addAll(ba.getStrings(BackgroundTemplates.Background.STORY.BOND));
+            backgroundIdeals.addAll(ba.getStrings(BackgroundTemplates.Background.STORY.IDEAL));
+            backgroundFlaws.addAll(ba.getStrings(BackgroundTemplates.Background.STORY.FLAW));
+            
+            DefaultComboBoxModel<String> traitsModel = new DefaultComboBoxModel<>(backgroundTraits);
+            DefaultComboBoxModel<String> bondsModel = new DefaultComboBoxModel<>(backgroundBonds);
+            DefaultComboBoxModel<String> idealsModel = new DefaultComboBoxModel<>(backgroundIdeals);
+            DefaultComboBoxModel<String> flawsModel = new DefaultComboBoxModel<>(backgroundFlaws);
+            
+            combo_trait.setModel(traitsModel);
+            combo_bond.setModel(bondsModel);
+            combo_ideal.setModel(idealsModel);
+            combo_flaw.setModel(flawsModel);
+    }
+    
+    
 }

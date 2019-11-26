@@ -21,6 +21,8 @@ public class ProfsPanel extends javax.swing.JPanel implements CardDataHolder{
      */
     public ProfsPanel() {
         initComponents();
+        JText.addTabFocusChanger(txt_profs);
+        JText.wrapWord(txt_profs);
     }
 
     /**

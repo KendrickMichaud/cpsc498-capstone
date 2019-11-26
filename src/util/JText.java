@@ -89,4 +89,9 @@ public class JText {
             lbl.setFont(un);
         }
     }
+    
+    public static void wrapWord(JTextArea area){
+        if(area != null)
+            area.setWrapStyleWord(true);
+    }
 }
