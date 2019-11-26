@@ -8,8 +8,18 @@ package container;
 import app.AppManager;
 import constants.KEY;
 import data_structure.Skill;
+import java.awt.Image;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import templates.BackgroundTemplates;
@@ -33,6 +43,11 @@ public class BuilderFrame extends javax.swing.JFrame {
     public static final String CARD_CLASS = "Building Class";
     public static final String CARD_RACE =  "Building Race";
     public static final String CARD_BACKGROUND = "Building Background";
+    
+    private static final int NONE = 0;
+    private static final int MALE = 1;
+    private static final int FEMALE = 2;
+    private int sex;
 
     void updateValues() {
         PlayerClass cl = classCard.getSelectedClass();
@@ -42,6 +57,7 @@ public class BuilderFrame extends javax.swing.JFrame {
         processClass(cl);
         processRace(ra);
         processBackground(ba);
+        sex = MALE;
     }
 
     private void processClass(PlayerClass cl) {
@@ -57,8 +73,12 @@ public class BuilderFrame extends javax.swing.JFrame {
     private void processRace(PlayerRace ra) {
         if(ra == null)
             raceCard.resetComponents();
-        else
+        else{
             raceCard.updateComponents(ra);
+            if(ra.hasImagePath())
+                setImage(ra.imagePath());
+        }
+            
     }
 
     private void processBackground(BackgroundTemplates.Background ba) {
@@ -66,6 +86,39 @@ public class BuilderFrame extends javax.swing.JFrame {
             backCard.resetComponents();
         else
             backCard.updateComponents(ba);
+    }
+
+    private void setImage(String imagePath) {
+        if(imagePath != null){
+            try {
+                imagePath += getGender();
+                String filePath = "/img/" + imagePath + ".png";
+                File f = new File(getClass().getResource(filePath).getPath());
+                BufferedImage buf = ImageIO.read(f);
+                ImageIcon img = new ImageIcon(buf);
+                Image image = img.getImage(); // transform it
+                Image newimg = image.getScaledInstance(250, 600,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+                ImageIcon photo = new ImageIcon(newimg);  // transform it back
+                char_img.setIcon(photo);
+            } catch (IOException ex) {
+                Logger.getLogger(BuilderFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    public String getGender() {
+        switch(sex){
+            case MALE:return "-m";
+            case FEMALE:return "-f";
+        }
+        return "-m";
+    }
+
+    private void updateImage() {
+        PlayerRace ra = raceCard.getSelectedRace();
+        if(ra != null){
+            setImage(ra.imagePath());
+        }
     }
     
     private static class BuilderDeck extends Deck{
@@ -140,14 +193,14 @@ public class BuilderFrame extends javax.swing.JFrame {
         backCard = new BuilderBackgroundCard();
         backCard.putTemplate(templates.getTemplate(Templates.TYPE.T_BACKGROUND));
         deck = new BuilderDeck(pan_deck, btn_next_card, btn_previous_card);
-        deck.add(classCard, BuilderFrame.CARD_CLASS);
         deck.add(raceCard, BuilderFrame.CARD_RACE);
+        deck.add(classCard, BuilderFrame.CARD_CLASS);
         deck.add(backCard, BuilderFrame.CARD_BACKGROUND);
         
         classCard.updateComponents(classCard.getSelectedClass());
         raceCard.updateComponents(raceCard.getSelectedRace());
         backCard.updateComponents(backCard.getSelectedBackground());
-        
+        updateImage();
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
@@ -202,7 +255,10 @@ public class BuilderFrame extends javax.swing.JFrame {
         pan_deck = new javax.swing.JPanel();
         panel_deck_stats = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        char_img = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        ico_male = new javax.swing.JLabel();
+        ico_female = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -294,8 +350,32 @@ public class BuilderFrame extends javax.swing.JFrame {
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/portrait_unknown.png"))); // NOI18N
-        jPanel1.add(jLabel1, java.awt.BorderLayout.CENTER);
+        char_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/portrait_unknown.png"))); // NOI18N
+        jPanel1.add(char_img, java.awt.BorderLayout.CENTER);
+
+        jPanel9.setLayout(new java.awt.GridLayout(1, 2));
+
+        ico_male.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ico_male.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_male.png"))); // NOI18N
+        ico_male.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ico_male.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ico_maleMouseClicked(evt);
+            }
+        });
+        jPanel9.add(ico_male);
+
+        ico_female.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ico_female.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_female.png"))); // NOI18N
+        ico_female.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ico_female.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ico_femaleMouseClicked(evt);
+            }
+        });
+        jPanel9.add(ico_female);
+
+        jPanel1.add(jPanel9, java.awt.BorderLayout.PAGE_END);
 
         panel_deck_stats.add(jPanel1, java.awt.BorderLayout.LINE_END);
 
@@ -459,16 +539,39 @@ public class BuilderFrame extends javax.swing.JFrame {
         }
         if(ra != null){
             raceCard.storeInfo(character_info);
-        }
+            if(ra.hasImagePath()){
+                String path = "/img/profile-"+ra.imagePath() + getGender() + ".png";
+                URL url = getClass().getResource(path);
+                if(url != null){
+                    character_info.putString(KEY.K_IMAGE_PATH, url.getPath());
+                }
+                
+            }
+                 
         if(ba != null){
             backCard.storeInfo(character_info);
         }
+        
         AppManager manager = AppManager.getInstance();
         character_info.putBoolean(BuilderFrame.FROM_BUILDER, true);
         setVisible(false);
         manager.startUpCharacterFrame(character_info);
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void ico_maleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ico_maleMouseClicked
+        sex = MALE;
+        updateImage();
+    }//GEN-LAST:event_ico_maleMouseClicked
+
+    private void ico_femaleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ico_femaleMouseClicked
+        sex = FEMALE;
+        updateImage();
+    }//GEN-LAST:event_ico_femaleMouseClicked
+
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JProgressBar bar_def_magic;
@@ -481,8 +584,10 @@ public class BuilderFrame extends javax.swing.JFrame {
     private javax.swing.JProgressBar bar_util_martial;
     private javax.swing.JButton btn_next_card;
     private javax.swing.JButton btn_previous_card;
+    private javax.swing.JLabel char_img;
+    private javax.swing.JLabel ico_female;
+    private javax.swing.JLabel ico_male;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -497,6 +602,7 @@ public class BuilderFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JLabel lbl_def_magic;

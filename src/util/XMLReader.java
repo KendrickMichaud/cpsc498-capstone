@@ -486,13 +486,14 @@ public class XMLReader {
                 for(int index = 0; index < races.getLength(); index++){
                     Element race = (Element) races.item(index);
                     if(race != null){
-                        String name, size, flavorText;
+                        String name, size, flavorText, image;
                         ArrayList<String> lang;
                         Bundle languages = new Bundle();
                         Bundle attributes = new Bundle();
                         ArrayList<Feature> features = new ArrayList<>();
                         name = extractString(race, KEY.L_NAME);
                         size = extractString(race, KEY.L_SIZE);
+                        image = extractString(race, KEY.L_RACE_IMAGE);
                         flavorText = extractString(race, "flavorText");
                         Element feature = extractElement(race, "features");
                         if(feature != null){
@@ -562,6 +563,9 @@ public class XMLReader {
                         PlayerRace r = new PlayerRace(
                         name,attributes,size,languages,features,flavorText
                         );
+                        
+                        if(image != null)
+                            r.initImagePath(image);
                         
                         templates.add(r);
                     }

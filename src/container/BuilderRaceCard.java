@@ -5,6 +5,7 @@
  */
 package container;
 
+import app.AppManager;
 import constants.KEY;
 import java.util.ArrayList;
 import java.util.Vector;
@@ -93,7 +94,7 @@ public class BuilderRaceCard extends javax.swing.JPanel implements CardDataHolde
 
         jLabel4.setText("Languages: ");
         jPanel3.add(jLabel4);
-        jLabel4.setBounds(20, 480, 60, 14);
+        jLabel4.setBounds(20, 480, 70, 14);
 
         lbl_languages.setText("None");
         jPanel3.add(lbl_languages);
@@ -228,8 +229,24 @@ public class BuilderRaceCard extends javax.swing.JPanel implements CardDataHolde
                             .concat(Integer.toString(wild));
                     text += wildcard;
                 }
+               lbl_attribute_bonuses.setText(text);
+            }
+            
+            Bundle languages = ra.languages;
+            if(languages != null){
+                int size = languages.getInteger(KEY.L_SIZE);
+                String langs = "";
+                for(int i = 0; i < size-1; i++){
+                    String lang = languages.getString(Integer.toString(i));
+                    langs += lang + ", ";
+                }
                 
-               lbl_languages.setText(text);
+                langs += languages.getString(Integer.toString(size-1));
+                
+                if(languages.getInteger("wildcard") > 0){
+                    langs += ", pick " + languages.getInteger("wildcard") + " extra";
+                }
+                lbl_languages.setText(langs);
             }
         }
     }

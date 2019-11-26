@@ -9,6 +9,7 @@ and open the template in the editor.
 <races>
     <race>
         <name>Half-Elf</name>
+        <raceImage>halfelf</raceImage>
         <attributes>
             <wildcard amt="2">1</wildcard>
             <Charisma>2</Charisma>

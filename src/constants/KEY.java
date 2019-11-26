@@ -129,7 +129,11 @@ public class KEY {
     public static final String L_DMG_ROLL = "dmgRoll";
     public static final String L_DMG_BONUS = "dmgBonus";
     public static final String L_BASE = "Base64";
-    public static String L_QUANTITY = "Quantity";
+    public static final String L_QUANTITY = "Quantity";
+    
+    public static final String L_RACE_IMAGE = "raceImage";
+    public static final String L_PATH = "path";
+    public static final String K_IMAGE_PATH = H_IMAGE + L_PATH;
     
     public static String item(int i){
         return DELIM + "item" + I_DELIM + Integer.toString(i);

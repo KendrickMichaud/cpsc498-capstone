@@ -19,6 +19,7 @@ public class PlayerRace {
     public final Bundle languages;
     public final ArrayList<Feature> features;
     public final String flavorText;
+    private String imagePath;
     
     public PlayerRace(String name, Bundle a, String size, Bundle l, ArrayList<Feature> features, String flavorText){
         this.name = name;
@@ -27,5 +28,18 @@ public class PlayerRace {
         this.languages = l;
         this.features = features;
         this.flavorText = flavorText;
+    }
+
+    public void initImagePath(String image) {
+        if(image != null && imagePath == null)
+            imagePath = image;
+    }
+    
+    public String imagePath(){
+        return imagePath;
+    }
+    
+    public boolean hasImagePath(){
+        return (imagePath != null);
     }
 }

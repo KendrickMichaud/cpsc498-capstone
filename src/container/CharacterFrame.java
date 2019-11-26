@@ -15,6 +15,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Base64;
@@ -1341,6 +1342,10 @@ public class CharacterFrame extends javax.swing.JFrame {
         try {
             //ImageIcon photo = new ImageIcon(selectedFile.getAbsolutePath());
             //Encode
+            if(selectedFile == null)
+                return;
+            if(!selectedFile.canRead())
+                return;
             FileInputStream fis = new FileInputStream(selectedFile.getAbsolutePath());
             byte[] bytes = new byte[(int) selectedFile.length()];
             fis.read(bytes);
@@ -1594,6 +1599,10 @@ public class CharacterFrame extends javax.swing.JFrame {
             setAttributes(character_data);
             setFeatures(character_data);
             setBackgroundValues(character_data);
+            String racePortraitPath = character_data.getString(KEY.K_IMAGE_PATH);
+            if(racePortraitPath != null)
+                setLblImageToFile(new File(racePortraitPath));
+            
         }
         else{
             setImage(character_data);
