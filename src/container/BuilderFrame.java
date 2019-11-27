@@ -199,6 +199,7 @@ public class BuilderFrame extends javax.swing.JFrame {
         btn_next_card = new javax.swing.JButton();
         btn_previous_card = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        btn_random = new javax.swing.JButton();
         pan_deck = new javax.swing.JPanel();
         panel_deck_stats = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -280,6 +281,15 @@ public class BuilderFrame extends javax.swing.JFrame {
             }
         });
         pan_deck_controller.add(jButton1, java.awt.BorderLayout.CENTER);
+
+        btn_random.setBackground(java.awt.Color.green);
+        btn_random.setText("Randomize Character!");
+        btn_random.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_randomActionPerformed(evt);
+            }
+        });
+        pan_deck_controller.add(btn_random, java.awt.BorderLayout.PAGE_END);
 
         pan_deck_holder.add(pan_deck_controller, java.awt.BorderLayout.PAGE_END);
 
@@ -469,6 +479,12 @@ public class BuilderFrame extends javax.swing.JFrame {
         manager.startUpCharacterFrame(character_info);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btn_randomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_randomActionPerformed
+        raceCard.randomize();
+        classCard.randomize();
+        backCard.randomize();
+    }//GEN-LAST:event_btn_randomActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JProgressBar bar_def_magic;
@@ -481,6 +497,7 @@ public class BuilderFrame extends javax.swing.JFrame {
     private javax.swing.JProgressBar bar_util_martial;
     private javax.swing.JButton btn_next_card;
     private javax.swing.JButton btn_previous_card;
+    private javax.swing.JButton btn_random;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
