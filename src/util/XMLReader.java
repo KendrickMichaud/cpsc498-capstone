@@ -436,6 +436,8 @@ public class XMLReader {
                     Element saves = extractElement(profs, "savingThrows");
                     Element equip = extractElement(profs, "equipment");
                     Element feature = extractElement(pClass, "features");
+                    Power power = extractPower(pClass);
+                    
                     ArrayList<String> equipmentProfs = new ArrayList<>();
                     equipmentProfs.add(extractString(equip, "weapon"));
                     equipmentProfs.add(extractString(equip, "armor"));
@@ -450,8 +452,14 @@ public class XMLReader {
                             .setSavingThrows(extractStrings(saves, "attribute"))
                             .setEquipmentProfs(equipmentProfs)
                             .setFeatures(extractFeatures(feature));
+                        
                     if(builder.validClass()){
-                        templates.add(builder.createPlayerClass());
+                        PlayerClass ca = builder.createPlayerClass();
+                        if(power != null){
+                            power.setCasterType(ca.casterType);
+                            ca.setPowerLevel(power);
+                        }
+                        templates.add(ca);
                     }
                 }
                 
@@ -567,7 +575,10 @@ public class XMLReader {
                         if(image != null)
                             r.initImagePath(image);
                         
-                        templates.add(r);
+                        RacePower rp = extractRacePower(race, attributes);
+                        if(rp != null){
+                            r.setPower(rp);
+                        }                        templates.add(r);
                     }
                     
                     
@@ -617,5 +628,51 @@ public class XMLReader {
             }
         }
         return features;
+    }
+    
+    private RacePower extractRacePower(Element pRace, Bundle attributes){
+        Power p = extractPower(pRace);
+        RacePower rp = new RacePower(p, attributes);
+        return rp;
+    }
+
+    private Power extractPower(Element pClass) {
+        Element powerRating = extractElement(pClass, "powerRating");
+        Element magic, martial, position;
+        magic = extractElement(powerRating, "magic");
+        martial = extractElement(powerRating, "martial");
+        position = extractElement(powerRating, "position");
+        
+        int moff, mdeff, mutil;
+        int martoff, martdeff, martutil;
+        int ranged, melee;
+        
+        moff = extractInteger(magic, PowerRating.OFFENSIVE);
+        mdeff = extractInteger(magic, PowerRating.DEFENSIVE);
+        mutil = extractInteger(magic, PowerRating.UTILITY);
+        
+        martoff = extractInteger(martial, PowerRating.OFFENSIVE);
+        martdeff = extractInteger(martial, PowerRating.DEFENSIVE);
+        martutil = extractInteger(martial, PowerRating.UTILITY);
+        
+        ranged = extractInteger(position, PowerRating.RANGED);
+        melee = extractInteger(position, PowerRating.MELEE);
+        
+        Power p = new Power();
+        p.setMagic(moff, mdeff, mutil);
+        p.setMartial(martoff, martdeff, martutil);
+        p.setPlaystyle(melee, ranged);
+        return p;
+    }
+
+    private int extractInteger(Element root, String tag) {
+        if(root == null){
+            return 0;
+        }
+        String s = extractString(root, tag);
+        if(DataIntegrity.isNumeric(s)){
+            return Integer.parseInt(s);
+        }
+        return 0;
     }
 }

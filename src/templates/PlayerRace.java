@@ -7,6 +7,7 @@ package templates;
 
 import java.util.ArrayList;
 import util.Bundle;
+import util.RacePower;
 
 /**
  *
@@ -20,6 +21,7 @@ public class PlayerRace {
     public final ArrayList<Feature> features;
     public final String flavorText;
     private String imagePath;
+    private RacePower racePower;
     
     public PlayerRace(String name, Bundle a, String size, Bundle l, ArrayList<Feature> features, String flavorText){
         this.name = name;
@@ -29,6 +31,7 @@ public class PlayerRace {
         this.features = features;
         this.flavorText = flavorText;
     }
+
 
     public void initImagePath(String image) {
         if(image != null && imagePath == null)
@@ -41,5 +44,12 @@ public class PlayerRace {
     
     public boolean hasImagePath(){
         return (imagePath != null);
+    }
+    public void setPower(RacePower rp) {
+        racePower = rp;
+    }
+
+    public RacePower powerLevel() {
+        return racePower;
     }
 }
