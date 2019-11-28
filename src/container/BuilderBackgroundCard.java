@@ -12,6 +12,7 @@ import javax.swing.text.Document;
 import templates.BackgroundTemplates;
 import templates.Templates;
 import util.Bundle;
+import util.ChoiceMaker;
 
 /**
  *
@@ -202,6 +203,17 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
             combo_bond.setModel(bondsModel);
             combo_ideal.setModel(idealsModel);
             combo_flaw.setModel(flawsModel);
+    }
+
+    void randomize() {
+        ChoiceMaker.decideComboBox(combo_bond);
+        if(getSelectedBackground() != null)
+            updateComponents(getSelectedBackground());
+        
+        ChoiceMaker.decideComboBox(combo_trait);
+        ChoiceMaker.decideComboBox(combo_bond);
+        ChoiceMaker.decideComboBox(combo_flaw);
+        ChoiceMaker.decideComboBox(combo_ideal);
     }
     
     

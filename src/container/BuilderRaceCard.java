@@ -18,6 +18,7 @@ import templates.PlayerRace;
 import templates.RaceTemplates;
 import templates.Templates;
 import util.Bundle;
+import util.ChoiceMaker;
 
 /**
  *
@@ -272,5 +273,9 @@ public class BuilderRaceCard extends javax.swing.JPanel implements CardDataHolde
         else{
             return "";
         }
+    }
+
+    void randomize() {
+        ChoiceMaker.decideComboBox(combo_races);
     }
 }

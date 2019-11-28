@@ -17,6 +17,7 @@ import templates.Feature;
 import templates.PlayerClass;
 import templates.Templates;
 import util.Bundle;
+import util.ChoiceMaker;
 
 /**
  *
@@ -25,13 +26,13 @@ import util.Bundle;
 public class BuilderClassCard extends javax.swing.JPanel implements CardDataHolder{
 
     private ClassTemplates cTemplates;
-    public final int profCount;
+    public final int proficiency_limit;
     /**
      * Creates new form BuilderClassCard
      */
     public BuilderClassCard() {
         initComponents();
-        profCount = 4;
+        proficiency_limit = 2;
     }
 
     /**
@@ -101,7 +102,7 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
         jPanel3.add(jLabel2);
         jLabel2.setBounds(20, 10, 250, 14);
 
-        jLabel3.setText("Proficiencies (Select 4)");
+        jLabel3.setText("Proficiencies (Select 2)");
         jPanel3.add(jLabel3);
         jLabel3.setBounds(20, 180, 360, 14);
 
@@ -293,7 +294,7 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
     }
 
     private void determineProfs() {
-        if(numberOfSelectedProfs() == profCount){
+        if(numberOfSelectedProfs() == proficiency_limit){
             disableUnselectedProfs();
         }
         else{
@@ -406,6 +407,18 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
         if(prof.isSelected() && prof.isVisible() && prof.isEnabled()){
             character_info.putInteger(prof.getText(), Skill.FULL_PROF);
         }
+    }
+
+    void randomize() {
+        ChoiceMaker.decideComboBox(combo_classes);
+        ArrayList<JCheckBox> boxes = new ArrayList<>();
+        boxes.add(prof_1);
+        boxes.add(prof_2);
+        boxes.add(prof_3);
+        boxes.add(prof_4);
+        boxes.add(prof_5);
+        boxes.add(prof_6);
+        ChoiceMaker.decideCheckBoxes(boxes, proficiency_limit);
     }
     
     
