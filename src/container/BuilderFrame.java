@@ -17,6 +17,12 @@ import templates.PlayerClass;
 import templates.PlayerRace;
 import templates.Templates;
 import util.Bundle;
+import util.ClassPower;
+import util.Power;
+import util.PowerRating;
+import util.PowerRating.Magic;
+import util.PowerRating.Score;
+import util.RacePower;
 
 /**
  *
@@ -42,6 +48,7 @@ public class BuilderFrame extends javax.swing.JFrame {
         processClass(cl);
         processRace(ra);
         processBackground(ba);
+        processScore(cl, ra);
     }
 
     private void processClass(PlayerClass cl) {
@@ -51,7 +58,6 @@ public class BuilderFrame extends javax.swing.JFrame {
         else{
             classCard.updateComponents(cl);
         }
-        
     }
 
     private void processRace(PlayerRace ra) {
@@ -66,6 +72,29 @@ public class BuilderFrame extends javax.swing.JFrame {
             backCard.resetComponents();
         else
             backCard.updateComponents(ba);
+    }
+
+    private void processScore(PlayerClass cl, PlayerRace ra) {
+        if(cl == null || ra == null){
+            return;
+        }
+        
+        Power cp = cl.powerLevel();
+        RacePower rp = ra.powerLevel();
+        
+        if(cp != null && rp != null){
+            PowerRating powerRating = PowerRating.analyze(cp, rp);
+            Magic magic = powerRating.magic();
+            if(magic != null){
+                int off = magic.offensive();
+                int def = magic.defensive();
+                int util = magic.utility();
+
+                bar_off_magic.setValue(off*10);
+                bar_def_magic.setValue(def*10);
+                bar_util_magic.setValue(util*10);
+            }
+        }
     }
     
     private static class BuilderDeck extends Deck{
@@ -242,6 +271,7 @@ public class BuilderFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Character Builder");
+        setResizable(false);
 
         pan_container.setBackground(new java.awt.Color(0, 51, 102));
         pan_container.setPreferredSize(new java.awt.Dimension(800, 600));

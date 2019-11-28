@@ -6,6 +6,8 @@
 package templates;
 
 import java.util.ArrayList;
+import util.ClassPower;
+import util.Power;
 
 /**
  *
@@ -21,6 +23,7 @@ public class PlayerClass {
     public final String hitDie;
     public final String hitDieAttribute;
     public final String flavorText;
+    private Power power;
     
     public PlayerClass(String name, String casterType, ArrayList<Feature> features, ArrayList<String> skillsProfs,
             ArrayList<String> savingThrows, ArrayList<String> equipmentProfs, String hitDie, String hitDieAttribute, String flavorText){
@@ -34,6 +37,14 @@ public class PlayerClass {
         this.hitDie = hitDie;
         this.hitDieAttribute = hitDieAttribute;
         this.flavorText = flavorText;
+    }
+
+    public void setPowerLevel(Power power) {
+        this.power = power;
+    }
+
+    public Power powerLevel() {
+        return power;
     }
     
 }

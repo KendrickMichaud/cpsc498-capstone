@@ -7,6 +7,7 @@ package templates;
 
 import java.util.ArrayList;
 import util.Bundle;
+import util.RacePower;
 
 /**
  *
@@ -19,6 +20,7 @@ public class PlayerRace {
     public final Bundle languages;
     public final ArrayList<Feature> features;
     public final String flavorText;
+    private RacePower racePower;
     
     public PlayerRace(String name, Bundle a, String size, Bundle l, ArrayList<Feature> features, String flavorText){
         this.name = name;
@@ -27,5 +29,13 @@ public class PlayerRace {
         this.languages = l;
         this.features = features;
         this.flavorText = flavorText;
+    }
+
+    public void setPower(RacePower rp) {
+        racePower = rp;
+    }
+
+    public RacePower powerLevel() {
+        return racePower;
     }
 }
