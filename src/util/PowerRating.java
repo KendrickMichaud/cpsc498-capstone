@@ -14,8 +14,8 @@ import templates.PlayerRace;
  */
 public class PowerRating {
     
-    private Martial martialScores;
-    private Magic magicScores;
+    private PowerStat martialScores;
+    private PowerStat magicScores;
     private Playstyle playstyleScores;
     private final boolean initialized;
     public static final String OFFENSIVE = "offense";
@@ -25,15 +25,15 @@ public class PowerRating {
     public static final String RANGED = "ranged";
     
     private PowerRating(){
-        martialScores = new Martial();
-        magicScores = new Magic();
+        martialScores = new PowerStat();
+        magicScores = new PowerStat();
         playstyleScores = new Playstyle();
         initialized = false;
     }
     
     private PowerRating(Power cp, RacePower rp){
-        martialScores = new Martial();
-        magicScores = new Magic();
+        martialScores = new PowerStat();
+        magicScores = new PowerStat();
         playstyleScores = new Playstyle();
         initialized = calculate(cp, rp);
     }
@@ -57,8 +57,8 @@ public class PowerRating {
     }
 
     private boolean calculateMagic(Power cp, RacePower rp) {
-        Magic cMagic = cp.getMagic();
-        Magic rMagic = rp.getMagic();
+        PowerStat cMagic = cp.getMagic();
+        PowerStat rMagic = rp.getMagic();
         String casterType = cp.getCaster();
         int casterBonus = 0;
         if(rp.attributes().getInteger(casterType) > 0){
@@ -70,23 +70,45 @@ public class PowerRating {
         def = cMagic.defensive.get() + rMagic.defensive.get() + casterBonus;
         util = cMagic.utility.get() + rMagic.utility.get() + casterBonus;
         
-        magicScores = new Magic();
+        magicScores = new PowerStat();
         magicScores.set(off,def,util);
         return true;
     }
 
     private boolean calculateMartial(Power cp, RacePower rp) {
-        Martial mart = cp.getMartial();
+        PowerStat classMartial = cp.martial;
+        PowerStat raceMartial = rp.martial;
+        int off, def, util;
+        off = classMartial.offensive.get() + raceMartial.offensive.get();
+        def = classMartial.defensive.get() + raceMartial.defensive.get();
+        util = classMartial.utility.get() + raceMartial.utility.get();
+        martialScores = new PowerStat();
+        martialScores.set(off, def, util);
         return true;
     }
 
     private boolean calculatePlaystyle(Power cp, RacePower rp) {
-        Playstyle p = cp.getPlaystyle();
+        Playstyle classPlaystyle = cp.playstyle;
+        Playstyle racePlaystyle = rp.playstyle;
+        
+        int melee, ranged;
+        melee = classPlaystyle.melee() + racePlaystyle.melee();
+        ranged = classPlaystyle.ranged() + racePlaystyle.ranged();
+        playstyleScores = new Playstyle();
+        playstyleScores.set(melee, ranged);
         return true;
     }
 
-    public Magic magic() {
+    public PowerStat magic() {
         return magicScores;
+    }
+    
+    public PowerStat martial(){
+        return martialScores;
+    }
+    
+    public Playstyle playstyle(){
+        return playstyleScores;
     }
     
     public static class Score{
@@ -114,35 +136,16 @@ public class PowerRating {
         }
     }
     
-    public static class Martial{
+    public static class PowerStat{
         Score offensive;
         Score defensive;
         Score utility;
         
-        public Martial(){
+        public PowerStat(){
             offensive = new Score();
             defensive = new Score();
             utility = new Score();
         }
-    }
-    
-    public static class Magic{
-        Score offensive;
-        Score defensive;
-        Score utility;
-        
-        public Magic(){
-            offensive = new Score();
-            defensive = new Score();
-            utility = new Score();
-        }
-
-        private void set(int off, int def, int util) {
-            offensive.set(off);
-            defensive.set(def);
-            utility.set(util);
-        }
-
         public int offensive() {
             return offensive.get();
         }
@@ -154,6 +157,12 @@ public class PowerRating {
         public int utility() {
             return utility.get();
         }
+        
+        public void set(int off, int def, int util){
+            offensive.set(off);
+            defensive.set(def);
+            utility.set(util);
+        }
     }
     
     public static class Playstyle{
@@ -163,6 +172,19 @@ public class PowerRating {
         public Playstyle(){
             ranged = new Score();
             melee = new Score();
+        }
+
+        public int ranged() {
+            return ranged.get();
+        }
+
+        public int melee() {
+            return melee.get();
+        }
+
+        private void set(int mel, int ran) {
+            melee.set(mel);
+            ranged.set(ran);
         }
     }
     

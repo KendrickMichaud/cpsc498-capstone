@@ -11,20 +11,20 @@ package util;
  */
 public class Power {
 
-    protected PowerRating.Magic magic;
-    protected PowerRating.Martial martial;
+    protected PowerRating.PowerStat magic;
+    protected PowerRating.PowerStat martial;
     protected PowerRating.Playstyle playstyle;
     private String casterType;
 
     void setMagic(int moff, int mdeff, int mutil) {
-        magic = new PowerRating.Magic();
+        magic = new PowerRating.PowerStat();
         magic.offensive.set(moff);
         magic.defensive.set(mdeff);
         magic.utility.set(mutil);
     }
 
     void setMartial(int martoff, int martdeff, int martutil) {
-        martial = new PowerRating.Martial();
+        martial = new PowerRating.PowerStat();
         martial.offensive.set(martoff);
         martial.defensive.set(martdeff);
         martial.utility.set(martutil);
@@ -36,11 +36,11 @@ public class Power {
         playstyle.ranged.set(ranged);
     }
 
-    PowerRating.Magic getMagic() {
+    PowerRating.PowerStat getMagic() {
         return magic;
     }
 
-    PowerRating.Martial getMartial() {
+    PowerRating.PowerStat getMartial() {
         return martial;
     }
 

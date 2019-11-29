@@ -259,7 +259,6 @@ public class BuilderRaceCard extends javax.swing.JPanel implements CardDataHolde
             raceTemplates.forEach((r) -> {
                 raceNames.add(r.name);
             });
-            raceNames.add("(DEBUG_NULL)");
             DefaultComboBoxModel<String> model = new DefaultComboBoxModel(raceNames);
             combo_races.setModel(model);
             

@@ -7,7 +7,6 @@ package container;
 
 import app.AppManager;
 import constants.KEY;
-import data_structure.Skill;
 import java.awt.Image;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -18,7 +17,6 @@ import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -27,11 +25,10 @@ import templates.PlayerClass;
 import templates.PlayerRace;
 import templates.Templates;
 import util.Bundle;
-import util.ClassPower;
 import util.Power;
 import util.PowerRating;
-import util.PowerRating.Magic;
-import util.PowerRating.Score;
+import util.PowerRating.Playstyle;
+import util.PowerRating.PowerStat;
 import util.RacePower;
 
 /**
@@ -137,7 +134,9 @@ public class BuilderFrame extends javax.swing.JFrame {
         
         if(cp != null && rp != null){
             PowerRating powerRating = PowerRating.analyze(cp, rp);
-            Magic magic = powerRating.magic();
+            PowerStat magic = powerRating.magic();
+            PowerStat martial = powerRating.martial();
+            Playstyle playstyle = powerRating.playstyle();
             if(magic != null){
                 int off = magic.offensive();
                 int def = magic.defensive();
@@ -146,6 +145,22 @@ public class BuilderFrame extends javax.swing.JFrame {
                 bar_off_magic.setValue(off*10);
                 bar_def_magic.setValue(def*10);
                 bar_util_magic.setValue(util*10);
+            }
+            if(martial != null){
+                int off = martial.offensive();
+                int def = martial.defensive();
+                int util = martial.utility();
+                
+                bar_off_martial.setValue(off*10);
+                bar_def_martial.setValue(def*10);
+                bar_util_martial.setValue(util*10);
+            }
+            if(playstyle != null){
+                int ranged = playstyle.ranged();
+                int melee = playstyle.melee();
+                
+                bar_style_ranged.setValue(ranged*10);
+                bar_style_melee.setValue(melee*10);
             }
         }
     }
@@ -230,6 +245,7 @@ public class BuilderFrame extends javax.swing.JFrame {
         raceCard.updateComponents(raceCard.getSelectedRace());
         backCard.updateComponents(backCard.getSelectedBackground());
         updateImage();
+        updateValues();
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {

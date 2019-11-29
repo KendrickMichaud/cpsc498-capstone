@@ -42,6 +42,10 @@ public class ChoiceMaker {
         if(cap < 0 || boxes == null)
             return;
         
+        for(JCheckBox box : boxes){
+            box.setSelected(false);
+        }
+        
         ArrayList<Integer> usedSlots = new ArrayList<>();
         Random r = new Random(System.currentTimeMillis());
         for(int i = 0; i < cap; i++){

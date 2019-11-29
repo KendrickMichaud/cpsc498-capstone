@@ -173,7 +173,6 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
             tBackgrounds.forEach((b) -> {
                 backgroundNames.add(b.getName());
             });
-            backgroundNames.add("(DEBUG_NULL)");
             DefaultComboBoxModel<String> model = new DefaultComboBoxModel(backgroundNames);
             combo_backgrounds.setModel(model);
             

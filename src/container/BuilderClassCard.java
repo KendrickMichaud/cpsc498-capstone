@@ -26,13 +26,12 @@ import util.ChoiceMaker;
 public class BuilderClassCard extends javax.swing.JPanel implements CardDataHolder{
 
     private ClassTemplates cTemplates;
-    public final int proficiency_limit;
+    public static final int PROF_LIMIT = 2;
     /**
      * Creates new form BuilderClassCard
      */
     public BuilderClassCard() {
         initComponents();
-        proficiency_limit = 2;
     }
 
     /**
@@ -236,7 +235,6 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
             cTemplates.forEach((c) -> {
                 classNames.add(c.name);
             });
-            classNames.add("(DEBUG_NULL)");
             DefaultComboBoxModel<String> model = new DefaultComboBoxModel(classNames);
             combo_classes.setModel(model);
         }
@@ -294,7 +292,7 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
     }
 
     private void determineProfs() {
-        if(numberOfSelectedProfs() == proficiency_limit){
+        if(numberOfSelectedProfs() == PROF_LIMIT){
             disableUnselectedProfs();
         }
         else{
@@ -418,7 +416,7 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
         boxes.add(prof_4);
         boxes.add(prof_5);
         boxes.add(prof_6);
-        ChoiceMaker.decideCheckBoxes(boxes, proficiency_limit);
+        ChoiceMaker.decideCheckBoxes(boxes, PROF_LIMIT);
     }
     
     
