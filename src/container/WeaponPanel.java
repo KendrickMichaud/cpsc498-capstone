@@ -10,7 +10,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.text.Document;
 import util.Bundle;
-import util.JText;
+import util.SwingHelper;
 import util.KeyReader;
 
 /**
@@ -24,12 +24,12 @@ public class WeaponPanel extends javax.swing.JPanel implements CardDataHolder{
      */
     public WeaponPanel() {
         initComponents();
-        JText.addTabFocusChanger(txt_weapon_name);
-        JText.addTabFocusChanger(txt_weapon_damage_roll);
-        JText.addTabFocusChanger(txt_weapon_damage_type);
-        JText.wrapWord(txt_weapon_name);
-        JText.wrapWord(txt_weapon_damage_roll);
-        JText.wrapWord(txt_weapon_damage_type);
+        SwingHelper.addTabFocusChanger(txt_weapon_name);
+        SwingHelper.addTabFocusChanger(txt_weapon_damage_roll);
+        SwingHelper.addTabFocusChanger(txt_weapon_damage_type);
+        SwingHelper.wrapWord(txt_weapon_name);
+        SwingHelper.wrapWord(txt_weapon_damage_roll);
+        SwingHelper.wrapWord(txt_weapon_damage_type);
     }
 
     /**

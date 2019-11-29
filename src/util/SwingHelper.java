@@ -6,6 +6,8 @@
 package util;
 
 import constants.KEY;
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -13,8 +15,12 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JTextArea;
+import javax.swing.ListCellRenderer;
+import javax.swing.border.LineBorder;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import javax.swing.text.JTextComponent;
@@ -23,13 +29,14 @@ import javax.swing.text.JTextComponent;
  *
  * @author Kendrick-Laptop
  */
-public class JText {
+public class SwingHelper {
+    public static final int JCOMBO_CHARACTER_LIMIT = 150;
     public static String extractString(Document component) {
         try {
             int length = component.getLength();
             return component.getText(0, length);
         } catch (BadLocationException ex) {
-            Logger.getLogger(JText.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SwingHelper.class.getName()).log(Level.SEVERE, null, ex);
         }
         return KEY.NULL;
     }
@@ -93,5 +100,68 @@ public class JText {
     public static void wrapWord(JTextArea area){
         if(area != null)
             area.setWrapStyleWord(true);
+    }
+    
+    //http://palashray.com/displaying-large-text-in-a-jcombobox/
+    //Largely derived from this source on wraping text in a JComboBox
+    
+    public static void wrapTextJComboBox(JComboBox box){
+        box.setRenderer(new JLargeComboBox(JCOMBO_CHARACTER_LIMIT));
+    }
+    
+    private static class JLargeComboBox extends JLabel implements ListCellRenderer<String>{
+
+        private final int limit;
+        
+        public JLargeComboBox(int characterLimit){
+            if(characterLimit < 1)
+                throw new IllegalArgumentException("Character Limit is not greater than 0");
+            else
+                this.limit = characterLimit;
+        }
+
+        @Override
+        public Component getListCellRendererComponent(JList<? extends String> list, String value, int index, boolean isSelected, boolean cellHasFocus) {
+            if(isSelected){
+                setBackground(list.getSelectionBackground());
+                setForeground(list.getSelectionForeground());
+            }
+            else{
+                setBackground(list.getBackground());
+                setForeground(list.getForeground());
+            }
+            
+            setFont(list.getFont());
+            setOpaque(true);
+            
+            if(index == -1){
+                setText(value);
+            }
+            else
+                setText(wrapText(value));
+            return this;
+        }
+
+        private String wrapText(String value) {
+            StringBuilder sb = new StringBuilder(300);
+            sb.append("<html>");
+            sb.append("<p style=\"");
+            sb.append(getParagraphStyle());
+            sb.append("\">");
+            sb.append(value);
+            sb.append("</p>");
+            sb.append("</html>");
+            return sb.toString();
+        }
+
+        private String getParagraphStyle() {
+            StringBuilder sb = new StringBuilder(100);
+            sb.append("word-wrap: break-word;");
+            sb.append("width: ");
+            sb.append(limit);
+            sb.append("px;");
+            return sb.toString();
+        }
+        
     }
 }

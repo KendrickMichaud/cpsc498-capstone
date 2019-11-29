@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import util.Bundle;
-import util.JText;
+import util.SwingHelper;
 
 /**
  *
@@ -28,14 +28,14 @@ public class BackgroundFrame extends javax.swing.JFrame {
      */
     public BackgroundFrame() {
         initComponents();
-        JText.addTabFocusChanger(txt_bond);
-        JText.addTabFocusChanger(txt_flaw);
-        JText.addTabFocusChanger(txt_ideal);
-        JText.addTabFocusChanger(txt_trait);
-        JText.wrapWord(txt_bond);
-        JText.wrapWord(txt_flaw);
-        JText.wrapWord(txt_ideal);
-        JText.wrapWord(txt_trait);
+        SwingHelper.addTabFocusChanger(txt_bond);
+        SwingHelper.addTabFocusChanger(txt_flaw);
+        SwingHelper.addTabFocusChanger(txt_ideal);
+        SwingHelper.addTabFocusChanger(txt_trait);
+        SwingHelper.wrapWord(txt_bond);
+        SwingHelper.wrapWord(txt_flaw);
+        SwingHelper.wrapWord(txt_ideal);
+        SwingHelper.wrapWord(txt_trait);
     }
 
     /**
@@ -152,11 +152,11 @@ public class BackgroundFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     void collectData(Bundle b) {
-        b.putString(KEY.K_BACKGROUND_NAME, JText.extractString(txt_name));
-        b.putString(KEY.K_BACKGROUND_FLAW, JText.extractString(txt_flaw));
-        b.putString(KEY.K_BACKGROUND_IDEAL, JText.extractString(txt_ideal));
-        b.putString(KEY.K_BACKGROUND_BOND, JText.extractString(txt_bond));
-        b.putString(KEY.K_BACKGROUND_TRAIT, JText.extractString(txt_trait));
+        b.putString(KEY.K_BACKGROUND_NAME, SwingHelper.extractString(txt_name));
+        b.putString(KEY.K_BACKGROUND_FLAW, SwingHelper.extractString(txt_flaw));
+        b.putString(KEY.K_BACKGROUND_IDEAL, SwingHelper.extractString(txt_ideal));
+        b.putString(KEY.K_BACKGROUND_BOND, SwingHelper.extractString(txt_bond));
+        b.putString(KEY.K_BACKGROUND_TRAIT, SwingHelper.extractString(txt_trait));
     }
     
     void updateData(Bundle b){
@@ -167,11 +167,11 @@ public class BackgroundFrame extends javax.swing.JFrame {
         trait = b.getString(KEY.K_BACKGROUND_TRAIT);
         flaw = b.getString(KEY.K_BACKGROUND_FLAW);
         
-        JText.putString(name, txt_name);
-        JText.putString(ideal, txt_ideal);
-        JText.putString(bond, txt_bond);
-        JText.putString(trait, txt_trait);
-        JText.putString(flaw, txt_flaw);
+        SwingHelper.putString(name, txt_name);
+        SwingHelper.putString(ideal, txt_ideal);
+        SwingHelper.putString(bond, txt_bond);
+        SwingHelper.putString(trait, txt_trait);
+        SwingHelper.putString(flaw, txt_flaw);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -16,6 +16,7 @@ import templates.Feature;
 import templates.Templates;
 import util.Bundle;
 import util.ChoiceMaker;
+import util.SwingHelper;
 
 /**
  *
@@ -30,6 +31,10 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
      */
     public BuilderBackgroundCard() {
         initComponents();
+        SwingHelper.wrapTextJComboBox(combo_bond);
+        SwingHelper.wrapTextJComboBox(combo_flaw);
+        SwingHelper.wrapTextJComboBox(combo_ideal);
+        SwingHelper.wrapTextJComboBox(combo_trait);
     }
 
     /**

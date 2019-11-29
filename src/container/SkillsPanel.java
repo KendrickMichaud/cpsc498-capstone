@@ -15,7 +15,7 @@ import javax.swing.text.Document;
 import javax.swing.text.JTextComponent;
 import data_structure.Skills;
 import util.Bundle;
-import util.JText;
+import util.SwingHelper;
 
 /**
  *

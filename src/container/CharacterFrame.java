@@ -34,7 +34,7 @@ import javax.swing.text.JTextComponent;
 import util.Ability;
 import util.Bundle;
 import util.DataIntegrity;
-import util.JText;
+import util.SwingHelper;
 
 /**
  *
@@ -69,8 +69,8 @@ public class CharacterFrame extends javax.swing.JFrame {
         background = new BackgroundFrame();
         inventory.setLimit(Integer.parseInt(extractString(txt_strength)));
         combo_level.addItemListener(new ComboItemListener(manager));
-        JText.addTabFocusChanger(txt_area_feats);
-        JText.wrapWord(txt_area_feats);
+        SwingHelper.addTabFocusChanger(txt_area_feats);
+        SwingHelper.wrapWord(txt_area_feats);
         BufferedImage img;
         try {
             img = ImageIO.read(new File(getClass().getResource("/img/icon_logo.jpg").getPath()));
@@ -1624,14 +1624,14 @@ public class CharacterFrame extends javax.swing.JFrame {
         Bundle b = new Bundle();
         
         //Attributes
-        b.putString(KEY.K_STRENGTH, JText.extractString(txt_strength.getDocument()));
-        b.putString(KEY.K_DEXTERITY, JText.extractString(txt_dexterity.getDocument()));
-        b.putString(KEY.K_CONSTITUTION, JText.extractString(txt_constitution.getDocument()));
+        b.putString(KEY.K_STRENGTH, SwingHelper.extractString(txt_strength.getDocument()));
+        b.putString(KEY.K_DEXTERITY, SwingHelper.extractString(txt_dexterity.getDocument()));
+        b.putString(KEY.K_CONSTITUTION, SwingHelper.extractString(txt_constitution.getDocument()));
         
         //Either way works.
-        b.putString(KEY.K_INTELLIGENCE, JText.extractString(txt_intelligence));
-        b.putString(KEY.K_WISDOM, JText.extractString(txt_wisdom));
-        b.putString(KEY.K_CHARISMA, JText.extractString(txt_charisma));     
+        b.putString(KEY.K_INTELLIGENCE, SwingHelper.extractString(txt_intelligence));
+        b.putString(KEY.K_WISDOM, SwingHelper.extractString(txt_wisdom));
+        b.putString(KEY.K_CHARISMA, SwingHelper.extractString(txt_charisma));     
         
         //Puts save proficiencies
         b.putString(KEY.K_STRENGTH_PROF, Boolean.toString(chk_str_prof.isSelected()));
@@ -1643,14 +1643,14 @@ public class CharacterFrame extends javax.swing.JFrame {
         
         
         //Character Info Panel
-        b.putString(KEY.K_CHARACTER_NAME, JText.extractString(txt_charName));
-        b.putString(KEY.K_CLASS, JText.extractString(txt_class));
-        b.putString(KEY.K_RACE, JText.extractString(txt_race));
-        b.putString(KEY.K_SIZE, JText.extractString(txt_size));
-        b.putString(KEY.K_WEIGHT, JText.extractString(txt_charWeight));
-        b.putString(KEY.K_HEIGHT, JText.extractString(txt_charHeight));
-        b.putString(KEY.K_ALIGNMENT, JText.extractString(txt_alignment));
-        b.putString(KEY.K_DEITY, JText.extractString(txt_deity));
+        b.putString(KEY.K_CHARACTER_NAME, SwingHelper.extractString(txt_charName));
+        b.putString(KEY.K_CLASS, SwingHelper.extractString(txt_class));
+        b.putString(KEY.K_RACE, SwingHelper.extractString(txt_race));
+        b.putString(KEY.K_SIZE, SwingHelper.extractString(txt_size));
+        b.putString(KEY.K_WEIGHT, SwingHelper.extractString(txt_charWeight));
+        b.putString(KEY.K_HEIGHT, SwingHelper.extractString(txt_charHeight));
+        b.putString(KEY.K_ALIGNMENT, SwingHelper.extractString(txt_alignment));
+        b.putString(KEY.K_DEITY, SwingHelper.extractString(txt_deity));
         b.putString(KEY.K_LEVEL, (String) combo_level.getSelectedItem());
         
         //Weapon 1
@@ -1662,16 +1662,16 @@ public class CharacterFrame extends javax.swing.JFrame {
         defense.collect(b);
         
         //Utility and Survival
-        b.putString(KEY.K_SPEED_BONUS, JText.extractString(txt_speed_bonus));
-        b.putString(KEY.K_INIT_BONUS, JText.extractString(txt_init_bonus));
-        b.putString(KEY.K_HEALTH_POINTS, JText.extractString(txt_health_points));
-        b.putString(KEY.K_HIT_DIE, JText.extractString(txt_hit_die));
+        b.putString(KEY.K_SPEED_BONUS, SwingHelper.extractString(txt_speed_bonus));
+        b.putString(KEY.K_INIT_BONUS, SwingHelper.extractString(txt_init_bonus));
+        b.putString(KEY.K_HEALTH_POINTS, SwingHelper.extractString(txt_health_points));
+        b.putString(KEY.K_HIT_DIE, SwingHelper.extractString(txt_hit_die));
         
         //Skills and Proficiencies
         skillsProfs.collect(b);
         
         //Feats
-        b.putString(KEY.K_FEATURES_DESCRIPTION, JText.extractString(txt_area_feats));
+        b.putString(KEY.K_FEATURES_DESCRIPTION, SwingHelper.extractString(txt_area_feats));
         
         //Spellbook
         b.putSpellbook(spellbook.getSpellbook());

@@ -8,7 +8,7 @@ package container;
 import constants.KEY;
 import javax.swing.text.Document;
 import util.Bundle;
-import util.JText;
+import util.SwingHelper;
 
 /**
  *
@@ -21,8 +21,8 @@ public class ProfsPanel extends javax.swing.JPanel implements CardDataHolder{
      */
     public ProfsPanel() {
         initComponents();
-        JText.addTabFocusChanger(txt_profs);
-        JText.wrapWord(txt_profs);
+        SwingHelper.addTabFocusChanger(txt_profs);
+        SwingHelper.wrapWord(txt_profs);
     }
 
     /**
@@ -64,7 +64,7 @@ public class ProfsPanel extends javax.swing.JPanel implements CardDataHolder{
 
     @Override
     public void getData(Bundle b) {
-        b.putString(KEY.K_EQUIPMENT_PROFICIENCES, JText.extractString(txt_profs));
+        b.putString(KEY.K_EQUIPMENT_PROFICIENCES, SwingHelper.extractString(txt_profs));
     }
 
     @Override
