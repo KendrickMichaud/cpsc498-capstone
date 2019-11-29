@@ -1602,7 +1602,6 @@ public class CharacterFrame extends javax.swing.JFrame {
             String racePortraitPath = character_data.getString(KEY.K_IMAGE_PATH);
             if(racePortraitPath != null)
                 setLblImageToFile(new File(racePortraitPath));
-            
         }
         else{
             setImage(character_data);
@@ -1623,22 +1622,6 @@ public class CharacterFrame extends javax.swing.JFrame {
 
     private Bundle collectCharacterData() {
         Bundle b = new Bundle();
-        //Please implement this method with appropriate data to be put in bundle.
-        /**
-         * List of things to put in this bundle
-         * 1: All attribute values
-         * 2: Character Info panel data
-         * 3: Weapon (1,2,3) data
-         * 4: Defense Data
-         * 5: Armor data
-         * 6: Utility & Surival Data
-         * 7: Skills data
-         * 8: Proficiency Data
-         * 9: Feats data
-         * 10 Spellbook and Inventory Data
-         * 11 Background data
-         * 12 The Image (if it has one)
-         */
         
         //Attributes
         b.putString(KEY.K_STRENGTH, JText.extractString(txt_strength.getDocument()));

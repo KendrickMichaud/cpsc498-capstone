@@ -21,18 +21,18 @@ and open the template in the editor.
             <wildcard>1</wildcard>
         </languages>
         <features>
-            <item>
+            <feature>
                 <title>Darkvision</title>
                 <body>You can see in dim light within 60ft of you. You cannot discern colors</body>
-            </item>
-            <item>
+            </feature>
+            <feature>
                 <title>Fey Ancestry</title>
                 <body>You have advantage in saving throws against being charmed and cannot be put to sleep.</body>
-            </item>
-            <item>
+            </feature>
+            <feature>
                 <title>Skill Versatility</title>
                 <body>You gain proficiency in two skills of your choice</body>
-            </item>
+            </feature>
         </features>
         <flavorText>Half-elves have no lands of their own, though they are welcome in human cities and somewhat less welcome in elven forests. In large cities in regions where elves and humans interact often, half-elves are sometimes numerous enough to form small communities of their own. They enjoy the company of other half-elves, the only people who truly understand what it is to live between these two worlds.
 

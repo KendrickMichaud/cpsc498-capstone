@@ -174,6 +174,7 @@ public class BuilderRaceCard extends javax.swing.JPanel implements CardDataHolde
             if(feats == null){
                 feats = "";
             }
+            feats += "Race Features\n----------------------";
             for(Feature f : features){
                 String name = f.name.concat("\n");
                 String desc = f.description.concat("\n");
@@ -187,7 +188,24 @@ public class BuilderRaceCard extends javax.swing.JPanel implements CardDataHolde
             
             }
             
+            feats = feats.concat("--------------------------------------------\n");
             character_info.putString(KEY.K_FEATURES_DESCRIPTION, feats);
+        }
+        
+        Bundle attributes = ra.attributes;
+        if(attributes != null){
+            character_info.putString(KEY.K_STRENGTH, 
+                    Integer.toString(attributes.getInteger(KEY.L_STRENGTH) + 10));
+            character_info.putString(KEY.K_DEXTERITY, 
+                    Integer.toString(attributes.getInteger(KEY.L_DEXTERITY) + 10));
+            character_info.putString(KEY.K_CONSTITUTION, 
+                    Integer.toString(attributes.getInteger(KEY.L_CONSTITUTION) + 10));
+            character_info.putString(KEY.K_INTELLIGENCE, 
+                    Integer.toString(attributes.getInteger(KEY.L_INTELLIGENCE) + 10));
+            character_info.putString(KEY.K_WISDOM, 
+                    Integer.toString(attributes.getInteger(KEY.L_WISDOM) + 10));
+            character_info.putString(KEY.K_CHARISMA, 
+                    Integer.toString(attributes.getInteger(KEY.L_CHARISMA) + 10));
         }
         
         
@@ -210,7 +228,7 @@ public class BuilderRaceCard extends javax.swing.JPanel implements CardDataHolde
                 int str, dex, con, intel, wis, cha;
                 str = attributes.getInteger(KEY.L_STRENGTH);
                 dex = attributes.getInteger(KEY.L_DEXTERITY);
-                con = attributes.getInteger(KEY.L_CONSTITUION);
+                con = attributes.getInteger(KEY.L_CONSTITUTION);
                 intel = attributes.getInteger(KEY.L_INTELLIGENCE);
                 wis = attributes.getInteger(KEY.L_WISDOM);
                 cha = attributes.getInteger(KEY.L_CHARISMA);

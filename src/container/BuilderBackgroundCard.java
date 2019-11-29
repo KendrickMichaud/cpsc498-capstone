@@ -6,10 +6,13 @@
 package container;
 
 import constants.KEY;
+import data_structure.Skill;
+import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.text.Document;
 import templates.BackgroundTemplates;
+import templates.Feature;
 import templates.Templates;
 import util.Bundle;
 import util.ChoiceMaker;
@@ -162,6 +165,36 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
             character_info.putString(KEY.K_BACKGROUND_IDEAL, (String) combo_ideal.getSelectedItem());
             character_info.putString(KEY.K_BACKGROUND_FLAW, (String) combo_flaw.getSelectedItem());
             character_info.putString(KEY.K_BACKGROUND_BOND, (String) combo_bond.getSelectedItem());
+            
+            ArrayList<String> skillProfs = ba.getSkills();
+            if(skillProfs != null){
+                for(String s : skillProfs){
+                    character_info.putInteger(s, Skill.FULL_PROF);
+                }
+            }
+            
+            ArrayList<Feature> features = ba.getFeatures();
+            if(features != null){
+                String feats = character_info.getString(KEY.K_FEATURES_DESCRIPTION);
+                if(feats == null)
+                    feats = "";
+                
+                feats += "Background Features\n----------------------";
+                for(Feature f : features){
+                    String name = f.name + "\n";
+                    String desc = f.description + "\n";
+                    
+                    if(feats.equals("")){
+                        feats += name.concat(desc);
+                    }
+                    else{
+                        feats += "\n".concat(name).concat(desc);
+                    }
+                }
+                feats = feats.concat("--------------------------------------------\n");
+                
+                character_info.putString(KEY.K_FEATURES_DESCRIPTION, feats);
+            }
         }
     }
 

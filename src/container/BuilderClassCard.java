@@ -366,7 +366,7 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
                     switch(s){
                         case KEY.L_STRENGTH:key = KEY.K_STRENGTH_PROF;break;
                         case KEY.L_DEXTERITY:key = KEY.K_DEXTERITY_PROF;break;
-                        case KEY.L_CONSTITUION:key = KEY.K_CONSTITUTION_PROF;break;
+                        case KEY.L_CONSTITUTION:key = KEY.K_CONSTITUTION_PROF;break;
                         case KEY.L_INTELLIGENCE:key = KEY.K_INTELLIGENCE_PROF;break;
                         case KEY.L_WISDOM:key = KEY.K_WISDOM_PROF;break;
                         case KEY.L_CHARISMA:key = KEY.K_CHARISMA_PROF;break;
@@ -384,6 +384,7 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
             if(feats == null){
                 feats = "";
             }
+            feats += "Class Features\n----------------------";
             for(Feature f : features){
                 String name = f.name.concat("\n");
                 String desc = f.description.concat("\n");
@@ -396,6 +397,7 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
                 
             
             }
+            feats = feats.concat("--------------------------------------------\n");
             
             character_info.putString(KEY.K_FEATURES_DESCRIPTION, feats);
         }

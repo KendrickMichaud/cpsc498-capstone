@@ -192,7 +192,7 @@ public class XMLReader {
         
         str = extractString(attributes, KEY.L_STRENGTH);
         dex = extractString(attributes, KEY.L_DEXTERITY);
-        con = extractString(attributes, KEY.L_CONSTITUION);
+        con = extractString(attributes, KEY.L_CONSTITUTION);
         intel = extractString(attributes, KEY.L_INTELLIGENCE);
         wis = extractString(attributes, KEY.L_WISDOM);
         cha = extractString(attributes, KEY.L_CHARISMA);
@@ -532,7 +532,7 @@ public class XMLReader {
                             Element wild;
                             str = extractString(attr, KEY.L_STRENGTH);
                             dex = extractString(attr, KEY.L_DEXTERITY);
-                            con = extractString(attr, KEY.L_CONSTITUION);
+                            con = extractString(attr, KEY.L_CONSTITUTION);
                             intel = extractString(attr, KEY.L_INTELLIGENCE);
                             wis = extractString(attr, KEY.L_WISDOM);
                             cha = extractString(attr, KEY.L_CHARISMA);
@@ -545,7 +545,7 @@ public class XMLReader {
                                 attributes.putInteger(KEY.L_DEXTERITY, Integer.parseInt(dex));
                             }
                             if(con != null && DataIntegrity.isNumeric(con)){
-                                attributes.putInteger(KEY.L_CONSTITUION, Integer.parseInt(con));
+                                attributes.putInteger(KEY.L_CONSTITUTION, Integer.parseInt(con));
                             }
                             if(intel != null && DataIntegrity.isNumeric(intel)){
                                 attributes.putInteger(KEY.L_INTELLIGENCE, Integer.parseInt(intel));

@@ -15,6 +15,14 @@ import templates.BackgroundTemplates.Background;
 public class BackgroundTemplates extends Templates<Background>{
 
     public static class Background {
+        
+        public ArrayList<String> getSkills(){
+            return skillProfs;
+        }
+        
+        public ArrayList<Feature> getFeatures(){
+            return features;
+        }
 
         public void setName(String strName) {
             this.name = strName;

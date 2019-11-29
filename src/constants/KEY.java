@@ -73,7 +73,7 @@ public class KEY {
     //Attribute Low Key
     public static final String L_STRENGTH = "Strength";
     public static final String L_DEXTERITY = "Dexterity";
-    public static final String L_CONSTITUION = "Constitution";
+    public static final String L_CONSTITUTION = "Constitution";
     public static final String L_INTELLIGENCE = "Intelligence";
     public static final String L_WISDOM = "Wisdom";
     public static final String L_CHARISMA = "Charisma";
@@ -81,7 +81,7 @@ public class KEY {
     public static final String L_PROF = "Prof";
     public static final String L_STRPROF = L_STRENGTH+L_PROF;
     public static final String L_DEXPROF = L_DEXTERITY+L_PROF;
-    public static final String L_CONPROF = L_CONSTITUION+L_PROF;
+    public static final String L_CONPROF = L_CONSTITUTION+L_PROF;
     public static final String L_INTPROF = L_INTELLIGENCE+L_PROF;
     public static final String L_WISPROF = L_WISDOM+L_PROF;
     public static final String L_CHAPROF = L_CHARISMA+L_PROF;
@@ -91,7 +91,7 @@ public class KEY {
     //Attributes keys
     public static final String K_STRENGTH = H_ATTRIBUTES + L_STRENGTH;
     public static final String K_DEXTERITY = H_ATTRIBUTES + L_DEXTERITY;
-    public static final String K_CONSTITUTION = H_ATTRIBUTES + L_CONSTITUION;
+    public static final String K_CONSTITUTION = H_ATTRIBUTES + L_CONSTITUTION;
     public static final String K_INTELLIGENCE = H_ATTRIBUTES + L_INTELLIGENCE;
     public static final String K_WISDOM = H_ATTRIBUTES + L_WISDOM;
     public static final String K_CHARISMA = H_ATTRIBUTES + L_CHARISMA;
