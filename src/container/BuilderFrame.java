@@ -13,6 +13,7 @@ import java.awt.event.WindowListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -95,10 +96,12 @@ public class BuilderFrame extends javax.swing.JFrame {
     private void setImage(String imagePath) {
         if(imagePath != null){
             try {
+                
                 imagePath += getGender();
                 String filePath = "/img/" + imagePath + ".png";
-                File f = new File(getClass().getResource(filePath).getPath());
-                BufferedImage buf = ImageIO.read(f);
+                InputStream is = getClass().getResourceAsStream(filePath);
+                
+                BufferedImage buf = ImageIO.read(is);
                 ImageIcon img = new ImageIcon(buf);
                 Image image = img.getImage(); // transform it
                 Image newimg = image.getScaledInstance(250, 600,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way

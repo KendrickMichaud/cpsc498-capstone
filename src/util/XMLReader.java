@@ -26,6 +26,7 @@ import data_structure.Skill;
 import data_structure.Skills;
 import data_structure.Spell;
 import data_structure.Spellbook;
+import java.io.InputStream;
 import templates.BackgroundTemplates;
 import templates.BackgroundTemplates.Background;
 import templates.ClassTemplates;
@@ -343,9 +344,10 @@ public class XMLReader {
                 return bundle;
             }
             
+            InputStream is = getClass().getResourceAsStream("/templates/backgrounds.xml");
             DocumentBuilderFactory fact = DocumentBuilderFactory.newInstance();
             DocumentBuilder build = fact.newDocumentBuilder();
-            Document doc = build.parse(file);
+            Document doc = build.parse(is);
             
             doc.getDocumentElement().normalize();
             Element root = doc.getDocumentElement();
@@ -423,9 +425,10 @@ public class XMLReader {
                 return bundle;
             }
             
+            InputStream is = getClass().getResourceAsStream("/templates/classes.xml");
             DocumentBuilderFactory fact = DocumentBuilderFactory.newInstance();
             DocumentBuilder build = fact.newDocumentBuilder();
-            Document doc = build.parse(file);
+            Document doc = build.parse(is);
             
             doc.getDocumentElement().normalize();
             Element root = doc.getDocumentElement();
@@ -487,10 +490,11 @@ public class XMLReader {
                 bundle.putBoolean(FileManager.IO_SUCCESS, Boolean.FALSE);
                 return bundle;
             }
+            InputStream is = getClass().getResourceAsStream("/templates/races.xml");
             
             DocumentBuilderFactory fact = DocumentBuilderFactory.newInstance();
             DocumentBuilder build = fact.newDocumentBuilder();
-            Document doc = build.parse(file);
+            Document doc = build.parse(is);
             
             doc.getDocumentElement().normalize();
             Element root = doc.getDocumentElement();
