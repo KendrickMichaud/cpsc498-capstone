@@ -322,7 +322,7 @@ public class XMLReader {
         }
         String str = extractString(skills, KEY.L_EQUIPMENT_PROFICIENCES);
         if(str != null){
-            bundle.putString(KEY.K_EQUIPMENT_PROFICIENCES, str);
+            bundle.putString(KEY.K_EQUIPMENT_LANG_PROFICIENCIES, str);
         }
         
         bundle.putSkills(skillList);
@@ -364,6 +364,7 @@ public class XMLReader {
                     ideal = extractElement(iBackground, "ideal");
                     bond = extractElement(iBackground, "bond");
                     flaw = extractElement(iBackground, "flaw");
+                    
                                         
                     String strName = name.getTextContent();
                     ArrayList<String> traits, ideals, bonds, flaws;
@@ -373,10 +374,14 @@ public class XMLReader {
                     bonds = extractStrings(bond, arrayTagName);
                     flaws = extractStrings(flaw, arrayTagName);
                     background.setName(strName);
+                    String strDesc = extractString(iBackground, "description");
                     background.addStrings(traits, Background.STORY.TRAIT);
                     background.addStrings(ideals, Background.STORY.IDEAL);
                     background.addStrings(bonds, Background.STORY.BOND);
                     background.addStrings(flaws, Background.STORY.FLAW);
+                    if(strDesc != null){
+                        background.addDescription(strDesc);
+                    }
                     
                     proficiencies = extractElement(iBackground, "proficiencies");
                     if(proficiencies != null){
@@ -393,6 +398,8 @@ public class XMLReader {
                         featuresList = extractFeatures(features);
                         background.addFeatures(featuresList);
                     }
+                   
+                        
                     
                     templates.add(background);
                 }

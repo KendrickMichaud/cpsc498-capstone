@@ -51,11 +51,11 @@ public class DefensePanel extends javax.swing.JPanel implements CardDataHolder{
         jPanel8 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        scroll_bonuses = new javax.swing.JScrollPane();
         txt_defense_bonuses = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        scroll_resistances = new javax.swing.JScrollPane();
         txt_damage_resist = new javax.swing.JTextArea();
 
         setLayout(new java.awt.BorderLayout());
@@ -111,15 +111,15 @@ public class DefensePanel extends javax.swing.JPanel implements CardDataHolder{
         jLabel2.setText("Defense Bonuses");
         jPanel1.add(jLabel2, java.awt.BorderLayout.CENTER);
 
-        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        scroll_bonuses.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scroll_bonuses.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         txt_defense_bonuses.setColumns(20);
         txt_defense_bonuses.setLineWrap(true);
         txt_defense_bonuses.setRows(5);
-        jScrollPane2.setViewportView(txt_defense_bonuses);
+        scroll_bonuses.setViewportView(txt_defense_bonuses);
 
-        jPanel1.add(jScrollPane2, java.awt.BorderLayout.PAGE_END);
+        jPanel1.add(scroll_bonuses, java.awt.BorderLayout.PAGE_END);
 
         jPanel8.add(jPanel1, java.awt.BorderLayout.PAGE_END);
 
@@ -128,15 +128,15 @@ public class DefensePanel extends javax.swing.JPanel implements CardDataHolder{
         jLabel1.setText("Damage Resistances");
         jPanel2.add(jLabel1, java.awt.BorderLayout.PAGE_START);
 
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        scroll_resistances.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scroll_resistances.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         txt_damage_resist.setColumns(20);
         txt_damage_resist.setLineWrap(true);
         txt_damage_resist.setRows(5);
-        jScrollPane1.setViewportView(txt_damage_resist);
+        scroll_resistances.setViewportView(txt_damage_resist);
 
-        jPanel2.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        jPanel2.add(scroll_resistances, java.awt.BorderLayout.CENTER);
 
         jPanel8.add(jPanel2, java.awt.BorderLayout.CENTER);
 
@@ -151,8 +151,6 @@ public class DefensePanel extends javax.swing.JPanel implements CardDataHolder{
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbl_ac;
     private javax.swing.JLabel lbl_ac_dex;
     private javax.swing.JLabel lbl_ac_title;
@@ -162,6 +160,8 @@ public class DefensePanel extends javax.swing.JPanel implements CardDataHolder{
     private javax.swing.JLabel lbl_dex_bonus_title;
     private javax.swing.JLabel lbl_equal_sign;
     private javax.swing.JLabel lbl_equal_sign2;
+    private javax.swing.JScrollPane scroll_bonuses;
+    private javax.swing.JScrollPane scroll_resistances;
     private javax.swing.JTextArea txt_damage_resist;
     private javax.swing.JTextArea txt_defense_bonuses;
     public javax.swing.JTextField txt_extra_ac_bonus;
@@ -219,6 +219,7 @@ public class DefensePanel extends javax.swing.JPanel implements CardDataHolder{
         
         txt_damage_resist.setText(dr);
         txt_defense_bonuses.setText(dfB);
-        
+        SwingHelper.setScrollPositionToTop(scroll_resistances);
+        SwingHelper.setScrollPositionToTop(scroll_bonuses);
     }
 }

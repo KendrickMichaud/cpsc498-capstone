@@ -34,7 +34,7 @@ public class ProfsPanel extends javax.swing.JPanel implements CardDataHolder{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        scroll_prof = new javax.swing.JScrollPane();
         txt_profs = new javax.swing.JTextArea();
 
         setLayout(new java.awt.BorderLayout());
@@ -42,14 +42,14 @@ public class ProfsPanel extends javax.swing.JPanel implements CardDataHolder{
         txt_profs.setColumns(20);
         txt_profs.setLineWrap(true);
         txt_profs.setRows(5);
-        jScrollPane1.setViewportView(txt_profs);
+        scroll_prof.setViewportView(txt_profs);
 
-        add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        add(scroll_prof, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane scroll_prof;
     private javax.swing.JTextArea txt_profs;
     // End of variables declaration//GEN-END:variables
 
@@ -64,14 +64,15 @@ public class ProfsPanel extends javax.swing.JPanel implements CardDataHolder{
 
     @Override
     public void getData(Bundle b) {
-        b.putString(KEY.K_EQUIPMENT_PROFICIENCES, SwingHelper.extractString(txt_profs));
+        b.putString(KEY.K_EQUIPMENT_LANG_PROFICIENCIES, SwingHelper.extractString(txt_profs));
     }
 
     @Override
     public void update(Bundle b) {
-        String desc = b.getString(KEY.K_EQUIPMENT_PROFICIENCES);
+        String desc = b.getString(KEY.K_EQUIPMENT_LANG_PROFICIENCIES);
         if(desc != null){
             txt_profs.setText(desc);
+            SwingHelper.setScrollPositionToTop(scroll_prof);
         }
     }
 }

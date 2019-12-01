@@ -589,7 +589,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
                           <SubComponents>
-                            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+                            <Container class="javax.swing.JScrollPane" name="scroll_desc">
                               <AuxValues>
                                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                               </AuxValues>
@@ -601,7 +601,7 @@
 
                               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                               <SubComponents>
-                                <Component class="javax.swing.JTextPane" name="jTextPane1">
+                                <Component class="javax.swing.JTextPane" name="txt_area_description">
                                   <Properties>
                                     <Property name="editable" type="boolean" value="false"/>
                                     <Property name="text" type="java.lang.String" value="This character is a mysterious one... There must be more information about them."/>

@@ -219,7 +219,7 @@ public class XMLWriter {
                             addSkill(skills.getSkill(i), ele);
                         }
                     }
-                    addChild(KEY.K_EQUIPMENT_PROFICIENCES, ele);
+                    addChild(KEY.K_EQUIPMENT_LANG_PROFICIENCIES, ele);
                     break;
                 case KEY.H_FEATURE:
                     addChild(KEY.K_FEATURES_DESCRIPTION, ele);

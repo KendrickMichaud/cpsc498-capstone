@@ -18,6 +18,8 @@ import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.ListCellRenderer;
 import javax.swing.border.LineBorder;
@@ -109,6 +111,12 @@ public class SwingHelper {
         box.setRenderer(new JLargeComboBox(JCOMBO_CHARACTER_LIMIT));
     }
     
+    public static void setScrollPositionToTop(JScrollPane scroll){
+        javax.swing.SwingUtilities.invokeLater(() -> {
+            scroll.getVerticalScrollBar().setValue(0);
+        });
+    }
+    
     private static class JLargeComboBox extends JLabel implements ListCellRenderer<String>{
 
         private final int limit;
@@ -164,4 +172,6 @@ public class SwingHelper {
         }
         
     }
+    
+ 
 }

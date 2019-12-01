@@ -17,7 +17,6 @@ import util.XMLReader;
  */
 public class FileInput {
     private FileManager.FILE fileType;
-    private static final String INPUT_TYPE = "inType";
     private final File file;
 
     FileInput(File file, FileManager.FILE fileType) {

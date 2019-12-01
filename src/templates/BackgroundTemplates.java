@@ -15,6 +15,8 @@ import templates.BackgroundTemplates.Background;
 public class BackgroundTemplates extends Templates<Background>{
 
     public static class Background {
+
+        private String description;
         
         public ArrayList<String> getSkills(){
             return skillProfs;
@@ -41,6 +43,10 @@ public class BackgroundTemplates extends Templates<Background>{
         public String getName() {
             return name;
         }
+
+        public String getDescription() {
+            return description;
+        }
         
         public enum STORY{TRAIT, IDEAL, BOND, FLAW};
         private ArrayList<String> traits, ideals, bonds, flaws;
@@ -66,6 +72,10 @@ public class BackgroundTemplates extends Templates<Background>{
                 case IDEAL:ideals=list;break;
                 case TRAIT:traits=list;break;
             }
+        }
+        
+        public void addDescription(String desc){
+            this.description = desc;
         }
     }
 }

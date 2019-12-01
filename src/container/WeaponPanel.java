@@ -10,6 +10,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.text.Document;
 import util.Bundle;
+import util.DataIntegrity;
 import util.SwingHelper;
 import util.KeyReader;
 
@@ -42,13 +43,13 @@ public class WeaponPanel extends javax.swing.JPanel implements CardDataHolder{
     private void initComponents() {
 
         lbl_weapon_name = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        scroll_name = new javax.swing.JScrollPane();
         txt_weapon_name = new javax.swing.JTextArea();
         lbl_damage_roll = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
+        scroll_roll = new javax.swing.JScrollPane();
         txt_weapon_damage_roll = new javax.swing.JTextArea();
         lbl_damage_type = new javax.swing.JLabel();
-        jScrollPane7 = new javax.swing.JScrollPane();
+        scroll_type = new javax.swing.JScrollPane();
         txt_weapon_damage_type = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         lbl_damage_type1 = new javax.swing.JLabel();
@@ -77,8 +78,8 @@ public class WeaponPanel extends javax.swing.JPanel implements CardDataHolder{
         lbl_weapon_name.setText("Weapon Name");
         add(lbl_weapon_name);
 
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        scroll_name.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scroll_name.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         txt_weapon_name.setColumns(20);
         txt_weapon_name.setLineWrap(true);
@@ -88,35 +89,35 @@ public class WeaponPanel extends javax.swing.JPanel implements CardDataHolder{
                 txt_weapon_nameKeyTyped(evt);
             }
         });
-        jScrollPane1.setViewportView(txt_weapon_name);
+        scroll_name.setViewportView(txt_weapon_name);
 
-        add(jScrollPane1);
+        add(scroll_name);
 
         lbl_damage_roll.setText("Damage Roll");
         add(lbl_damage_roll);
 
-        jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane5.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        scroll_roll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scroll_roll.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         txt_weapon_damage_roll.setColumns(20);
         txt_weapon_damage_roll.setLineWrap(true);
         txt_weapon_damage_roll.setRows(5);
-        jScrollPane5.setViewportView(txt_weapon_damage_roll);
+        scroll_roll.setViewportView(txt_weapon_damage_roll);
 
-        add(jScrollPane5);
+        add(scroll_roll);
 
         lbl_damage_type.setText("Damage Type");
         add(lbl_damage_type);
 
-        jScrollPane7.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane7.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        scroll_type.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scroll_type.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         txt_weapon_damage_type.setColumns(20);
         txt_weapon_damage_type.setLineWrap(true);
         txt_weapon_damage_type.setRows(5);
-        jScrollPane7.setViewportView(txt_weapon_damage_type);
+        scroll_type.setViewportView(txt_weapon_damage_type);
 
-        add(jScrollPane7);
+        add(scroll_type);
 
         jPanel2.setLayout(new java.awt.BorderLayout());
 
@@ -212,9 +213,6 @@ public class WeaponPanel extends javax.swing.JPanel implements CardDataHolder{
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JLabel lbl_attk_bonus_total;
     private javax.swing.JLabel lbl_attk_str_bonus;
     private javax.swing.JLabel lbl_damage_roll;
@@ -224,6 +222,9 @@ public class WeaponPanel extends javax.swing.JPanel implements CardDataHolder{
     private javax.swing.JLabel lbl_dmg_bonus_total;
     private javax.swing.JLabel lbl_dmg_str_bonus;
     private javax.swing.JLabel lbl_weapon_name;
+    private javax.swing.JScrollPane scroll_name;
+    private javax.swing.JScrollPane scroll_roll;
+    private javax.swing.JScrollPane scroll_type;
     public javax.swing.JTextField txt_weapon_attk_bonus;
     public javax.swing.JTextField txt_weapon_damage_bonus;
     public javax.swing.JTextArea txt_weapon_damage_roll;
@@ -247,17 +248,32 @@ public class WeaponPanel extends javax.swing.JPanel implements CardDataHolder{
     @Override
     public void putDocument(String key, String value) {
         switch(KeyReader.getLowKey(key)){
-            case KEY.L_NAME:txt_weapon_name.setText(value);break;
-            case KEY.L_DESCRIPTION:txt_weapon_damage_type.setText(value);break;
-            case KEY.L_DMG_BONUS:txt_weapon_damage_bonus.setText(value);break;
-            case KEY.L_DMG_ROLL:txt_weapon_damage_roll.setText(value);break;
-            case KEY.L_ATTK_BONUS:txt_weapon_attk_bonus.setText(value);break;
+            case KEY.L_NAME:
+                txt_weapon_name.setText(value);
+                SwingHelper.setScrollPositionToTop(scroll_name);
+                break;
+            case KEY.L_DESCRIPTION:
+                txt_weapon_damage_type.setText(value);
+                SwingHelper.setScrollPositionToTop(scroll_type);
+                break;
+            case KEY.L_DMG_BONUS:
+                txt_weapon_damage_bonus.setText(value);
+                break;
+            case KEY.L_DMG_ROLL:
+                txt_weapon_damage_roll.setText(value);
+                SwingHelper.setScrollPositionToTop(scroll_roll);
+                break;
+            case KEY.L_ATTK_BONUS:
+                txt_weapon_attk_bonus.setText(value);
+                break;
         }
     }
 
     void updateValues(int strMod, int prof) {
-        int extraDmg = Integer.parseInt(txt_weapon_damage_bonus.getText());
-        int extraAttk = Integer.parseInt(txt_weapon_attk_bonus.getText());
+        String dmg = txt_weapon_damage_bonus.getText();
+        String attk = txt_weapon_attk_bonus.getText();
+        int extraDmg = DataIntegrity.isNumeric(dmg)?Integer.parseInt(dmg):0;
+        int extraAttk = DataIntegrity.isNumeric(attk)?Integer.parseInt(attk):0;
         
         int totalDmg = strMod + extraDmg;
         int totalAttk = strMod + + prof + extraAttk;

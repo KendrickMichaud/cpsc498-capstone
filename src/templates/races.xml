@@ -33,9 +33,27 @@ and open the template in the editor.
                 <title>Skill Versatility</title>
                 <body>You gain proficiency in two skills of your choice</body>
             </feature>
+            <feature>
+                <title>Ability Score Increase</title>
+                <body>Your Charisma score increases by 2, and two other ability scores of your choice increase by 1.</body>
+            </feature>
         </features>
-        <flavorText>Half-elves have no lands of their own, though they are welcome in human cities and somewhat less welcome in elven forests. In large cities in regions where elves and humans interact often, half-elves are sometimes numerous enough to form small communities of their own. They enjoy the company of other half-elves, the only people who truly understand what it is to live between these two worlds.
-
-In most parts of the world, though, half-elves are uncommon enough that one might live for years without meeting another. Some half-elves prefer to avoid company altogether, wandering the wilds as trappers, foresters, hunters, or adventurers and visiting civilization only rarely. Like elves, they are driven by the wanderlust that comes of their longevity. Others, in contrast, throw themselves into the thick of society, putting their charisma and social skills to great use in diplomatic roles or as swindlers.</flavorText>
+        <flavorText>Half-elves have no lands of their own, though they are welcome in human cities and somewhat less welcome in elven forests. In large cities in regions where elves and humans interact often, half-elves are sometimes numerous enough to form small communities of their own. They enjoy the company of other half-elves, the only people who truly understand what it is to live between these two worlds. In most parts of the world, though, half-elves are uncommon enough that one might live for years without meeting another. Some half-elves prefer to avoid company altogether, wandering the wilds as trappers, foresters, hunters, or adventurers and visiting civilization only rarely. Like elves, they are driven by the wanderlust that comes of their longevity. Others, in contrast, throw themselves into the thick of society, putting their charisma and social skills to great use in diplomatic roles or as swindlers.</flavorText>
+        <powerRating>
+            <magic>
+                <defense>2</defense>
+                <offense>1</offense>
+                <utility>1</utility>
+            </magic>
+            <martial>
+                <defense>1</defense>
+                <offense>1</offense>
+                <utility>1</utility>
+            </martial>
+            <position>
+                <ranged>0</ranged>
+                <melee>0</melee>
+            </position>
+        </powerRating>   
     </race>
 </races>

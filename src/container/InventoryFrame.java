@@ -5,13 +5,10 @@
  */
 package container;
 
-import constants.GUI;
-import java.awt.Color;
-import java.awt.event.KeyEvent;
+import constants.ICON_STATUS;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import data_structure.Inventory;
 import data_structure.Item;
@@ -37,13 +34,13 @@ public class InventoryFrame extends javax.swing.JFrame {
     private void setEncumbered(encumbered encumbered) {
         switch(encumbered){
             case ENCUMBERED:
-                 icon_status.setIcon(new ImageIcon(getClass().getResource(GUI.IMG_ICON_STATUS_RED)));
+                 icon_status.setIcon(new ImageIcon(getClass().getResource(ICON_STATUS.IMG_ICON_STATUS_RED)));
                  break;
             case SEMI_ENCUMBERED:
-                icon_status.setIcon(new ImageIcon(getClass().getResource(GUI.IMG_ICON_STATUS_YELLOW)));
+                icon_status.setIcon(new ImageIcon(getClass().getResource(ICON_STATUS.IMG_ICON_STATUS_YELLOW)));
                 break;
             case STABLE:
-                icon_status.setIcon(new ImageIcon(getClass().getResource(GUI.IMG_ICON_STATUS_GREEN)));
+                icon_status.setIcon(new ImageIcon(getClass().getResource(ICON_STATUS.IMG_ICON_STATUS_GREEN)));
                 break;
         }
     }
@@ -247,41 +244,6 @@ public class InventoryFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Please select a row to delete");
         }
     }//GEN-LAST:event_btn_remove_selected_rowActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InventoryFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InventoryFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InventoryFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InventoryFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new InventoryFrame().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_add_row;

@@ -6,7 +6,8 @@
 package container;
 
 import app.AppManager;
-import constants.CARD;
+import app.Support;
+import constants.CARD_NAME;
 import constants.KEY;
 import java.awt.Image;
 import java.awt.event.WindowEvent;
@@ -26,6 +27,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.BadLocationException;
@@ -263,7 +265,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         pan_features = new javax.swing.JPanel();
         lbl_panFeatures = new javax.swing.JLabel();
         bdy_features = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        scroll_feat = new javax.swing.JScrollPane();
         txt_area_feats = new javax.swing.JTextArea();
         menu_bar = new javax.swing.JMenuBar();
         menu_file = new javax.swing.JMenu();
@@ -276,7 +278,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         item_options = new javax.swing.JMenuItem();
         menu_help = new javax.swing.JMenu();
         item_about = new javax.swing.JMenuItem();
-        item_guide = new javax.swing.JMenuItem();
+        item_support = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("5EMaker");
@@ -904,9 +906,9 @@ public class CharacterFrame extends javax.swing.JFrame {
         txt_area_feats.setColumns(20);
         txt_area_feats.setLineWrap(true);
         txt_area_feats.setRows(5);
-        jScrollPane3.setViewportView(txt_area_feats);
+        scroll_feat.setViewportView(txt_area_feats);
 
-        bdy_features.add(jScrollPane3, java.awt.BorderLayout.CENTER);
+        bdy_features.add(scroll_feat, java.awt.BorderLayout.CENTER);
 
         pan_features.add(bdy_features, java.awt.BorderLayout.CENTER);
 
@@ -1000,6 +1002,7 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         menu_tools.setText("Tools");
 
+        item_options.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
         item_options.setText("Builder");
         item_options.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1016,14 +1019,14 @@ public class CharacterFrame extends javax.swing.JFrame {
         item_about.setText("About...");
         menu_help.add(item_about);
 
-        item_guide.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
-        item_guide.setText("Guide...");
-        item_guide.addActionListener(new java.awt.event.ActionListener() {
+        item_support.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
+        item_support.setText("Support");
+        item_support.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                item_guideActionPerformed(evt);
+                item_supportActionPerformed(evt);
             }
         });
-        menu_help.add(item_guide);
+        menu_help.add(item_support);
 
         menu_bar.add(menu_help);
 
@@ -1033,12 +1036,14 @@ public class CharacterFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void item_optionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item_optionsActionPerformed
-        // TODO add your handling code here:
+        if(manager.authorizedToExit()){
+            manager.startUpBuilderFrame();
+        }
     }//GEN-LAST:event_item_optionsActionPerformed
 
-    private void item_guideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item_guideActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_item_guideActionPerformed
+    private void item_supportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item_supportActionPerformed
+        JOptionPane.showMessageDialog(pan_combat, new JLabel(Support.getContactInformation()));
+    }//GEN-LAST:event_item_supportActionPerformed
 
     private void item_newActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item_newActionPerformed
         if(manager.authorizedToExit()){
@@ -1193,11 +1198,11 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JButton defense_switch_right;
     private javax.swing.JPanel defense_title;
     private javax.swing.JMenuItem item_about;
-    private javax.swing.JMenuItem item_guide;
     private javax.swing.JMenuItem item_new;
     private javax.swing.JMenuItem item_open;
     private javax.swing.JMenuItem item_options;
     private javax.swing.JMenuItem item_save;
+    private javax.swing.JMenuItem item_support;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel13;
@@ -1214,7 +1219,6 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lbl_alignment;
     private javax.swing.JLabel lbl_charHeight;
     private javax.swing.JLabel lbl_charInfo;
@@ -1306,6 +1310,7 @@ public class CharacterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel prof_str_save;
     private javax.swing.JLabel prof_wis_save;
     private javax.swing.JScrollPane scrollPane;
+    private javax.swing.JScrollPane scroll_feat;
     private javax.swing.JTextField txt_alignment;
     private javax.swing.JTextArea txt_area_feats;
     private javax.swing.JTextField txt_charHeight;
@@ -1366,8 +1371,8 @@ public class CharacterFrame extends javax.swing.JFrame {
         card_defense = new DefensePanel();
         card_armor = new ArmorPanel();
 
-        defense.add(card_defense, CARD.DEFENSE);
-        defense.add(card_armor, CARD.ARMOR);
+        defense.add(card_defense, CARD_NAME.DEFENSE);
+        defense.add(card_armor, CARD_NAME.ARMOR);
         defense.display();
     }
     
@@ -1375,8 +1380,8 @@ public class CharacterFrame extends javax.swing.JFrame {
         skillsProfs = new Deck(deck_skillsProfs);
         card_skills = new SkillsPanel();
         card_proficiencies = new ProfsPanel();
-        skillsProfs.add(card_skills, CARD.SKILLS);
-        skillsProfs.add(card_proficiencies, CARD.PROFICIENCIES);
+        skillsProfs.add(card_skills, CARD_NAME.SKILLS);
+        skillsProfs.add(card_proficiencies, CARD_NAME.PROFICIENCIES);
         skillsProfs.display();
     }
     
@@ -1475,7 +1480,7 @@ public class CharacterFrame extends javax.swing.JFrame {
                 case KEY.K_WISDOM:field=txt_wisdom;break;
                 case KEY.K_CHARISMA:field=txt_charisma;break;
             }
-            if(field != null){
+            if(field != null && DataIntegrity.isNumeric(field.getText())){
                 return Ability.getModifier(Integer.parseInt(field.getText()));
             }
         }
@@ -1540,7 +1545,9 @@ public class CharacterFrame extends javax.swing.JFrame {
     public void updateUtilityPanel() {
         int wis_mod = getMOD(KEY.K_WISDOM);
         int dex_mod = getMOD(KEY.K_DEXTERITY);
-        int init_extra = Integer.parseInt(txt_init_bonus.getText());
+        String init = txt_init_bonus.getText();
+        
+        int init_extra = DataIntegrity.isNumeric(init)?Integer.parseInt(init):0;
         
         int init_total = init_extra + dex_mod;
         int passive_perception = 10 + wis_mod;  //10 is base needs refactor
@@ -1548,8 +1555,10 @@ public class CharacterFrame extends javax.swing.JFrame {
         lbl_init_dex_bonus.setText(Integer.toString(dex_mod));
         lbl_init_total.setText(Integer.toString(init_total));
         lbl_passive_perception.setText(Integer.toString(passive_perception));
+        String speed = txt_speed_bonus.getText();
         
-        int speed_bonus = Integer.parseInt(txt_speed_bonus.getText());
+        
+        int speed_bonus = DataIntegrity.isNumeric(speed)?Integer.parseInt(speed):0;
         int speed_total = 30 + speed_bonus;
         lbl_speed_total.setText(Integer.toString(speed_total));
     }
@@ -1572,9 +1581,9 @@ public class CharacterFrame extends javax.swing.JFrame {
 
     private void initCardsForWeapons() {
         offense = new WeaponDeck(deck_weapons);
-        offense.add(new WeaponPanel(), CARD.WEAPON_1);
-        offense.add(new WeaponPanel(), CARD.WEAPON_2);
-        offense.add(new WeaponPanel(), CARD.WEAPON_3);
+        offense.add(new WeaponPanel(), CARD_NAME.WEAPON_1);
+        offense.add(new WeaponPanel(), CARD_NAME.WEAPON_2);
+        offense.add(new WeaponPanel(), CARD_NAME.WEAPON_3);
         offense.display();
     }
 
@@ -1617,6 +1626,7 @@ public class CharacterFrame extends javax.swing.JFrame {
             skillsProfs.update(character_data);
             
         }
+        SwingHelper.setScrollPositionToTop(scroll_feat);
         manager.updateValues();
     }
 

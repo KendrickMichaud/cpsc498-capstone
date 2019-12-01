@@ -9,6 +9,7 @@ and open the template in the editor.
 <backgrounds>
     <background>
         <name>Acolyte</name>
+        <description>You have spent your life in the service of a temple to a specific god or pantheon of gods. You act as an intermediary between the realm of the holy and the mortal world, performing sacred rites and offering sacrifices in order to conduct worshipers into the presence of the divine. You are not necessarily a cleric—performing sacred rites is not the same thing as channeling divine power. Choose a god, a pantheon of gods, or some other quasi-divine being, and work with your DM to detail the nature of your religious service. The Gods of the Multiverse section contains a sample pantheon, from the Forgotten Realms setting. Were you a lesser functionary in a temple, raised from childhood to assist the priests in the sacred rites? Or were you a high priest who suddenly experienced a call to serve your god in a different way? Perhaps you were the leader of a small cult outside of any established temple structure, or even an occult group that served a fiendish master that you now deny. </description>
         <trait>
             <option num="1">I idolize a particular hero of my faith, and constantly refer to that person’s deeds and example.</option>
             <option num="2">I can find Common ground between the fiercest enemies, empathizing with them and always working toward peace.</option>
@@ -56,53 +57,217 @@ and open the template in the editor.
             </feature>
         </features>
     </background>
-    
+   
     <background>
-        <name>Also an Acolyte</name>
+        <name>Are we the Baddies</name>
+         <description>Your people are not known for their heroism. In fact quite the opposite. Your kind are the bad guys, ambushing adventurers on the roads, attacking unprotected villages and often finding themselves recruited into the army of a greater villain. But not you. For some reason, whether it be a run in with a kind adventurer that showed you mercy, the intervention of a deity or simply a yearning to be more than the world sees you as, you’ve chosen to turn over all the leaves and have set out to become a hero.</description>
         <trait>
-            <option num="1">I idolize a particular hero of my faith, and constantly refer to that person’s deeds and example.</option>
-            <option num="2">I can find Common ground between the fiercest enemies, empathizing with them and always working toward peace.</option>
-            <option num="3">I see omens in every event and action. The gods try to speak to us, we just need to listen</option>
-            <option num="4">Nothing can shake my optimistic attitude.</option>
-            <option num="5">I quote (or misquote) sacred texts and proverbs in almost every situation.</option>
-            <option num="6">I am tolerant (or intolerant) of other faiths and respect (or condemn) the worship of other gods.</option>
-            <option num="7">I’ve enjoyed fine food, drink, and high society among my temple’s elite. Rough living grates on me.</option>
-            <option num="8">I’ve spent so long in the Temple that I have little practical experience dealing with people in the outside world.</option>
+            <option num="1">I always have a plan for when things go wrong, or at least I think I do.</option>
+            <option num="2">I am incredibly slow to trust. Those who seem the fairest often have the most to hide.</option>
+            <option num="3">I'm oblivious to etiquette and social expectations.</option>
+            <option num="4">Thinking is for other people. I prefer action.</option>
+            <option num="5">I bluntly say what other people are hinting or hiding.</option>
+            <option num="6">I revel in my strength and enjoy breaking things.</option>
+            <option num="7">I pocket anything I see that might have some value.</option>
+            <option num="8">I lie about almost everything, even when there's no good reason to.</option>
         </trait>
         <ideal>
-            <option name="1">Tradition. The ancient traditions of worship and sacrifice must be preserved and upheld. (Lawful)</option>
-            <option name="2">Charity. I always try to help those in need, no matter what the personal cost. (Good)</option>
-            <option name="3">Change. We must help bring about the changes the gods are constantly working in the world. (Chaotic)</option>
-            <option name="4">Power. I hope to one day rise to the top of my faith’s religious hierarchy. (Lawful)</option>
-            <option name="5">Faith. I trust that my deity will guide my Actions. I have faith that if I work hard, things will go well. (Lawful)</option>
-            <option name="6">Aspiration. I seek to prove myself worthy of my god’s favor by matching my Actions against his or her teachings. (Any)</option>
+            <option name="1">Redemption. Just because the world thinks your evil, doesn't mean you are. (Good)</option>
+            <option name="2">Glory. I must earn glory in battle, for myself and my clan. (Any)</option>
+            <option name="3">Power. If I can attain more power, I'll never be subservient again. (Evil)</option>
+            <option name="4">People. You scratch my back, I'll scratch yours. (Neutral)</option>
+            <option name="5">Live and Let Live. Meddling in the affairs of others only causes trouble. (Neutral)</option>
+            <option name="6">Community. We have to take care of each other, because no one else is going to. (Lawful)</option>
         </ideal>
         <bond>
-            <option name="1">I wouldn't die to recover an ancient relic of my faith that was lost long ago.</option>
-            <option name="2">I will someday get revenge on the corrupt Temple hierarchy who branded me a heretic.</option>
-            <option name="3">I owe my life to the Priest who took me in when my Parents died.</option>
-            <option name="4">Everything I do is for the Common people.</option>
-            <option name="5">I will do anything to protect the Temple where I served.</option>
-            <option name="6">I seek to preserve a sacred text that my enemies consider heretical and seek to destroy.</option>
+            <option name="1">My family, clan, or tribe is the most important thing in my life, even when they are far from me.</option>
+            <option name="2">I owe a debt I can never repay to the person who took pity on me.</option>
+            <option name="3">I am the last of my tribe, and it is up to me to ensure their names enter legend.</option>
+            <option name="4">I escaped my old life by robbing an important person, they're probably not too happy about it.</option>
+            <option name="5">Something important was taken from me, and I aim to steal it back.</option>
+            <option name="6">My honor is my life.</option>
         </bond>
         <flaw>
-            <option name="1">I judge others harshly, and myself even more severely.</option>
-            <option name="2">I put too much trust in those who wield power within my temple’s hierarchy.</option>
-            <option name="3">My piety sometimes leads me to blindly trust those that profess faith in my god.</option>
-            <option name="4">I am inflexible in my thinking.</option>
-            <option name="5">I am suspicious of strangers and expect the worst of them.</option>
-            <option name="6">Once I pick a goal, I become obsessed with it to the detriment of everything else in my life.</option>
+            <option name="1">I am suspicious of strangers and suspect the worst of them.</option>
+            <option name="2">I can't resist swindling people who are more powerful than me.</option>
+            <option name="3">By the time the going gets tough I'm already gone.</option>
+            <option name="4">I sometimes slip back into my people's more feral habits.</option>
+            <option name="5">It's not stealing if I need it more than them.</option>
+            <option name="6">If there's a plan, I'll forget it. If I don't forget it, I'll ignore it.</option>
         </flaw>
         <proficiencies>
             <skills>
-                <skill>InsightProf</skill>
-                <skill>ReligionProf</skill>
+                <skill>Intimidation</skill>
+                <skill>Survival</skill>
             </skills>
         </proficiencies>
         <features>
             <feature>
-                <title>Shelter of the Faithful</title>
-                <body>As an acolyte, you command the respect of those who share your faith, and you can perform the religious ceremonies of your deity. You and your adventuring companions can expect to receive free healing and care at a temple, shrine, or other established presence of your faith, though you must provide any material components needed for spells. Those who share your religion will support you (but only you) at a modest lifestyle. You might also have ties to a specific temple dedicated to your chosen deity or pantheon, and you have a residence there. This could be the temple where you used to serve, if you remain on good terms with it, or a temple where you have found a new home. While near your temple, you can call upon the priests for assistance, provided the assistance you ask for is not hazardous and you remain in good standing with your temple.</body>
+                <title>Harmful Stereotypes</title>
+                <body>You may not be evil, but they don’t know that. Most common folk aren’t used to seeing your kind strolling down the street or browsing in the local store and would be inclined to keep their distance. Flashing your teeth or claws, or making some other intimidating gesture, would likely scare them off.</body>
+            </feature>
+            <feature>
+                <title>Fiendish Linguist</title>
+                <body>You have a knack at learning the languages of the enemies of good. Add Gnoll, Draconic, Giant, Goblin, Infernal, Orcish, and Undercommon to your list of languages known</body>
+            </feature>
+        </features>
+    </background>
+    <!-- ///////////////////////////////////////////////////// -->
+    <background>
+        <name>Bounty Hunter</name>
+         <description>However fine and noble the world might have seemed at first glance, once you dug a little deeper beneath the facade, a deeper truth revealed itself to you. Conflict and strife are the only real constants in "civilized" lands, and for you, therein lay the opportunity for profit. As a bounty hunter you had plied your trade well, offering dubious (if effective) services and skills to all manner of client for myriad reasons- superficial or otherwise. Regardless of the cause, the justification, or the moral impunity associated with locating your mark. Every job finished brought the clink of coin between your purse strings at the expense of another poor soul fated to endure consequences dire, and often foul.Though the time spent in this line of work has left you grim and jilted, your reputation for ruthlessness and cunning precedes you. More often than not, you found yourself sought after and petitioned to ferret a mark, never needing to eke out the work on your own. From the lowly debtor owing the wrong merchant guild, to the misguided runaway offspring of a minor noble, or the thieving murderer eluding the city guard, none could evade your dogged pursuit, and many more dared not try once your involvement was learned.</description>
+        <trait>
+            <option num="1">I tend to approach conversation with people I've just met as though it were an interrogation.</option>
+            <option num="2">I project arrogance and conceit at times, especially after turning in a troublesome target.</option>
+            <option num="3">I'll accept the help of others with a bounty, so long as they can prove their skill to me first.</option>
+            <option num="4">It needn't be hunting down a mark - I'll chop firewood for an old woman if there's pay involved.</option>
+            <option num="5">I'm not prone to idle chatter, and prefer keeping to myself unless the topic's business.</option>
+            <option num="6">I've a great deal of practical experience from hunting bounties, and can relate to almost any situation.</option>
+            <option num="7">I'm rather adept at games of skill like darts, or five-finger fillet.</option>
+            <option num="8">I frequently move from town to town, eager to pursue new marks and seek new contacts.</option>
+        </trait>
+        <ideal>
+            <option name="1">Justice These people have violated the law once. I won't let it happen twice. (Lawful)</option>
+            <option name="2">Wealth The only path to true freedom is having gold enough to do as you will. (Chaotic)</option>
+            <option name="3">Brutality Gold pales to the brilliance of the life draining from their eyes. (Evil)</option>
+            <option name="4">Morality It's not enough to hunt them down. They have to understand what they've done is reprehensible. (Good)</option>
+            <option name="5">Ambiguity This job's just a job, like any other. Nothing personal against my targets. (Neutral)</option>
+            <option name="6">Endurance In no other line of work could anyone expect to test their limits so completely. (Any)</option>
+        </ideal>
+        <bond>
+            <option name="1">Once a solider, my comrade's grave betrayal forced me from my home, and into this life.</option>
+            <option name="2">Though my friends are few, I owe them my life many times over, and would happily die for them.</option>
+            <option name="3">Horrendous tales and vile rumor destroyed my family's good name, and this path is the only recourse to find the truth.</option>
+            <option name="4">The contract turned sour, and now I find myself yoked to dangerously twisted employers.</option>
+            <option name="5">All my deeds would surely consign me to prison - only by servicing officials do I stay free.</option>
+            <option name="6">Mindless thuggery stole the life of one I cherished, and the price they must pay is one I will collect.</option>
+        </bond>
+        <flaw>
+            <option name="1">Sleep, when it comes, is no sleep at all. The time spent tracking marks has left me skittish and paranoid.</option>
+            <option name="2">Not only am I good at what I do, but I love what I do - and I hate myself for it.</option>
+            <option name="3">I refuse to believe anyone can be trusted, and will root through their life until I'm satisfied they can be.</option>
+            <option name="4">At a younger age my actions earned me the brand of a criminal, those mistakes haunting me and my fellows even today.</option>
+            <option name="5">It is only for my own selfish need to be the best at what I do that I abandon my team to bring the bounty in first.</option>
+            <option name="6">Contract or not, I never bring murder bounties back alive. They showed no mercy, and so neither will I.</option>
+        </flaw>
+        <proficiencies>
+            <skills>
+                <skill>Deception</skill>
+                <skill>Intimidation</skill>
+            </skills>
+        </proficiencies>
+        <features>
+            <feature>
+                <title>Names, Faces, and Places</title>
+                <body>Though many claim the role of a bounty hunter, few actually excel at the profession save those with a keen eye for observation. Among the adept are those who are truly gifted, having an almost preternatural talent for anticipating the behavior of their targeted mark. Being among their ranks, you have an uncanny ability to recall specific details of conversation and names you overhear or participate in as it relates to your bounty, or otherwise see written, even if only for a moment or two. You can also sketch out faces and general locations you've seen with accuracy, possessing exceptional recollection. In addition, you often effortlessly identify clues when tracking your bounty's movements and disposition that would be otherwise lost on lesser pursuers.</body>
+            </feature>
+            <feature>
+                <title>Tools</title>
+                <body>You have access to Thieves Tools</body>
+            </feature>
+        </features>
+    </background>
+    <background>
+        <name>Farmer</name>
+         <description>You were what most common folk are–a farmer. You worked on a lord's estate, their land, or you worked for a company and you produced resources from the land in return for food, shelter, clothing, protection, and other benefits. Farmers focus on raising living things and harvesting various useful goods–mostly food–from the land. Farmers make up the vast majority of the peasantry, alongside other raw resource producers, such as miners and fishermen. Farmers are a hearty, enduring folk, they work long hours under the sun often doing dirty and exhausting or even disgusting work. How did you become a farmer, and for how long were you one? What did you do on your farm? Were you the landlord of the farm, or were you just a farmhand? And what caused you to leave that life behind? Was your home destroyed by war? Were you cast out for some crime? Did you flee taxes you could not pay? Were you called to join the Lord's army? Was your home stolen by an unscrupulous rival? How did you learn your current profession?</description>
+         <trait>
+            <option num="1">I'm always early to bed and early to rise. </option>
+            <option num="2">I keep my gear and supplies in careful check. </option>
+            <option num="3">I speak with a distinctive drawl or accent common to my class. </option>
+            <option num="4">I always save up as much as I can, spending and consuming only what I must. </option>
+            <option num="5">When work needs doing, I do the work. </option>
+            <option num="6">I keep constant track of the sun, moon, stars, seasons, and weather. </option>
+            <option num="7">I like to sleep in the sun when I can. </option>
+            <option num="8">I'm always chewing on a sprig of grass, a toothpick, tobacco, seeds, or preserved meat. </option>
+        </trait>
+        <ideal>
+            <option name="1">Fill the Need. There are a lot of hungry mouths in the world, with enough hands the world can feed them all. (Good) </option>
+            <option name="2"> It's a Living. I do what I'm good at because what I'm good at is good for me. (Neutral) </option>
+            <option name="3">Brutal Practicality. Bury a fish or bury a man, just get the job done. (Evil) </option>
+            <option name="4">Hard Work. A labor of love is a purpose and meaning. (Lawful) </option>
+            <option name="5">A Simple Way of Life. If it ain't broke, don't fix it! (Neutral) </option>
+            <option name="6">Amusement. Playing a hand in the growth and development of things delights me. (Chaotic) </option>
+        </ideal>
+        <bond>
+            <option name="1"> I want to find that special someone and raise a home full of children. </option>
+            <option name="2">I'll never forget the family farm I grew up on. </option>
+            <option name="3">Some day, I'll be the lord of my own land. </option>
+            <option name="4"> I want to grow or raise the biggest or best example of my profession to prove I am the best! </option>
+            <option name="5">My son was sent to war and never returned. I must find him! </option>
+            <option name="6">I am out to start a homestead of my own in an unexplored fringe territory. </option>
+        </bond>
+        <flaw>
+            <option name="1">I can be lazy and sleepy, sneaking off to take naps when work can wait. </option>
+            <option name="2">I am absurdly isolated, innocent, or pious. </option>
+            <option name="3">I believe in and obey my nation's nobility blindly. </option>
+            <option name="4">I abandoned my home to avoid taxation, conscription, or court and cannot return. </option>
+            <option name="5">I am not used to being wealthy and tend to overindulge. </option>
+            <option name="6">I show off to attractive people too much. </option>
+        </flaw>
+        <proficiencies>
+            <skills>
+                <skill>Animal Handling</skill>
+                <skill>Nature</skill>
+            </skills>
+        </proficiencies>
+        <features>
+            <feature>
+                <title>Of the Land</title>
+                <body>You lack the formal education of the higher classes, but for how little you may know there is a great deal that you understand. You have a practical, working knowledge of astrology and meteorology, and can easily track the time and date as well as predict the weather within a few hours, or days if you're lucky. You understand the "secrets of life"; the needs of life (water, light, air, salt, etc.), the patterns of physical inheritance, and the connections between different plants and animals.At the DM's discretion, this can be represented by allowing a farmer to cast commune with nature once per long rest, except that the range is limited to environments common to you within 10 feet and you can only choose one of the first two choices.</body>
+            </feature>
+            <feature>
+                <title>Tools</title>
+                <body>You get Land Vehicles and Farm Implements as your tools</body>
+            </feature>
+        </features>
+    </background>
+<background>
+        <name>Feytouched</name>
+        <description>You were kidnapped as a young child by the Fey and spirited away to the Feywild. Within the confines of this mysterious magical realm, those taken in such a manner usually do not survive long especially when Hags or other dark Fey creatures are involved. However, some do manage to avoid such a fate and are raised as slaves, servants, playthings, or companions, etc. You were more fortunate than most of your ilk surviving long enough to demonstrate a natural connection to the Feywild and reveal yourself to be Feytouched, i.e. a kindred spirit. Earning your freedom you were then permitted to come and go from the Feywild as you please.</description>
+        <trait>
+            <option num="1"> I’m oblivious to etiquette and social expectations. </option>
+            <option num="2">I eat like a pig and have bad manners. </option>
+            <option num="3">I hide scraps of food and trinkets away in my pockets. </option>
+            <option num="4">I feel tremendous empathy for all who suffer. </option>
+            <option num="5">I live for the thrill of discovery. </option>
+            <option num="6">I tell anyone and everyone about the things that torment me. </option>
+            <option num="7">I refuse to sit still, I will never reveal why. </option>
+            <option num="8">I am always the outsider looking in. </option>
+        </trait>
+        <ideal>
+            <option name="1">Greater Good. My gifts are meant to be shared with all, not used for my own benefit. </option>
+            <option name="2">I try to help those in need, no matter what the personal cost. </option>
+            <option name="3">Inquisitive. Everything is new, but I have a thirst to learn. </option>
+            <option name="4">I’ll stop the spirits that haunt me or die trying. </option>
+            <option name="5">The voices speak to me and usually they forget to tell me about the rules. </option>
+            <option name="6">I strive to find truth, no matter how crazy it seems. </option>
+             <option name="7">I seek to unlock the very secrets of reality. </option>
+              <option name="8">Beauty. We do our work to make the world a more beautiful place. </option>
+        </ideal>
+        <bond>
+            <option name="1">I would sacrifice my life and my soul to protect the innocent. </option>
+            <option name="2">No one else should have to endure the hardships I’ve been through. </option>
+            <option name="3">There’s evil in me, I can feel it. It must never be set free. </option>
+            <option name="4">It is difficult to get anyone to take me seriously. </option>
+            <option name="5">I always knew I was meant for something greater. This is it! </option>
+            <option name="6">I protect those who cannot protect themselves. </option>
+            <option name="7">I suffer awful visions of a coming disaster and will do anything to prevent it. </option>
+            <option name="8">Those who fight beside me are those worth dying for. </option>
+        </bond>
+        <flaw>
+            <option name="1">I talk to spirits that no one else can see. </option>
+            <option name="2">I say whatever comes to my mind. </option>
+            <option name="3">I have certain rituals that I must follow every day. I can never break them. </option>
+            <option name="4">I have an addiction, or several. </option>
+            <option name="5">I often forget what happened in the past, and am always mixing my history up. </option>
+            <option name="6">When nervous tends to repeat the same phrases over and over again. </option>
+            <option name="7">I have no concept of the value of money and place little importance on it. </option>
+            <option name="8">I reject conventional society norms and advocate simple, idealistic values others consider odd. </option>
+        </flaw>
+        <features>
+            <feature>
+                <title>Extra Skills</title>
+                <body>Choose Two Skills - Nature, Animal Handling, Insight, Medicine, Perception, Deception, Performance, Persuasion.</body>
             </feature>
         </features>
     </background>

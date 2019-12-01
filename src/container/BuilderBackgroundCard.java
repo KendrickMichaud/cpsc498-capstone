@@ -31,6 +31,7 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
      */
     public BuilderBackgroundCard() {
         initComponents();
+        SwingHelper.wrapTextJComboBox(combo_backgrounds);
         SwingHelper.wrapTextJComboBox(combo_bond);
         SwingHelper.wrapTextJComboBox(combo_flaw);
         SwingHelper.wrapTextJComboBox(combo_ideal);
@@ -58,6 +59,8 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
         jLabel5 = new javax.swing.JLabel();
         combo_flaw = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
+        scroll_description = new javax.swing.JScrollPane();
+        txt_area_description = new javax.swing.JTextPane();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -69,7 +72,7 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
 
         jLabel2.setText("Select your Background");
         jPanel4.add(jLabel2);
-        jLabel2.setBounds(10, 10, 170, 14);
+        jLabel2.setBounds(10, 10, 170, 16);
 
         combo_backgrounds.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         combo_backgrounds.addItemListener(new java.awt.event.ItemListener() {
@@ -78,11 +81,11 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
             }
         });
         jPanel4.add(combo_backgrounds);
-        combo_backgrounds.setBounds(10, 30, 90, 20);
+        combo_backgrounds.setBounds(10, 30, 240, 25);
 
         jLabel3.setText("Personality Trait");
         jPanel4.add(jLabel3);
-        jLabel3.setBounds(10, 60, 370, 14);
+        jLabel3.setBounds(10, 60, 370, 16);
 
         combo_trait.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel4.add(combo_trait);
@@ -94,7 +97,7 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
 
         jLabel4.setText("Personality Bond");
         jPanel4.add(jLabel4);
-        jLabel4.setBounds(10, 130, 370, 14);
+        jLabel4.setBounds(10, 130, 370, 16);
 
         combo_ideal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel4.add(combo_ideal);
@@ -102,7 +105,7 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
 
         jLabel5.setText("Personality Ideal");
         jPanel4.add(jLabel5);
-        jLabel5.setBounds(10, 200, 370, 14);
+        jLabel5.setBounds(10, 200, 370, 16);
 
         combo_flaw.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel4.add(combo_flaw);
@@ -110,7 +113,13 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
 
         jLabel6.setText("Personality Flaw");
         jPanel4.add(jLabel6);
-        jLabel6.setBounds(10, 270, 370, 14);
+        jLabel6.setBounds(10, 270, 370, 16);
+
+        txt_area_description.setEditable(false);
+        scroll_description.setViewportView(txt_area_description);
+
+        jPanel4.add(scroll_description);
+        scroll_description.setBounds(10, 340, 240, 150);
 
         add(jPanel4, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -157,6 +166,8 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane scroll_description;
+    private javax.swing.JTextPane txt_area_description;
     // End of variables declaration//GEN-END:variables
 
     void storeInfo(Bundle character_info) {
@@ -240,10 +251,17 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
             combo_bond.setModel(bondsModel);
             combo_ideal.setModel(idealsModel);
             combo_flaw.setModel(flawsModel);
+            String desc = ba.getDescription();
+            if(desc != null){
+                txt_area_description.setText(desc);
+                SwingHelper.setScrollPositionToTop(scroll_description);
+            }
+            
+            
     }
 
     void randomize() {
-        ChoiceMaker.decideComboBox(combo_bond);
+        ChoiceMaker.decideComboBox(combo_backgrounds);
         if(getSelectedBackground() != null)
             updateComponents(getSelectedBackground());
         

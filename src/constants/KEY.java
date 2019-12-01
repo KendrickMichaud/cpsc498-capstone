@@ -234,7 +234,7 @@ public class KEY {
     public static final String K_PERFORMANCE_BONUS = H_SKILLS + L_PERFORMANCE_BONUS;
     public static final String K_PERSUASION_PROF = H_SKILLS + L_PERSUASION_PROF;
     public static final String K_PERSUASION_BONUS = H_SKILLS + L_PERSUASION_BONUS;
-    public static final String K_EQUIPMENT_PROFICIENCES = H_SKILLS + L_EQUIPMENT_PROFICIENCES;
+    public static final String K_EQUIPMENT_LANG_PROFICIENCIES = H_SKILLS + L_EQUIPMENT_PROFICIENCES;
     public static final String K_IMAGE = H_IMAGE + L_BASE;
 
     

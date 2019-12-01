@@ -15,6 +15,7 @@ import javax.swing.text.Document;
 import javax.swing.text.JTextComponent;
 import data_structure.Skills;
 import util.Bundle;
+import util.DataIntegrity;
 import util.SwingHelper;
 
 /**
@@ -590,8 +591,8 @@ public class SkillsPanel extends javax.swing.JPanel implements CardDataHolder{
                 case "✓/2":prof_bonus = prof_bonus/2;break;
                 default:prof_bonus=0;
             }
-            
-            int bon = Integer.parseInt(bonus.getText());
+            String str_bonus = bonus.getText();
+            int bon = DataIntegrity.isNumeric(str_bonus)?Integer.parseInt(str_bonus):0;
             int total = attr_mod + bon + prof_bonus;
             total_field.setText(Integer.toString(total));
         }

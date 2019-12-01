@@ -6,14 +6,6 @@
 package container;
 
 import constants.KEY;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.JPanel;
 import util.Bundle;
 import util.SwingHelper;
 

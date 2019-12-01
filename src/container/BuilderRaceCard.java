@@ -5,20 +5,18 @@
  */
 package container;
 
-import app.AppManager;
 import constants.KEY;
 import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.text.Document;
-import templates.ClassTemplates;
 import templates.Feature;
-import templates.PlayerClass;
 import templates.PlayerRace;
 import templates.RaceTemplates;
 import templates.Templates;
 import util.Bundle;
 import util.ChoiceMaker;
+import util.SwingHelper;
 
 /**
  *
@@ -49,7 +47,7 @@ public class BuilderRaceCard extends javax.swing.JPanel implements CardDataHolde
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         combo_races = new javax.swing.JComboBox<>();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        scroll_flavor = new javax.swing.JScrollPane();
         txt_pane_flavor = new javax.swing.JTextPane();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -77,33 +75,33 @@ public class BuilderRaceCard extends javax.swing.JPanel implements CardDataHolde
             }
         });
         jPanel3.add(combo_races);
-        combo_races.setBounds(20, 40, 250, 20);
+        combo_races.setBounds(20, 40, 250, 25);
 
         txt_pane_flavor.setEditable(false);
-        jScrollPane2.setViewportView(txt_pane_flavor);
+        scroll_flavor.setViewportView(txt_pane_flavor);
 
-        jPanel3.add(jScrollPane2);
-        jScrollPane2.setBounds(20, 72, 250, 380);
+        jPanel3.add(scroll_flavor);
+        scroll_flavor.setBounds(20, 72, 250, 380);
 
         jLabel2.setText("Select your Race here...");
         jPanel3.add(jLabel2);
-        jLabel2.setBounds(20, 10, 250, 14);
+        jLabel2.setBounds(20, 10, 250, 16);
 
         jLabel3.setText("Attributes:");
         jPanel3.add(jLabel3);
-        jLabel3.setBounds(20, 460, 60, 14);
+        jLabel3.setBounds(20, 460, 60, 16);
 
         jLabel4.setText("Languages: ");
         jPanel3.add(jLabel4);
-        jLabel4.setBounds(20, 480, 70, 14);
+        jLabel4.setBounds(20, 480, 70, 16);
 
         lbl_languages.setText("None");
         jPanel3.add(lbl_languages);
-        lbl_languages.setBounds(90, 480, 200, 14);
+        lbl_languages.setBounds(90, 480, 200, 16);
 
         lbl_attribute_bonuses.setText("None");
         jPanel3.add(lbl_attribute_bonuses);
-        lbl_attribute_bonuses.setBounds(90, 460, 200, 14);
+        lbl_attribute_bonuses.setBounds(90, 460, 200, 16);
 
         jPanel1.add(jPanel3, java.awt.BorderLayout.CENTER);
 
@@ -148,9 +146,9 @@ public class BuilderRaceCard extends javax.swing.JPanel implements CardDataHolde
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbl_attribute_bonuses;
     private javax.swing.JLabel lbl_languages;
+    private javax.swing.JScrollPane scroll_flavor;
     private javax.swing.JTextPane txt_pane_flavor;
     // End of variables declaration//GEN-END:variables
 
@@ -209,6 +207,30 @@ public class BuilderRaceCard extends javax.swing.JPanel implements CardDataHolde
         }
         
         
+        Bundle languages = ra.languages;
+        if(languages != null){
+            int lang_size = languages.getInteger(KEY.L_SIZE);
+            String langs = "";
+            for(int i = 0; i < lang_size-1; i++){
+                String lang = languages.getString(Integer.toString(i));
+                langs += lang + ", ";
+            }
+
+            langs += languages.getString(Integer.toString(lang_size-1));
+
+            if(languages.getInteger("wildcard") > 0){
+                langs += ", pick " + languages.getInteger("wildcard") + " extra";
+            }
+            String profs = character_info.getString(KEY.K_EQUIPMENT_LANG_PROFICIENCIES);
+            if(profs == null)
+                profs = "";
+            else
+                profs += "-----------------\n";
+            profs += "Languages\n" + langs + "\n";
+            character_info.putString(KEY.K_EQUIPMENT_LANG_PROFICIENCIES, profs);
+        }
+        
+        
         }
     }
 
@@ -221,6 +243,7 @@ public class BuilderRaceCard extends javax.swing.JPanel implements CardDataHolde
             String flavorText = ra.flavorText;
             if(flavorText != null){
                 txt_pane_flavor.setText(flavorText);
+                SwingHelper.setScrollPositionToTop(scroll_flavor);
             }
             //This is for attributes now
             Bundle attributes = ra.attributes;

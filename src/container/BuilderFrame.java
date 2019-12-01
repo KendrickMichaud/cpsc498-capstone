@@ -30,6 +30,7 @@ import util.PowerRating;
 import util.PowerRating.Playstyle;
 import util.PowerRating.PowerStat;
 import util.RacePower;
+import util.SwingHelper;
 
 /**
  *
@@ -162,6 +163,8 @@ public class BuilderFrame extends javax.swing.JFrame {
                 bar_style_ranged.setValue(ranged*10);
                 bar_style_melee.setValue(melee*10);
             }
+            txt_area_description.setText(powerRating.getDescription());
+            SwingHelper.setScrollPositionToTop(scroll_desc);
         }
     }
     
@@ -255,9 +258,7 @@ public class BuilderFrame extends javax.swing.JFrame {
             @Override
             public void windowClosing(WindowEvent e) {
                 AppManager manager = AppManager.getInstance();
-                if(manager.authorizedToExit()){
-                    manager.goToMainMenu();
-                }
+                manager.goToMainMenu();
             }
 
             @Override
@@ -339,8 +340,8 @@ public class BuilderFrame extends javax.swing.JFrame {
         pan_stats_flavor_text = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        scroll_desc = new javax.swing.JScrollPane();
+        txt_area_description = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Character Builder");
@@ -555,11 +556,11 @@ public class BuilderFrame extends javax.swing.JFrame {
         jPanel8.setPreferredSize(new java.awt.Dimension(250, 103));
         jPanel8.setLayout(new java.awt.BorderLayout());
 
-        jTextPane1.setEditable(false);
-        jTextPane1.setText("This character is a mysterious one... There must be more information about them.");
-        jScrollPane1.setViewportView(jTextPane1);
+        txt_area_description.setEditable(false);
+        txt_area_description.setText("This character is a mysterious one... There must be more information about them.");
+        scroll_desc.setViewportView(txt_area_description);
 
-        jPanel8.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        jPanel8.add(scroll_desc, java.awt.BorderLayout.CENTER);
 
         pan_stats_flavor_text.add(jPanel8, java.awt.BorderLayout.CENTER);
 
@@ -646,10 +647,10 @@ public class BuilderFrame extends javax.swing.JFrame {
     private javax.swing.JProgressBar bar_util_martial;
     private javax.swing.JButton btn_next_card;
     private javax.swing.JButton btn_previous_card;
+    private javax.swing.JButton btn_random;
     private javax.swing.JLabel char_img;
     private javax.swing.JLabel ico_female;
     private javax.swing.JLabel ico_male;
-    private javax.swing.JButton btn_random;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -666,8 +667,6 @@ public class BuilderFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JLabel lbl_def_magic;
     private javax.swing.JLabel lbl_def_martial;
     private javax.swing.JLabel lbl_off_magic;
@@ -686,5 +685,7 @@ public class BuilderFrame extends javax.swing.JFrame {
     private javax.swing.JPanel pan_stats_ranged_melee;
     private javax.swing.JPanel pan_stats_utility;
     private javax.swing.JPanel panel_deck_stats;
+    private javax.swing.JScrollPane scroll_desc;
+    private javax.swing.JTextPane txt_area_description;
     // End of variables declaration//GEN-END:variables
 }

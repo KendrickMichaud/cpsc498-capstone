@@ -5,6 +5,7 @@
  */
 package util;
 
+import constants.DESCRIPTION;
 import templates.PlayerClass;
 import templates.PlayerRace;
 
@@ -186,6 +187,57 @@ public class PowerRating {
             melee.set(mel);
             ranged.set(ran);
         }
+    }
+    
+    public String getDescription(){
+        StringBuilder output = new StringBuilder();
+        if(playstyleScores != null){
+            int melee = playstyleScores.melee();
+            int ranged = playstyleScores.ranged();
+            
+            if(melee > ranged){
+                output.append(DESCRIPTION.MELEE);
+            }
+            else if(melee < ranged){
+                output.append(DESCRIPTION.RANGED);
+            }
+            else{
+                output.append(DESCRIPTION.PLAYSTYLE_BOTH);
+            }
+        }
+        if(martialScores != null && magicScores != null){
+            int martTotal = martialScores.offensive() + martialScores.defensive() + martialScores.utility();
+            int magiTotal = magicScores.offensive() + magicScores.defensive() + magicScores.utility();
+            
+            String ap = martTotal>magiTotal?DESCRIPTION.MARTIAL:DESCRIPTION.MAGIC;
+            output.append(ap);
+            
+            int martOff = martialScores.offensive();
+            int magiOff = magicScores.offensive();
+            
+            if(martOff + magiOff > 7){
+                output.append(DESCRIPTION.OFFENSIVE);
+            }
+            else{
+                output.append(DESCRIPTION.NON_OFFENSIVE);
+            }
+            
+            if(martialScores.defensive() + magicScores.defensive() > 7){
+                output.append(DESCRIPTION.DEFENSIVE);
+            }
+            else{
+                output.append(DESCRIPTION.NON_DEFENSIVE);
+            }
+            
+            if(martialScores.utility() + magicScores.utility() > 7){
+                output.append(DESCRIPTION.UTILITY);
+            }
+            else{
+                output.append(DESCRIPTION.NON_UTILITY);
+            }
+        }
+        
+        return output.toString();
     }
     
 }

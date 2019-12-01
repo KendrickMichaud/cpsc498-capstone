@@ -44,6 +44,7 @@ public class ChoiceMaker {
         
         for(JCheckBox box : boxes){
             box.setSelected(false);
+            box.setEnabled(false);
         }
         
         ArrayList<Integer> usedSlots = new ArrayList<>();
@@ -55,6 +56,7 @@ public class ChoiceMaker {
                 if(usedSlots.indexOf(index) == -1){
                     JCheckBox box = boxes.get(index);
                     box.setSelected(true);
+                    box.setEnabled(true);
                     usedSlots.add(index);
                     break;
                 }

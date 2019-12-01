@@ -6,16 +6,16 @@
 package container;
 
 import app.AppManager;
+import app.Support;
 import java.awt.Color;
-import java.awt.Font;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
 import util.Bundle;
-import util.SwingHelper;
 
 /**
  *
@@ -61,9 +61,6 @@ public class MenuFrame extends javax.swing.JFrame {
         jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
-        scroll_list = new javax.swing.JScrollPane();
-        pan_list = new javax.swing.JPanel();
-        lbl_title = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Adventure5E");
@@ -82,7 +79,7 @@ public class MenuFrame extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 284, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.LINE_END);
@@ -97,7 +94,7 @@ public class MenuFrame extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 284, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel3, java.awt.BorderLayout.LINE_START);
@@ -232,15 +229,6 @@ public class MenuFrame extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        pan_list.setLayout(new javax.swing.BoxLayout(pan_list, javax.swing.BoxLayout.Y_AXIS));
-
-        lbl_title.setText("Recent Characters");
-        pan_list.add(lbl_title);
-
-        scroll_list.setViewportView(pan_list);
-
-        getContentPane().add(scroll_list, java.awt.BorderLayout.PAGE_END);
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -297,7 +285,8 @@ public class MenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_action_openMouseClicked
 
     private void action_supportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_action_supportMouseClicked
-        
+        JLabel label = new JLabel(Support.getContactInformation());
+        JOptionPane.showMessageDialog(action_open, label);
     }//GEN-LAST:event_action_supportMouseClicked
 
 
@@ -321,8 +310,5 @@ public class MenuFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JLabel lbl_title;
-    private javax.swing.JPanel pan_list;
-    private javax.swing.JScrollPane scroll_list;
     // End of variables declaration//GEN-END:variables
 }

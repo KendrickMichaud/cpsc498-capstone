@@ -6,7 +6,6 @@
 package templates;
 
 import java.util.ArrayList;
-import util.ClassPower;
 import util.Power;
 
 /**

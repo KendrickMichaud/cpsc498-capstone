@@ -1,7 +1,5 @@
 package app;
 
-
-import constants.CARD;
 import constants.KEY;
 import container.BuilderFrame;
 import container.CharacterFrame;
@@ -14,7 +12,6 @@ import java.util.logging.Logger;
 import util.KeyReader;
 
 import javax.swing.*;
-import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
@@ -29,21 +26,35 @@ import templates.Templates;
 import util.Bundle;
 import util.DataIntegrity;
 
+/**
+ * Singleton design. 
+ * This class is the manager of the entire application and controls:
+ *  Launching of new JFrames
+ *  Validation of data
+ *  Transfer and storage of data
+ * 
+ *  To get the AppManager, use the AppManager.getInstance() method 
+ * 
+ * @author Kendrick 
+ */
 public class AppManager {
     
+    private static AppManager manager; //Singleton
+    private MenuFrame menuFrame;        //Main Menu
+    private BuilderFrame builderFrame;  //Character Builder
+    private CharacterFrame main_frame;  //Character Sheet
+    private boolean unsavedData;        //Controls exiting behavior
     
-    private static AppManager manager;
-    private CharacterFrame main_frame;
-    private boolean unsavedData;
-
+    /**
+     * Returns the instance of the AppManager.
+     * @return 
+     */
     public static AppManager getInstance() {
         if(manager == null){
             manager = new AppManager();
         }
         return manager;
     }
-    private MenuFrame menuFrame;
-    private BuilderFrame builderFrame;
 
     private AppManager(){}
 
@@ -95,6 +106,10 @@ public class AppManager {
         }
     }
 
+    /**
+     * Updates values based on an initialized character frame and then
+     * sets the frame visible for the user
+     */
     private void launchCharacterFrame() {
         if(main_frame != null){
             updateValues();
@@ -102,10 +117,20 @@ public class AppManager {
         }
     }
 
+    /**
+     * Creates the Character Frame and passes the singleton (less instance calls)
+     * 
+     */
     private void initCharacterFrame() {
         main_frame = new CharacterFrame(this);
+        main_frame.setVisible(false);
     }
 
+    /**
+     * Checks if the manager is ready to begin a shutdown of the application
+     * or allow an exit from the frame. User is prompted to confirm
+     * @return true if user selects yes, false if no
+     */
     public boolean authorizedToExit() {
         if(unsavedData){
             int validation = JOptionPane.showConfirmDialog
@@ -119,12 +144,21 @@ public class AppManager {
             return true;
     }
 
+    /**
+     * Reinitializes the CharacterFrame environment with an empty
+     * environment
+     */
     public void reinitializeEnvironment() {
         main_frame.dispose();
         main_frame = new CharacterFrame(this);
         launchCharacterFrame();
     }
     
+    /**
+     * Reinitializes the CharacterFrame environment with a new 
+     * Character XML (.cxml) file
+     * @param openCharacterFile 
+     */
     public void reinitializeEnvironment(File openCharacterFile){
         FileManager file_manager = new FileManager(
                 openCharacterFile, 
@@ -136,6 +170,11 @@ public class AppManager {
         }
     }
     
+    /**
+     * Prompts the user to select a file to open
+     * @return File to be opened
+     * @throws IOException if the file cannot be opened
+     */
     public File getFileToOpen() throws IOException{
         JFileChooser chooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Character xml (*.cxml)", "cxml");
@@ -161,6 +200,12 @@ public class AppManager {
         }
     }
     
+    /**
+     * Returns the file to save based on the user's preference.
+     * Only allows the user to save in .cxml format. 
+     * @return File to save at or null
+     * @throws IOException 
+     */
     public File getFileToSave() throws IOException{
         JFileChooser chooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Character xml (*.cxml)", "cxml");
@@ -180,6 +225,14 @@ public class AppManager {
         return file;
     }
 
+    /**
+     * Prompts the user with an error message and sets the document (text)
+     * to the default based on the type of key shown. 
+     * 
+     * @see KEY class for types of KEYS used
+     * @param key must be a KEY.K_(anything) type. L_ and H_ types are not valid
+     * @param document component containing the text to set default
+     */
     public void restoreDefaultValue(String key, Document document) {
         try {
             String errorText = "Error, the value you entered ("
@@ -199,6 +252,9 @@ public class AppManager {
         }
     }
 
+    /**
+     * Updates all automated values in the CharacterFrame
+     */
     public void updateValues() {
         main_frame.updateAttributePanel();
         main_frame.updateOffensivePanel();
@@ -208,6 +264,12 @@ public class AppManager {
         main_frame.updateOthers();
     }
 
+    /**
+     * Saves the data based on the file passed in.
+     * The Bundle contains all data from the CharacterFrame to be saved
+     * @param file
+     * @param bundle 
+     */
     public void saveData(File file, Bundle bundle) {
         FileManager file_manager = new FileManager
         (file, FileManager.TYPE.WRITE, FileManager.FILE.CXML);
@@ -215,15 +277,24 @@ public class AppManager {
         unsavedData = false;
     }
 
+    /**
+     * Simple method to show that the data is changed
+     */
     public void dataChanged() {
         unsavedData = true;
     }
 
+    /**
+     * Exit program via the Character Sheet
+     */
     public void close() {
         main_frame.dispose();
         System.exit(0);
     }
 
+    /**
+     * DEBUG method
+     */
     public void readTemplate() {
         FileManager fm = new FileManager
         (new File(getClass().getResource("/templates/races.xml").getPath())
@@ -267,21 +338,35 @@ public class AppManager {
         }
     }
 
+    /**
+     * Inits the menu frame and set it to invisible
+     */
     void initMenuFrame() {
         menuFrame = new MenuFrame();
+        menuFrame.setVisible(false);
     }
 
+    /**
+     * Sets the menuFrame to visible
+     */
     void launchMenuFrame() {
         if(menuFrame != null){
             menuFrame.setVisible(true);
         }
     }
 
+    /**
+     * Initializes the BuilderFrame
+     */
     private void initBuilderFrame() {
         BuilderFrame.createInstance(pullTemplates());
         builderFrame = BuilderFrame.getInstance();
     }
     
+    /**
+     * Pulls all templates from the appropriate files
+     * @return Bundle containing the Race, Class, and Background templates
+     */
     private Bundle pullTemplates(){
         File fRace, fClass, fBackground;
         fRace = new File(getClass().getResource(Templates.FILE_RACE).getFile());
@@ -299,6 +384,10 @@ public class AppManager {
         return templates;
     }
 
+    /**
+     * Starts the character frame up
+     * @param f .cxml file that contains character information
+     */
     public void startUpCharacterFrame(File f) {
         if(f == null){
             manager.initCharacterFrame();
@@ -313,20 +402,33 @@ public class AppManager {
         }
     }
 
+    /**
+     * Starts up the BuilderFrame
+     */
     public void startUpBuilderFrame() {
         initBuilderFrame();
-        if(true){
-            menuFrame.setVisible(false);
-            builderFrame.setVisible(true);
-        }
+        if(main_frame != null)
+            main_frame.dispose();
+        unsavedData = false;
+        menuFrame.setVisible(false);
+        builderFrame.setVisible(true);
     }
 
+    /**
+     * Starts up the CharacterFrame containing a Bundle of data
+     * @param character_info 
+     */
     public void startUpCharacterFrame(Bundle character_info) {
         manager.initCharacterFrame();
         manager.characterFrameUpdate(character_info);
         manager.launchCharacterFrame();
     }
 
+    /**
+     * Updates the CharacterFrame with a bundle of data
+     * bundle must have a true boolean for BuilderFrame.FROM_BUILDER
+     * @param character_info this must come from the Builder
+     */
     private void characterFrameUpdate(Bundle character_info) {
         if(character_info.getBoolean(BuilderFrame.FROM_BUILDER)){
             main_frame.updateValues(character_info);
@@ -334,6 +436,9 @@ public class AppManager {
         
     }
 
+    /**
+     * Returns to the main menu
+     */
     public void goToMainMenu() {
         if(manager.authorizedToExit()){
             if(main_frame != null)
@@ -342,10 +447,5 @@ public class AppManager {
                 builderFrame.setVisible(false);
             menuFrame.setVisible(true);
         }
-            
-
     }
-
-    
-
 }

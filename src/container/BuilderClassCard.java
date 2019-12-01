@@ -18,6 +18,7 @@ import templates.PlayerClass;
 import templates.Templates;
 import util.Bundle;
 import util.ChoiceMaker;
+import util.SwingHelper;
 
 /**
  *
@@ -43,17 +44,17 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        icon_title = new javax.swing.JLabel();
+        pan_parent = new javax.swing.JPanel();
+        lbl_class_guide = new javax.swing.JPanel();
+        scroll_guide = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
-        jPanel3 = new javax.swing.JPanel();
+        pan_main = new javax.swing.JPanel();
         combo_classes = new javax.swing.JComboBox<>();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        scroll_desc = new javax.swing.JScrollPane();
         txt_pane_flavor = new javax.swing.JTextPane();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lbl_select = new javax.swing.JLabel();
+        lbl_profs = new javax.swing.JLabel();
         prof_1 = new javax.swing.JCheckBox();
         prof_2 = new javax.swing.JCheckBox();
         prof_3 = new javax.swing.JCheckBox();
@@ -64,23 +65,23 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
         setPreferredSize(new java.awt.Dimension(300, 577));
         setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ico_class_deck_title.png"))); // NOI18N
-        add(jLabel1, java.awt.BorderLayout.PAGE_START);
+        icon_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        icon_title.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ico_class_deck_title.png"))); // NOI18N
+        add(icon_title, java.awt.BorderLayout.PAGE_START);
 
-        jPanel1.setLayout(new java.awt.BorderLayout());
+        pan_parent.setLayout(new java.awt.BorderLayout());
 
-        jPanel2.setLayout(new java.awt.BorderLayout());
+        lbl_class_guide.setLayout(new java.awt.BorderLayout());
 
         jTextPane1.setEditable(false);
         jTextPane1.setText("There are many types of classes in tabletop rpgs. From Wizards to Fighters to Druids, they primarily fall under two categories, Martial and Magic (just differing types of magic), and futher Ranged and Melee. Use the Character Analyzer to gauge your playstyle.");
-        jScrollPane1.setViewportView(jTextPane1);
+        scroll_guide.setViewportView(jTextPane1);
 
-        jPanel2.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        lbl_class_guide.add(scroll_guide, java.awt.BorderLayout.CENTER);
 
-        jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
+        pan_parent.add(lbl_class_guide, java.awt.BorderLayout.PAGE_START);
 
-        jPanel3.setLayout(null);
+        pan_main.setLayout(null);
 
         combo_classes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
         combo_classes.addItemListener(new java.awt.event.ItemListener() {
@@ -88,22 +89,22 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
                 combo_classesItemStateChanged(evt);
             }
         });
-        jPanel3.add(combo_classes);
-        combo_classes.setBounds(20, 40, 250, 20);
+        pan_main.add(combo_classes);
+        combo_classes.setBounds(20, 40, 250, 25);
 
         txt_pane_flavor.setEditable(false);
-        jScrollPane2.setViewportView(txt_pane_flavor);
+        scroll_desc.setViewportView(txt_pane_flavor);
 
-        jPanel3.add(jScrollPane2);
-        jScrollPane2.setBounds(20, 72, 250, 100);
+        pan_main.add(scroll_desc);
+        scroll_desc.setBounds(20, 72, 250, 100);
 
-        jLabel2.setText("Select your Class here...");
-        jPanel3.add(jLabel2);
-        jLabel2.setBounds(20, 10, 250, 14);
+        lbl_select.setText("Select your Class here...");
+        pan_main.add(lbl_select);
+        lbl_select.setBounds(20, 10, 250, 16);
 
-        jLabel3.setText("Proficiencies (Select 2)");
-        jPanel3.add(jLabel3);
-        jLabel3.setBounds(20, 180, 360, 14);
+        lbl_profs.setText("Proficiencies (Select 2)");
+        pan_main.add(lbl_profs);
+        lbl_profs.setBounds(20, 180, 360, 16);
 
         prof_1.setText(" Item 1");
         prof_1.addActionListener(new java.awt.event.ActionListener() {
@@ -111,8 +112,8 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
                 prof_1ActionPerformed(evt);
             }
         });
-        jPanel3.add(prof_1);
-        prof_1.setBounds(20, 200, 260, 23);
+        pan_main.add(prof_1);
+        prof_1.setBounds(20, 200, 260, 24);
 
         prof_2.setText(" Item 2");
         prof_2.addActionListener(new java.awt.event.ActionListener() {
@@ -120,8 +121,8 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
                 prof_2ActionPerformed(evt);
             }
         });
-        jPanel3.add(prof_2);
-        prof_2.setBounds(20, 230, 300, 23);
+        pan_main.add(prof_2);
+        prof_2.setBounds(20, 230, 300, 24);
 
         prof_3.setText(" Item 3");
         prof_3.addActionListener(new java.awt.event.ActionListener() {
@@ -129,8 +130,8 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
                 prof_3ActionPerformed(evt);
             }
         });
-        jPanel3.add(prof_3);
-        prof_3.setBounds(20, 260, 330, 23);
+        pan_main.add(prof_3);
+        prof_3.setBounds(20, 260, 330, 24);
 
         prof_4.setText(" Item 4");
         prof_4.addActionListener(new java.awt.event.ActionListener() {
@@ -138,8 +139,8 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
                 prof_4ActionPerformed(evt);
             }
         });
-        jPanel3.add(prof_4);
-        prof_4.setBounds(20, 290, 340, 23);
+        pan_main.add(prof_4);
+        prof_4.setBounds(20, 290, 340, 24);
 
         prof_5.setText(" Item 5");
         prof_5.addActionListener(new java.awt.event.ActionListener() {
@@ -147,8 +148,8 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
                 prof_5ActionPerformed(evt);
             }
         });
-        jPanel3.add(prof_5);
-        prof_5.setBounds(20, 320, 350, 23);
+        pan_main.add(prof_5);
+        prof_5.setBounds(20, 320, 350, 24);
 
         prof_6.setText(" Item 6");
         prof_6.addActionListener(new java.awt.event.ActionListener() {
@@ -156,12 +157,12 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
                 prof_6ActionPerformed(evt);
             }
         });
-        jPanel3.add(prof_6);
-        prof_6.setBounds(20, 350, 350, 23);
+        pan_main.add(prof_6);
+        prof_6.setBounds(20, 350, 350, 24);
 
-        jPanel1.add(jPanel3, java.awt.BorderLayout.CENTER);
+        pan_parent.add(pan_main, java.awt.BorderLayout.CENTER);
 
-        add(jPanel1, java.awt.BorderLayout.CENTER);
+        add(pan_parent, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     private void combo_classesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combo_classesItemStateChanged
@@ -210,21 +211,21 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> combo_classes;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel icon_title;
     private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JPanel lbl_class_guide;
+    private javax.swing.JLabel lbl_profs;
+    private javax.swing.JLabel lbl_select;
+    private javax.swing.JPanel pan_main;
+    private javax.swing.JPanel pan_parent;
     private javax.swing.JCheckBox prof_1;
     private javax.swing.JCheckBox prof_2;
     private javax.swing.JCheckBox prof_3;
     private javax.swing.JCheckBox prof_4;
     private javax.swing.JCheckBox prof_5;
     private javax.swing.JCheckBox prof_6;
+    private javax.swing.JScrollPane scroll_desc;
+    private javax.swing.JScrollPane scroll_guide;
     private javax.swing.JTextPane txt_pane_flavor;
     // End of variables declaration//GEN-END:variables
 
@@ -251,6 +252,7 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
 
     void updateComponents(PlayerClass cl) {
         txt_pane_flavor.setText(cl.flavorText);
+        SwingHelper.setScrollPositionToTop(scroll_desc);
         ArrayList<String> profs = cl.skillProfs;
         if(profs != null){
             int size = 6;
@@ -345,16 +347,16 @@ public class BuilderClassCard extends javax.swing.JPanel implements CardDataHold
         storeProf(prof_5, character_info);
         storeProf(prof_6, character_info);
         
-        String equipment = character_info.getString(KEY.K_EQUIPMENT_PROFICIENCES);
+        String equipment = character_info.getString(KEY.K_EQUIPMENT_LANG_PROFICIENCIES);
         if(equipment == null){
             equipment = "";
         }
         
-        equipment = equipment.concat("-------------------").concat("\n");
+        equipment = equipment.concat("-------------------").concat("\n").concat("Equipment\n");
         for(String s : cl.equipmentProfs){
             equipment = equipment.concat(s).concat("\n");
         }
-        character_info.putString(KEY.K_EQUIPMENT_PROFICIENCES, equipment);
+        character_info.putString(KEY.K_EQUIPMENT_LANG_PROFICIENCIES, equipment);
         
         String hitDie = cl.hitDie; 
         character_info.putString(KEY.K_HIT_DIE, hitDie);
