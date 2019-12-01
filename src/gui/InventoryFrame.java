@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package container;
+package gui;
 
 import constants.ICON_STATUS;
 import javax.swing.ImageIcon;
@@ -101,6 +101,10 @@ public class InventoryFrame extends javax.swing.JFrame {
             if(weight != null && quantity != null){
                 int q = ((Integer) quantity).intValue();
                 double w = ((Double) weight).doubleValue();
+                if(q < 0)
+                    model.setValueAt(new Integer(-q), row, 2);
+                if(w < 0)
+                    model.setValueAt(new Double(-w), row, 3);
                 sum += ((double) q) * w;
             }
         }

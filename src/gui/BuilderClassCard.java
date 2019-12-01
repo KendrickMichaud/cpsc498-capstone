@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package container;
+package gui;
 
 import constants.KEY;
 import data_structure.Skill;
@@ -24,7 +24,7 @@ import util.SwingHelper;
  *
  * @author Kendrick-Laptop
  */
-public class BuilderClassCard extends javax.swing.JPanel implements CardDataHolder{
+public class BuilderClassCard extends javax.swing.JPanel implements Card{
 
     private ClassTemplates cTemplates;
     public static final int PROF_LIMIT = 2;

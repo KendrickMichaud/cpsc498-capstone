@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package container;
+package gui;
 
 import constants.KEY;
 import javax.swing.text.Document;
@@ -14,12 +14,12 @@ import util.SwingHelper;
  *
  * @author Kendrick
  */
-public class ProfsPanel extends javax.swing.JPanel implements CardDataHolder{
+public class ProficienciesCard extends javax.swing.JPanel implements Card{
 
     /**
      * Creates new form ProfsPanel
      */
-    public ProfsPanel() {
+    public ProficienciesCard() {
         initComponents();
         SwingHelper.addTabFocusChanger(txt_profs);
         SwingHelper.wrapWord(txt_profs);

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package container;
+package gui;
 
 import constants.KEY;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ import util.SwingHelper;
  *
  * @author Kendrick-Laptop
  */
-public class BuilderRaceCard extends javax.swing.JPanel implements CardDataHolder{
+public class BuilderRaceCard extends javax.swing.JPanel implements Card{
 
     private RaceTemplates raceTemplates;
 

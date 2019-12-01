@@ -20,12 +20,12 @@ import util.XMLWriter;
 public class FileManager {
 
     private final File file;
-    private final TYPE type;
-    private FILE fileType;
-    public enum TYPE{READ,WRITE};
-    public enum FILE{CXML,T_BACKGROUND, T_CLASS, T_RACE,SETTINGS};
+    private final IO_TYPE type;
+    private FILE_TYPE fileType;
+    public enum IO_TYPE{READ,WRITE};
+    public enum FILE_TYPE{CXML,T_BACKGROUND, T_CLASS, T_RACE,SETTINGS};
     
-    public FileManager(File file, TYPE ioType, FILE fileType){
+    public FileManager(File file, IO_TYPE ioType, FILE_TYPE fileType){
         if(file == null){
             throw new NullPointerException("File cannot be null");
         }
@@ -57,11 +57,11 @@ public class FileManager {
     private static class IOWorker extends SwingWorker<Bundle, Integer>{
 
         private final File file;
-        private final TYPE type;
-        private final FILE fileType;
+        private final IO_TYPE type;
+        private final FILE_TYPE fileType;
         private final Bundle output;
         
-        public IOWorker(File file, TYPE type, FILE fileType, Bundle input){
+        public IOWorker(File file, IO_TYPE type, FILE_TYPE fileType, Bundle input){
             this.file = file;
             this.type = type;
             this.fileType = fileType;

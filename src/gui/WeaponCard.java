@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package container;
+package gui;
 
 import constants.KEY;
 import java.awt.event.KeyAdapter;
@@ -18,12 +18,12 @@ import util.KeyReader;
  *
  * @author Kendrick
  */
-public class WeaponPanel extends javax.swing.JPanel implements CardDataHolder{
+public class WeaponCard extends javax.swing.JPanel implements Card{
 
     /**
      * Creates new form WeaponPanel
      */
-    public WeaponPanel() {
+    public WeaponCard() {
         initComponents();
         SwingHelper.addTabFocusChanger(txt_weapon_name);
         SwingHelper.addTabFocusChanger(txt_weapon_damage_roll);

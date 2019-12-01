@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package container;
+package gui;
 
 import app.AppManager;
 import app.Support;
@@ -18,6 +18,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.Base64;
 import java.util.logging.Level;
@@ -1333,12 +1334,12 @@ public class CharacterFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     
     //Card Panels
-    private DefensePanel card_defense;
-    private ArmorPanel card_armor;
+    private DefenseCard card_defense;
+    private ArmorCard card_armor;
     private SpellsPanel card_spells;
     private InventoryPanel card_inventory; 
-    private SkillsPanel card_skills;
-    private ProfsPanel card_proficiencies;
+    private SkillsCard card_skills;
+    private ProficienciesCard card_proficiencies;
     
     //Base 64 encoded image
     private String baseImage;
@@ -1362,14 +1363,26 @@ public class CharacterFrame extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(CharacterFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-
+    }
+    
+    private void setLblImageToInputStream(InputStream is){
+        if(is == null)
+            return;
+        try {
+            byte[] bytes = is.readAllBytes();
+            baseImage = new String(Base64.getEncoder().encode(bytes), "UTF-8");
+            loadImage();
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(CharacterFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(CharacterFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     private void initCardsForDefense(){
         defense = new Deck(deck_defense);
-        card_defense = new DefensePanel();
-        card_armor = new ArmorPanel();
+        card_defense = new DefenseCard();
+        card_armor = new ArmorCard();
 
         defense.add(card_defense, CARD_NAME.DEFENSE);
         defense.add(card_armor, CARD_NAME.ARMOR);
@@ -1378,8 +1391,8 @@ public class CharacterFrame extends javax.swing.JFrame {
     
     private void initCardsForSkillsProfs(){
         skillsProfs = new Deck(deck_skillsProfs);
-        card_skills = new SkillsPanel();
-        card_proficiencies = new ProfsPanel();
+        card_skills = new SkillsCard();
+        card_proficiencies = new ProficienciesCard();
         skillsProfs.add(card_skills, CARD_NAME.SKILLS);
         skillsProfs.add(card_proficiencies, CARD_NAME.PROFICIENCIES);
         skillsProfs.display();
@@ -1575,15 +1588,11 @@ public class CharacterFrame extends javax.swing.JFrame {
         card_skills.updateSkills(bundle);
     }
 
-    private void updateLabel(JLabel label, String text){
-        
-    }
-
     private void initCardsForWeapons() {
         offense = new WeaponDeck(deck_weapons);
-        offense.add(new WeaponPanel(), CARD_NAME.WEAPON_1);
-        offense.add(new WeaponPanel(), CARD_NAME.WEAPON_2);
-        offense.add(new WeaponPanel(), CARD_NAME.WEAPON_3);
+        offense.add(new WeaponCard(), CARD_NAME.WEAPON_1);
+        offense.add(new WeaponCard(), CARD_NAME.WEAPON_2);
+        offense.add(new WeaponCard(), CARD_NAME.WEAPON_3);
         offense.display();
     }
 
@@ -1608,9 +1617,9 @@ public class CharacterFrame extends javax.swing.JFrame {
             setAttributes(character_data);
             setFeatures(character_data);
             setBackgroundValues(character_data);
-            String racePortraitPath = character_data.getString(KEY.K_IMAGE_PATH);
-            if(racePortraitPath != null)
-                setLblImageToFile(new File(racePortraitPath));
+            //String racePortraitPath = character_data.getString(KEY.K_IMAGE_PATH);
+            //if(racePortraitPath != null)
+                //setLblImageToInputStream(getClass().getResourceAsStream(racePortraitPath));
         }
         else{
             setImage(character_data);

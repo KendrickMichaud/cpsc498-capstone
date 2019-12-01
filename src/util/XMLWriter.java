@@ -29,6 +29,8 @@ import data_structure.Skill;
 import data_structure.Skills;
 import data_structure.Spell;
 import data_structure.Spellbook;
+import java.io.OutputStream;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -75,7 +77,6 @@ public class XMLWriter {
         bundle = b;
         if(b == null)
             return false;
-        System.out.println("Writing to doc");
         Element character = document.createElement("Character");
         document.appendChild(character);
         Element biography = document.createElement(KEY.H_BIOGRAPHY);
@@ -121,12 +122,11 @@ public class XMLWriter {
 
     private boolean writeToFile(File file) {
         try {
-            System.out.println("Writing to file");
             TransformerFactory factory = TransformerFactory.newInstance();
             Transformer transformer = factory.newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             DOMSource source = new DOMSource(document);
-            StreamResult result = new StreamResult(file);
+            StreamResult result = new StreamResult(file.getAbsolutePath());
             transformer.transform(source, result);
             return true;
         } catch (TransformerConfigurationException ex) {

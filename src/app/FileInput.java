@@ -5,8 +5,8 @@
  */
 package app;
 
-import static app.FileManager.FILE.CXML;
-import static app.FileManager.FILE.T_BACKGROUND;
+import static app.FileManager.FILE_TYPE.CXML;
+import static app.FileManager.FILE_TYPE.T_BACKGROUND;
 import java.io.File;
 import util.Bundle;
 import util.XMLReader;
@@ -16,10 +16,10 @@ import util.XMLReader;
  * @author Kendrick
  */
 public class FileInput {
-    private FileManager.FILE fileType;
+    private FileManager.FILE_TYPE fileType;
     private final File file;
 
-    FileInput(File file, FileManager.FILE fileType) {
+    FileInput(File file, FileManager.FILE_TYPE fileType) {
         this.file = file;
         this.fileType = fileType;
     }

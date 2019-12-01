@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package container;
+package gui;
 
 import app.AppManager;
 import constants.KEY;
@@ -57,7 +57,7 @@ public class BuilderFrame extends javax.swing.JFrame {
     void updateValues() {
         PlayerClass cl = classCard.getSelectedClass();
         PlayerRace ra = raceCard.getSelectedRace();
-        BackgroundTemplates.Background ba = backCard.getSelectedBackground();
+        BackgroundTemplates.PlayerBackground ba = backCard.getSelectedBackground();
         
         processClass(cl);
         processRace(ra);
@@ -86,7 +86,7 @@ public class BuilderFrame extends javax.swing.JFrame {
             
     }
 
-    private void processBackground(BackgroundTemplates.Background ba) {
+    private void processBackground(BackgroundTemplates.PlayerBackground ba) {
         if(ba == null)
             backCard.resetComponents();
         else
@@ -591,7 +591,7 @@ public class BuilderFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         PlayerClass cl = classCard.getSelectedClass();
         PlayerRace ra = raceCard.getSelectedRace();
-        BackgroundTemplates.Background ba = backCard.getSelectedBackground();
+        BackgroundTemplates.PlayerBackground ba = backCard.getSelectedBackground();
         
         Bundle character_info = new Bundle();
         if(cl != null){
@@ -599,14 +599,10 @@ public class BuilderFrame extends javax.swing.JFrame {
         }
         if(ra != null){
             raceCard.storeInfo(character_info);
-            if(ra.hasImagePath()){
-                String path = "/img/profile-"+ra.imagePath() + getGender() + ".png";
-                URL url = getClass().getResource(path);
-                if(url != null){
-                    character_info.putString(KEY.K_IMAGE_PATH, url.getPath());
-                }
-                
-            }
+            //if(ra.hasImagePath()){
+                //String path = "/img/profile-"+ra.imagePath() + getGender() + ".png";
+                //character_info.putString(KEY.K_IMAGE_PATH, path);
+            //}
                  
         if(ba != null){
             backCard.storeInfo(character_info);

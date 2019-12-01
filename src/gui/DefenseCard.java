@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package container;
+package gui;
 
 import constants.KEY;
 import javax.swing.text.Document;
@@ -15,12 +15,12 @@ import util.SwingHelper;
  *
  * @author Kendrick
  */
-public class DefensePanel extends javax.swing.JPanel implements CardDataHolder{
+public class DefenseCard extends javax.swing.JPanel implements Card{
 
     /**
      * Creates new form DefensePanel
      */
-    public DefensePanel() {
+    public DefenseCard() {
         initComponents();
         SwingHelper.addTabFocusChanger(txt_defense_bonuses);
         SwingHelper.addTabFocusChanger(txt_damage_resist);

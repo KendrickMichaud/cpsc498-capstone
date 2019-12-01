@@ -28,7 +28,7 @@ import data_structure.Spell;
 import data_structure.Spellbook;
 import java.io.InputStream;
 import templates.BackgroundTemplates;
-import templates.BackgroundTemplates.Background;
+import templates.BackgroundTemplates.PlayerBackground;
 import templates.ClassTemplates;
 import templates.Feature;
 import templates.PlayerClass;
@@ -356,7 +356,7 @@ public class XMLReader {
                 BackgroundTemplates templates;
                 templates = new BackgroundTemplates();
                 for(int index = 0; index < backgrounds.getLength(); index++){
-                    BackgroundTemplates.Background background = new Background();
+                    BackgroundTemplates.PlayerBackground background = new PlayerBackground();
                     Element iBackground = (Element) backgrounds.item(index);
                     Element name,trait,ideal,bond,flaw;
                     Element proficiencies, features;
@@ -377,10 +377,10 @@ public class XMLReader {
                     flaws = extractStrings(flaw, arrayTagName);
                     background.setName(strName);
                     String strDesc = extractString(iBackground, "description");
-                    background.addStrings(traits, Background.STORY.TRAIT);
-                    background.addStrings(ideals, Background.STORY.IDEAL);
-                    background.addStrings(bonds, Background.STORY.BOND);
-                    background.addStrings(flaws, Background.STORY.FLAW);
+                    background.addStrings(traits, PlayerBackground.STORY.TRAIT);
+                    background.addStrings(ideals, PlayerBackground.STORY.IDEAL);
+                    background.addStrings(bonds, PlayerBackground.STORY.BOND);
+                    background.addStrings(flaws, PlayerBackground.STORY.FLAW);
                     if(strDesc != null){
                         background.addDescription(strDesc);
                     }

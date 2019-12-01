@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package container;
+package gui;
 
 import app.AppManager;
 import constants.KEY;
@@ -22,12 +22,12 @@ import util.SwingHelper;
  *
  * @author Kendrick
  */
-public class SkillsPanel extends javax.swing.JPanel implements CardDataHolder{
+public class SkillsCard extends javax.swing.JPanel implements Card{
 
     /**
      * Creates new form SkillsPanel
      */
-    public SkillsPanel() {
+    public SkillsCard() {
         initComponents();
     }
 

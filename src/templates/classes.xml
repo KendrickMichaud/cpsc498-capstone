@@ -9,7 +9,7 @@ and open the template in the editor.
 <classes>
     <class>
         <name>Paladin</name>
-        <casterType>charisma</casterType>
+        <casterType>Charisma</casterType>
         <features>
             <feature level="1">
                 <title>Divine Sense</title>
@@ -22,12 +22,12 @@ and open the template in the editor.
         </features>
         <proficiencies>
             <skills>
-                <option>Athletics</option>
-                <option>Insight</option>
-                <option>Intimidation</option>
-                <option>Medicine</option>
-                <option>Persuasion</option>
-                <option>Religion</option>
+                <option>AthleticsProf</option>
+                <option>InsightProf</option>
+                <option>IntimidationProf</option>
+                <option>MedicineProf</option>
+                <option>PersuasionProf</option>
+                <option>ReligionProf</option>
             </skills>
             <savingThrows>
                 <attribute>Wisdom</attribute>
@@ -41,9 +41,555 @@ and open the template in the editor.
         </proficiencies>
         <health>
             <hitDie>1d10</hitDie>
-            <attribute>constitution</attribute>
+            <attribute>Constitution</attribute>
         </health>
         <flavorText>Noble and inspiring, a paladin swears to uphold justice and righteousness, to stand with the good things of the world against the encroaching darkness, and to hunt the forces of evil wherever they lurk. Different paladins focus on various aspects of the cause of righteousness, but all are bound by the oaths that grant them power to do their sacred work. Although many paladins are devoted to gods of good, a paladin’s power comes as much from a commitment to justice itself as it does from a god.</flavorText>
+        <powerRating>
+            <magic>
+                <defense>8</defense>
+                <offense>5</offense>
+                <utility>4</utility>
+            </magic>
+            <martial>
+                <defense>6</defense>
+                <offense>7</offense>
+                <utility>1</utility>
+            </martial>
+            <position>
+                <ranged>3</ranged>
+                <melee>7</melee>
+            </position>
+        </powerRating>
+    </class>
+    <class>
+        <name>Barbarian</name>
+        <casterType>None</casterType>
+        <features>
+            <feature level="1">
+                <title>Rage</title>
+                <body>In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action.
+
+While raging, you gain the following benefits if you aren’t wearing heavy armor:
+
+    You have advantage on Strength checks and Strength saving throws.
+    When you make a melee weapon attack using Strength, you gain a bonus to the damage roll that increases as you gain levels as a barbarian, as shown in the Rage Damage column of the Barbarian table.
+    You have resistance to bludgeoning, piercing, and slashing damage.
+
+If you are able to cast spells, you can’t cast them or concentrate on them while raging.
+
+Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you haven’t attacked a hostile creature since your last turn or taken damage since then. You can also end your rage on your turn as a bonus action.
+
+Once you have raged the number of times shown for your barbarian level in the Rages column of the Barbarian table, you must finish a long rest before you can rage again.</body>
+            </feature>
+            <feature level="1">
+                <title>Unarmored Defense</title>
+                <body>While you are not wearing any armor, your Armor Class equals 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.</body>
+            </feature>
+        </features>
+        <proficiencies>
+            <skills>
+                <option>Animal Handling</option>
+                <option>Athletics</option>
+                <option>Intimidation,</option>
+                <option>Nature</option>
+                <option> Perception</option>
+                <option>Survival</option>
+            </skills>
+            <savingThrows>
+                <attribute>Strength</attribute>
+                <attribute>Constitution</attribute>
+            </savingThrows>
+            <equipment>
+                <weapon>Simple, Martial</weapon>
+                <armor>Light, Medium, Shields</armor>
+                <tool>None</tool>
+            </equipment>
+        </proficiencies>
+        <health>
+            <hitDie>1d12</hitDie>
+            <attribute>Constitution</attribute>
+        </health>
+        <flavorText>A tall human tribesman strides through a blizzard, draped in fur and hefting his axe. He laughs as he charges toward the frost giant who dared poach his people’s elk herd.
+
+A half-orc snarls at the latest challenger to her authority over their savage tribe, ready to break his neck with her bare hands as she did to the last six rivals.
+
+Frothing at the mouth, a dwarf slams his helmet into the face of his drow foe, then turns to drive his armored elbow into the gut of another.
+
+These barbarians, different as they might be, are defined by their rage: unbridled, unquenchable, and unthinking fury. More than a mere emotion, their anger is the ferocity of a cornered predator, the unrelenting assault of a storm, the churning turmoil of the sea.
+
+For some, their rage springs from a communion with fierce animal spirits. Others draw from a roiling reservoir of anger at a world full of pain. For every barbarian, rage is a power that fuels not just a battle frenzy but also uncanny reflexes, resilience, and feats of strength.</flavorText>
+        <powerRating>
+            <magic>
+                <defense>0</defense>
+                <offense>0</offense>
+                <utility>0</utility>
+            </magic>
+            <martial>
+                <defense>9</defense>
+                <offense>9</offense>
+                <utility>5</utility>
+            </martial>
+            <position>
+                <ranged>3</ranged>
+                <melee>9</melee>
+            </position>
+        </powerRating>
+    </class>
+    <class>
+        <name>Bard</name>
+        <casterType>Charisma</casterType>
+        <features>
+            <feature level="1">
+                <title>Spellcasting</title>
+                <body>You have learned to untangle and reshape the fabric of reality in harmony with your wishes and music. Your spells are part of your vast repertoire, magic that you can tune to different situations. See Spells Rules for the general rules of spellcasting and the Spells Listing for the bard spell list.
+Cantrips
+
+You know two cantrips of your choice from the bard spell list. You learn additional bard cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Bard table.
+Spell Slots
+
+The Bard table shows how many spell slots you have to cast your bard spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.
+
+For example, if you know the 1st-level spell cure wounds and have a 1st-level and a 2nd-level spell slot available, you can cast cure wounds using either slot.
+Spells Known of 1st Level and Higher
+
+You know four 1st-level spells of your choice from the bard spell list.
+
+The Spells Known column of the Bard table shows when you learn more bard spells of your choice. Each of these spells must be of a level for which you have spell slots, as shown on the table. For instance, when you reach 3rd level in this class, you can learn one new spell of 1st or 2nd level.
+
+Additionally, when you gain a level in this class, you can choose one of the bard spells you know and replace it with another spell from the bard spell list, which also must be of a level for which you have spell slots.
+Spellcasting Ability
+
+Charisma is your spellcasting ability for your bard spells. Your magic comes from the heart and soul you pour into the performance of your music or oration. You use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a bard spell you cast and when making an attack roll with one.
+
+Spell save DC = 8 + your proficiency bonus + your Charisma modifier
+
+Spell attack modifier = your proficiency bonus + your Charisma modifier
+Ritual Casting
+
+You can cast any bard spell you know as a ritual if that spell has the ritual tag.
+Spellcasting Focus
+
+You can use a musical instrument (see the Tools section) as a spellcasting focus for your bard spells.</body>
+            </feature>
+            <feature level="1">
+                <title>Bardic Inspiration</title>
+                <body>You can inspire others through stirring words or music. To do so, you use a bonus action on your turn to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die, a d6.
+
+Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes. The creature can wait until after it rolls the d20 before deciding to use the Bardic Inspiration die, but must decide before the DM says whether the roll succeeds or fails. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a time.
+
+You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain any expended uses when you finish a long rest.
+
+Your Bardic Inspiration die changes when you reach certain levels in this class. The die becomes a d8 at 5th level, a d10 at 10th level, and a d12 at 15th level.</body>
+            </feature>
+        </features>
+        <proficiencies>
+            <skills>
+                <option>Any three</option>
+                <option></option>
+                <wildcard>true</wildcard>
+            </skills>
+            <savingThrows>
+                <attribute>Dexterity</attribute>
+                <attribute>Charisma</attribute>
+            </savingThrows>
+            <equipment>
+                <weapon>Simple, Hand crossbows, Longswords, Rapiers, Shortsword</weapon>
+                <armor>Light</armor>
+                <tool>Any three musical Instuments of your choice</tool>
+                <wildcard>true</wildcard>
+            </equipment>
+        </proficiencies>
+        <health>
+            <hitDie>1d8</hitDie>
+            <attribute>Constitution</attribute>
+        </health>
+        <flavorText>Humming as she traces her fingers over an ancient monument in a long-forgotten ruin, a half-elf in rugged leathers finds knowledge springing into her mind, conjured forth by the magic of her song—knowledge of the people who constructed the monument and the mythic saga it depicts.
+
+A stern human warrior bangs his sword rhythmically against his scale mail, setting the tempo for his war chant and exhorting his companions to bravery and heroism. The magic of his song fortifies and emboldens them.
+
+Laughing as she tunes her cittern, a gnome weaves her subtle magic over the assembled nobles, ensuring that her companions’ words will be well received.
+
+Whether scholar, skald, or scoundrel, a bard weaves magic through words and music to inspire allies, demoralize foes, manipulate minds, create illusions, and even heal wounds.</flavorText>
+        <powerRating>
+            <magic>
+                <defense>5</defense>
+                <offense>3</offense>
+                <utility>8</utility>
+            </magic>
+            <martial>
+                <defense>4</defense>
+                <offense>5</offense>
+                <utility>7</utility>
+            </martial>
+            <position>
+                <ranged>6</ranged>
+                <melee>6</melee>
+            </position>
+        </powerRating>
+    </class>
+    <class>
+        <name>CLeric</name>
+        <casterType>Wisdom</casterType>
+        <features>
+            <feature level="1">
+                <title>Spellcasting</title>
+                <body>As a conduit for divine power, you can cast cleric spells. See Spells Rules for the general rules of spellcasting and the Spells Listing for the cleric spell list.
+Cantrips
+
+At 1st level, you know three cantrips of your choice from the cleric spell list. You learn additional cleric cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Cleric table.
+Preparing and Casting Spells
+
+The Cleric table shows how many spell slots you have to cast your cleric spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.
+
+You prepare the list of cleric spells that are available for you to cast, choosing from the cleric spell list. When you do so, choose a number of cleric spells equal to your Wisdom modifier + your cleric level (minimum of one spell). The spells must be of a level for which you have spell slots.
+
+For example, if you are a 3rd-level cleric, you have four 1st-level and two 2nd-level spell slots. With a Wisdom of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell cure wounds, you can cast it using a 1st-level or 2nd-level slot. Casting the spell doesn’t remove it from your list of prepared spells.
+
+You can change your list of prepared spells when you finish a long rest. Preparing a new list of cleric spells requires time spent in prayer and meditation: at least 1 minute per spell level for each spell on your list.
+Spellcasting Ability
+
+Wisdom is your spellcasting ability for your cleric spells. The power of your spells comes from your devotion to your deity. You use your Wisdom whenever a cleric spell refers to your spellcasting ability. In addition, you use your Wisdom modifier when setting the saving throw DC for a cleric spell you cast and when making an attack roll with one.
+
+Spell save DC = 8 + your proficiency bonus + your Wisdom modifier
+
+Spell attack modifier = your proficiency bonus + your Wisdom modifier
+Ritual Casting
+
+You can cast a cleric spell as a ritual if that spell has the ritual tag and you have the spell prepared.
+Spellcasting Focus
+
+You can use a holy symbol (see the Adventuring Gear section) as a spellcasting focus for your cleric spells.</body>
+            </feature>
+            <feature level="1">
+                <title>Divine Domain</title>
+                <body>Choose one domain related to your deity: Knowledge, Life, Light, Nature, Tempest, Trickery, or War. The Life domain is detailed at the end of the class description and provides examples of gods associated with it. See the Player’s Handbook for details on all the domains.Your choice grants you domain spells and other features when you choose it at 1st level. It also grants you additional ways to use Channel Divinity when you gain that feature at 2nd level, and additional benefits at 6th, 8th, and 17th levels.</body>
+            </feature>
+        </features>
+        <proficiencies>
+            <skills>
+                <option>History</option>
+                <option>Insight</option>
+                <option>Medicine</option>
+                <option>Persuasion</option>
+                <option>Religion</option>
+                <option></option>
+            </skills>
+            <savingThrows>
+                <attribute>Wisdom</attribute>
+                <attribute>Charisma</attribute>
+            </savingThrows>
+            <equipment>
+                <weapon>Simple</weapon>
+                <armor>Light, Medium, Shields</armor>
+                <tool>None</tool>
+            </equipment>
+        </proficiencies>
+        <health>
+            <hitDie>1d8</hitDie>
+            <attribute>Constitution</attribute>
+        </health>
+        <flavorText>Arms and eyes upraised toward the sun and a prayer on his lips, an elf begins to glow with an inner light that spills out to heal his battle-worn companions.
+
+Chanting a song of glory, a dwarf swings his axe in wide swaths to cut through the ranks of orcs arrayed against him, shouting praise to the gods with every foe’s fall.
+
+Calling down a curse upon the forces of undeath, a human lifts her holy symbol as light pours from it to drive back the zombies crowding in on her companions.
+
+Clerics are intermediaries between the mortal world and the distant planes of the gods. As varied as the gods they serve, clerics strive to embody the handiwork of their deities. No ordinary priest, a cleric is imbued with divine magic.</flavorText>
+        <powerRating>
+            <magic>
+                <defense>8</defense>
+                <offense>5</offense>
+                <utility>4</utility>
+            </magic>
+            <martial>
+                <defense>6</defense>
+                <offense>3</offense>
+                <utility>2</utility>
+            </martial>
+            <position>
+                <ranged>6</ranged>
+                <melee>5</melee>
+            </position>
+        </powerRating>
+    </class>
+    <class>
+        <name>Druid</name>
+        <casterType>Wisdom</casterType>
+        <features>
+            <feature level="1">
+                <title>Spellcasting</title>
+                <body>Drawing on the divine essence of nature itself, you can cast spells to shape that essence to your will. See Spells Rules for the general rules of spellcasting and the Spells Listing for the druid spell list.
+Cantrips
+
+At 1st level, you know two cantrips of your choice from the druid spell list. You learn additional druid cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Druid table.
+Preparing and Casting Spells
+
+The Druid table shows how many spell slots you have to cast your druid spells of 1st level and higher. To cast one of these druid spells, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.
+
+You prepare the list of druid spells that are available for you to cast, choosing from the druid spell list. When you do so, choose a number of druid spells equal to your Wisdom modifier + your druid level (minimum of one spell). The spells must be of a level for which you have spell slots.
+
+For example, if you are a 3rd-level druid, you have four 1st-level and two 2nd-level spell slots. With a Wisdom of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell cure wounds, you can cast it using a 1st-level or 2nd-level slot. Casting the spell doesn’t remove it from your list of prepared spells.
+
+You can also change your list of prepared spells when you finish a long rest. Preparing a new list of druid spells requires time spent in prayer and meditation: at least 1 minute per spell level for each spell on your list.</body>
+            </feature>
+            <feature level="1">
+                <title>Druidic</title>
+                <body>You know Druidic, the secret language of druids. You can speak the language and use it to leave hidden messages. You and others who know this language automatically spot such a message. Others spot the message’s presence with a successful DC 15 Wisdom (Perception) check but can’t decipher it without magic.</body>
+            </feature>
+        </features>
+        <proficiencies>
+            <skills>
+                <option>Arcana</option>
+                <option>Animal Handling</option>
+                <option>Insight</option>
+                <option>Medicine</option>
+                <option>Nature</option>
+                <option>Perception</option>
+                <option>Religion</option>
+               
+            </skills>
+            <savingThrows>
+                <attribute>Intelligence</attribute>
+                <attribute>Wisdom</attribute>
+            </savingThrows>
+            <equipment>
+                <weapon>Clubs, Daggers, Darts, Javelins, Maces, Quarterstaffs, Scimitars, Sickles, SLings, Spears</weapon>
+                <armor>Light, Medium, Shields</armor>
+                <tool>Herbalism Kit</tool>
+            </equipment>
+        </proficiencies>
+        <health>
+            <hitDie>1d8</hitDie>
+            <attribute>Constitution</attribute>
+        </health>
+        <flavorText></flavorText>
+        <powerRating>
+            <magic>
+                <defense>5</defense>
+                <offense>5</offense>
+                <utility>4</utility>
+            </magic>
+            <martial>
+                <defense>6</defense>
+                <offense>7</offense>
+                <utility>4</utility>
+            </martial>
+            <position>
+                <ranged>3</ranged>
+                <melee>7</melee>
+            </position>
+        </powerRating>
+    </class>
+    <class>
+        <name>Fighter</name>
+        <casterType>None</casterType>
+        <features>
+            <feature level="1">
+                <title>Fighting Style</title>
+                <body>You adopt a particular style of fighting as your specialty. Choose one of the following options. You can’t take a Fighting Style option more than once, even if you later get to choose again.
+Archery
+
+You gain a +2 bonus to attack rolls you make with ranged weapons.
+
+Defense
+
+While you are wearing armor, you gain a +1 bonus to AC.
+
+Dueling
+
+When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.
+
+Great Weapon Fighting
+
+When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die and must use the new roll, even if the new roll is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.
+
+Protection
+
+When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
+
+Two-Weapon Fighting
+
+When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.</body>
+            </feature>
+            <feature level="1">
+                <title>Second Winds</title>
+                <body>You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level. Once you use this feature, you must finish a short or long rest before you can use it again.</body>
+            </feature>
+        </features>
+        <proficiencies>
+            <skills>
+                <option>Acrobatics</option>
+                <option> Animal Handling</option>
+                <option> Athletics</option>
+                <option>History</option>
+                <option> Insight</option>
+                <option> Intimidation</option>
+            </skills>
+            <savingThrows>
+                <attribute>Strength</attribute>
+                <attribute>Constitution</attribute>
+            </savingThrows>
+            <equipment>
+                <weapon>Simple, Martial</weapon>
+                <armor>All armor and shields</armor>
+                <tool>None</tool>
+            </equipment>
+        </proficiencies>
+        <health>
+            <hitDie>1d10</hitDie>
+            <attribute>Constitution</attribute>
+        </health>
+        <flavorText>A human in clanging plate armor holds her shield before her as she runs toward the massed goblins. An elf behind her, clad in studded leather armor, peppers the goblins with arrows loosed from his exquisite bow. The half-orc nearby shouts orders, helping the two combatants coordinate their assault to the best advantage.
+
+A dwarf in chain mail interposes his shield between the ogre’s club and his companion, knocking the deadly blow aside. His companion, a half-elf in scale armor, swings two scimitars in a blinding whirl as she circles the ogre, looking for a blind spot in its defenses.
+
+A gladiator fights for sport in an arena, a master with his trident and net, skilled at toppling foes and moving them around for the crowd’s delight—and his own tactical advantage. His opponent’s sword flares with blue light an instant before she sends lightning flashing forth to smite him.
+
+All of these heroes are fighters, perhaps the most diverse class of characters in the worlds of Dungeons and Dragons. Questing knights, conquering overlords, royal champions, elite foot soldiers, hardened mercenaries, and bandit kings—as fighters, they all share an unparalleled mastery with weapons and armor, and a thorough knowledge of the skills of combat. And they are well acquainted with death, both meting it out and staring it defiantly in the face.</flavorText>
+        <powerRating>
+            <magic>
+                <defense>0</defense>
+                <offense>0</offense>
+                <utility>0</utility>
+            </magic>
+            <martial>
+                <defense>9</defense>
+                <offense>9</offense>
+                <utility>6</utility>
+            </martial>
+            <position>
+                <ranged>8</ranged>
+                <melee>8</melee>
+            </position>
+        </powerRating>
+    </class>
+    <class>
+        <name>Wizard</name>
+        <casterType>Intelligence</casterType>
+        <features>
+            <feature level="1">
+                <title>Spellcasting</title>
+                <body>As a student of arcane magic, you have a spellbook containing spells that show the first glimmerings of your true power. See Spells Rules for the general rules of spellcasting and the Spells Listing for the wizard spell list.
+Cantrips
+
+At 1st level, you know three cantrips of your choice from the wizard spell list. You learn additional wizard cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Wizard table.
+Spellbook
+
+At 1st level, you have a spellbook containing six 1st-level wizard spells of your choice. Your spellbook is the repository of the wizard spells you know, except your cantrips, which are fixed in your mind.
+Preparing and Casting Spells
+
+The Wizard table shows how many spell slots you have to cast your wizard spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.
+
+You prepare the list of wizard spells that are available for you to cast. To do so, choose a number of wizard spells from your spellbook equal to your Intelligence modifier + your wizard level (minimum of one spell). The spells must be of a level for which you have spell slots.
+
+For example, if you’re a 3rd-level wizard, you have four 1st-level and two 2nd-level spell slots. With an Intelligence of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination, chosen from your spellbook. If you prepare the 1st-level spell magic missile, you can cast it using a 1st-level or a 2nd-level slot. Casting the spell doesn’t remove it from your list of prepared spells.
+
+You can change your list of prepared spells when you finish a long rest. Preparing a new list of wizard spells requires time spent studying your spellbook and memorizing the incantations and gestures you must make to cast the spell: at least 1 minute per spell level for each spell on your list.
+Spellcasting Ability
+
+Intelligence is your spellcasting ability for your wizard spells, since you learn your spells through dedicated study and memorization. You use your Intelligence whenever a spell refers to your spellcasting ability. In addition, you use your Intelligence modifier when setting the saving throw DC for a wizard spell you cast and when making an attack roll with one.
+
+Spell save DC = 8 + your proficiency bonus + your Intelligence modifier
+
+Spell attack modifier = your proficiency bonus + your Intelligence modifier
+Ritual Casting
+
+You can cast a wizard spell as a ritual if that spell has the ritual tag and you have the spell in your spellbook. You don’t need to have the spell prepared.
+Spellcasting Focus
+
+You can use an arcane focus (see the Adventuring Gear section) as a spellcasting focus for your wizard spells.</body>
+            </feature>
+            <feature level="1">
+                <title>Arcane Recovery</title>
+                <body>You have learned to regain some of your magical energy by studying your spellbook. Once per day when you finish a short rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher.
+
+For example, if you’re a 4th-level wizard, you can recover up to two levels worth of spell slots. You can recover either a 2nd-level spell slot or two 1st-level spell slots.</body>
+            </feature>
+        </features>
+        <proficiencies>
+            <skills>
+                <option>Arcana</option>
+                <option>History</option>
+                <option>Insight</option>
+                <option>Investigation</option>
+                <option>Medicine</option>
+                <option>Religion</option>
+            </skills>
+            <savingThrows>
+                <attribute>Intelligence</attribute>
+                <attribute>Wisdom</attribute>
+            </savingThrows>
+            <equipment>
+                <weapon>Daggers, Darts, SLings, staffs, Light crossbow</weapon>
+                <armor>none</armor>
+                <tool>none</tool>
+            </equipment>
+        </proficiencies>
+        <health>
+            <hitDie>1d6</hitDie>
+            <attribute>Constitution</attribute>
+        </health>
+        <flavorText>Clad in the silver robes that denote her station, an elf closes her eyes to shut out the distractions of the battlefield and begins her quiet chant. Fingers weaving in front of her, she completes her spell and launches a tiny bead of fire toward the enemy ranks, where it erupts into a conflagration that engulfs the soldiers.
+
+Checking and rechecking his work, a human scribes an intricate magic circle in chalk on the bare stone floor, then sprinkles powdered iron along every line and graceful curve. When the circle is complete, he drones a long incantation. A hole opens in space inside the circle, bringing a whiff of brimstone from the otherworldly plane beyond.
+
+Crouching on the floor in a dungeon intersection, a gnome tosses a handful of small bones inscribed with mystic symbols, muttering a few words of power over them. Closing his eyes to see the visions more clearly, he nods slowly, then opens his eyes and points down the passage to his left.
+
+Wizards are supreme magic-users, defined and united as a class by the spells they cast. Drawing on the subtle weave of magic that permeates the cosmos, wizards cast spells of explosive fire, arcing lightning, subtle deception, and brute-force mind control. Their magic conjures monsters from other planes of existence, glimpses the future, or turns slain foes into zombies. Their mightiest spells change one substance into another, call meteors down from the sky, or open portals to other worlds.</flavorText>
+        <powerRating>
+            <magic>
+                <defense>8</defense>
+                <offense>9</offense>
+                <utility>7</utility>
+            </magic>
+            <martial>
+                <defense>1</defense>
+                <offense>2</offense>
+                <utility>1</utility>
+            </martial>
+            <position>
+                <ranged>10</ranged>
+                <melee>1</melee>
+            </position>
+        </powerRating>
+    </class>
+    <class>
+        <name>Generic</name>
+        <casterType>AbilityCaster</casterType>
+        <features>
+            <feature level="1">
+                <title></title>
+                <body></body>
+            </feature>
+            <feature level="1">
+                <title></title>
+                <body></body>
+            </feature>
+        </features>
+        <proficiencies>
+            <skills>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+            </skills>
+            <savingThrows>
+                <attribute></attribute>
+                <attribute></attribute>
+            </savingThrows>
+            <equipment>
+                <weapon></weapon>
+                <armor></armor>
+                <tool></tool>
+            </equipment>
+        </proficiencies>
+        <health>
+            <hitDie>1d10</hitDie>
+            <attribute>Constitution</attribute>
+        </health>
+        <flavorText></flavorText>
         <powerRating>
             <magic>
                 <defense>8</defense>

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package container;
+package gui;
 
 import constants.KEY;
 import data_structure.Skill;
@@ -22,7 +22,7 @@ import util.SwingHelper;
  *
  * @author Kendrick-Laptop
  */
-public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDataHolder{
+public class BuilderBackgroundCard extends javax.swing.JPanel implements Card{
 
     private BackgroundTemplates tBackgrounds;
 
@@ -143,9 +143,9 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
     public void update(Bundle b) {
     }
 
-    BackgroundTemplates.Background getSelectedBackground() {
+    BackgroundTemplates.PlayerBackground getSelectedBackground() {
         String item = (String) combo_backgrounds.getSelectedItem();
-        for(BackgroundTemplates.Background b : tBackgrounds){
+        for(BackgroundTemplates.PlayerBackground b : tBackgrounds){
             if(b.getName().equals(item))
                 return b;
         }
@@ -174,7 +174,7 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
         if(character_info == null)
             character_info = new Bundle();
         
-        BackgroundTemplates.Background ba = getSelectedBackground();
+        BackgroundTemplates.PlayerBackground ba = getSelectedBackground();
         if(ba != null){
             character_info.putString(KEY.K_BACKGROUND_NAME, ba.getName());
             character_info.putString(KEY.K_BACKGROUND_TRAIT, (String) combo_trait.getSelectedItem());
@@ -232,15 +232,15 @@ public class BuilderBackgroundCard extends javax.swing.JPanel implements CardDat
     void resetComponents() {
     }
 
-    void updateComponents(BackgroundTemplates.Background ba) {
+    void updateComponents(BackgroundTemplates.PlayerBackground ba) {
             Vector<String> backgroundTraits = new Vector<>();
             Vector<String> backgroundBonds = new Vector<>();
             Vector<String> backgroundIdeals = new Vector<>();
             Vector<String> backgroundFlaws = new Vector<>();     
-            backgroundTraits.addAll(ba.getStrings(BackgroundTemplates.Background.STORY.TRAIT));
-            backgroundBonds.addAll(ba.getStrings(BackgroundTemplates.Background.STORY.BOND));
-            backgroundIdeals.addAll(ba.getStrings(BackgroundTemplates.Background.STORY.IDEAL));
-            backgroundFlaws.addAll(ba.getStrings(BackgroundTemplates.Background.STORY.FLAW));
+            backgroundTraits.addAll(ba.getStrings(BackgroundTemplates.PlayerBackground.STORY.TRAIT));
+            backgroundBonds.addAll(ba.getStrings(BackgroundTemplates.PlayerBackground.STORY.BOND));
+            backgroundIdeals.addAll(ba.getStrings(BackgroundTemplates.PlayerBackground.STORY.IDEAL));
+            backgroundFlaws.addAll(ba.getStrings(BackgroundTemplates.PlayerBackground.STORY.FLAW));
             
             DefaultComboBoxModel<String> traitsModel = new DefaultComboBoxModel<>(backgroundTraits);
             DefaultComboBoxModel<String> bondsModel = new DefaultComboBoxModel<>(backgroundBonds);

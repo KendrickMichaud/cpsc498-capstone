@@ -1,9 +1,9 @@
 package app;
 
 import constants.KEY;
-import container.BuilderFrame;
-import container.CharacterFrame;
-import container.MenuFrame;
+import gui.BuilderFrame;
+import gui.CharacterFrame;
+import gui.MenuFrame;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,8 +16,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import templates.BackgroundTemplates;
-import templates.BackgroundTemplates.Background;
-import templates.BackgroundTemplates.Background.STORY;
+import templates.BackgroundTemplates.PlayerBackground;
+import templates.BackgroundTemplates.PlayerBackground.STORY;
 import templates.ClassTemplates;
 import templates.PlayerClass;
 import templates.PlayerRace;
@@ -162,8 +162,8 @@ public class AppManager {
     public void reinitializeEnvironment(File openCharacterFile){
         FileManager file_manager = new FileManager(
                 openCharacterFile, 
-                FileManager.TYPE.READ, 
-                FileManager.FILE.CXML);
+                FileManager.IO_TYPE.READ, 
+                FileManager.FILE_TYPE.CXML);
         Bundle character_data = file_manager.getData();
         if(character_data.getBoolean(FileManager.IO_SUCCESS)){
             main_frame.updateValues(character_data);
@@ -272,7 +272,7 @@ public class AppManager {
      */
     public void saveData(File file, Bundle bundle) {
         FileManager file_manager = new FileManager
-        (file, FileManager.TYPE.WRITE, FileManager.FILE.CXML);
+        (file, FileManager.IO_TYPE.WRITE, FileManager.FILE_TYPE.CXML);
         file_manager.sendData(bundle);
         unsavedData = false;
     }
@@ -298,11 +298,11 @@ public class AppManager {
     public void readTemplate() {
         FileManager fm = new FileManager
         (new File(getClass().getResource("/templates/races.xml").getPath())
-                ,FileManager.TYPE.READ, FileManager.FILE.T_RACE);
+                ,FileManager.IO_TYPE.READ, FileManager.FILE_TYPE.T_RACE);
         Bundle bundle = fm.getData();
         BackgroundTemplates t = (BackgroundTemplates) bundle.getTemplate(templates.Templates.TYPE.T_BACKGROUND);
         if(t != null){
-            Background b = t.get(1);
+            PlayerBackground b = t.get(1);
             ArrayList<String> bonds;
             bonds = b.getStrings(STORY.BOND);
             for(String s : bonds){
@@ -372,9 +372,9 @@ public class AppManager {
         fRace = new File(getClass().getResource(Templates.FILE_RACE).getFile());
         fClass = new File(getClass().getResource(Templates.FILE_CLASS).getFile());
         fBackground = new File(getClass().getResource(Templates.FILE_BACKGROUND).getFile());
-        FileManager raceManager = new FileManager(fRace, FileManager.TYPE.READ, FileManager.FILE.T_RACE);
-        FileManager classManager = new FileManager(fClass, FileManager.TYPE.READ, FileManager.FILE.T_CLASS);
-        FileManager backManager = new FileManager(fBackground, FileManager.TYPE.READ, FileManager.FILE.T_BACKGROUND);
+        FileManager raceManager = new FileManager(fRace, FileManager.IO_TYPE.READ, FileManager.FILE_TYPE.T_RACE);
+        FileManager classManager = new FileManager(fClass, FileManager.IO_TYPE.READ, FileManager.FILE_TYPE.T_CLASS);
+        FileManager backManager = new FileManager(fBackground, FileManager.IO_TYPE.READ, FileManager.FILE_TYPE.T_BACKGROUND);
         
         Bundle templates = new Bundle();
         templates.putTemplate(Templates.TYPE.T_CLASS, classManager.getData().getTemplate(Templates.TYPE.T_CLASS));

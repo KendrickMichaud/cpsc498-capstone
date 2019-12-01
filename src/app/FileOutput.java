@@ -16,7 +16,7 @@ import util.Bundle;
  */
 class FileOutput {
 
-    FileOutput(File file, FileManager.FILE fileType, Bundle output) {
+    FileOutput(File file, FileManager.FILE_TYPE fileType, Bundle output) {
 
     }
 

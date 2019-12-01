@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package container;
+package gui;
 
 import app.AppManager;
 import constants.KEY;
@@ -142,9 +142,7 @@ public class SpellbookFrame extends javax.swing.JFrame {
         combo_caster = new javax.swing.JComboBox<>();
 
         setTitle("Spellbook");
-        setMaximumSize(new java.awt.Dimension(10000, 10000));
         setMinimumSize(new java.awt.Dimension(500, 300));
-        setPreferredSize(new java.awt.Dimension(700, 400));
         setResizable(false);
 
         tab_pane.setPreferredSize(new java.awt.Dimension(600, 463));

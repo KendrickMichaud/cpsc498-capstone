@@ -6,15 +6,15 @@
 package templates;
 
 import java.util.ArrayList;
-import templates.BackgroundTemplates.Background;
+import templates.BackgroundTemplates.PlayerBackground;
 
 /**
  *
  * @author Kendrick-Laptop
  */
-public class BackgroundTemplates extends Templates<Background>{
+public class BackgroundTemplates extends Templates<PlayerBackground>{
 
-    public static class Background {
+    public static class PlayerBackground {
 
         private String description;
         
@@ -53,7 +53,7 @@ public class BackgroundTemplates extends Templates<Background>{
         private ArrayList<String> skillProfs;
         private ArrayList<Feature> features; 
         private String name;
-        public Background() {
+        public PlayerBackground() {
             
         }
 
