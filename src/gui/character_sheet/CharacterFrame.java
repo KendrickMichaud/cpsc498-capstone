@@ -304,8 +304,11 @@ public class CharacterFrame extends javax.swing.JFrame {
         pan_charInfo.setMaximumSize(new java.awt.Dimension(200, 420));
         pan_charInfo.setLayout(new java.awt.BorderLayout());
 
+        lbl_charInfo.setBackground(new java.awt.Color(255, 204, 0));
         lbl_charInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_charInfo.setText("Character Information");
+        lbl_charInfo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lbl_charInfo.setOpaque(true);
         lbl_charInfo.setPreferredSize(new java.awt.Dimension(120, 18));
         pan_charInfo.add(lbl_charInfo, java.awt.BorderLayout.PAGE_START);
 
@@ -388,7 +391,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         txt_alignment.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         pan_biography.add(txt_alignment);
 
-        lbl_level.setText("Level");
+        lbl_level.setText(" Level");
         pan_biography.add(lbl_level);
 
         combo_level.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
@@ -459,8 +462,11 @@ public class CharacterFrame extends javax.swing.JFrame {
         pan_attributes.setMaximumSize(new java.awt.Dimension(550, 150));
         pan_attributes.setLayout(new java.awt.BorderLayout());
 
+        lbl_panAttributes.setBackground(new java.awt.Color(255, 204, 0));
         lbl_panAttributes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_panAttributes.setText("Attributes");
+        lbl_panAttributes.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lbl_panAttributes.setOpaque(true);
         pan_attributes.add(lbl_panAttributes, java.awt.BorderLayout.PAGE_START);
 
         bdy_attributes.setLayout(new java.awt.GridLayout(1, 6));
@@ -664,8 +670,11 @@ public class CharacterFrame extends javax.swing.JFrame {
         pan_combat.setMaximumSize(new java.awt.Dimension(550, 260));
         pan_combat.setLayout(new java.awt.BorderLayout());
 
+        lbl_panCombat.setBackground(new java.awt.Color(255, 204, 0));
         lbl_panCombat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_panCombat.setText("Combat & Utility");
+        lbl_panCombat.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbl_panCombat.setOpaque(true);
         pan_combat.add(lbl_panCombat, java.awt.BorderLayout.PAGE_START);
 
         pan_combatBody.setLayout(new java.awt.GridLayout(1, 3));
@@ -676,8 +685,11 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         jPanel2.setLayout(new java.awt.BorderLayout());
 
+        lbl_weapon_title.setBackground(new java.awt.Color(204, 204, 204));
         lbl_weapon_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_weapon_title.setText("Weapon 1");
+        lbl_weapon_title.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lbl_weapon_title.setOpaque(true);
         jPanel2.add(lbl_weapon_title, java.awt.BorderLayout.CENTER);
 
         jButton1.setText(">");
@@ -710,7 +722,6 @@ public class CharacterFrame extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel3.setLayout(new java.awt.BorderLayout());
 
-        defense_title.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         defense_title.setLayout(new java.awt.BorderLayout());
 
         defense_switch_right.setText(">");
@@ -729,8 +740,11 @@ public class CharacterFrame extends javax.swing.JFrame {
         });
         defense_title.add(defense_switch_left, java.awt.BorderLayout.LINE_START);
 
+        lbl_deck_defense_name.setBackground(new java.awt.Color(204, 204, 204));
         lbl_deck_defense_name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_deck_defense_name.setText("Defense");
+        lbl_deck_defense_name.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lbl_deck_defense_name.setOpaque(true);
         defense_title.add(lbl_deck_defense_name, java.awt.BorderLayout.CENTER);
 
         jPanel3.add(defense_title, java.awt.BorderLayout.PAGE_START);
@@ -744,9 +758,11 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         pan_utility.setLayout(new java.awt.BorderLayout());
 
+        lbl_util_title.setBackground(new java.awt.Color(204, 204, 204));
         lbl_util_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_util_title.setText("Utility and Survival");
-        lbl_util_title.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbl_util_title.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lbl_util_title.setOpaque(true);
         pan_utility.add(lbl_util_title, java.awt.BorderLayout.PAGE_START);
 
         pan_util_body.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -831,9 +847,11 @@ public class CharacterFrame extends javax.swing.JFrame {
 
         pan_health.setLayout(new java.awt.BorderLayout());
 
+        lbl_health_title.setBackground(new java.awt.Color(204, 204, 204));
         lbl_health_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_health_title.setText("Health");
-        lbl_health_title.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbl_health_title.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lbl_health_title.setOpaque(true);
         pan_health.add(lbl_health_title, java.awt.BorderLayout.PAGE_START);
 
         pan_health_body.setLayout(new java.awt.GridLayout(2, 2));
@@ -866,8 +884,11 @@ public class CharacterFrame extends javax.swing.JFrame {
         pan_skills.setMaximumSize(new java.awt.Dimension(200, 420));
         pan_skills.setLayout(new java.awt.BorderLayout());
 
+        lbl_panSkillsProfs.setBackground(new java.awt.Color(255, 204, 0));
         lbl_panSkillsProfs.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_panSkillsProfs.setText("Skills & Proficiencies");
+        lbl_panSkillsProfs.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lbl_panSkillsProfs.setOpaque(true);
         pan_skills.add(lbl_panSkillsProfs, java.awt.BorderLayout.PAGE_START);
 
         bdy_skills_swap.setLayout(new java.awt.BorderLayout());
@@ -902,8 +923,12 @@ public class CharacterFrame extends javax.swing.JFrame {
         pan_features.setMaximumSize(new java.awt.Dimension(550, 420));
         pan_features.setLayout(new java.awt.BorderLayout());
 
+        lbl_panFeatures.setBackground(new java.awt.Color(255, 204, 0));
         lbl_panFeatures.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_panFeatures.setText("Feats, Class Features, Race Features");
+        lbl_panFeatures.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lbl_panFeatures.setName(""); // NOI18N
+        lbl_panFeatures.setOpaque(true);
         pan_features.add(lbl_panFeatures, java.awt.BorderLayout.PAGE_START);
 
         bdy_features.setLayout(new java.awt.BorderLayout());

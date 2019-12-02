@@ -11,6 +11,12 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.table.DefaultTableModel;
 import data_structure.Inventory;
 import data_structure.Item;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -88,6 +94,15 @@ public class InventoryFrame extends javax.swing.JFrame {
         model.addTableModelListener((TableModelEvent e) -> {
             checkWeight(calculateWeightTotal());
         });
+        try {
+            File f = new File(getClass().getResource("/img/ico_bag.png").getPath());
+            if(f != null){
+                BufferedImage img = ImageIO.read(f);
+                setIconImage(img);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CharacterFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     private Double calculateWeightTotal(){

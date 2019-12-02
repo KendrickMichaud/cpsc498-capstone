@@ -13,6 +13,12 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import data_structure.Spell;
 import data_structure.Spellbook;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -25,6 +31,15 @@ public class SpellbookFrame extends javax.swing.JFrame {
      */
     public SpellbookFrame() {
         initComponents();
+        try {
+            File f = new File(getClass().getResource("/img/spellbook.png").getPath());
+            if(f != null){
+                BufferedImage img = ImageIO.read(f);
+                setIconImage(img);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CharacterFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

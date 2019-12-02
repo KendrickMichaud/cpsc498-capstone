@@ -8,6 +8,12 @@ package gui.character_sheet;
 import gui.util.KEY;
 import app.Bundle;
 import gui.util.SwingHelper;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -28,6 +34,15 @@ public class BackgroundFrame extends javax.swing.JFrame {
         SwingHelper.wrapWord(txt_flaw);
         SwingHelper.wrapWord(txt_ideal);
         SwingHelper.wrapWord(txt_trait);
+        try {
+            File f = new File(getClass().getResource("/img/icon_person.png").getPath());
+            if(f != null){
+                BufferedImage img = ImageIO.read(f);
+                setIconImage(img);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CharacterFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
