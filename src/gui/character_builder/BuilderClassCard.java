@@ -28,6 +28,7 @@ public class BuilderClassCard extends javax.swing.JPanel implements Card{
 
     private ClassTemplates cTemplates;
     public static final int PROF_LIMIT = 2;
+    private PlayerClass current;
     /**
      * Creates new form BuilderClassCard
      */
@@ -251,12 +252,21 @@ public class BuilderClassCard extends javax.swing.JPanel implements Card{
     }
 
     void updateComponents(PlayerClass cl) {
+        if(current == null || !cl.equals(current)){
+            setCurrentClass(cl);
+            prof_1.setSelected(false);prof_1.setEnabled(true);
+            prof_2.setSelected(false);prof_2.setEnabled(true);
+            prof_3.setSelected(false);prof_3.setEnabled(true);
+            prof_4.setSelected(false);prof_4.setEnabled(true);
+            prof_5.setSelected(false);prof_5.setEnabled(true);
+            prof_6.setSelected(false);prof_6.setEnabled(true);
+        }
         txt_pane_flavor.setText(cl.flavorText);
         SwingHelper.setScrollPositionToTop(scroll_desc);
         ArrayList<String> profs = cl.skillProfs;
         if(profs != null){
             int size = 6;
-            if(profs.size()+1 < 6){
+            if(profs.size()+1 <= 6){
                 size = profs.size();
                 for(int i = size; i < 6; i++){
                     switch(i){
@@ -280,6 +290,11 @@ public class BuilderClassCard extends javax.swing.JPanel implements Card{
                     case 5:prof_6.setText(prof);prof_6.setVisible(true);break;
                 }
             }
+            if(profs.isEmpty()){
+                lbl_profs.setText("");
+            }
+            else
+                lbl_profs.setText("Select 2 proficiencies");
         }
     }
 
@@ -353,8 +368,13 @@ public class BuilderClassCard extends javax.swing.JPanel implements Card{
         }
         
         equipment = equipment.concat("-------------------").concat("\n").concat("Equipment\n");
-        for(String s : cl.equipmentProfs){
-            equipment = equipment.concat(s).concat("\n");
+        for(int i = 0; i < cl.equipmentProfs.size(); i++){
+            switch(i){
+                case 0:equipment += "Weapons: " + cl.equipmentProfs.get(i);break;
+                case 1:equipment += "Armor: " + cl.equipmentProfs.get(i);break;
+                case 2:equipment += "Tools: " + cl.equipmentProfs.get(i);break;
+            }
+            equipment += "\n";
         }
         character_info.putString(KEY.K_EQUIPMENT_LANG_PROFICIENCIES, equipment);
         
@@ -423,5 +443,7 @@ public class BuilderClassCard extends javax.swing.JPanel implements Card{
         ChoiceMaker.decideCheckBoxes(boxes, PROF_LIMIT);
     }
     
-    
+    private void setCurrentClass(PlayerClass cl){
+        this.current = cl;
+    }
 }

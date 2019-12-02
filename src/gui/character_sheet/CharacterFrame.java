@@ -21,7 +21,6 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -82,7 +81,7 @@ public class CharacterFrame extends javax.swing.JFrame {
         BufferedImage img;
         try {
             img = ImageIO.read(new File(getClass().getResource("/img/icon_logo.jpg").getPath()));
-            setIconImage    (img);
+            setIconImage(img);
         } catch (IOException ex) {
             Logger.getLogger(CharacterFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1620,9 +1619,7 @@ public class CharacterFrame extends javax.swing.JFrame {
             setAttributes(character_data);
             setFeatures(character_data);
             setBackgroundValues(character_data);
-            //String racePortraitPath = character_data.getString(KEY.K_IMAGE_PATH);
-            //if(racePortraitPath != null)
-                //setLblImageToInputStream(getClass().getResourceAsStream(racePortraitPath));
+            setUtility(character_data);
         }
         else{
             setImage(character_data);
@@ -1887,7 +1884,14 @@ public class CharacterFrame extends javax.swing.JFrame {
         speed = character_data.getString(KEY.K_SPEED_BONUS);
         init = character_data.getString(KEY.K_INIT_BONUS);
         health = character_data.getString(KEY.K_HEALTH_POINTS);
-        hitDie = character_data.getString(KEY.K_HIT_DIE);
+         hitDie = character_data.getString(KEY.K_HIT_DIE);
+        if(character_data.getBoolean(BuilderFrame.FROM_BUILDER)){
+             int constitution_modifier = getMOD(KEY.K_CONSTITUTION);
+             if(constitution_modifier > 0){
+                 hitDie += "+" + Integer.toString(constitution_modifier);
+             }
+        }
+       
         if(!DataIntegrity.isNumeric(speed)){
             speed = DataIntegrity.DEFAULT_ZERO_STR;
         }

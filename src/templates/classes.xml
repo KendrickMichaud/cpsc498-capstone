@@ -22,12 +22,12 @@ and open the template in the editor.
         </features>
         <proficiencies>
             <skills>
-                <option>AthleticsProf</option>
-                <option>InsightProf</option>
-                <option>IntimidationProf</option>
-                <option>MedicineProf</option>
-                <option>PersuasionProf</option>
-                <option>ReligionProf</option>
+                <option>Athletics</option>
+                <option>Insight</option>
+                <option>Intimidation</option>
+                <option>Medicine</option>
+                <option>Persuasion</option>
+                <option>Religion</option>
             </skills>
             <savingThrows>
                 <attribute>Wisdom</attribute>
@@ -90,9 +90,9 @@ Once you have raged the number of times shown for your barbarian level in the Ra
             <skills>
                 <option>Animal Handling</option>
                 <option>Athletics</option>
-                <option>Intimidation,</option>
+                <option>Intimidation</option>
                 <option>Nature</option>
-                <option> Perception</option>
+                <option>Perception</option>
                 <option>Survival</option>
             </skills>
             <savingThrows>
@@ -181,14 +181,14 @@ You can use this feature a number of times equal to your Charisma modifier (a mi
 
 Your Bardic Inspiration die changes when you reach certain levels in this class. The die becomes a d8 at 5th level, a d10 at 10th level, and a d12 at 15th level.</body>
             </feature>
+            <feature level="1">
+                <title>Skill Bonuses</title>
+                <Body>You may choose proficency in 3 skills of your choice</Body>
+            </feature>
         </features>
         <proficiencies>
-            <skills>
-                <option>Any three</option>
-                <option></option>
-                <wildcard>true</wildcard>
-            </skills>
             <savingThrows>
+                <skills></skills>
                 <attribute>Dexterity</attribute>
                 <attribute>Charisma</attribute>
             </savingThrows>
@@ -196,7 +196,6 @@ Your Bardic Inspiration die changes when you reach certain levels in this class.
                 <weapon>Simple, Hand crossbows, Longswords, Rapiers, Shortsword</weapon>
                 <armor>Light</armor>
                 <tool>Any three musical Instuments of your choice</tool>
-                <wildcard>true</wildcard>
             </equipment>
         </proficiencies>
         <health>
@@ -228,7 +227,7 @@ Whether scholar, skald, or scoundrel, a bard weaves magic through words and musi
         </powerRating>
     </class>
     <class>
-        <name>CLeric</name>
+        <name>Cleric</name>
         <casterType>Wisdom</casterType>
         <features>
             <feature level="1">
@@ -272,7 +271,6 @@ You can use a holy symbol (see the Adventuring Gear section) as a spellcasting f
                 <option>Medicine</option>
                 <option>Persuasion</option>
                 <option>Religion</option>
-                <option></option>
             </skills>
             <savingThrows>
                 <attribute>Wisdom</attribute>
@@ -346,7 +344,6 @@ You can also change your list of prepared spells when you finish a long rest. Pr
                 <option>Nature</option>
                 <option>Perception</option>
                 <option>Religion</option>
-               
             </skills>
             <savingThrows>
                 <attribute>Intelligence</attribute>
@@ -362,7 +359,13 @@ You can also change your list of prepared spells when you finish a long rest. Pr
             <hitDie>1d8</hitDie>
             <attribute>Constitution</attribute>
         </health>
-        <flavorText></flavorText>
+        <flavorText>Holding high a gnarled staff wreathed with holly, an elf summons the fury of the storm and calls down explosive bolts of lightning to smite the torch-carrying orcs who threaten her forest.
+
+Crouching out of sight on a high tree branch in the form of a leopard, a human peers out of the jungle at the strange construction of a temple of Evil Elemental Air, keeping a close eye on the cultists’ activities.
+
+Swinging a blade formed of pure fire, a half-elf charges into a mass of skeletal soldiers, sundering the unnatural magic that gives the foul creatures the mocking semblance of life.
+
+Whether calling on the elemental forces of nature or emulating the creatures of the animal world, druids are an embodiment of nature’s resilience, cunning, and fury. They claim no mastery over nature. Instead, they see themselves as extensions of nature’s indomitable will.</flavorText>
         <powerRating>
             <magic>
                 <defense>5</defense>
@@ -419,11 +422,11 @@ When you engage in two-weapon fighting, you can add your ability modifier to the
         <proficiencies>
             <skills>
                 <option>Acrobatics</option>
-                <option> Animal Handling</option>
-                <option> Athletics</option>
+                <option>Animal Handling</option>
+                <option>Athletics</option>
                 <option>History</option>
-                <option> Insight</option>
-                <option> Intimidation</option>
+                <option>Insight</option>
+                <option>Intimidation</option>
             </skills>
             <savingThrows>
                 <attribute>Strength</attribute>
@@ -520,7 +523,7 @@ For example, if you’re a 4th-level wizard, you can recover up to two levels wo
                 <attribute>Wisdom</attribute>
             </savingThrows>
             <equipment>
-                <weapon>Daggers, Darts, SLings, staffs, Light crossbow</weapon>
+                <weapon>Daggers, Darts, Slings staffs, Light crossbow</weapon>
                 <armor>none</armor>
                 <tool>none</tool>
             </equipment>
@@ -550,60 +553,6 @@ Wizards are supreme magic-users, defined and united as a class by the spells the
             <position>
                 <ranged>10</ranged>
                 <melee>1</melee>
-            </position>
-        </powerRating>
-    </class>
-    <class>
-        <name>Generic</name>
-        <casterType>AbilityCaster</casterType>
-        <features>
-            <feature level="1">
-                <title></title>
-                <body></body>
-            </feature>
-            <feature level="1">
-                <title></title>
-                <body></body>
-            </feature>
-        </features>
-        <proficiencies>
-            <skills>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-            </skills>
-            <savingThrows>
-                <attribute></attribute>
-                <attribute></attribute>
-            </savingThrows>
-            <equipment>
-                <weapon></weapon>
-                <armor></armor>
-                <tool></tool>
-            </equipment>
-        </proficiencies>
-        <health>
-            <hitDie>1d10</hitDie>
-            <attribute>Constitution</attribute>
-        </health>
-        <flavorText></flavorText>
-        <powerRating>
-            <magic>
-                <defense>8</defense>
-                <offense>5</offense>
-                <utility>4</utility>
-            </magic>
-            <martial>
-                <defense>6</defense>
-                <offense>7</offense>
-                <utility>1</utility>
-            </martial>
-            <position>
-                <ranged>3</ranged>
-                <melee>7</melee>
             </position>
         </powerRating>
     </class>

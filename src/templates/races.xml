@@ -54,10 +54,10 @@ and open the template in the editor.
                 <ranged>0</ranged>
                 <melee>0</melee>
             </position>
-        </powerRating>   
+        </powerRating>  
     </race>
-    
-    
+   
+   
     <race>
         <name>Dragonborn</name>
         <raceImage>dragonborn</raceImage>
@@ -102,6 +102,410 @@ and open the template in the editor.
                 <ranged>0</ranged>
                 <melee>1</melee>
             </position>
-        </powerRating>   
+        </powerRating>  
+    </race>
+    <race>
+        <name>Dwarf</name>
+        <raceImage>dwarf</raceImage>
+        <attributes>
+            <Constitution>2</Constitution>
+            <Strength>2</Strength>
+        </attributes>
+        <size>Medium</size>
+        <languages>
+            <item>Common</item>
+            <item>Dwarvish</item>
+            <wildcard>1</wildcard>
+        </languages>
+        <features>
+            <feature>
+                <name>Speed</name>
+                <description>
+
+Your base walking speed is 25 feet. Your speed is not reduced by wearing heavy armor.</description>
+            </feature>
+            <feature>
+                <name>Dwarven Resilience</name>
+                <description>You have advantage on saving throws against poison, and you have resistance against poison damage (explained in the “Combat” section).</description>
+            </feature>
+            <feature>
+                <name>Tool Proficiency</name>
+                <description>You gain proficiency with the artisan’s tools of your choice: smith’s tools, brewer’s supplies, or mason’s tools.</description>
+            </feature>
+            <feature>
+                <name>Stonecunning</name>
+                <description>Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.</description>
+            </feature>
+            <feature>
+                <name>Dwarven Armor Training</name>
+                <description>You have proficiency with light and medium armor.</description>
+            </feature>
+            <feature>
+                <name>Darkvision</name>
+                <description>Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.</description>
+            </feature>
+        </features>
+        <flavorText>Kingdoms rich in ancient grandeur, halls carved into the roots of mountains, the echoing of picks and hammers in deep mines and blazing forges, a commitment to clan and tradition, and a burning hatred of goblins and orcs—these common threads unite all dwarves.</flavorText>
+        <powerRating>
+            <magic>
+                <defense>0</defense>
+                <offense>0</offense>
+                <utility>0</utility>
+            </magic>
+            <martial>
+                <defense>3</defense>
+                <offense>2</offense>
+                <utility>2</utility>
+            </martial>
+            <position>
+                <ranged>0</ranged>
+                <melee>2</melee>
+            </position>
+        </powerRating>  
+    </race>
+    <race>
+        <name>Aereni Elf</name>
+        <raceImage>aerenielf</raceImage>
+        <flavorText>Elves are a magical people of otherworldly grace, living in the world but not entirely part of it. They live in places of ethereal beauty, in the midst of ancient forests or in silvery spires glittering with faerie light, where soft music drifts through the air and gentle fragrances waft on the breeze. Elves love nature and magic, art and artistry, music and poetry, and the good things of the world.</flavorText>
+        <attributes>
+            <Dexterity>2</Dexterity>
+            <Wisdom>1</Wisdom>
+        </attributes>
+        <size>Medium</size>
+        <languages>
+            <item>Common</item>
+            <item>Elvish</item>
+        </languages>
+        <features>
+            <feature>
+                <name>Darkvision</name>
+                <description>Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.</description>
+            </feature>
+            <feature>
+                <name>Keen Senses</name>
+                <description>You have proficiency in the Perception skill.</description>
+            </feature>
+            <feature>
+                <name>Fey Ancestry</name>
+                <description>You have advantage on saving throws against being charmed, and magic can’t put you to sleep.</description>
+            </feature>
+            <feature>
+                <name>Trance</name>
+                <description>Elves don’t need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is “trance.”) While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep.</description>
+            </feature>
+            <feature>
+                <name>Aereni Elf</name>
+                <description>An Aereni elf can choose one skill or tool proficiency. Your proficiency bonus is doubled for any ability check you make that uses this chosen proficiency.</description>
+            </feature>
+            <feature>
+                <name>Fleet of Foot</name>
+                <description>Your base walking speed increases to 35 feet.</description>
+            </feature>
+            <feature>
+                <name>Mask of the Wild</name>
+                <description>You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.</description>
+            </feature>
+        </features>
+         
+        <powerRating>
+            <magic>
+                <defense>1</defense>
+                <offense>0</offense>
+                <utility>0</utility>
+            </magic>
+            <martial>
+                <defense>1</defense>
+                <offense>0</offense>
+                <utility>2</utility>
+            </martial>
+            <position>
+                <ranged>1</ranged>
+                <melee>1</melee>
+            </position>
+        </powerRating>
+    </race>
+    <race>
+        <name>Halfling</name>
+        <raceImage>halfling</raceImage>
+        <flavorText>The comforts of home are the goals of most halflings’ lives: a place to settle in peace and quiet, far from marauding monsters and clashing armies; a blazing fire and a generous meal; fine drink and fine conversation. Though some halflings live out their days in remote agricultural communities, others form nomadic bands that travel constantly, lured by the open road and the wide horizon to discover the wonders of new lands and peoples. But even these wanderers love peace, food, hearth, and home, though home might be a wagon jostling along a dirt road or a raft floating downriver.</flavorText>
+        <attributes>
+            <Dexterity>2</Dexterity>
+            <Constitution>1</Constitution>
+        </attributes>
+        <size>Medium</size>
+        <languages>
+            <item>Common</item>
+            <item>Halfling</item>
+        </languages>
+        <features>
+            <feature>
+                <name>Speed</name>
+                <description>Your base walking speed is 25 feet.</description>
+            </feature>
+            <feature>
+                <name>Lucky</name>
+                <description>When you roll a 1 on the d20 for an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.</description>
+            </feature>
+            <feature>
+                <name>Brave</name>
+                <description>You have advantage on saving throws against being frightened.</description>
+            </feature>
+            <feature>
+                <name>Halfling Nimbleness</name>
+                <description>You can move through the space of any creature that is of a size larger than yours.</description>
+            </feature>
+            <feature>
+                <name>Stout Resilience</name>
+                <description>You have advantage on saving throws against poison, and you have resistance against poison damage.</description>
+            </feature>
+            <feature>
+                <name></name>
+                <description></description>
+            </feature>
+        </features>
+         
+        <powerRating>
+            <magic>
+                <defense>1</defense>
+                <offense>0</offense>
+                <utility>0</utility>
+            </magic>
+            <martial>
+                <defense>1</defense>
+                <offense>0</offense>
+                <utility>2</utility>
+            </martial>
+            <position>
+                <ranged>0</ranged>
+                <melee>0</melee>
+            </position>
+        </powerRating>
+    </race>
+    <race>
+        <name>Half-Orc</name>
+        <raceImage>halforc</raceImage>
+        <flavorText>Whether united under the leadership of a mighty warlock or having fought to a standstill after years of conflict, orc and human tribes sometimes form alliances, joining forces into a larger horde to the terror of civilized lands nearby. When these alliances are sealed by marriages, half-orcs are born. Some half-orcs rise to become proud chiefs of orc tribes, their human blood giving them an edge over their full-blooded orc rivals. Some venture into the world to prove their worth among humans and other more civilized races. Many of these become adventurers, achieving greatness for their mighty deeds and notoriety for their barbaric customs and savage fury.</flavorText>
+        <attributes>
+            <Strength>2</Strength>
+            <Constitution>1</Constitution>
+        </attributes>
+        <size>Medium</size>
+        <languages>
+            <item>Common</item>
+            <item>Orc</item>
+        </languages>
+        <features>
+            <feature>
+                <name>Darkvision</name>
+                <description>Thanks to your orc blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.</description>
+            </feature>
+            <feature>
+                <name>Menacing</name>
+                <description>You gain proficiency in the Intimidation skill.</description>
+            </feature>
+            <feature>
+                <name>Relentless Endurance</name>
+                <description>When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can’t use this feature again until you finish a long rest.</description>
+            </feature>
+            <feature>
+                <name>Savage Attacks</name>
+                <description>When you score a critical hit with a melee weapon attack, you can roll one of the weapon’s damage dice one additional time and add it to the extra damage of the critical hit.</description>
+            </feature>
+            <feature>
+                <name></name>
+                <description></description>
+            </feature>
+            <feature>
+                <name></name>
+                <description></description>
+            </feature>
+        </features>
+        <powerRating>
+            <magic>
+                <defense>0</defense>
+                <offense>0</offense>
+                <utility>0</utility>
+            </magic>
+            <martial>
+                <defense>2</defense>
+                <offense>2</offense>
+                <utility>1</utility>
+            </martial>
+            <position>
+                <ranged>0</ranged>
+                <melee>2</melee>
+            </position>
+        </powerRating>
+    </race>
+    <race>
+        <name>Gnome</name>
+        <raceImage>gnome</raceImage>
+        <flavorText>A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.</flavorText>
+        <attributes>
+            <Intelligence>2</Intelligence>
+            <Constitution>1</Constitution>
+        </attributes>
+        <size>Medium</size>
+        <languages>
+            <item>Common</item>
+            <item>Gnomish</item>
+        </languages>
+        <features>
+            <feature>
+                <name>Speed</name>
+                <description>Your base walking speed is 25 feet.</description>
+            </feature>
+            <feature>
+                <name>Darkvision</name>
+                <description>Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.</description>
+            </feature>
+            <feature>
+                <name>Gnome Cunning</name>
+                <description>
+
+You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.</description>
+            </feature>
+            <feature>
+                <name>Artificer’s Lore</name>
+                <description>Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply.</description>
+            </feature>
+            <feature>
+                <name>Tinker</name>
+                <description>You have proficiency with artisan’s tools (tinker’s tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time.
+
+When you create a device, choose one of the following options:
+
+Clockwork Toy. This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.
+
+Fire Starter. The device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.
+
+Music Box. When opened, this music box plays a single song at a moderate volume.
+The box stops playing when it reaches the song’s end or when it is closed.</description>
+            </feature>
+            <feature>
+                <name></name>
+                <description></description>
+            </feature>
+           
+        </features>
+         
+        <powerRating>
+            <magic>
+                <defense>1</defense>
+                <offense>0</offense>
+                <utility>2</utility>
+            </magic>
+            <martial>
+                <defense>0</defense>
+                <offense>0</offense>
+                <utility>1</utility>
+            </martial>
+            <position>
+                <ranged>0</ranged>
+                <melee>0</melee>
+            </position>
+        </powerRating>
+    </race>
+    <race>
+        <name>Human</name>
+        <raceImage>human</raceImage>
+        <flavorText>In the reckonings of most worlds, humans are the youngest of the common races, late to arrive on the world scene and short-lived in comparison to dwarves, elves, and dragons. Perhaps it is because of their shorter lives that they strive to achieve as much as they can in the years they are given. Or maybe they feel they have something to prove to the elder races, and that’s why they build their mighty empires on the foundation of conquest and trade. Whatever drives them, humans are the innovators, the achievers, and the pioneers of the worlds.</flavorText>
+        <attributes>
+        </attributes>
+        <size>Medium</size>
+        <languages>
+            <item>Common</item>
+        </languages>
+        <features>
+            <feature>
+                <name>Ability Score Increase</name>
+                <description>Two different ability scores of your choice increase by 1.</description>
+            </feature>
+            <feature>
+                <name>Skills</name>
+                <description>You gain proficiency in one skill of your choice.</description>
+            </feature>
+            <feature>
+                <name>Feat</name>
+                <description>You gain one feat of your choice.</description>
+            </feature>
+            <feature>
+                <name>Languages</name>
+                <description>You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on.</description>
+            </feature>
+            <feature>
+                <name></name>
+                <description></description>
+            </feature>
+            <feature>
+                <name></name>
+                <description></description>
+            </feature>
+            <feature>
+                <name></name>
+                <description></description>
+            </feature>
+        </features>
+         
+        <powerRating>
+            <magic>
+                <defense>0</defense>
+                <offense>0</offense>
+                <utility>0</utility>
+            </magic>
+            <martial>
+                <defense>0</defense>
+                <offense>0</offense>
+                <utility>2</utility>
+            </martial>
+            <position>
+                <ranged>2</ranged>
+                <melee>2</melee>
+            </position>
+        </powerRating>
+    </race>
+    <race>
+        <name>Tiefling</name>
+        <raceImage>tiefling</raceImage>
+        <flavorText>To be greeted with stares and whispers, to suffer violence and insult on the street, to see mistrust and fear in every eye: this is the lot of the tiefling. And to twist the knife, tieflings know that this is because a pact struck generations ago infused the essence of Asmodeus—overlord of the Nine Hells—into their bloodline. Their appearance and their nature are not their fault but the result of an ancient sin, for which they and their children and their children’s children will always be held accountable.</flavorText>
+        <attributes>
+            <Charisma>2</Charisma>
+            <Intelligence>1</Intelligence>
+        </attributes>
+        <size>Medium</size>
+        <languages>
+            <item>Common</item>
+            <item>Infernal</item>
+        </languages>
+        <features>
+            <feature>
+                <name>Darkvision</name>
+                <description>Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.</description>
+            </feature>
+            <feature>
+                <name>Hellish Resistance</name>
+                <description>You have resistance to fire damage.</description>
+            </feature>
+            <feature>
+                <name>Infernal Legacy</name>
+                <description>You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the hellish rebuke spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the darkness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.</description>
+            </feature>
+        </features>
+        <powerRating>
+            <magic>
+                <defense>1</defense>
+                <offense>2</offense>
+                <utility>1</utility>
+            </magic>
+            <martial>
+                <defense>0</defense>
+                <offense>0</offense>
+                <utility>1</utility>
+            </martial>
+            <position>
+                <ranged>1</ranged>
+                <melee>0</melee>
+            </position>
+        </powerRating>
     </race>
 </races>

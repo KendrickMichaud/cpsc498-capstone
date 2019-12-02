@@ -260,7 +260,9 @@ public class BuilderRaceCard extends javax.swing.JPanel implements Card{
                 text = checkAttributes(str, "STR").concat(checkAttributes(dex, "DEX"))
                         .concat(checkAttributes(con, "CON")).concat(checkAttributes(intel, "INT"))
                         .concat(checkAttributes(wis, "WIS")).concat(checkAttributes(cha, "CHA"));
-                text = text.substring(0, text.length()-2);
+                if(text.length() > 0){
+                    text = text.substring(0, text.length()-2);
+                }
                 int wild = attributes.getInteger("wildcard");
                 int amt = attributes.getInteger("wildcardAmount");
                 
