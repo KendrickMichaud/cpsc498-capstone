@@ -13,13 +13,13 @@ package app;
  * of the one currently responsible for the project
  */
 public class Support {
-    private static final String HEAD_PROGRAMMER = "Kendrick Michaud";
-    private static final String HEAD_EMAIL = "kendrick.michaud.17@cnu.edu";
-    private static final String HEAD_PHONE = "(757)-706-2148";
+    private static final String HEAD_PROGRAMMER = "David Houman; Kendrick Michaud";
+    private static final String HEAD_EMAIL = "david.houman.17@cnu.edu; kendrick.michaud.17@cnu.edu";
+    private static final String HEAD_PHONE = "(703)-869-3425; (757)-706-2148";
     private static final String NEW_PARA = "<p>";
     private static final String END_PARA = "</p>";
     private static final String CONTACT_HEAD = 
-            "Contact Current Developer";
+            "Contact Developers";
     
     public static String getContactInformation(){
         StringBuilder sb = new StringBuilder("<html>");

@@ -1624,6 +1624,7 @@ public class CharacterFrame extends javax.swing.JFrame {
     }
 
     private void save() {
+        stopEditingTables();
         Bundle character_info = collectCharacterData();
         manager.saveData(associatedFile, character_info);
     }
@@ -1966,5 +1967,10 @@ public class CharacterFrame extends javax.swing.JFrame {
             inventory.setVisible(false);
         if(background != null)
             background.setVisible(false);
+    }
+
+    private void stopEditingTables() {
+        spellbook.stopEditingTables();
+        inventory.stopEditingTables();
     }
 }

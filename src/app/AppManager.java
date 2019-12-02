@@ -33,7 +33,7 @@ public class AppManager {
     private static AppManager manager; //Singleton
     private MenuFrame menuFrame;        //Main Menu
     private BuilderFrame builderFrame;  //Character Builder
-    private CharacterFrame main_frame;  //Character Sheet
+    private CharacterFrame character_sheet;  //Character Sheet
     private boolean unsavedData;        //Controls exiting behavior
     private boolean lock;
     
@@ -103,10 +103,10 @@ public class AppManager {
      * sets the frame visible for the user
      */
     private void launchCharacterFrame() {
-        if(main_frame != null){
+        if(character_sheet != null){
             updateValues();
             menuFrame.setVisible(false);
-            main_frame.setVisible(true);
+            character_sheet.setVisible(true);
         }
     }
 
@@ -115,8 +115,8 @@ public class AppManager {
      * 
      */
     private void initCharacterFrame() {
-        main_frame = new CharacterFrame(this);
-        main_frame.setVisible(false);
+        character_sheet = new CharacterFrame(this);
+        character_sheet.setVisible(false);
     }
 
     /**
@@ -127,7 +127,7 @@ public class AppManager {
     public boolean authorizedToExit() {
         if(unsavedData){
             int validation = JOptionPane.showConfirmDialog
-                (main_frame, 
+                (character_sheet, 
                 "Are you sure? Unsaved data will be lost.", 
                 "Unsaved Changes Detected", 
                 0);
@@ -142,8 +142,8 @@ public class AppManager {
      * environment
      */
     public void reinitializeEnvironment() {
-        main_frame.dispose();
-        main_frame = new CharacterFrame(this);
+        character_sheet.dispose();
+        character_sheet = new CharacterFrame(this);
         launchCharacterFrame();
     }
     
@@ -159,7 +159,7 @@ public class AppManager {
                 FileManager.FILE_TYPE.CXML);
         Bundle character_data = file_manager.getData();
         if(character_data.getBoolean(FileManager.IO_SUCCESS)){
-            main_frame.updateValues(character_data);
+            character_sheet.updateValues(character_data);
         }
     }
     
@@ -174,10 +174,10 @@ public class AppManager {
         chooser.addChoosableFileFilter(filter);
         chooser.setFileFilter(filter);
         File file = null;
-        switch(chooser.showOpenDialog(main_frame)){
+        switch(chooser.showOpenDialog(character_sheet)){
             case JFileChooser.APPROVE_OPTION:file = chooser.getSelectedFile();
             if(!file.toString().endsWith(".cxml")){
-                JOptionPane.showMessageDialog(main_frame, "File does not end with .cxml");
+                JOptionPane.showMessageDialog(character_sheet, "File does not end with .cxml");
                 file = null;;
             }
             case JFileChooser.CANCEL_OPTION:break;
@@ -190,7 +190,7 @@ public class AppManager {
         }
         else{
             if(!file.exists()){
-                JOptionPane.showMessageDialog(main_frame, "File does not exist");
+                JOptionPane.showMessageDialog(character_sheet, "File does not exist");
             }
             return null;
         }
@@ -208,12 +208,15 @@ public class AppManager {
         chooser.addChoosableFileFilter(filter);
         chooser.setFileFilter(filter);
         File file = null;
-        switch(chooser.showSaveDialog(main_frame)){
+        switch(chooser.showSaveDialog(character_sheet)){
             case JFileChooser.APPROVE_OPTION:
                 file = chooser.getSelectedFile();
                 String filename = file.toString();
                 if(!filename.endsWith(".cxml")){
                     file = new File(chooser.getSelectedFile() + ".cxml");
+                    if(file.exists()){
+                        JOptionPane.showConfirmDialog(character_sheet, "File exists, do you wish to overwrite");
+                    }
                 }
         }
         
@@ -234,7 +237,7 @@ public class AppManager {
                     .concat(document.getText(0, document.getLength()))
                     .concat(") is not a valid number")
                     .concat("A default value will be applied");
-            JOptionPane.showMessageDialog(main_frame, errorText, "Invalid Input", 0);
+            JOptionPane.showMessageDialog(character_sheet, errorText, "Invalid Input", 0);
         } catch (BadLocationException ex) {
             Logger.getLogger(AppManager.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -251,12 +254,12 @@ public class AppManager {
      * Updates all automated values in the CharacterFrame
      */
     public void updateValues() {
-        main_frame.updateAttributePanel();
-        main_frame.updateOffensivePanel();
-        main_frame.updateDefensePanel();
-        main_frame.updateUtilityPanel();
-        main_frame.updateSkillPanel();
-        main_frame.updateOthers();
+        character_sheet.updateAttributePanel();
+        character_sheet.updateOffensivePanel();
+        character_sheet.updateDefensePanel();
+        character_sheet.updateUtilityPanel();
+        character_sheet.updateSkillPanel();
+        character_sheet.updateOthers();
     }
 
     /**
@@ -283,7 +286,7 @@ public class AppManager {
      * Exit program via the Character Sheet
      */
     public void close() {
-        main_frame.dispose();
+        character_sheet.dispose();
         System.exit(0);
     }
 
@@ -340,7 +343,7 @@ public class AppManager {
      */
     public void startUpCharacterFrame(File f) {
         if(f == null){
-            if(main_frame != null && main_frame.isVisible())
+            if(character_sheet != null && character_sheet.isVisible())
                 return;
             manager.initCharacterFrame();
             menuFrame.setVisible(false);
@@ -361,8 +364,8 @@ public class AppManager {
         if(builderFrame != null && builderFrame.isVisible())
             return;
         initBuilderFrame();
-        if(main_frame != null)
-            main_frame.dispose();
+        if(character_sheet != null)
+            character_sheet.dispose();
         unsavedData = false;
         menuFrame.setVisible(false);
         builderFrame.setVisible(true);
@@ -373,7 +376,7 @@ public class AppManager {
      * @param character_info 
      */
     public void startUpCharacterFrame(Bundle character_info) {
-        if(main_frame != null && main_frame.isVisible())
+        if(character_sheet != null && character_sheet.isVisible())
             return;
         manager.initCharacterFrame();
         manager.characterFrameUpdate(character_info);
@@ -387,7 +390,7 @@ public class AppManager {
      */
     private void characterFrameUpdate(Bundle character_info) {
         if(character_info.getBoolean(BuilderFrame.FROM_BUILDER)){
-            main_frame.updateValues(character_info);
+            character_sheet.updateValues(character_info);
         }
         
     }
@@ -397,8 +400,8 @@ public class AppManager {
      */
     public void goToMainMenu() {
         if(manager.authorizedToExit()){
-            if(main_frame != null)
-                main_frame.setVisible(false);
+            if(character_sheet != null)
+                character_sheet.setVisible(false);
             if(builderFrame != null)
                 builderFrame.setVisible(false);
             menuFrame.setVisible(true);

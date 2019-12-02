@@ -27,6 +27,7 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import javax.swing.text.JTextComponent;
 import app.Bundle;
+import javax.swing.JTable;
 
 /**
  *
@@ -117,6 +118,12 @@ public class SwingHelper {
             scroll.getVerticalScrollBar().setValue(0);
         });
     }
+
+    public static void stopEdit(JTable tbl) {
+        if(tbl != null && tbl.isEditing()){
+            tbl.getCellEditor().stopCellEditing();
+        }
+    }
     
     private static class JLargeComboBox extends JLabel implements ListCellRenderer<String>{
 
@@ -171,7 +178,12 @@ public class SwingHelper {
             sb.append("px;");
             return sb.toString();
         }
-        
+    }
+    
+    public static void addFocusLostSavingForTable(JTable table){
+        if(table != null){
+            table.putClientProperty("terminateEditOnFocusLost", Boolean.TRUE);
+        }
     }
     
  

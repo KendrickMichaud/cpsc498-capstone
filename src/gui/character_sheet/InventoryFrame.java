@@ -11,6 +11,7 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.table.DefaultTableModel;
 import data_structure.Inventory;
 import data_structure.Item;
+import gui.util.SwingHelper;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -79,6 +80,10 @@ public class InventoryFrame extends javax.swing.JFrame {
             
             model.insertRow(i, new Object[] {name, desc, quantity, weight});
         }
+    }
+
+    void stopEditingTables() {
+        SwingHelper.stopEdit(table);
     }
     
     private enum encumbered{

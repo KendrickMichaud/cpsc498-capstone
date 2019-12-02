@@ -13,12 +13,14 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import data_structure.Spell;
 import data_structure.Spellbook;
+import gui.util.SwingHelper;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,6 +33,7 @@ public class SpellbookFrame extends javax.swing.JFrame {
      */
     public SpellbookFrame() {
         initComponents();
+
         try {
             File f = new File(getClass().getResource("/img/spellbook.png").getPath());
             if(f != null){
@@ -40,6 +43,16 @@ public class SpellbookFrame extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(CharacterFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
+        SwingHelper.addFocusLostSavingForTable(tbl_0);
+        SwingHelper.addFocusLostSavingForTable(tbl_1);
+        SwingHelper.addFocusLostSavingForTable(tbl_2);
+        SwingHelper.addFocusLostSavingForTable(tbl_3);
+        SwingHelper.addFocusLostSavingForTable(tbl_4);
+        SwingHelper.addFocusLostSavingForTable(tbl_5);
+        SwingHelper.addFocusLostSavingForTable(tbl_6);
+        SwingHelper.addFocusLostSavingForTable(tbl_7);
+        SwingHelper.addFocusLostSavingForTable(tbl_8);
+        SwingHelper.addFocusLostSavingForTable(tbl_9);
     }
 
     /**
@@ -161,6 +174,7 @@ public class SpellbookFrame extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(650, 600));
         setResizable(false);
 
+        tab_pane.setBackground(new java.awt.Color(255, 204, 51));
         tab_pane.setPreferredSize(new java.awt.Dimension(600, 463));
 
         pan_cant.setLayout(new java.awt.BorderLayout());
@@ -172,7 +186,15 @@ public class SpellbookFrame extends javax.swing.JFrame {
             new String [] {
                 "Spell", "Description"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tbl_0);
 
         pan_cant.add(jScrollPane1, java.awt.BorderLayout.CENTER);
@@ -888,6 +910,8 @@ public class SpellbookFrame extends javax.swing.JFrame {
         book.addSpellsCollection(eighth);
         book.addSpellsCollection(ninth);
         
+        
+        
         return book;
     }
     
@@ -926,6 +950,7 @@ public class SpellbookFrame extends javax.swing.JFrame {
             String desc = (String) model.getValueAt(row, 1);
             if(name == null && desc == null)
                 continue;
+            
             spells.add(new Spell(name, desc));
         }
         return spells;
@@ -978,5 +1003,18 @@ public class SpellbookFrame extends javax.swing.JFrame {
         if(lbl != null){
             lbl.setText(Integer.toString(dc));
         }
+    }
+
+    void stopEditingTables() {
+        SwingHelper.stopEdit(tbl_0);
+        SwingHelper.stopEdit(tbl_1);
+        SwingHelper.stopEdit(tbl_2);
+        SwingHelper.stopEdit(tbl_3);
+        SwingHelper.stopEdit(tbl_4);
+        SwingHelper.stopEdit(tbl_5);
+        SwingHelper.stopEdit(tbl_6);
+        SwingHelper.stopEdit(tbl_7);
+        SwingHelper.stopEdit(tbl_8);
+        SwingHelper.stopEdit(tbl_9);
     }
 }

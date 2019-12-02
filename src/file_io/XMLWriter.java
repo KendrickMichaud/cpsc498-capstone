@@ -278,7 +278,6 @@ public class XMLWriter {
             Element eleSpell = document.createElement("spell");
             eleSpell.appendChild(createElement(KEY.L_NAME, spell.name));
             eleSpell.appendChild(createElement(KEY.L_DESCRIPTION, spell.description));
-            System.out.println("Adding spell elements to xml doc:" + spell.name + ", " + spell.description);
             page.appendChild(eleSpell);
         }
         spellbook.appendChild(page);
