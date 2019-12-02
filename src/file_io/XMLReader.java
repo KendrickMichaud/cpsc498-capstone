@@ -318,7 +318,8 @@ public class XMLReader {
             try{
                 int type = Integer.parseInt(extractString(skill, KEY.L_SKILL_TYPE));
                 int bonus = Integer.parseInt(extractString(skill, KEY.L_SKILL_BONUS));
-                Skill sk = new Skill(type, bonus);
+                String name = extractString(skill, KEY.L_NAME);
+                Skill sk = new Skill(type, bonus, name);
                 skillList.addSkill(sk);
             }
             catch (NumberFormatException e){

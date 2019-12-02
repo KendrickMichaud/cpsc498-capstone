@@ -279,6 +279,9 @@ public class WeaponCard extends javax.swing.JPanel implements Card{
         int totalDmg = strMod + extraDmg;
         int totalAttk = strMod + + prof + extraAttk;
         
+        lbl_attk_str_bonus.setText(Integer.toString(strMod));
+        lbl_dmg_str_bonus.setText(Integer.toString(strMod));
+        
         lbl_attk_bonus_total.setText(Integer.toString(totalAttk));
         lbl_dmg_bonus_total.setText(Integer.toString(totalDmg));
     }

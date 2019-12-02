@@ -285,6 +285,7 @@ public class XMLWriter {
 
     private void addSkill(Skill skill, Element skills) {
         Element eleSkill = document.createElement("skill");
+        eleSkill.appendChild(createElement(KEY.L_NAME, skill.name));
         eleSkill.appendChild(createElement(KEY.L_SKILL_TYPE, Integer.toString(skill.type)));
         eleSkill.appendChild(createElement(KEY.L_SKILL_BONUS, Integer.toString(skill.bonusAmount)));
         skills.appendChild(eleSkill);

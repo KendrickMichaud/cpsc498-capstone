@@ -189,7 +189,10 @@ public class AppManager {
             return null;
         }
         else{
-            throw new IOException("The file cannot be opened");
+            if(!file.exists()){
+                JOptionPane.showMessageDialog(main_frame, "File does not exist");
+            }
+            return null;
         }
     }
     
@@ -212,7 +215,6 @@ public class AppManager {
                 if(!filename.endsWith(".cxml")){
                     file = new File(chooser.getSelectedFile() + ".cxml");
                 }
-                
         }
         
         return file;

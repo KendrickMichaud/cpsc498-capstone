@@ -22,11 +22,13 @@ public class Skill {
 
     public final int type;
     public final int bonusAmount;
+    public final String name;
     
 
-    public Skill(int type, int bonusAmount) {
+    public Skill(int type, int bonusAmount, String name) {
         this.type = type;
         this.bonusAmount = bonusAmount;
+        this.name= name;
     }
     
     

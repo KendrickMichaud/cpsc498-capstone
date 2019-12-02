@@ -67,7 +67,7 @@
                 <Component class="javax.swing.JTable" name="tbl_0">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="2" rowCount="26">
+                      <Table columnCount="2" rowCount="0">
                         <Column editable="true" title="Spell" type="java.lang.Object"/>
                         <Column editable="true" title="Description" type="java.lang.Object"/>
                       </Table>
@@ -181,7 +181,7 @@
                 <Component class="javax.swing.JTable" name="tbl_1">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="2" rowCount="26">
+                      <Table columnCount="2" rowCount="0">
                         <Column editable="true" title="Spell" type="java.lang.Object"/>
                         <Column editable="true" title="Description" type="java.lang.Object"/>
                       </Table>
@@ -295,7 +295,7 @@
                 <Component class="javax.swing.JTable" name="tbl_2">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="2" rowCount="26">
+                      <Table columnCount="2" rowCount="0">
                         <Column editable="true" title="Spell" type="java.lang.Object"/>
                         <Column editable="true" title="Description" type="java.lang.Object"/>
                       </Table>
@@ -409,7 +409,7 @@
                 <Component class="javax.swing.JTable" name="tbl_3">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="2" rowCount="26">
+                      <Table columnCount="2" rowCount="0">
                         <Column editable="true" title="Spell" type="java.lang.Object"/>
                         <Column editable="true" title="Description" type="java.lang.Object"/>
                       </Table>
@@ -523,7 +523,7 @@
                 <Component class="javax.swing.JTable" name="tbl_4">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="2" rowCount="26">
+                      <Table columnCount="2" rowCount="0">
                         <Column editable="true" title="Spell" type="java.lang.Object"/>
                         <Column editable="true" title="Description" type="java.lang.Object"/>
                       </Table>
@@ -637,7 +637,7 @@
                 <Component class="javax.swing.JTable" name="tbl_5">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="2" rowCount="26">
+                      <Table columnCount="2" rowCount="0">
                         <Column editable="true" title="Spell" type="java.lang.Object"/>
                         <Column editable="true" title="Description" type="java.lang.Object"/>
                       </Table>
@@ -751,7 +751,7 @@
                 <Component class="javax.swing.JTable" name="tbl_6">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="2" rowCount="26">
+                      <Table columnCount="2" rowCount="0">
                         <Column editable="true" title="Spell" type="java.lang.Object"/>
                         <Column editable="true" title="Description" type="java.lang.Object"/>
                       </Table>
@@ -865,7 +865,7 @@
                 <Component class="javax.swing.JTable" name="tbl_7">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="2" rowCount="26">
+                      <Table columnCount="2" rowCount="0">
                         <Column editable="true" title="Spell" type="java.lang.Object"/>
                         <Column editable="true" title="Description" type="java.lang.Object"/>
                       </Table>
@@ -979,7 +979,7 @@
                 <Component class="javax.swing.JTable" name="tbl_8">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="2" rowCount="26">
+                      <Table columnCount="2" rowCount="0">
                         <Column editable="true" title="Spell" type="java.lang.Object"/>
                         <Column editable="true" title="Description" type="java.lang.Object"/>
                       </Table>
@@ -1093,7 +1093,7 @@
                 <Component class="javax.swing.JTable" name="tbl_9">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="2" rowCount="26">
+                      <Table columnCount="2" rowCount="0">
                         <Column editable="true" title="Spell" type="java.lang.Object"/>
                         <Column editable="true" title="Description" type="java.lang.Object"/>
                       </Table>

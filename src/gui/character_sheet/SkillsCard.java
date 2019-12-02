@@ -622,24 +622,24 @@ public class SkillsCard extends javax.swing.JPanel implements Card{
                 medicine, perception, survival, deception, intimidation,
                 performance, persuasion;
         
-        athletics = getSkill(prof_athletics, bonus_athletics);
-        acrobatics = getSkill(prof_acrobatics, bonus_acrobatics);
-        sleight = getSkill(prof_sleight, bonus_sleight);
-        stealth = getSkill(prof_stealth, bonus_stealth);
-        arcana = getSkill(prof_arcana, bonus_arcana);
-        history = getSkill(prof_history, bonus_history);
-        investigation = getSkill(prof_investigation, bonus_investigation);
-        intimidation = getSkill(prof_intimidation, bonus_intimidation);
-        nature = getSkill(prof_nature, bonus_nature);
-        religion = getSkill(prof_religion, bonus_religion);
-        animalHandling = getSkill(prof_animalHandling, bonus_animalHandling);
-        insight = getSkill(prof_insight, bonus_insight);
-        medicine = getSkill(prof_medicine, bonus_medicine);
-        survival = getSkill(prof_survival, bonus_survival);
-        perception = getSkill(prof_perception, bonus_perception);
-        deception = getSkill(prof_deception, bonus_deception);
-        performance = getSkill(prof_performance, bonus_performance);
-        persuasion = getSkill(prof_persuasion, bonus_persuasion);
+        athletics = getSkill(prof_athletics, bonus_athletics, lbl_athleticsName);
+        acrobatics = getSkill(prof_acrobatics, bonus_acrobatics, lbl_acrobaticsName);
+        sleight = getSkill(prof_sleight, bonus_sleight, lbl_sleightName);
+        stealth = getSkill(prof_stealth, bonus_stealth, lbl_stealthName);
+        arcana = getSkill(prof_arcana, bonus_arcana, lbl_arcanaName);
+        history = getSkill(prof_history, bonus_history, lbl_historyName);
+        investigation = getSkill(prof_investigation, bonus_investigation, lbl_investigationName);
+        intimidation = getSkill(prof_intimidation, bonus_intimidation, lbl_intimidationName);
+        nature = getSkill(prof_nature, bonus_nature, lbl_natureName);
+        religion = getSkill(prof_religion, bonus_religion, lbl_religionName);
+        animalHandling = getSkill(prof_animalHandling, bonus_animalHandling, lbl_animalHandlingName);
+        insight = getSkill(prof_insight, bonus_insight, lbl_insightName);
+        medicine = getSkill(prof_medicine, bonus_medicine, lbl_medicineName);
+        survival = getSkill(prof_survival, bonus_survival, lbl_survivalName);
+        perception = getSkill(prof_perception, bonus_perception, lbl_perceptionName);
+        deception = getSkill(prof_deception, bonus_deception, lbl_deceptionName);
+        performance = getSkill(prof_performance, bonus_performance, lbl_performanceName);
+        persuasion = getSkill(prof_persuasion, bonus_persuasion, lbl_persuasionName);
         
         //Should be 18 total or 6 * 3 rows of skils
         skills.addSkill(athletics);
@@ -771,7 +771,7 @@ public class SkillsCard extends javax.swing.JPanel implements Card{
                             break;
                         case 5:
                             prof = prof_history;
-                            bonus = bonus_arcana;
+                            bonus = bonus_history;
                             break;
                         case 6:
                             prof = prof_investigation;
@@ -831,11 +831,12 @@ public class SkillsCard extends javax.swing.JPanel implements Card{
         
     }
 
-    private Skill getSkill(JComboBox<String> prof, JTextField bonus) {
+    private Skill getSkill(JComboBox<String> prof, JTextField bonus, JLabel lbl) {
         int type = prof.getSelectedIndex();
         int bonusAmount = Integer.parseInt(bonus.getText());
+        String name = lbl.getText();
         
-        return new Skill(type, bonusAmount);
+        return new Skill(type, bonusAmount, name);
     }
 
     private void updateSkill(JComboBox prof, JTextField bonus, Skill skill) {
