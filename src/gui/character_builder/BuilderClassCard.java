@@ -17,9 +17,8 @@ import templates.ClassTemplates;
 import templates.Feature;
 import templates.PlayerClass;
 import templates.Templates;
-import util.Bundle;
-import util.ChoiceMaker;
-import util.SwingHelper;
+import app.Bundle;
+import gui.util.SwingHelper;
 
 /**
  *

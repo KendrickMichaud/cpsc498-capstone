@@ -8,8 +8,8 @@ package gui.character_sheet;
 import gui.util.KEY;
 import gui.util.Card;
 import javax.swing.text.Document;
-import util.Bundle;
-import util.SwingHelper;
+import app.Bundle;
+import gui.util.SwingHelper;
 
 /**
  *

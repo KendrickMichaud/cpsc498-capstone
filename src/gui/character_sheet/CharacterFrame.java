@@ -39,10 +39,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import javax.swing.text.JTextComponent;
-import util.Ability;
-import util.Bundle;
-import util.DataIntegrity;
-import util.SwingHelper;
+import gui.util.Ability;
+import app.Bundle;
+import app.DataIntegrity;
+import gui.util.SwingHelper;
 
 /**
  *

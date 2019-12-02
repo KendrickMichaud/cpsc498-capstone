@@ -6,7 +6,7 @@
 package templates;
 
 import templates.Power;
-import util.Bundle;
+import app.Bundle;
 
 /**
  *

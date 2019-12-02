@@ -6,8 +6,8 @@
 package gui.character_sheet;
 
 import gui.util.KEY;
-import util.Bundle;
-import util.SwingHelper;
+import app.Bundle;
+import gui.util.SwingHelper;
 
 /**
  *

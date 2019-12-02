@@ -7,25 +7,15 @@ import gui.character_sheet.CharacterFrame;
 import gui.menu.MenuFrame;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import util.KeyReader;
+import gui.util.KeyReader;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
-import templates.BackgroundTemplates;
-import templates.BackgroundTemplates.PlayerBackground;
-import templates.BackgroundTemplates.PlayerBackground.STORY;
-import templates.ClassTemplates;
-import templates.PlayerClass;
-import templates.PlayerRace;
-import templates.RaceTemplates;
 import templates.Templates;
-import util.Bundle;
-import util.DataIntegrity;
 
 /**
  * Singleton design. 
@@ -293,52 +283,6 @@ public class AppManager {
     public void close() {
         main_frame.dispose();
         System.exit(0);
-    }
-
-    /**
-     * DEBUG method
-     */
-    public void readTemplate() {
-        FileManager fm = new FileManager
-        (new File(getClass().getResource("/templates/races.xml").getPath())
-                ,FileManager.IO_TYPE.READ, FileManager.FILE_TYPE.T_RACE);
-        Bundle bundle = fm.getData();
-        BackgroundTemplates t = (BackgroundTemplates) bundle.getTemplate(templates.Templates.TYPE.T_BACKGROUND);
-        if(t != null){
-            PlayerBackground b = t.get(1);
-            ArrayList<String> bonds;
-            bonds = b.getStrings(STORY.BOND);
-            for(String s : bonds){
-                System.out.println(s);
-            }
-            
-            b = t.get(0);
-            bonds = b.getStrings(STORY.BOND);
-            for(String s : bonds){
-                System.out.println(s);
-            }
-        }
-        
-        ClassTemplates c = (ClassTemplates) bundle.getTemplate(Templates.TYPE.T_CLASS);
-        if(c != null){
-            System.out.println("Class Templates is here!");
-            PlayerClass good = c.get(0);
-        }
-        else{
-            System.out.println("Not here!");
-        }
-        
-        RaceTemplates r = (RaceTemplates) bundle.getTemplate(Templates.TYPE.T_RACE);
-        if(r != null){
-            System.out.println("Race templates is here!");
-            PlayerRace race = r.get(0);
-            if(race != null){
-                System.out.println(race.name);
-            }
-        }
-        else{
-            System.out.println("Not here!");
-        }
     }
 
     /**

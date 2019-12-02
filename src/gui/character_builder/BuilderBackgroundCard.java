@@ -15,9 +15,8 @@ import javax.swing.text.Document;
 import templates.BackgroundTemplates;
 import templates.Feature;
 import templates.Templates;
-import util.Bundle;
-import util.ChoiceMaker;
-import util.SwingHelper;
+import app.Bundle;
+import gui.util.SwingHelper;
 
 /**
  *

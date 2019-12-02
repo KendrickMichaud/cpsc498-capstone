@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
-import util.Bundle;
+import app.Bundle;
 
 /**
  *

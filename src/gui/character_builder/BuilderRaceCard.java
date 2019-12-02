@@ -15,9 +15,8 @@ import templates.Feature;
 import templates.PlayerRace;
 import templates.RaceTemplates;
 import templates.Templates;
-import util.Bundle;
-import util.ChoiceMaker;
-import util.SwingHelper;
+import app.Bundle;
+import gui.util.SwingHelper;
 
 /**
  *

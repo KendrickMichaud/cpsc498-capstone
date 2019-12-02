@@ -23,13 +23,13 @@ import templates.BackgroundTemplates;
 import templates.PlayerClass;
 import templates.PlayerRace;
 import templates.Templates;
-import util.Bundle;
+import app.Bundle;
 import templates.Power;
 import templates.PowerRating;
 import templates.PowerRating.Playstyle;
 import templates.PowerRating.PowerStat;
 import templates.RacePower;
-import util.SwingHelper;
+import gui.util.SwingHelper;
 
 /**
  *

@@ -10,10 +10,10 @@ import gui.util.Card;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.text.Document;
-import util.Bundle;
-import util.DataIntegrity;
-import util.SwingHelper;
-import util.KeyReader;
+import app.Bundle;
+import app.DataIntegrity;
+import gui.util.SwingHelper;
+import gui.util.KeyReader;
 
 /**
  *

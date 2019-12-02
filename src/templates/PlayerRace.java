@@ -6,7 +6,7 @@
 package templates;
 
 import java.util.ArrayList;
-import util.Bundle;
+import app.Bundle;
 
 /**
  *

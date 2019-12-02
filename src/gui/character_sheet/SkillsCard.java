@@ -18,9 +18,9 @@ import gui.character_builder.BuilderFrame;
 import gui.util.Card;
 import gui.util.ComboItemListener;
 import gui.util.TextFocusListener;
-import util.Bundle;
-import util.DataIntegrity;
-import util.SwingHelper;
+import app.Bundle;
+import app.DataIntegrity;
+import gui.util.SwingHelper;
 
 /**
  *
@@ -722,9 +722,7 @@ public class SkillsCard extends javax.swing.JPanel implements Card{
             intimidation = b.getInteger(KEY.L_INTIMIDATION_PROF);
             performance = b.getInteger(KEY.L_PERFORMANCE_PROF);
             persuasion = b.getInteger(KEY.L_PERSUASION_PROF);
-            
-            System.out.println(athletics);
-            
+                        
             prof_acrobatics.setSelectedIndex(acrobatics);
             prof_athletics.setSelectedIndex(athletics);
             prof_sleight.setSelectedIndex(sleight);

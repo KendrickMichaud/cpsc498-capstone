@@ -10,8 +10,7 @@ import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.text.Document;
-import util.Bundle;
-import util.KeyReader;
+import app.Bundle;
 
 /**
  *

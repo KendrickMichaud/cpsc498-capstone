@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package util;
+package gui.util;
 
 import gui.util.KEY;
 import java.awt.Color;
@@ -26,6 +26,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import javax.swing.text.JTextComponent;
+import app.Bundle;
 
 /**
  *

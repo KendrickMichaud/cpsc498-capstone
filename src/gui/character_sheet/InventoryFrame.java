@@ -68,7 +68,6 @@ public class InventoryFrame extends javax.swing.JFrame {
             String desc = item.desc;
             String quantityStr = item.quantity;
             String weightStr = item.weight;
-            System.out.println("quantity: ".concat(quantityStr).concat(" weight:".concat(weightStr)));
             Double weight = (weightStr==null||weightStr.equals(""))?null:Double.parseDouble(weightStr);
             Integer quantity = (quantityStr==null||quantityStr.equals(""))?null:Integer.parseInt(quantityStr);
             

@@ -8,9 +8,9 @@ package gui.character_sheet;
 import gui.util.KEY;
 import gui.util.Card;
 import javax.swing.text.Document;
-import util.Bundle;
-import util.DataIntegrity;
-import util.SwingHelper;
+import app.Bundle;
+import app.DataIntegrity;
+import gui.util.SwingHelper;
 
 /**
  *

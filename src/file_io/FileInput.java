@@ -8,8 +8,7 @@ package file_io;
 import static file_io.FileManager.FILE_TYPE.CXML;
 import static file_io.FileManager.FILE_TYPE.T_BACKGROUND;
 import java.io.File;
-import util.Bundle;
-import util.XMLReader;
+import app.Bundle;
 
 /**
  *

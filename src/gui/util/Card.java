@@ -6,7 +6,7 @@
 package gui.util;
 
 import javax.swing.text.Document;
-import util.Bundle;
+import app.Bundle;
 
 /**
  *

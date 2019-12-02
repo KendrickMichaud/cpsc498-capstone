@@ -10,8 +10,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.SwingWorker;
-import util.Bundle;
-import util.XMLWriter;
+import app.Bundle;
 
 /**
  *
