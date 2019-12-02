@@ -158,6 +158,7 @@ public class SpellbookFrame extends javax.swing.JFrame {
 
         setTitle("Spellbook");
         setMinimumSize(new java.awt.Dimension(500, 300));
+        setPreferredSize(new java.awt.Dimension(650, 600));
         setResizable(false);
 
         tab_pane.setPreferredSize(new java.awt.Dimension(600, 463));
