@@ -5,8 +5,8 @@
  */
 package util;
 
-import app.FileManager;
-import constants.KEY;
+import file_io.FileManager;
+import gui.util.KEY;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.logging.Level;

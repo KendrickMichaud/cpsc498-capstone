@@ -5,7 +5,7 @@
  */
 package util;
 
-import constants.KEY;
+import gui.util.KEY;
 import java.util.HashMap;
 import data_structure.Inventory;
 import data_structure.Skills;

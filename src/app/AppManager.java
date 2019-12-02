@@ -1,9 +1,10 @@
 package app;
 
-import constants.KEY;
-import gui.BuilderFrame;
-import gui.CharacterFrame;
-import gui.MenuFrame;
+import file_io.FileManager;
+import gui.util.KEY;
+import gui.character_builder.BuilderFrame;
+import gui.character_sheet.CharacterFrame;
+import gui.menu.MenuFrame;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,6 +45,7 @@ public class AppManager {
     private BuilderFrame builderFrame;  //Character Builder
     private CharacterFrame main_frame;  //Character Sheet
     private boolean unsavedData;        //Controls exiting behavior
+    private boolean lock;
     
     /**
      * Returns the instance of the AppManager.
@@ -113,6 +115,7 @@ public class AppManager {
     private void launchCharacterFrame() {
         if(main_frame != null){
             updateValues();
+            menuFrame.setVisible(false);
             main_frame.setVisible(true);
         }
     }
@@ -343,15 +346,16 @@ public class AppManager {
      */
     void initMenuFrame() {
         menuFrame = new MenuFrame();
-        menuFrame.setVisible(false);
+        lock = false;
     }
 
     /**
      * Sets the menuFrame to visible
      */
     void launchMenuFrame() {
-        if(menuFrame != null){
+        if(menuFrame != null && !lock){
             menuFrame.setVisible(true);
+            lock = true;
         }
     }
 
@@ -390,6 +394,8 @@ public class AppManager {
      */
     public void startUpCharacterFrame(File f) {
         if(f == null){
+            if(main_frame != null && main_frame.isVisible())
+                return;
             manager.initCharacterFrame();
             menuFrame.setVisible(false);
             manager.launchCharacterFrame();
@@ -406,6 +412,8 @@ public class AppManager {
      * Starts up the BuilderFrame
      */
     public void startUpBuilderFrame() {
+        if(builderFrame != null && builderFrame.isVisible())
+            return;
         initBuilderFrame();
         if(main_frame != null)
             main_frame.dispose();
@@ -419,6 +427,8 @@ public class AppManager {
      * @param character_info 
      */
     public void startUpCharacterFrame(Bundle character_info) {
+        if(main_frame != null && main_frame.isVisible())
+            return;
         manager.initCharacterFrame();
         manager.characterFrameUpdate(character_info);
         manager.launchCharacterFrame();

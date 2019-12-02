@@ -5,7 +5,7 @@
  */
 package util;
 
-import constants.KEY;
+import gui.util.KEY;
 
 /**
  *

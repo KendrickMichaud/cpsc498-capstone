@@ -1,6 +1,6 @@
 package util;
 
-import constants.KEY;
+import gui.util.KEY;
 
 public class KeyReader {
     
@@ -50,8 +50,6 @@ public class KeyReader {
             }
             catch (NumberFormatException e){
                 num = -1;
-                System.getLogger(KeyReader.class.getName()).log(System.Logger.Level.ERROR, 
-                        "String(" + substr + ")" + " could not be parsed.");
             }
             return num;
         }

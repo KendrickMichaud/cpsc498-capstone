@@ -5,8 +5,11 @@
  */
 package util;
 
-import app.FileManager;
-import constants.KEY;
+import templates.RacePower;
+import templates.PowerRating;
+import templates.Power;
+import file_io.FileManager;
+import gui.util.KEY;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;

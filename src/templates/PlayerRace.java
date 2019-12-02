@@ -7,7 +7,6 @@ package templates;
 
 import java.util.ArrayList;
 import util.Bundle;
-import util.RacePower;
 
 /**
  *

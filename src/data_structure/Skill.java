@@ -5,7 +5,7 @@
  */
 package data_structure;
 
-import constants.KEY;
+import gui.util.KEY;
 
 /**
  *
