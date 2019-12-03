@@ -119,30 +119,30 @@ and open the template in the editor.
         </languages>
         <features>
             <feature>
-                <name>Speed</name>
-                <description>
+                <title>Speed</title>
+                <body>
 
-Your base walking speed is 25 feet. Your speed is not reduced by wearing heavy armor.</description>
+Your base walking speed is 25 feet. Your speed is not reduced by wearing heavy armor.</body>
             </feature>
             <feature>
-                <name>Dwarven Resilience</name>
-                <description>You have advantage on saving throws against poison, and you have resistance against poison damage (explained in the “Combat” section).</description>
+                <title>Dwarven Resilience</title>
+                <body>You have advantage on saving throws against poison, and you have resistance against poison damage (explained in the “Combat” section).</body>
             </feature>
             <feature>
-                <name>Tool Proficiency</name>
-                <description>You gain proficiency with the artisan’s tools of your choice: smith’s tools, brewer’s supplies, or mason’s tools.</description>
+                <title>Tool Proficiency</title>
+                <body>You gain proficiency with the artisan’s tools of your choice: smith’s tools, brewer’s supplies, or mason’s tools.</body>
             </feature>
             <feature>
                 <name>Stonecunning</name>
-                <description>Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.</description>
+                <body>Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.</body>
             </feature>
             <feature>
-                <name>Dwarven Armor Training</name>
-                <description>You have proficiency with light and medium armor.</description>
+                <title>Dwarven Armor Training</title>
+                <body>You have proficiency with light and medium armor.</body>
             </feature>
             <feature>
-                <name>Darkvision</name>
-                <description>Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.</description>
+                <title>Darkvision</title>
+                <body>Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.</body>
             </feature>
         </features>
         <flavorText>Kingdoms rich in ancient grandeur, halls carved into the roots of mountains, the echoing of picks and hammers in deep mines and blazing forges, a commitment to clan and tradition, and a burning hatred of goblins and orcs—these common threads unite all dwarves.</flavorText>
@@ -178,32 +178,32 @@ Your base walking speed is 25 feet. Your speed is not reduced by wearing heavy a
         </languages>
         <features>
             <feature>
-                <name>Darkvision</name>
-                <description>Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.</description>
+                <title>Darkvision</title>
+                <body>Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.</body>
             </feature>
             <feature>
-                <name>Keen Senses</name>
-                <description>You have proficiency in the Perception skill.</description>
+                <title>Keen Senses</title>
+                <body>You have proficiency in the Perception skill.</body>
             </feature>
             <feature>
-                <name>Fey Ancestry</name>
-                <description>You have advantage on saving throws against being charmed, and magic can’t put you to sleep.</description>
+                <title>Fey Ancestry</title>
+                <body>You have advantage on saving throws against being charmed, and magic can’t put you to sleep.</body>
             </feature>
             <feature>
-                <name>Trance</name>
-                <description>Elves don’t need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is “trance.”) While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep.</description>
+                <title>Trance</title>
+                <body>Elves don’t need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is “trance.”) While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep.</body>
             </feature>
             <feature>
-                <name>Aereni Elf</name>
-                <description>An Aereni elf can choose one skill or tool proficiency. Your proficiency bonus is doubled for any ability check you make that uses this chosen proficiency.</description>
+                <title>Aereni Elf</title>
+                <body>An Aereni elf can choose one skill or tool proficiency. Your proficiency bonus is doubled for any ability check you make that uses this chosen proficiency.</body>
             </feature>
             <feature>
-                <name>Fleet of Foot</name>
-                <description>Your base walking speed increases to 35 feet.</description>
+                <title>Fleet of Foot</title>
+                <body>Your base walking speed increases to 35 feet.</body>
             </feature>
             <feature>
-                <name>Mask of the Wild</name>
-                <description>You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.</description>
+                <title>Mask of the Wild</title>
+                <body>You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.</body>
             </feature>
         </features>
          
@@ -239,28 +239,24 @@ Your base walking speed is 25 feet. Your speed is not reduced by wearing heavy a
         </languages>
         <features>
             <feature>
-                <name>Speed</name>
-                <description>Your base walking speed is 25 feet.</description>
+                <title>Speed</title>
+                <body>Your base walking speed is 25 feet.</body>
             </feature>
             <feature>
-                <name>Lucky</name>
-                <description>When you roll a 1 on the d20 for an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.</description>
+                <title>Lucky</title>
+                <body>When you roll a 1 on the d20 for an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.</body>
             </feature>
             <feature>
-                <name>Brave</name>
-                <description>You have advantage on saving throws against being frightened.</description>
+                <title>Brave</title>
+                <body>You have advantage on saving throws against being frightened.</body>
             </feature>
             <feature>
-                <name>Halfling Nimbleness</name>
-                <description>You can move through the space of any creature that is of a size larger than yours.</description>
+                <title>Halfling Nimbleness</title>
+                <body>You can move through the space of any creature that is of a size larger than yours.</body>
             </feature>
             <feature>
-                <name>Stout Resilience</name>
-                <description>You have advantage on saving throws against poison, and you have resistance against poison damage.</description>
-            </feature>
-            <feature>
-                <name></name>
-                <description></description>
+                <title>Stout Resilience</title>
+                <body>You have advantage on saving throws against poison, and you have resistance against poison damage.</body>
             </feature>
         </features>
          
@@ -296,28 +292,20 @@ Your base walking speed is 25 feet. Your speed is not reduced by wearing heavy a
         </languages>
         <features>
             <feature>
-                <name>Darkvision</name>
-                <description>Thanks to your orc blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.</description>
+                <title>Darkvision</title>
+                <body>Thanks to your orc blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.</body>
             </feature>
             <feature>
-                <name>Menacing</name>
-                <description>You gain proficiency in the Intimidation skill.</description>
+                <title>Menacing</title>
+                <body>You gain proficiency in the Intimidation skill.</body>
             </feature>
             <feature>
-                <name>Relentless Endurance</name>
-                <description>When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can’t use this feature again until you finish a long rest.</description>
+                <title>Relentless Endurance</title>
+                <body>When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can’t use this feature again until you finish a long rest.</body>
             </feature>
             <feature>
-                <name>Savage Attacks</name>
-                <description>When you score a critical hit with a melee weapon attack, you can roll one of the weapon’s damage dice one additional time and add it to the extra damage of the critical hit.</description>
-            </feature>
-            <feature>
-                <name></name>
-                <description></description>
-            </feature>
-            <feature>
-                <name></name>
-                <description></description>
+                <title>Savage Attacks</title>
+                <body>When you score a critical hit with a melee weapon attack, you can roll one of the weapon’s damage dice one additional time and add it to the extra damage of the critical hit.</body>
             </feature>
         </features>
         <powerRating>
@@ -352,26 +340,26 @@ Your base walking speed is 25 feet. Your speed is not reduced by wearing heavy a
         </languages>
         <features>
             <feature>
-                <name>Speed</name>
-                <description>Your base walking speed is 25 feet.</description>
+                <title>Speed</title>
+                <body>Your base walking speed is 25 feet.</body>
             </feature>
             <feature>
-                <name>Darkvision</name>
-                <description>Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.</description>
+                <title>Darkvision</title>
+                <body>Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.</body>
             </feature>
             <feature>
-                <name>Gnome Cunning</name>
-                <description>
+                <title>Gnome Cunning</title>
+                <body>
 
-You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.</description>
+You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.</body>
             </feature>
             <feature>
-                <name>Artificer’s Lore</name>
-                <description>Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply.</description>
+                <title>Artificer’s Lore</title>
+                <body>Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply.</body>
             </feature>
             <feature>
-                <name>Tinker</name>
-                <description>You have proficiency with artisan’s tools (tinker’s tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time.
+                <title>Tinker</title>
+                <body>You have proficiency with artisan’s tools (tinker’s tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time.
 
 When you create a device, choose one of the following options:
 
@@ -380,13 +368,8 @@ Clockwork Toy. This toy is a clockwork animal, monster, or person, such as a fro
 Fire Starter. The device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.
 
 Music Box. When opened, this music box plays a single song at a moderate volume.
-The box stops playing when it reaches the song’s end or when it is closed.</description>
-            </feature>
-            <feature>
-                <name></name>
-                <description></description>
-            </feature>
-           
+The box stops playing when it reaches the song’s end or when it is closed.</body>
+            </feature>          
         </features>
          
         <powerRating>
@@ -418,32 +401,20 @@ The box stops playing when it reaches the song’s end or when it is closed.</de
         </languages>
         <features>
             <feature>
-                <name>Ability Score Increase</name>
-                <description>Two different ability scores of your choice increase by 1.</description>
+                <title>Ability Score Increase</title>
+                <body>Two different ability scores of your choice increase by 1.</body>
             </feature>
             <feature>
-                <name>Skills</name>
-                <description>You gain proficiency in one skill of your choice.</description>
+                <title>Skills</title>
+                <body>You gain proficiency in one skill of your choice.</body>
             </feature>
             <feature>
-                <name>Feat</name>
-                <description>You gain one feat of your choice.</description>
+                <title>Feat</title>
+                <body>You gain one feat of your choice.</body>
             </feature>
             <feature>
-                <name>Languages</name>
-                <description>You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on.</description>
-            </feature>
-            <feature>
-                <name></name>
-                <description></description>
-            </feature>
-            <feature>
-                <name></name>
-                <description></description>
-            </feature>
-            <feature>
-                <name></name>
-                <description></description>
+                <title>Languages</title>
+                <body>You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on.</body>
             </feature>
         </features>
          
@@ -479,16 +450,16 @@ The box stops playing when it reaches the song’s end or when it is closed.</de
         </languages>
         <features>
             <feature>
-                <name>Darkvision</name>
-                <description>Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.</description>
+                <title>Darkvision</title>
+                <body>Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.</body>
             </feature>
             <feature>
-                <name>Hellish Resistance</name>
-                <description>You have resistance to fire damage.</description>
+                <title>Hellish Resistance</title>
+                <body>You have resistance to fire damage.</body>
             </feature>
             <feature>
-                <name>Infernal Legacy</name>
-                <description>You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the hellish rebuke spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the darkness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.</description>
+                <title>Infernal Legacy</title>
+                <body>You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the hellish rebuke spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the darkness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.</body>
             </feature>
         </features>
         <powerRating>
