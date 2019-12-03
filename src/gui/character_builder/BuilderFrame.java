@@ -56,7 +56,9 @@ public class BuilderFrame extends javax.swing.JFrame {
         PlayerClass cl = classCard.getSelectedClass();
         PlayerRace ra = raceCard.getSelectedRace();
         BackgroundTemplates.PlayerBackground ba = backCard.getSelectedBackground();
-        
+        lbl_class_name.setText(cl.name);
+        lbl_race_name.setText(ra.name);
+        lbl_background_name.setText(ba.getName());
         processClass(cl);
         processRace(ra);
         processBackground(ba);
@@ -93,7 +95,6 @@ public class BuilderFrame extends javax.swing.JFrame {
     private void setImage(String imagePath) {
         if(imagePath != null){
             try {
-                
                 imagePath += getGender();
                 String filePath = "/img/" + imagePath + ".png";
                 InputStream is = getClass().getResourceAsStream(filePath);
@@ -163,8 +164,6 @@ public class BuilderFrame extends javax.swing.JFrame {
                 bar_style_ranged.setValue(ranged*10);
                 bar_style_melee.setValue(melee*10);
             }
-            txt_area_description.setText(powerRating.getDescription());
-            SwingHelper.setScrollPositionToTop(scroll_desc);
         }
     }
     
@@ -339,10 +338,16 @@ public class BuilderFrame extends javax.swing.JFrame {
         lbl_style_ranged = new javax.swing.JLabel();
         bar_style_ranged = new javax.swing.JProgressBar();
         pan_stats_flavor_text = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
-        scroll_desc = new javax.swing.JScrollPane();
-        txt_area_description = new javax.swing.JTextPane();
+        jPanel10 = new javax.swing.JPanel();
+        lbl_race = new javax.swing.JLabel();
+        lbl_race_name = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        lbl_class_name = new javax.swing.JLabel();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        lbl_background_name = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Character Builder");
@@ -567,17 +572,33 @@ public class BuilderFrame extends javax.swing.JFrame {
 
         pan_stats_flavor_text.setLayout(new java.awt.BorderLayout());
 
-        jLabel7.setText("Description");
-        pan_stats_flavor_text.add(jLabel7, java.awt.BorderLayout.PAGE_START);
-
+        jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel8.setPreferredSize(new java.awt.Dimension(250, 103));
-        jPanel8.setLayout(new java.awt.BorderLayout());
+        jPanel8.setLayout(new javax.swing.BoxLayout(jPanel8, javax.swing.BoxLayout.Y_AXIS));
 
-        txt_area_description.setEditable(false);
-        txt_area_description.setText("This character is a mysterious one... There must be more information about them.");
-        scroll_desc.setViewportView(txt_area_description);
+        jPanel10.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jPanel8.add(scroll_desc, java.awt.BorderLayout.CENTER);
+        lbl_race.setText("Race:");
+        jPanel10.add(lbl_race);
+        jPanel10.add(lbl_race_name);
+
+        jPanel8.add(jPanel10);
+
+        jPanel11.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        jLabel9.setText("Class:");
+        jPanel11.add(jLabel9);
+        jPanel11.add(lbl_class_name);
+
+        jPanel8.add(jPanel11);
+
+        jPanel12.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        jLabel11.setText("Background:");
+        jPanel12.add(jLabel11);
+        jPanel12.add(lbl_background_name);
+
+        jPanel8.add(jPanel12);
 
         pan_stats_flavor_text.add(jPanel8, java.awt.BorderLayout.CENTER);
 
@@ -665,13 +686,17 @@ public class BuilderFrame extends javax.swing.JFrame {
     private javax.swing.JLabel ico_female;
     private javax.swing.JLabel ico_male;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -680,10 +705,14 @@ public class BuilderFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel lbl_background_name;
+    private javax.swing.JLabel lbl_class_name;
     private javax.swing.JLabel lbl_def_magic;
     private javax.swing.JLabel lbl_def_martial;
     private javax.swing.JLabel lbl_off_magic;
     private javax.swing.JLabel lbl_off_martial;
+    private javax.swing.JLabel lbl_race;
+    private javax.swing.JLabel lbl_race_name;
     private javax.swing.JLabel lbl_style_melee;
     private javax.swing.JLabel lbl_style_ranged;
     private javax.swing.JLabel lbl_util_magic;
@@ -698,7 +727,5 @@ public class BuilderFrame extends javax.swing.JFrame {
     private javax.swing.JPanel pan_stats_ranged_melee;
     private javax.swing.JPanel pan_stats_utility;
     private javax.swing.JPanel panel_deck_stats;
-    private javax.swing.JScrollPane scroll_desc;
-    private javax.swing.JTextPane txt_area_description;
     // End of variables declaration//GEN-END:variables
 }
